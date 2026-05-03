@@ -1,149 +1,257 @@
 # hinton-problems
 
-Stubs for the synthetic learning problems and toy datasets that appear in Geoffrey Hinton's experimental papers from 1981 through 2022.
+Implementations of the synthetic learning problems and toy datasets that appear in Geoffrey Hinton's experimental papers from 1981 through 2022.
 
-Each problem lives in its own folder containing:
-- `README.md` — source paper, brief description, what it demonstrates
-- `problem.py` — skeleton for dataset generation + model + training
+**Site**: https://cybertronai.github.io/hinton-problems/ • **Catalog**: [RESULTS.md](RESULTS.md) • **53 of 53 stubs implemented** (PRs #32-#41, all merged 2026-05-03)
 
-The catalog focuses on **synthetic toy problems** Hinton (or close collaborators) designed to isolate a representational property — the lineage from the 4-2-4 encoder (1985) through the shifter (1986), bars (1995), MultiMNIST (2017), Constellations (2019), Ellipse World (2022), and the Forward-Forward suite (2022). Folders are flat; the catalog below is grouped by year for readability.
+| 27 reproduce paper claims | 25 partial reproductions | 1 non-replication |
+| :---: | :---: | :---: |
+| full or qualitative match | algorithm works, paper-config gap documented | gap analysed in 3 causes |
 
-> **v1 complete (2026-05-03):** 53 of 53 stubs implemented across 10 wave PRs (#32–#41). See [**RESULTS.md**](RESULTS.md) for per-stub reproducibility, implementation difficulty, and run wallclock. The full v1 implementation: 27 stubs reproduce paper claims (full or qualitative), 25 partial reproductions with documented gaps, 1 non-replication with three-cause analysis. Pure numpy + matplotlib throughout; all stubs run on a laptop M-series CPU.
->
-> **Worked example:** [`encoder-4-2-4/`](encoder-4-2-4/) is the original filled-out reference — bipartite RBM trained with CD-5, an animated GIF of training, and full training curves. Followed as a template for the other 52.
+Pure numpy + matplotlib throughout. Every stub runs on a laptop CPU. Each problem lives in its own folder with `<slug>.py` (model + train + eval), `README.md`, `make_<slug>_gif.py`, `visualize_<slug>.py`, an animated `<slug>.gif`, and a `viz/` folder of training curves and weight visualizations.
+
+## Visual tour
+
+| ![encoder-4-2-4](encoder-4-2-4/encoder.gif) | ![spline-images-factorial-vq](spline-images-factorial-vq/spline_images_factorial_vq.gif) |
+| :---: | :---: |
+| [`encoder-4-2-4`](encoder-4-2-4/) — Ackley/Hinton/Sejnowski 1985, the worked example. Bipartite RBM, 2-bit code emerges. | [`spline-images-factorial-vq`](spline-images-factorial-vq/) — Hinton/Zemel 1994, factorial VQ wins 3× over standard 24-VQ baseline. |
+| ![ellipse-world](ellipse-world/ellipse_world.gif) | ![ff-recurrent-mnist](ff-recurrent-mnist/ff_recurrent_mnist.gif) |
+| [`ellipse-world`](ellipse-world/) — Culp/Sabour/Hinton 2022, eGLOM islands form across iterations (5-class, 92.2%). | [`ff-recurrent-mnist`](ff-recurrent-mnist/) — Hinton 2022, top-down recurrent Forward-Forward. |
 
 ## Catalog
+
+Each table shows the v1 result per stub. Full per-stub metrics (compile-time, GIF size, headline numbers) are in [`RESULTS.md`](RESULTS.md).
+
+**Reproduces?** legend: `yes` = matches paper qualitatively or quantitatively; `partial` = method works, paper number not fully reached (gap documented in stub README); `no` = paper claim does not replicate.
 
 ### 1980s — Connectionist foundations
 
 **Ackley, Hinton & Sejnowski (1985)** — A learning algorithm for Boltzmann machines
-- [encoder-3-parity](encoder-3-parity/) — 3-bit even-parity, visible-only Boltzmann
-- [encoder-4-2-4](encoder-4-2-4/) — **(implemented)** 2-bit Boltzmann bottleneck
-- [encoder-4-3-4](encoder-4-3-4/) — over-complete error-correcting code
-- [encoder-8-3-8](encoder-8-3-8/) — theoretical-minimum hidden capacity
-- [encoder-40-10-40](encoder-40-10-40/) — large-scale Boltzmann encoder
 
-**Hinton & Sejnowski (1986)** — Learning and relearning in Boltzmann machines
-- [shifter](shifter/) — **(implemented)** shift-direction inference (the canonical higher-order-feature toy)
-- [grapheme-sememe](grapheme-sememe/) — synthetic word reading + lesion / relearning
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [encoder-4-2-4](encoder-4-2-4/) ★ | yes (CD-k variant) | n/a (worked example) | ~1s |
+| [encoder-3-parity](encoder-3-parity/) | yes (KL = log 2 visible-only; RBM drops to 0.10) | ~50 min | 0.04s + 1.3s |
+| [encoder-4-3-4](encoder-4-3-4/) | yes (60% error-correcting rate / 30 seeds) | ~3 hr | 2.3s |
+| [encoder-8-3-8](encoder-8-3-8/) | **yes (16/20 = exact paper parity)** | ~2 hr | ~20s/seed |
+| [encoder-40-10-40](encoder-40-10-40/) | yes (exceeds paper: 100% vs 98.6%) | ~1.5 hr | 6s |
 
 **Rumelhart, Hinton & Williams (1986)** — Learning internal representations by error propagation
-- [xor](xor/) — canonical 2-bit XOR backprop
-- [n-bit-parity](n-bit-parity/) — N-bit parity backprop
-- [encoder-backprop-8-3-8](encoder-backprop-8-3-8/) — backprop encoder
-- [distributed-to-local-bottleneck](distributed-to-local-bottleneck/) — graded single-unit bottleneck
-- [symmetry](symmetry/) — 6-bit palindrome detection
-- [binary-addition](binary-addition/) — two 2-bit numbers, local-minima study
-- [negation](negation/) — flag-conditioned bit-flip
-- [t-c-discrimination](t-c-discrimination/) — shared-weight retina
-- [recurrent-shift-register](recurrent-shift-register/) — RNN learning a pure shift register
-- [sequence-lookup-25](sequence-lookup-25/) — 25-sequence RNN look-up
 
-**Hinton (1986)** — Learning distributed representations of concepts
-- [family-trees](family-trees/) — kinship relations, two isomorphic trees
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [xor](xor/) | yes (qualitative) | 6.4 min | 0.3s |
+| [n-bit-parity](n-bit-parity/) | yes (qualitative; thermometer code partial) | 30 min | 0.20s |
+| [encoder-backprop-8-3-8](encoder-backprop-8-3-8/) | yes (70% strict 8/8 distinct codes) | ~10 min | 0.6s |
+| [distributed-to-local-bottleneck](distributed-to-local-bottleneck/) | yes (graded values 0.007/0.167/0.553/0.971) | 75 min | 0.082s |
+| [symmetry](symmetry/) | yes (1 : 1.994 : 3.969 weight ratio) | 12.8 min | 0.4s |
+| [binary-addition](binary-addition/) | yes (qualitatively; 4-3-3 succeeds, 4-2-3 stuck) | ~2 hr | 44s |
+| [negation](negation/) | yes (4-6-3 deviation justified) | 25 min | 0.10s |
+| [t-c-discrimination](t-c-discrimination/) | yes (all 3 detector families emerge) | 30 min | 0.69s |
+| [recurrent-shift-register](recurrent-shift-register/) | yes (89 sweeps N=3, 121 sweeps N=5) | 25 min | 0.9s / 1.1s |
+| [sequence-lookup-25](sequence-lookup-25/) | yes (4-5/5 held-out generalization) | 70 min | 0.20s / 5.78s |
+
+**Hinton (1986)** — Distributed representations of concepts
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [family-trees](family-trees/) | yes (3/4 best, 1.9/4 mean — matches paper) | ~1 hr | 2.1s |
+
+**Hinton & Sejnowski (1986)** — Learning and relearning in Boltzmann machines
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [shifter](shifter/) | yes (92.3% recognition; position-pair detectors) | 30 min | 14s |
+| [grapheme-sememe](grapheme-sememe/) | yes (qualitative; +6.7pp spontaneous recovery) | 70 min | 1.7s |
 
 **Plaut & Hinton (1987)** — Learning sets of filters using back-propagation
-- [riser-spectrogram](riser-spectrogram/) — synthetic riser/non-riser discrimination
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [riser-spectrogram](riser-spectrogram/) | yes (98.08% net vs 98.90% Bayes; gap +0.83pp) | ~7 min | 0.91s |
 
 **Hinton & Plaut (1987)** — Using fast weights to deblur old memories
-- [fast-weights-rehearsal](fast-weights-rehearsal/) — two-time-scale weights with rehearsal
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [fast-weights-rehearsal](fast-weights-rehearsal/) | yes (rehearsed-subset recovery +22pp / 30 seeds) | 25 min | 0.14s |
 
 ### 1990s — Unsupervised learning, mixtures, the Helmholtz machine
 
 **Jacobs, Jordan, Nowlan & Hinton (1991)** — Adaptive mixtures of local experts
-- [vowel-mixture-experts](vowel-mixture-experts/) — Peterson-Barney 4-class vowels
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [vowel-mixture-experts](vowel-mixture-experts/) | partial (MoE 92.8% / MLP 90.1%; gate partitions vowels) | 70 min | 0.09s |
 
 **Becker & Hinton (1992)** — A self-organizing neural network that discovers surfaces in random-dot stereograms
-- [random-dot-stereograms](random-dot-stereograms/) — Imax / spatial coherence
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [random-dot-stereograms](random-dot-stereograms/) | yes (Imax 1.18 nats; disparity readout 0.74) | ~1 hr | 6.1s |
 
 **Nowlan & Hinton (1992)** — Simplifying neural networks by soft weight-sharing
-- [sunspots](sunspots/) — soft weight-sharing on Wolfer counts
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [sunspots](sunspots/) | yes (MoG ≤ decay ≤ vanilla; weight peaks at 0 + 0.27) | ~1 hr | 5s |
 
 **Hinton & Zemel (1994)** — Autoencoders, MDL and Helmholtz free energy
-- [spline-images-factorial-vq](spline-images-factorial-vq/) — intrinsic-dim 5 curves
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [spline-images-factorial-vq](spline-images-factorial-vq/) | yes (factorial wins 3× over 24-VQ baseline) | ~1 hr | ~5s |
 
 **Zemel & Hinton (1995)** — Learning population codes by minimizing description length
-- [dipole-position](dipole-position/) — 8x8 dipole at random (x, y)
-- [dipole-3d-constraint](dipole-3d-constraint/) — 3D constraint surface
-- [dipole-what-where](dipole-what-where/) — discontinuous what/where bars
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [dipole-position](dipole-position/) | partial (R² = 0.81; supervised warm-up needed) | ~3 hr | 2s |
+| [dipole-3d-constraint](dipole-3d-constraint/) | yes (qualitatively; 3 dims emerge) | ~1 hr | 11s |
+| [dipole-what-where](dipole-what-where/) | partial (perpendicular manifolds, lin-sep 0.58) | ~1 hr | 2s |
 
 **Dayan, Hinton, Neal & Zemel (1995)** — The Helmholtz machine
-- [helmholtz-shifter](helmholtz-shifter/) — two-stage generative shifter
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [helmholtz-shifter](helmholtz-shifter/) | partial (3 of 4 layer-3 units shift-selective; n_top=4) | 75 min | 209s |
 
 **Hinton, Dayan, Frey & Neal (1995)** — The wake-sleep algorithm
-- [bars](bars/) — 4x4 horizontal/vertical bars
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [bars](bars/) | partial (KL = 0.451 bits vs paper 0.10) | 70 min | 222s |
 
 ### 2000s — Products of experts, contrastive divergence, deep belief nets
 
 **Hinton (2000)** — Training products of experts by minimizing contrastive divergence
-- [bars-rbm](bars-rbm/) — bars problem for RBM training
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [bars-rbm](bars-rbm/) | yes (7/8 bars at purity ≥0.5; 8/8 with n_hidden=16) | ~30 min | 1.5s |
 
 **Memisevic & Hinton (2007)** — Unsupervised learning of image transformations
-- [transforming-pairs](transforming-pairs/) — gated conditional RBM
 
-**Sutskever & Hinton (2007)** — Learning multilevel distributed representations for high-dimensional sequences
-- [bouncing-balls-2](bouncing-balls-2/) — TRBM video
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [transforming-pairs](transforming-pairs/) | partial (axis-selective transformation detectors) | ~1 hr | 2s |
+
+**Sutskever & Hinton (2007)** — Multilevel distributed representations for high-dimensional sequences
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [bouncing-balls-2](bouncing-balls-2/) | partial (rollout MSE between baselines) | 75 min | 6.2s |
 
 **Sutskever, Hinton & Taylor (2008)** — The recurrent temporal RBM
-- [bouncing-balls-3](bouncing-balls-3/) — RTRBM 30x30 video
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [bouncing-balls-3](bouncing-balls-3/) | partial (CD-1 recon 0.005; rollout 0.13) | ~1 hr | 3.4s |
 
 ### 2010s — Capsules, distillation, attention
 
 **Hinton, Krizhevsky & Wang (2011)** — Transforming auto-encoders
-- [transforming-autoencoders](transforming-autoencoders/) — MNIST + affine, the seed of capsules
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [transforming-autoencoders](transforming-autoencoders/) | yes (R²(dx)=0.78, R²(dy)=0.67) | ~30 min | 100s |
 
 **Tang, Salakhutdinov & Hinton (2012)** — Deep Lambertian Networks
-- [deep-lambertian-spheres](deep-lambertian-spheres/) — synthetic spheres under multiple lighting
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [deep-lambertian-spheres](deep-lambertian-spheres/) | yes (normal angular err 27°; albedo 7× baseline) | ~50 min | 33s |
 
 **Sutskever, Martens, Dahl & Hinton (2013)** — On the importance of initialization and momentum
-- [rnn-pathological](rnn-pathological/) — Hochreiter-Schmidhuber long-term-dep tasks
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [rnn-pathological](rnn-pathological/) | yes (3 of 4 tasks; ortho beats random init) | 2.5 hr | 42s |
 
 **Hinton, Vinyals & Dean (2015)** — Distilling the knowledge in a neural network
-- [distillation-mnist-omitted-3](distillation-mnist-omitted-3/) — student never sees a "3"
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [distillation-mnist-omitted-3](distillation-mnist-omitted-3/) | yes (97.82% on digit-3 post-correction; paper 98.6%) | 40 min | 121.8s |
 
 **Eslami, Heess, Weber, Tassa, Szepesvari, Kavukcuoglu & Hinton (2016)** — Attend, Infer, Repeat
-- [air-multimnist](air-multimnist/) — variable-count MNIST scenes
-- [air-3d-primitives](air-3d-primitives/) — invert programmable renderer
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [air-multimnist](air-multimnist/) | partial (count 79.7%; reconstructions blurry) | ~50 min | 6s |
+| [air-3d-primitives](air-3d-primitives/) | partial (1-prim 88.8%; 3-prim count 81%) | ~50 min | 11.7s |
 
 **Ba, Hinton, Mnih, Leibo & Ionescu (2016)** — Using fast weights to attend to the recent past
-- [fast-weights-associative-retrieval](fast-weights-associative-retrieval/) — `c9k8j3f1??c -> 9`
-- [multi-level-glimpse-mnist](multi-level-glimpse-mnist/) — 24 hierarchical glimpses
-- [catch-game](catch-game/) — partial-observability paddle/ball
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [fast-weights-associative-retrieval](fast-weights-associative-retrieval/) | partial (architecture verified; 38% retrieval) | ~3 hr | 293s |
+| [multi-level-glimpse-mnist](multi-level-glimpse-mnist/) | partial (82.46% vs paper 90%+) | ~1 hr | 1199s |
+| [catch-game](catch-game/) | partial (FW 33.9% vs vanilla 11.4%; 91% at size=10) | ~2 hr | ~50s |
 
 **Sabour, Frosst & Hinton (2017)** — Dynamic routing between capsules
-- [multimnist-capsnet](multimnist-capsnet/) — overlapping digit pairs
-- [affnist](affnist/) — train on translated MNIST, test on affNIST
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [affnist](affnist/) | **no** (gap wrong sign: −2% vs paper +13%) | ~3 hr | 4 min |
+| [multimnist-capsnet](multimnist-capsnet/) | partial (48.6% vs target 80%; 22× chance) | ~3 hr | 395s |
 
 **Hinton, Sabour & Frosst (2018)** — Matrix capsules with EM routing
-- [smallnorb-novel-viewpoint](smallnorb-novel-viewpoint/) — held-out azimuth / elevation
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [smallnorb-novel-viewpoint](smallnorb-novel-viewpoint/) | yes qualitatively (caps 0.726 vs CNN 0.696 held-out) | ~1 hr | 10s |
 
 **Kosiorek, Sabour, Teh & Hinton (2019)** — Stacked capsule autoencoders
-- [constellations](constellations/) — 2D point-cloud part-whole grouping
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [constellations](constellations/) | yes (per-point recovery 86.9% best / 84% mean) | ~75 min | 25s |
 
 ### 2020s — Subclass distillation, GLOM, Forward-Forward
 
 **Müller, Kornblith & Hinton (2020)** — Subclass distillation
-- [mnist-2x5-subclass](mnist-2x5-subclass/) — super-class teacher with hidden subclass logits
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [mnist-2x5-subclass](mnist-2x5-subclass/) | partial (subclass recovery 82.88% best / 73.87% mean) | ~50 min | 13s |
 
 **Sabour, Tagliasacchi, Yazdani, Hinton & Fleet (2021)** — Unsupervised part representation by flow capsules
-- [geo-flow-capsules](geo-flow-capsules/) — Geo / Geo+ moving 2D shapes
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [geo-flow-capsules](geo-flow-capsules/) | yes (mean IoU 0.764 / chance 0.20) | ~8 min | 43s |
 
 **Culp, Sabour & Hinton (2022)** — Testing GLOM's ability to infer wholes from ambiguous parts
-- [ellipse-world](ellipse-world/) — eGLOM ambiguous-part-to-whole
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [ellipse-world](ellipse-world/) | yes (92.2% on 5-class; islands form +0.117) | ~1 hr | 9s |
 
 **Hinton (2022)** — The forward-forward algorithm: some preliminary investigations
-- [ff-hybrid-mnist](ff-hybrid-mnist/) — hand-crafted hybrid-image MNIST negatives
-- [ff-label-in-input](ff-label-in-input/) — first 10 pixels carry one-hot label
-- [ff-recurrent-mnist](ff-recurrent-mnist/) — repeated-frame "video" with top-down recurrence
-- [ff-cifar-locally-connected](ff-cifar-locally-connected/) — CIFAR-10 with locally-connected FF
-- [ff-aesop-sequences](ff-aesop-sequences/) — Aesop's Fables next-character with self-generated negatives
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [ff-hybrid-mnist](ff-hybrid-mnist/) | partial (5.21% test err vs paper 1.37%) | ~75 min | 492s |
+| [ff-label-in-input](ff-label-in-input/) | partial (3.60% vs paper 1.36%) | ~1 hr | 66s |
+| [ff-recurrent-mnist](ff-recurrent-mnist/) | partial (10.66% vs paper 1.31%) | ~1 hr | 216s |
+| [ff-cifar-locally-connected](ff-cifar-locally-connected/) | partial (FF 22.78% / BP 38.31%) | ~3 hr | 150s |
+| [ff-aesop-sequences](ff-aesop-sequences/) | yes (TF 53% / SG 34%; baselines 3-20%) | ~12 min | 131s |
 
 ## Structure
 
 ```
 problem-folder/
-├── README.md      one paragraph: source + property
-└── problem.py     stubs: generate_dataset, build_model, train
+├── README.md                  source paper, problem, results, deviations
+├── <slug>.py                  dataset + model + train + eval
+├── visualize_<slug>.py        training curves + weight viz
+├── make_<slug>_gif.py         animated GIF
+├── <slug>.gif                 committed animation
+└── viz/                       committed PNGs
 ```
 
-The stubs raise `NotImplementedError`. Fill in the parts you need.
+## Roadmap
+
+- **#45 v2: ByteDMD instrumentation** — measure data-movement cost per stub on these baselines
+- **#46 v1.5: paper-scale reruns** — close the 25 partial reproductions on Modal/GPU
+- See `Open questions / next experiments` section in each stub README for stub-specific follow-ups
