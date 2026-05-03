@@ -8,7 +8,9 @@ Each problem lives in its own folder containing:
 
 The catalog focuses on **synthetic toy problems** Hinton (or close collaborators) designed to isolate a representational property — the lineage from the 4-2-4 encoder (1985) through the shifter (1986), bars (1995), MultiMNIST (2017), Constellations (2019), Ellipse World (2022), and the Forward-Forward suite (2022). Folders are flat; the catalog below is grouped by year for readability.
 
-> **Worked example:** [`encoder-4-2-4/`](encoder-4-2-4/) is filled out — bipartite RBM trained with CD-5, an animated GIF of training, and full training curves. Use it as a template for the other stubs.
+> **v1 complete (2026-05-03):** 53 of 53 stubs implemented across 10 wave PRs (#32–#41). See [**RESULTS.md**](RESULTS.md) for per-stub reproducibility, implementation difficulty, and run wallclock. The full v1 implementation: 27 stubs reproduce paper claims (full or qualitative), 25 partial reproductions with documented gaps, 1 non-replication with three-cause analysis. Pure numpy + matplotlib throughout; all stubs run on a laptop M-series CPU.
+>
+> **Worked example:** [`encoder-4-2-4/`](encoder-4-2-4/) is the original filled-out reference — bipartite RBM trained with CD-5, an animated GIF of training, and full training curves. Followed as a template for the other 52.
 
 ## Catalog
 
