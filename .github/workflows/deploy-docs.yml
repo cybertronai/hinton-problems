@@ -1,4 +1,4 @@
-name: Deploy MkDocs to GitHub Pages
+name: Deploy mdBook to GitHub Pages
 
 on:
   push:
@@ -24,20 +24,21 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install dependencies
-        run: |
-          pip install mkdocs-material
+      - name: Install mdBook
+        uses: peaceiris/actions-mdbook@v2
+        with:
+          mdbook-version: 'latest'
 
-      - name: Build docs/ from stub folders
-        run: python3 bin/build_docs.py
+      - name: Build src/ from stub folders
+        run: python3 bin/build_book.py
 
-      - name: Build site
-        run: mkdocs build
+      - name: Build book
+        run: mdbook build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site/
+          path: book/
 
   deploy:
     environment:
