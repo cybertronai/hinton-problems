@@ -12,3 +12,5 @@ data/
 *.pt
 *.pth
 *.ckpt
+docs/
+site/
