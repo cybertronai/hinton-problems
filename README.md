@@ -1,8 +1,22 @@
-# hinton-problems
+# Hinton Problems
 
-Implementations of the synthetic learning problems and toy datasets that appear in Geoffrey Hinton's experimental papers from 1981 through 2022.
+A reproducible-baseline catalog of the synthetic learning problems that appear in Geoffrey Hinton's experimental papers from 1981 through 2022 — implemented in pure numpy, runnable on a laptop CPU, with paper-comparison metrics per stub.
 
-**Site**: https://cybertronai.github.io/hinton-problems/ • **Catalog**: [RESULTS.md](RESULTS.md) • **53 of 53 stubs implemented** (PRs #32-#41, all merged 2026-05-03)
+**Site**: https://cybertronai.github.io/hinton-problems/ • **Catalog**: [RESULTS.md](RESULTS.md) • **53 of 53 stubs implemented** (PRs #32–#41, all merged 2026-05-03)
+
+## Introduction
+
+> The field has standardized on backprop by the end of the '80s, and Hinton gives a sample of problems that were used at the time. In the last 20 years, we have transitioned to GPUs, and the math has changed considerably. Instead of being bottlenecked by arithmetic, the shrinking of transistors means that arithmetic is essentially free, and all of the work comes from data movement. **Backprop is inefficient in terms of "commute to compute ratio"** because it requires fetching all of the activations for each gradient add.
+>
+> So a natural experiment would be to redo key experiments of this time with a focus on data movement. The first step is to get a baseline — to establish the list of problems which are famous (made by Hinton), reasonable to implement, and easy to run/reproduce.
+>
+> — Yaroslav, [issue #1](https://github.com/cybertronai/hinton-problems/issues/1#issuecomment-4363088986) (Sutro Group)
+
+This repository **is that baseline**. v1 ships 53 implementations covering the lineage from the 4-2-4 encoder (1985) through the shifter (1986), bars (1995), MultiMNIST (2017), Constellations (2019), Ellipse World (2022), and the Forward-Forward suite (2022). Each stub is a self-contained folder with model + train + eval + visualization + animated GIF, all in numpy, all runnable in <5 min per seed on an M-series laptop.
+
+The next step ([#45 v2](https://github.com/cybertronai/hinton-problems/issues/45)) instruments these 53 baselines with [ByteDMD](https://github.com/cybertronai/ByteDMD) — Yaroslav's data-movement cost tracer — to measure the actual "commute" each algorithm pays.
+
+## What's here
 
 | 27 reproduce paper claims | 25 partial reproductions | 1 non-replication |
 | :---: | :---: | :---: |
@@ -252,6 +266,20 @@ problem-folder/
 
 ## Roadmap
 
-- **#45 v2: ByteDMD instrumentation** — measure data-movement cost per stub on these baselines
-- **#46 v1.5: paper-scale reruns** — close the 25 partial reproductions on Modal/GPU
+- [**#45 v2: ByteDMD instrumentation**](https://github.com/cybertronai/hinton-problems/issues/45) — measure data-movement cost per stub on these baselines (the actual research goal)
+- [**#46 v1.5: paper-scale reruns**](https://github.com/cybertronai/hinton-problems/issues/46) — close the 25 partial reproductions on Modal/GPU
 - See `Open questions / next experiments` section in each stub README for stub-specific follow-ups
+
+## Contributing
+
+Implementations follow the [v1 spec](https://github.com/cybertronai/hinton-problems/issues/1):
+
+- Each stub fills in `<slug>.py` (model + train + eval), an 8-section `README.md`, `make_<slug>_gif.py`, `visualize_<slug>.py`, an animated `<slug>.gif`, and `viz/` PNGs.
+- Acceptance: reproduces in <5 min on a laptop; final accuracy with seed in Results table; GIF illustrates problem AND learning dynamics; "Deviations from the original" section honest; at least one open question.
+- v1 metrics in PR body: `"Paper reports X; we got Y. Reproduces: yes/no."` + run wallclock + implementation wallclock.
+
+The v1.5 reruns ([#46](https://github.com/cybertronai/hinton-problems/issues/46)) and v2 ByteDMD work ([#45](https://github.com/cybertronai/hinton-problems/issues/45)) welcome contributions.
+
+## License
+
+The hinton-problems source and documentation are released into the public domain under the [Unlicense](LICENSE).
