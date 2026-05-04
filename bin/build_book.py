@@ -116,6 +116,8 @@ def main() -> None:
     # Top-level pages
     shutil.copy(ROOT / "README.md", SRC / "index.md")
     shutil.copy(ROOT / "RESULTS.md", SRC / "results.md")
+    shutil.copy(ROOT / "VISUAL_TOUR.md", SRC / "visual-tour.md")
+    shutil.copy(ROOT / "BUILD_NOTES.md", SRC / "build-notes.md")
 
     # Per-stub folders
     all_stubs: list[str] = []
@@ -137,7 +139,9 @@ def main() -> None:
     # Generate SUMMARY.md
     summary = ["# Summary", ""]
     summary.append("[Home](index.md)")
+    summary.append("[Visual tour](visual-tour.md)")
     summary.append("[Results catalog](results.md)")
+    summary.append("[Build notes](build-notes.md)")
     summary.append("")
     for decade, slugs in DECADES:
         summary.append(f"# {decade}")
