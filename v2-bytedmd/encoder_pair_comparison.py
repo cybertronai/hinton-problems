@@ -51,14 +51,18 @@ def _sigmoid(x):
 # W1[i][j]: weight from input i (0..7) to hidden j (0..2)
 # W2[j][k]: weight from hidden j (0..2) to output k (0..7)
 
-def bp_forward_phase(W1, b1, W2, b2, x, target):
-    """Forward pass only. target is on the stack but not read — kept so that
-    the stack layout matches bp_full_step exactly for a valid decomposition."""
+def _bp_forward(W1, b1, W2, b2, x):
     h = [_sigmoid(sum(x[i] * W1[i][j] for i in range(8)) + b1[j])
          for j in range(3)]
     y = [_sigmoid(sum(h[j] * W2[j][k] for j in range(3)) + b2[k])
          for k in range(8)]
     return h, y
+
+
+def bp_forward_phase(W1, b1, W2, b2, x, target):
+    """Forward pass only. target is on the stack but not read — kept so that
+    the stack layout matches bp_full_step exactly for a valid decomposition."""
+    return _bp_forward(W1, b1, W2, b2, x)
 
 
 def bp_full_step(W1, b1, W2, b2, x, target):
@@ -72,14 +76,9 @@ def bp_full_step(W1, b1, W2, b2, x, target):
       - dW1 = x . delta_h   -- only needs x and delta_h (both shallow)
       - dW2 = h . delta_out  -- only needs h and delta_out (both shallow)
     """
-    # Forward
-    h = [_sigmoid(sum(x[i] * W1[i][j] for i in range(8)) + b1[j])
-         for j in range(3)]
-    y = [_sigmoid(sum(h[j] * W2[j][k] for j in range(3)) + b2[k])
-         for k in range(8)]
-    # Backward
+    h, y = _bp_forward(W1, b1, W2, b2, x)
     delta_out = [y[k] - target[k] for k in range(8)]
-    # W2 re-read here — it has been displaced by h (3) and y (8) = 11 new values
+    # W2 re-read here — displaced by h (3) and y (8) = 11 new values
     delta_h = [sum(delta_out[k] * W2[j][k] for k in range(8)) * h[j] * (1.0 - h[j])
                for j in range(3)]
     dW2 = [[h[j] * delta_out[k] for k in range(8)] for j in range(3)]
@@ -101,11 +100,20 @@ def _sample(probs):
     return [1.0 if _SAMPLE_RNG.random() < p else 0.0 for p in probs]
 
 
+def _rbm_h_given_v(W, b_h, v):
+    return [_sigmoid(sum(v[i] * W[i][j] for i in range(3)) + b_h[j])
+            for j in range(4)]
+
+
+def _rbm_v_given_h(W, b_v, h):
+    return [_sigmoid(sum(h[j] * W[i][j] for j in range(4)) + b_v[i])
+            for i in range(3)]
+
+
 def cd_positive_phase(W, b_v, b_h, v):
     """Positive phase only. b_v is on stack but not read — present so the
     stack layout matches cd_full_step exactly."""
-    return [_sigmoid(sum(v[i] * W[i][j] for i in range(3)) + b_h[j])
-            for j in range(4)]
+    return _rbm_h_given_v(W, b_h, v)
 
 
 def cd_full_step(W, b_v, b_h, v):
@@ -119,18 +127,11 @@ def cd_full_step(W, b_v, b_h, v):
         W further displaced by v_prob_neg (3) and v_neg (3) = 6 more values.
     Total: W read 3x. No backward pass; all reads are within the Gibbs chain.
     """
-    # Positive phase
-    h_prob_pos = [_sigmoid(sum(v[i] * W[i][j] for i in range(3)) + b_h[j])
-                  for j in range(4)]
-    h_pos = _sample(h_prob_pos)
-    # Negative phase — W displaced by h_prob_pos (4) + h_pos (4 untracked)
-    v_prob_neg = [_sigmoid(sum(h_pos[j] * W[i][j] for j in range(4)) + b_v[i])
-                  for i in range(3)]
-    v_neg = _sample(v_prob_neg)
-    # Negative h — W displaced further by v_prob_neg (3) + v_neg (3 untracked)
-    h_prob_neg = [_sigmoid(sum(v_neg[i] * W[i][j] for i in range(3)) + b_h[j])
-                  for j in range(4)]
-    # Gradients
+    h_prob_pos = _rbm_h_given_v(W, b_h, v)
+    h_pos      = _sample(h_prob_pos)
+    v_prob_neg = _rbm_v_given_h(W, b_v, h_pos)
+    v_neg      = _sample(v_prob_neg)
+    h_prob_neg = _rbm_h_given_v(W, b_h, v_neg)
     dW   = [[v[i] * h_prob_pos[j] - v_neg[i] * h_prob_neg[j]
              for j in range(4)] for i in range(3)]
     db_v = [v[i] - v_neg[i] for i in range(3)]
