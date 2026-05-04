@@ -32,6 +32,8 @@ Pure numpy + matplotlib throughout. Every stub runs on a laptop CPU. Each proble
 | ![ellipse-world](ellipse-world/ellipse_world.gif) | ![ff-recurrent-mnist](ff-recurrent-mnist/ff_recurrent_mnist.gif) |
 | [`ellipse-world`](ellipse-world/) — Culp/Sabour/Hinton 2022, eGLOM islands form across iterations (5-class, 92.2%). | [`ff-recurrent-mnist`](ff-recurrent-mnist/) — Hinton 2022, top-down recurrent Forward-Forward. |
 
+For the long-form picture-first walk through **all 53 stubs** — every GIF, organized by year, with notes on what each visualization is meant to show — see [`VISUAL_TOUR.md`](VISUAL_TOUR.md).
+
 ## Catalog
 
 Each table shows the v1 result per stub. Full per-stub metrics (compile-time, GIF size, headline numbers) are in [`RESULTS.md`](RESULTS.md).
