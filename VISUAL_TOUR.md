@@ -431,6 +431,43 @@ The same bars problem trained as a CD-k RBM rather than wake-sleep. With
 units recovers all 8. Direct demonstration of why CD made unsupervised
 learning at scale tractable.
 
+### Hinton, Osindero & Teh (2006) — A fast learning algorithm for deep belief nets
+
+#### dbn-mnist ★ — six years before AlexNet
+
+[`dbn-mnist/`](dbn-mnist/) · `partial` (3.23% w/o up-down vs paper 1.25% w/ up-down)
+
+![dbn-mnist](dbn-mnist/dbn_mnist.gif)
+
+The 2006 result that beat kernel machines on MNIST and convinced the
+field that deep models were worth pursuing. A 3-layer DBN
+(784→500→500→2000) trained one layer at a time as an RBM by CD-1, with
+a logistic-regression classifier on top of the layer-3 features.
+
+The animation tracks layer-1's 500 receptive fields emerging from
+near-uniform initialisation into stroke and edge detectors over 10
+epochs of CD-1 against MNIST pixel intensities — without any supervised
+signal. By epoch 10 most of the 144 displayed filters have committed to
+a clear pen-stroke fragment at some orientation and position.
+
+Static figures: `viz/layer1_filters.png` (the full converged 12×12 filter
+gallery), `viz/training_curves.png` (per-layer reconstruction MSE on log
+scale + the classifier's train/test trajectory), `viz/reconstructions.png`
+(test digits pushed up→down through the 3-RBM stack with the layer-3
+2000-d binary representation as bottleneck), and
+`viz/generated_samples.png` (digits sampled from the joint distribution
+by data-initialised top-RBM Gibbs).
+
+Why this stub matters more than its `partial` badge suggests: this is
+the empirical event that flipped the field's prior on whether deep
+models were trainable at all. Greedy layer-wise pretraining sidestepped
+the depth-collapse story that had blocked deep nets through the 1990s,
+and the same set of weights doubled as a generative model — a thread
+that runs straight through to VAEs, diffusion, and modern world models.
+The `1.25%` headline number is the up-down fine-tuned variant; we
+report the simpler pretraining-only result and document the gap in the
+folder README.
+
 ### Memisevic & Hinton (2007) — Unsupervised learning of image transformations
 
 #### transforming-pairs

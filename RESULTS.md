@@ -114,6 +114,12 @@ Per-stub reproducibility, implementation difficulty, and run wallclock for the 5
 |---|---|---:|---:|
 | [`bars-rbm/`](bars-rbm/) (PR #35) | yes (7/8 bars at purity ≥0.5 with n_hidden=8 / 10 seeds; 8/8 with n_hidden=16) | ~30 min | 1.5s |
 
+### Hinton, Osindero & Teh (2006) — A fast learning algorithm for deep belief nets
+
+| Stub | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [`dbn-mnist/`](dbn-mnist/) | partial (3.23% test err on full MNIST without up-down vs paper 1.25% with up-down; algorithm reproduces, fine-tuning step omitted) | ~1 hr | 5s default / 30s full MNIST |
+
 ### Memisevic & Hinton (2007) — Gated 3-way RBM
 
 | Stub | Reproduces? | Implementation | Run wallclock |
