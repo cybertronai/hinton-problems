@@ -8,6 +8,13 @@ Because ByteDMD traces Python-level operations, all kernels here are pure Python
 
 ## Encoder pair — backprop vs Boltzmann
 
+Use the repo dev shell for scripts that import the NumPy reference stubs:
+
+```bash
+nix develop -c python v2-bytedmd/validate_implementations.py
+nix develop -c python v2-bytedmd/total_cost_comparison.py
+```
+
 `encoder_pair_comparison.py` — compares one training step of `encoder-backprop-8-3-8` (MLP + SGD) against `encoder-3-parity` (RBM + CD-1). Both architectures solve the encoder bottleneck; the question is which pays less to move weights through the memory hierarchy.
 
 ### Results (single pattern, 5 random weight seeds)
