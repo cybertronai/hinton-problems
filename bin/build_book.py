@@ -8,10 +8,9 @@ mdBook requires:
 
 This script:
 1. Resets src/
-2. Copies README.md -> src/index.md
-3. Copies RESULTS.md -> src/results.md
-4. Copies each stub folder -> src/<slug>/ (READMEs + viz/ + .gif)
-5. Generates src/SUMMARY.md grouped by decade
+2. Copies top-level docs into src/
+3. Copies each stub folder -> src/<slug>/ (READMEs + viz/ + .gif)
+4. Generates src/SUMMARY.md grouped by decade
 
 Usage:
     python3 bin/build_book.py
@@ -69,6 +68,7 @@ DECADES = [
     ]),
     ("2000s — RBMs & deep belief", [
         "bars-rbm",
+        "dbn-mnist",
         "transforming-pairs",
         "bouncing-balls-2",
         "bouncing-balls-3",
@@ -155,7 +155,7 @@ def main() -> None:
     (SRC / "SUMMARY.md").write_text("\n".join(summary) + "\n")
 
     n_chapters = len(all_stubs) - len(missing)
-    print(f"Built {SRC} with {n_chapters} stub chapters + 2 top-level pages")
+    print(f"Built {SRC} with {n_chapters} problem chapters + 4 top-level pages")
 
 
 if __name__ == "__main__":

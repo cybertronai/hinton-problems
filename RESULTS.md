@@ -1,6 +1,6 @@
-# RESULTS — v1 baselines
+# RESULTS — v1 baselines + DBN add-on
 
-Per-stub reproducibility, implementation difficulty, and run wallclock for the 53 implementations shipped across wave PRs #32–#41. Compiled from PR bodies for the v2 data-movement / ByteDMD filter.
+Per-stub reproducibility, implementation difficulty, and run wallclock for the current catalog: the pre-existing 4-2-4 worked example, 53 v1 implementations shipped across wave PRs #32–#41, and the DBN add-on. The summary statistics count the 54 implemented stubs; the worked example remains listed for continuity. Compiled from PR bodies for the v2 data-movement / ByteDMD filter.
 
 **Reproduces? legend**: `yes` = matches paper qualitatively or quantitatively; `partial` = method works, paper number not fully reached (gap documented in stub README); `no` = paper claim does not replicate (gap analysis documented).
 
@@ -241,10 +241,10 @@ Per-stub reproducibility, implementation difficulty, and run wallclock for the 5
 | Verdict | Count | Notes |
 |---|---:|---|
 | **yes** (full or qualitative match) | 27 | including all backprop foundations + most encoders + distillation-omitted-3 + ellipse-world + spline-VQ |
-| **partial** (method works, paper number gap documented) | 25 | mostly Forward-Forward at smaller scale, capsules at smaller arch, AIR variants without REINFORCE |
+| **partial** (method works, paper number gap documented) | 26 | mostly Forward-Forward at smaller scale, capsules at smaller arch, AIR variants without REINFORCE, plus the DBN add-on without up-down fine-tuning |
 | **no** (paper claim does NOT replicate) | 1 | affnist (gap wrong sign — three causes documented) |
 
-**Total: 53 stubs implemented, all in pure numpy, all <5 min/seed on a laptop except where noted.**
+**Total: 54 implemented stubs: 53 v1 stubs plus the DBN add-on, all in pure numpy, all <5 min/seed on a laptop except where noted.** The table also includes the pre-existing 4-2-4 worked example.
 
 ## v2 filter recommendation
 
