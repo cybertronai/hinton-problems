@@ -24,6 +24,23 @@ The next step ([#45 v2](https://github.com/cybertronai/hinton-problems/issues/45
 
 Pure numpy + matplotlib throughout. Every stub runs on a laptop CPU. Each problem lives in its own folder with `<slug>.py` (model + train + eval), `README.md`, `make_<slug>_gif.py`, `visualize_<slug>.py`, an animated `<slug>.gif`, and a `viz/` folder of training curves and weight visualizations.
 
+## Development
+
+This repository includes a minimal Nix development shell with Python and
+NumPy:
+
+```bash
+nix develop
+python v2-bytedmd/validate_implementations.py
+python v2-bytedmd/total_cost_comparison.py
+```
+
+Or run one command directly:
+
+```bash
+nix develop -c python v2-bytedmd/validate_implementations.py
+```
+
 ## Visual tour
 
 | ![encoder-4-2-4](encoder-4-2-4/encoder.gif) | ![spline-images-factorial-vq](spline-images-factorial-vq/spline_images_factorial_vq.gif) |
