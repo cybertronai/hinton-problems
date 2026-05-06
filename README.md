@@ -12,9 +12,9 @@ A reproducible-baseline catalog of the synthetic learning problems that appear i
 >
 > — Yaroslav, [issue #1](https://github.com/cybertronai/hinton-problems/issues/1#issuecomment-4363088986) (Sutro Group)
 
-This repository **is that baseline**. v1 ships 53 implementations covering the lineage from the 4-2-4 encoder (1985) through the shifter (1986), bars (1995), MultiMNIST (2017), Constellations (2019), Ellipse World (2022), and the Forward-Forward suite (2022). Each stub is a self-contained folder with model + train + eval + visualization + animated GIF, all in numpy, all runnable in <5 min per seed on an M-series laptop.
+This repository **is that baseline**. v1 shipped 53 implemented stubs covering the lineage from the shifter (1986), bars (1995), MultiMNIST (2017), Constellations (2019), Ellipse World (2022), and the Forward-Forward suite (2022). The current catalog has 54 implemented stubs: those 53 v1 stubs plus the DBN add-on. The site also keeps the pre-existing 4-2-4 encoder worked example as a problem chapter. Each stub is a self-contained folder with model + train + eval + visualization + animated GIF, all in numpy, all runnable in <5 min per seed on an M-series laptop.
 
-The next step ([#45 v2](https://github.com/cybertronai/hinton-problems/issues/45)) instruments these 53 baselines with [ByteDMD](https://github.com/cybertronai/ByteDMD) — Yaroslav's data-movement cost tracer — to measure the actual "commute" each algorithm pays.
+The next step ([#45 v2](https://github.com/cybertronai/hinton-problems/issues/45)) instruments the v1 baselines with [ByteDMD](https://github.com/cybertronai/ByteDMD) — Yaroslav's data-movement cost tracer — to measure the actual "commute" each algorithm pays.
 
 ## What's here
 
@@ -49,11 +49,11 @@ nix develop -c python v2-bytedmd/validate_implementations.py
 | ![ellipse-world](ellipse-world/ellipse_world.gif) | ![ff-recurrent-mnist](ff-recurrent-mnist/ff_recurrent_mnist.gif) |
 | [`ellipse-world`](ellipse-world/) — Culp/Sabour/Hinton 2022, eGLOM islands form across iterations (5-class, 92.2%). | [`ff-recurrent-mnist`](ff-recurrent-mnist/) — Hinton 2022, top-down recurrent Forward-Forward. |
 
-For the long-form picture-first walk through **all 53 stubs** — every GIF, organized by year, with notes on what each visualization is meant to show — see [`VISUAL_TOUR.md`](VISUAL_TOUR.md).
+For the long-form picture-first walk through **all current problem chapters** — the 54 implemented stubs plus the worked example, organized by year, with notes on what each visualization is meant to show — see [`VISUAL_TOUR.md`](VISUAL_TOUR.md).
 
 ## Catalog
 
-Each table shows the v1 result per stub. Full per-stub metrics (compile-time, GIF size, headline numbers) are in [`RESULTS.md`](RESULTS.md).
+Each table shows the current result per problem: the worked example, 53 v1 stubs, and the DBN add-on. Full per-stub metrics (compile-time, GIF size, headline numbers) are in [`RESULTS.md`](RESULTS.md).
 
 **Reproduces?** legend: `yes` = matches paper qualitatively or quantitatively; `partial` = method works, paper number not fully reached (gap documented in stub README); `no` = paper claim does not replicate.
 
@@ -292,7 +292,7 @@ problem-folder/
 ## Roadmap
 
 - [**#45 v2: ByteDMD instrumentation**](https://github.com/cybertronai/hinton-problems/issues/45) — measure data-movement cost per stub on these baselines (the actual research goal)
-- [**#46 v1.5: paper-scale reruns**](https://github.com/cybertronai/hinton-problems/issues/46) — close the 25 partial reproductions on Modal/GPU
+- [**#46 v1.5: paper-scale reruns**](https://github.com/cybertronai/hinton-problems/issues/46) — close the 25 v1 partial reproductions on Modal/GPU
 - See `Open questions / next experiments` section in each stub README for stub-specific follow-ups
 
 ## Contributing

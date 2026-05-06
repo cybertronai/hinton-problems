@@ -1,9 +1,10 @@
 # Visual tour
 
-A picture-first walk through all 53 v1 implementations. The
-[README](README.md) has a 4-GIF teaser and the result tables; this page is
-the long form — every stub, in catalog order, with its training animation
-and a short note on what the visualization is meant to show.
+A picture-first walk through all current problem chapters: the 54 implemented
+stubs plus the pre-existing 4-2-4 worked example. The [README](README.md)
+has a 4-GIF teaser and the result tables; this page is the long form —
+every chapter, in catalog order, with its training animation and a short
+note on what the visualization is meant to show.
 
 For per-stub metrics (compile time, GIF size, headline numbers) see
 [`RESULTS.md`](RESULTS.md). For the experimental design of any single
@@ -801,7 +802,7 @@ listed there; rerunning with the same seeds reproduces them bit-for-bit.
   paper-vs-implemented headline metric in one table.
 - **For the research goal these baselines exist for**: [issue #45 (v2,
   ByteDMD instrumentation)](https://github.com/cybertronai/hinton-problems/issues/45) —
-  these 53 implementations are the substrate the data-movement cost
-  tracer will run against.
+  the v1 implementations are the substrate the data-movement cost tracer
+  will run against.
 - **For paper-scale reruns**: [issue #46 (v1.5)](https://github.com/cybertronai/hinton-problems/issues/46) —
-  closing the 25 partial reproductions on Modal/GPU.
+  closing the 25 v1 partial reproductions on Modal/GPU.
