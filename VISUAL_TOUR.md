@@ -468,6 +468,50 @@ The `1.25%` headline number is the up-down fine-tuned variant; we
 report the simpler pretraining-only result and document the gap in the
 folder README.
 
+### Salakhutdinov & Hinton (2009) — Deep Boltzmann Machines
+
+#### dbm-mnist — the fully-undirected sibling of the DBN
+
+[`dbm-mnist/`](dbm-mnist/) · `partial` (4.88% w/o discriminative fine-tuning vs paper 0.95% w/)
+
+![dbm-mnist](dbm-mnist/dbm_mnist.gif)
+
+The 2009 follow-up to the DBN. Same depth, same MNIST setup, but every
+connection is now undirected — so `p(h1 | v)` no longer factorises and
+the layers above genuinely influence the lower-layer posterior. The
+training pipeline shows it: greedy doubled-RBM pretraining, halve the
+weights, stitch into a joint DBM, then refine with PCD where the
+positive phase comes from mean-field iteration rather than a single
+recognition pass.
+
+The animation runs through both phases. The first half is identical to
+the DBN: greedy CD-1 driving layer-1 filters from near-uniform
+initialisation into stroke detectors. Then comes the halve-and-stitch
+visible kink in the filter pattern, then 5 epochs of joint PCD where
+the filters reorganise to encode features that are useful *jointly*
+with the top-down `W2 @ μ2` signal during inference.
+
+Static figures: `viz/layer1_filters.png` (the converged 12×12 filter
+gallery), `viz/training_curves.png` (3-panel: pretraining + joint PCD +
+classifier), `viz/mean_field_iterations.png` (the DBM's defining
+inference step — `μ1` evolving across iterations 0, 1, 2, 5, 10, 20 on
+several test digits), `viz/reconstructions.png`,
+`viz/generated_samples.png` (50-step Gibbs from data-init).
+
+The mean-field iteration figure is the most DBM-distinctive: at
+iteration 0 you see the bottom RBM's recognition distribution
+(equivalent to what the DBN computes); from iteration 2 onward
+top-down evidence from `μ2` flows back into `μ1`. That correction is
+the only representational reason the DBM exists. The figure makes it
+visible.
+
+The DBM lands slightly worse than the DBN in this codebase (4.88% vs
+3.23% on full MNIST) because we omit the discriminative fine-tuning
+step the paper uses to reach 0.95%. Without that step the DBM is
+strictly harder to optimize, and the order is consistent with the
+field's general experience: **DBM beats DBN only when both are
+discriminatively fine-tuned.**
+
 ### Memisevic & Hinton (2007) — Unsupervised learning of image transformations
 
 #### transforming-pairs

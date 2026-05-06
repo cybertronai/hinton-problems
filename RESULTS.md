@@ -120,6 +120,12 @@ Per-stub reproducibility, implementation difficulty, and run wallclock for the 5
 |---|---|---:|---:|
 | [`dbn-mnist/`](dbn-mnist/) | partial (3.23% test err on full MNIST without up-down vs paper 1.25% with up-down; algorithm reproduces, fine-tuning step omitted) | ~1 hr | 5s default / 30s full MNIST |
 
+### Salakhutdinov & Hinton (2009) — Deep Boltzmann Machines
+
+| Stub | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [`dbm-mnist/`](dbm-mnist/) | partial (4.88% test err on full MNIST without discriminative fine-tuning vs paper 0.95% with; 7.83% on 10k subset; pretraining + joint PCD pipeline reproduces) | ~1.5 hr | 9s default / 45s full MNIST |
+
 ### Memisevic & Hinton (2007) — Gated 3-way RBM
 
 | Stub | Reproduces? | Implementation | Run wallclock |

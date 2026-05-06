@@ -2,7 +2,7 @@
 
 A reproducible-baseline catalog of the synthetic learning problems that appear in Geoffrey Hinton's experimental papers from 1981 through 2022 — implemented in pure numpy, runnable on a laptop CPU, with paper-comparison metrics per stub.
 
-**Site**: https://cybertronai.github.io/hinton-problems/ • **Catalog**: [RESULTS.md](RESULTS.md) • **54 of 54 stubs implemented** (PRs #32–#41 + DBN add-on)
+**Site**: https://cybertronai.github.io/hinton-problems/ • **Catalog**: [RESULTS.md](RESULTS.md) • **55 of 55 stubs implemented** (PRs #32–#41 + DBN + DBM add-ons)
 
 ## Introduction
 
@@ -18,7 +18,7 @@ The next step ([#45 v2](https://github.com/cybertronai/hinton-problems/issues/45
 
 ## What's here
 
-| 27 reproduce paper claims | 26 partial reproductions | 1 non-replication |
+| 27 reproduce paper claims | 27 partial reproductions | 1 non-replication |
 | :---: | :---: | :---: |
 | full or qualitative match | algorithm works, paper-config gap documented | gap analysed in 3 causes |
 
@@ -168,6 +168,12 @@ Each table shows the v1 result per stub. Full per-stub metrics (compile-time, GI
 | Problem | Reproduces? | Implementation | Run wallclock |
 |---|---|---:|---:|
 | [dbn-mnist](dbn-mnist/) | partial (3.23% w/o up-down vs paper 1.25% w/ up-down; 6.04% on 10k subset) | ~1 hr | 5s / 30s |
+
+**Salakhutdinov & Hinton (2009)** — Deep Boltzmann Machines
+
+| Problem | Reproduces? | Implementation | Run wallclock |
+|---|---|---:|---:|
+| [dbm-mnist](dbm-mnist/) | partial (4.88% w/o discriminative fine-tuning vs paper 0.95% with; 7.83% on 10k subset) | ~1.5 hr | 9s / 45s |
 
 **Memisevic & Hinton (2007)** — Unsupervised learning of image transformations
 
