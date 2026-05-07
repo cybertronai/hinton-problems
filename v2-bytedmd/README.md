@@ -1,64 +1,108 @@
 # v2 ByteDMD instrumentation
 
-ByteDMD cost measurements for selected algorithm pairs from the hinton-problems v1 baselines. Companion to [issue #45](https://github.com/cybertronai/hinton-problems/issues/45).
+ByteDMD cost measurements for selected algorithm pairs from the
+`hinton-problems` v1 baselines. Companion to
+[issue #45](https://github.com/cybertronai/hinton-problems/issues/45).
 
-ByteDMD measures data-movement cost as the sum of ceil(sqrt(reuse_distance)) over all memory reads, modelling the energy cost of fetching data through a 2D-laid-out LRU cache hierarchy. See [cybertronai/ByteDMD](https://github.com/cybertronai/ByteDMD) for the full spec.
+## Measurement contract
 
-Because ByteDMD traces Python-level operations, all kernels here are pure Python (nested lists, no numpy). The stubs in the parent folders use numpy and cannot be directly wrapped.
+Yaroslav's rule for ByteDMD/DALI comparisons is:
 
-## Encoder pair — backprop vs Boltzmann
+> Compare total data-movement cost to reach the agreed reference accuracy or
+> solve criterion, not isolated per-step cost.
 
-Use the repo dev shell for scripts that import the NumPy reference stubs:
+The v2 contract is therefore:
+
+1. Compare algorithms on the same task, data, and reference criterion.
+2. Implement a pure-Python kernel for one full training update.
+3. Validate the pure-Python kernel against the NumPy reference where practical.
+4. Measure ByteDMD for one full update.
+5. Count how many full updates each algorithm needs to reach the reference
+   criterion under the documented seeds.
+6. Report `total_cost = median_steps_to_reference * bytedmd_per_update`.
+
+Per-step ByteDMD and second-pass penalties are useful diagnostics, but they are
+not the headline comparison. They can flip conclusions when one algorithm needs
+many more updates to reach the same result.
+
+## Current instrumentation semantics
+
+`bytedmd.py` traces Python-level scalar reads through hand-written pure-Python
+kernels. The score is the sum of `ceil(sqrt(reuse_distance))` over tracked
+reads under its LRU-stack model with eager argument initialization and liveness
+compaction.
+
+This is honest ByteDMD instrumentation for algorithm-shaped scalar code. It is
+not a DALI trace, not a BLAS trace, and not a hardware cache measurement. NumPy
+reference stubs in the parent folders are used for correctness and convergence
+counts; they are not directly traced, because vectorized operations hide the
+scalar read order that ByteDMD needs.
+
+## Canonical first example
+
+`total_cost_comparison.py` is the canonical first v2 slice. It compares:
+
+- `encoder-backprop-8-3-8`: full-batch MLP + gradient descent.
+- `encoder-8-3-8`: RBM/Boltzmann encoder trained with CD-k.
+
+Both solve the same 8 one-hot pattern task through a 3-bit bottleneck and have
+48 traced weight values. The reference criterion is 100% reconstruction
+accuracy and 8/8 distinct hidden codes.
+
+Run:
 
 ```bash
 nix develop -c python v2-bytedmd/validate_implementations.py
 nix develop -c python v2-bytedmd/total_cost_comparison.py
 ```
 
-`encoder_pair_comparison.py` — compares one training step of `encoder-backprop-8-3-8` (MLP + SGD) against `encoder-3-parity` (RBM + CD-1). Both architectures solve the encoder bottleneck; the question is which pays less to move weights through the memory hierarchy.
+Verified on 2026-05-06:
 
-### Results (single pattern, 5 random weight seeds)
+```text
+Per full-batch update:
+  Backprop 8-3-8 total          :     18,327
+  Boltzmann CD-1 total          :     24,641
+  Boltzmann CD-5 total          :     67,581
 
-```
-Backprop 8-3-8  (48 weight values)
-  forward  (reads W1 once, W2 once)         :     541
-  backward (re-reads W2 once for delta_h)   :     685
-  total                                      :   1,226
-  cost/weight                                :    25.5
-  second-pass penalty (bwd/fwd)             :    1.27x
+Steps to reference criterion, 10 seeds:
+  Backprop solved               :       7/10
+  Backprop median steps         :        982 full-batch updates
+  Boltzmann solved              :       8/10
+  Boltzmann median steps        :     35,936 full-batch CD updates
 
-Boltzmann CD-1  (12 weight values)
-  positive phase (reads W once)             :     142
-  negative phase (reads W twice more)       :     299
-  total                                      :     441
-  cost/weight                                :    36.8
-  second-pass penalty (neg/pos)             :    2.11x
-```
-
-### Finding
-
-Backprop has a **lower second-pass penalty** (1.27x vs 2.11x). This is counter to the naive "backprop refetches all activations" hypothesis and has a structural explanation:
-
-- In the backward pass, **W1 is never re-read** — `dW1 = x · delta_h` only needs `x` and `delta_h`, both recently created (shallow). Only W2 is re-read once (for `delta_h` via `delta_out · W2`), and it has been displaced by just 11 forward activations (h=3, y=8).
-- In CD-1, W is re-read **twice** in the negative phase (for v_neg and h_prob_neg), against a matrix of only 12 values. The ~8 intermediate values created during the positive phase (h_prob_pos=4, comparison results=4) represent ~67% relative displacement of W, vs ~23% for W2 in backprop (11 intermediates / 24 W2 values).
-
-The "commute" that matters is not the absolute displacement but the **relative** one: a smaller weight matrix gets pushed relatively deeper by the same volume of intermediate activations.
-
-Per-weight cost (25.5 vs 36.8) also favours backprop, though the two architectures differ in size so this is not a direct comparison.
-
-### How to run
-
-```bash
-cd v2-bytedmd
-python3 encoder_pair_comparison.py
+Total ByteDMD to reference criterion:
+  Backprop                      :  17,997,114
+  Boltzmann CD-1                : 885,498,976  (49.2x backprop)
+  Boltzmann CD-5                : 2,428,590,816  (134.9x backprop)
 ```
 
-No dependencies beyond the Python standard library. `bytedmd.py` is vendored from [cybertronai/ByteDMD](https://github.com/cybertronai/ByteDMD).
+The diagnostic second-pass penalties are still informative:
 
-## Next pairs (open)
+```text
+Backprop backward/forward       : 1.82x
+Boltzmann CD-1 negative/positive: 2.29x
+Boltzmann CD-5 negative/positive: 8.03x
+```
 
-Per [issue #45](https://github.com/cybertronai/hinton-problems/issues/45), the recommended follow-up pairs are:
+The headline result is the total-cost comparison, not those per-update ratios.
 
-- `bars` vs `bars-rbm` (wake-sleep vs CD-1 on the same data)
-- `shifter` vs `helmholtz-shifter` (Boltzmann vs Helmholtz on the same structure)
-- `encoder-4-2-4` (Boltzmann) to close the size gap between the two encoders above
+## Legacy single-step diagnostic
+
+`encoder_pair_comparison.py` is kept as a small diagnostic and validation
+target. It compares one single-pattern step of `encoder-backprop-8-3-8`
+against `encoder-3-parity` and helped expose the second-pass penalty issue.
+
+It is not a canonical v2 comparison because it mixes different tasks and does
+not count steps to the reference criterion.
+
+## Next pairs
+
+Per [issue #45](https://github.com/cybertronai/hinton-problems/issues/45),
+recommended follow-up pairs remain:
+
+- `bars` vs `bars-rbm` (wake-sleep vs CD-1 on the same data).
+- `shifter` vs `helmholtz-shifter` (Boltzmann vs Helmholtz on the same structure).
+- `encoder-4-2-4` (Boltzmann) to close the size gap in earlier encoder diagnostics.
+
+Do not add a new pair until its reference criterion and convergence-count method
+are explicit enough to satisfy the contract above.

@@ -1,7 +1,15 @@
 """
-v2 ByteDMD — total cost to solve: backprop vs Boltzmann, same problem
+v2 ByteDMD canonical measurement contract: total cost to reference criterion.
 
-Addresses two gaps in encoder_pair_comparison.py (raised in PR #50 review):
+Yaroslav's rule for ByteDMD/DALI comparisons is: compare total data movement
+to reach the agreed reference accuracy/solve criterion, not isolated per-step
+cost. Per-step ByteDMD is still measured, but only as the unit cost in:
+
+    total_cost = steps_to_reference_criterion * bytedmd_per_step
+
+This first canonical example compares backprop vs Boltzmann on the same
+8-3-8 encoder problem. It addresses two gaps in encoder_pair_comparison.py
+(raised in PR #50 review):
 
   1. Single-pattern measurement underestimates backprop's activation
      re-fetch cost. Fixed here by measuring the full batch (all 8 patterns
@@ -9,8 +17,9 @@ Addresses two gaps in encoder_pair_comparison.py (raised in PR #50 review):
      the backward pass re-reads W2.
 
   2. Per-step cost is not comparable across algorithms that need different
-     numbers of steps. Fixed by measuring TOTAL ByteDMD to reach convergence:
-       total_cost = steps_to_solve x bytedmd_per_step
+     numbers of steps. Fixed here by measuring total ByteDMD to reach the
+     same reference criterion: 100% reconstruction accuracy and 8/8 distinct
+     hidden codes.
 
      Algorithm pair is now encoder-backprop-8-3-8 vs encoder-8-3-8 (RBM),
      which solve the *same* problem (8 one-hot patterns through a 3-bit
@@ -47,9 +56,22 @@ from bytedmd import bytedmd
 import encoder_backprop_8_3_8 as bp_ref
 import encoder_8_3_8 as rbm_ref
 
+REFERENCE_CRITERION = "100% reconstruction accuracy and 8/8 distinct hidden codes"
+N_BYTE_DMD_SEEDS = 5
+N_CONVERGENCE_SEEDS = 10
+RBM_CD_UPDATES_PER_EPOCH = 16
+
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
+
+def _log(message=""):
+    print(message, flush=True)
+
+
+def _is_reference_solved(acc, n_codes):
+    return acc >= 1.0 and n_codes == 8
+
 
 def _sigmoid(x):
     return 1.0 / (1.0 + math.exp(-max(-50.0, min(50.0, x))))
@@ -201,25 +223,33 @@ def _init_rbm16(seed=0):
 # ---------------------------------------------------------------------------
 
 def count_bp_steps(n_seeds=10):
-    """Return list of epochs-to-solve for backprop, None if failed."""
+    """Return full-batch epochs to reference criterion, None if failed."""
     results = []
     for seed in range(n_seeds):
         _, hist = bp_ref.train(n_epochs=5000, seed=seed, verbose=False)
-        solved = hist['acc'][-1] >= 1.0 and hist['n_distinct_codes'][-1] == 8
+        solved = _is_reference_solved(
+            hist['acc'][-1], hist['n_distinct_codes'][-1])
         results.append(len(hist['epoch']) if solved else None)
     return results
 
 
 def count_rbm_steps(n_seeds=10):
-    """Return list of (epochs, cd_updates) to first-solve for Boltzmann, None if failed.
-    Each epoch = batch_repeats=16 CD steps of 8 patterns."""
+    """Return CD updates to reference criterion for Boltzmann, None if failed.
+
+    Each epoch in the NumPy reference does batch_repeats=16 CD updates on the
+    8-pattern batch, so first matching epoch maps to epoch * 16 CD updates.
+    """
     results = []
     for seed in range(n_seeds):
         _, hist = rbm_ref.train(n_epochs=4000, seed=seed, verbose=False)
-        codes = hist['n_distinct_codes']
-        first = next((i + 1 for i, c in enumerate(codes) if c == 8), None)
-        # Each epoch does batch_repeats=16 CD updates on 8 patterns
-        results.append(first * 16 if first is not None else None)
+        first = next(
+            (i + 1 for i, (acc, n_codes) in enumerate(
+                zip(hist['acc'], hist['n_distinct_codes']))
+             if _is_reference_solved(acc, n_codes)),
+            None,
+        )
+        results.append(first * RBM_CD_UPDATES_PER_EPOCH
+                       if first is not None else None)
     return results
 
 
@@ -270,24 +300,27 @@ def median(lst):
 
 
 def main():
-    print("=" * 66)
-    print("ByteDMD total cost to solve — backprop vs Boltzmann, same problem")
-    print("  encoder-backprop-8-3-8  vs  encoder-8-3-8 (RBM CD-k)")
-    print("  both encode 8 one-hot patterns through a 3-bit bottleneck")
-    print("=" * 66)
+    _log("=" * 66)
+    _log("ByteDMD total cost to reference criterion — canonical v2 example")
+    _log("  encoder-backprop-8-3-8  vs  encoder-8-3-8 (RBM CD-k)")
+    _log("  both encode 8 one-hot patterns through a 3-bit bottleneck")
+    _log(f"  reference criterion: {REFERENCE_CRITERION}")
+    _log("=" * 66)
 
-    print("\n[1/3] ByteDMD per full-batch step (all 8 patterns, 5 seeds)...")
+    _log(f"\n[1/3] ByteDMD per full-batch step "
+         f"(all 8 patterns, {N_BYTE_DMD_SEEDS} seeds)...")
     t0 = time.time()
-    bp_cost  = measure_bp_fullbatch()
-    rbm1_cost = measure_rbm_fullbatch(k=1)
-    rbm5_cost = measure_rbm_fullbatch(k=5)
-    print(f"      done in {time.time()-t0:.1f}s")
+    bp_cost  = measure_bp_fullbatch(n_seeds=N_BYTE_DMD_SEEDS)
+    rbm1_cost = measure_rbm_fullbatch(k=1, n_seeds=N_BYTE_DMD_SEEDS)
+    rbm5_cost = measure_rbm_fullbatch(k=5, n_seeds=N_BYTE_DMD_SEEDS)
+    _log(f"      done in {time.time()-t0:.1f}s")
 
-    print("\n[2/3] Convergence step counts (10 seeds each, running numpy stubs)...")
+    _log(f"\n[2/3] Reference-criterion step counts "
+         f"({N_CONVERGENCE_SEEDS} seeds each, running numpy stubs)...")
     t0 = time.time()
-    bp_steps  = count_bp_steps(n_seeds=10)
-    rbm_steps = count_rbm_steps(n_seeds=10)
-    print(f"      done in {time.time()-t0:.1f}s")
+    bp_steps  = count_bp_steps(n_seeds=N_CONVERGENCE_SEEDS)
+    rbm_steps = count_rbm_steps(n_seeds=N_CONVERGENCE_SEEDS)
+    _log(f"      done in {time.time()-t0:.1f}s")
 
     bp_solved  = [s for s in bp_steps  if s is not None]
     rbm_solved = [s for s in rbm_steps if s is not None]
@@ -302,62 +335,62 @@ def main():
     rbm_total_med_cd1 = rbm_med * rbm1_cost["total"] if rbm_med else None
     rbm_total_med_cd5 = rbm_med * rbm5_cost["total"] if rbm_med else None
 
-    print()
-    print("─" * 66)
-    print("Per full-batch step (all 8 patterns):")
-    print()
-    print(f"  Backprop 8-3-8   (W1: 8x3, W2: 3x8 = 48 weights)")
-    print(f"    forward  (W1 once, W2 once per pattern)  : {bp_cost['forward']:>9,.0f}")
-    print(f"    backward (W2 re-read, 88 activations deep): {bp_cost['backward']:>9,.0f}")
-    print(f"    total                                      : {bp_cost['total']:>9,.0f}")
-    print(f"    second-pass penalty                        : {bp_cost['backward']/bp_cost['forward']:>9.2f}x")
-    print()
-    print(f"  Boltzmann CD-1   (W: 16x3 = 48 weights)")
-    print(f"    positive phase                             : {rbm1_cost['positive']:>9,.0f}")
-    print(f"    negative phase (W read 2x more)           : {rbm1_cost['negative']:>9,.0f}")
-    print(f"    total                                      : {rbm1_cost['total']:>9,.0f}")
-    print(f"    second-pass penalty                        : {rbm1_cost['negative']/rbm1_cost['positive']:>9.2f}x")
-    print()
-    print(f"  Boltzmann CD-5   (actual training config)")
-    print(f"    positive phase                             : {rbm5_cost['positive']:>9,.0f}")
-    print(f"    negative phase (W read 10x more)          : {rbm5_cost['negative']:>9,.0f}")
-    print(f"    total                                      : {rbm5_cost['total']:>9,.0f}")
-    print(f"    second-pass penalty                        : {rbm5_cost['negative']/rbm5_cost['positive']:>9.2f}x")
+    _log()
+    _log("─" * 66)
+    _log("Per full-batch step (diagnostic unit cost, not the headline):")
+    _log()
+    _log(f"  Backprop 8-3-8   (W1: 8x3, W2: 3x8 = 48 weights)")
+    _log(f"    forward  (W1 once, W2 once per pattern)  : {bp_cost['forward']:>9,.0f}")
+    _log(f"    backward (W2 re-read, 88 activations deep): {bp_cost['backward']:>9,.0f}")
+    _log(f"    total                                      : {bp_cost['total']:>9,.0f}")
+    _log(f"    second-pass penalty                        : {bp_cost['backward']/bp_cost['forward']:>9.2f}x")
+    _log()
+    _log(f"  Boltzmann CD-1   (W: 16x3 = 48 weights)")
+    _log(f"    positive phase                             : {rbm1_cost['positive']:>9,.0f}")
+    _log(f"    negative phase (W read 2x more)           : {rbm1_cost['negative']:>9,.0f}")
+    _log(f"    total                                      : {rbm1_cost['total']:>9,.0f}")
+    _log(f"    second-pass penalty                        : {rbm1_cost['negative']/rbm1_cost['positive']:>9.2f}x")
+    _log()
+    _log(f"  Boltzmann CD-5   (actual training config)")
+    _log(f"    positive phase                             : {rbm5_cost['positive']:>9,.0f}")
+    _log(f"    negative phase (W read 10x more)          : {rbm5_cost['negative']:>9,.0f}")
+    _log(f"    total                                      : {rbm5_cost['total']:>9,.0f}")
+    _log(f"    second-pass penalty                        : {rbm5_cost['negative']/rbm5_cost['positive']:>9.2f}x")
 
-    print()
-    print("─" * 66)
-    print("Steps to convergence (10 seeds, 8/8 distinct codes):")
-    print()
-    print(f"  Backprop:  {len(bp_solved)}/10 solved,  "
-          f"median {bp_med} epochs  (= {bp_med} full-batch steps)")
-    print(f"  Boltzmann: {len(rbm_solved)}/10 solved,  "
-          f"median {rbm_med} CD updates  (each = 1 full-batch CD step)")
+    _log()
+    _log("─" * 66)
+    _log(f"Steps to reference criterion ({N_CONVERGENCE_SEEDS} seeds):")
+    _log()
+    _log(f"  Backprop:  {len(bp_solved)}/{N_CONVERGENCE_SEEDS} solved,  "
+         f"median {bp_med} epochs  (= {bp_med} full-batch steps)")
+    _log(f"  Boltzmann: {len(rbm_solved)}/{N_CONVERGENCE_SEEDS} solved,  "
+         f"median {rbm_med} CD updates  (each = 1 full-batch CD step)")
 
-    print()
-    print("─" * 66)
-    print("Total ByteDMD to solve (median steps x per-step cost):")
-    print()
+    _log()
+    _log("─" * 66)
+    _log("Total ByteDMD to reference criterion (median steps x per-step cost):")
+    _log()
     if bp_total_med:
-        print(f"  Backprop              : {bp_total_med:>14,.0f}")
+        _log(f"  Backprop              : {bp_total_med:>14,.0f}")
     if rbm_total_med_cd1:
-        print(f"  Boltzmann CD-1        : {rbm_total_med_cd1:>14,.0f}  "
-              f"({rbm_total_med_cd1/bp_total_med:.1f}x backprop)")
+        _log(f"  Boltzmann CD-1        : {rbm_total_med_cd1:>14,.0f}  "
+             f"({rbm_total_med_cd1/bp_total_med:.1f}x backprop)")
     if rbm_total_med_cd5:
-        print(f"  Boltzmann CD-5        : {rbm_total_med_cd5:>14,.0f}  "
-              f"({rbm_total_med_cd5/bp_total_med:.1f}x backprop)")
+        _log(f"  Boltzmann CD-5        : {rbm_total_med_cd5:>14,.0f}  "
+             f"({rbm_total_med_cd5/bp_total_med:.1f}x backprop)")
 
-    print()
-    print("─" * 66)
-    print("Full-batch second-pass penalty (updated from PR #50):")
+    _log()
+    _log("─" * 66)
+    _log("Full-batch second-pass penalty (updated from PR #50):")
     bp_ratio   = bp_cost['backward'] / bp_cost['forward']
     rbm1_ratio = rbm1_cost['negative'] / rbm1_cost['positive']
-    print(f"  Backprop  backward/forward    : {bp_ratio:.2f}x  "
-          f"(was 1.27x single-pattern)")
-    print(f"  Boltzmann CD-1 neg/pos        : {rbm1_ratio:.2f}x  "
-          f"(was 2.11x, single-pattern, encoder-3-parity)")
-    print()
-    print("Note: the 88 forward activations (8 patterns x 11 values each)")
-    print("now sit between W2 and the backward pass, increasing the penalty.")
+    _log(f"  Backprop  backward/forward    : {bp_ratio:.2f}x  "
+         f"(was 1.27x single-pattern)")
+    _log(f"  Boltzmann CD-1 neg/pos        : {rbm1_ratio:.2f}x  "
+         f"(was 2.11x, single-pattern, encoder-3-parity)")
+    _log()
+    _log("Note: the 88 forward activations (8 patterns x 11 values each)")
+    _log("now sit between W2 and the backward pass, increasing the penalty.")
 
 
 if __name__ == "__main__":
