@@ -2,9 +2,14 @@
 
 A reproducible-baseline catalog of the synthetic learning problems that appear in Geoffrey Hinton's experimental papers from 1981 through 2022 — implemented in pure numpy, runnable on a laptop CPU, with paper-comparison metrics per stub.
 
-**Site**: https://cybertronai.github.io/hinton-problems/ • **Catalog**: [RESULTS.md](RESULTS.md) • **55 of 55 stubs implemented** (PRs #32–#41 + DBN + DBM add-ons)
-
-**Build cost / token math**: ~661M tokens across 63 sessions (lead + 62 subagent dispatches), 93.5% cache_read. The harness "~800k" was context-window utilisation, not cumulative consumption. Breakdown: [BUILD_NOTES.md § Token consumption](BUILD_NOTES.md) + [issue #56](https://github.com/cybertronai/hinton-problems/issues/56).
+- **GitHub**: https://github.com/cybertronai/hinton-problems
+- **Site**: https://cybertronai.github.io/hinton-problems/
+- **Catalog**: [RESULTS.md](RESULTS.md)
+- **Visual tour**: [VISUAL_TOUR.md](VISUAL_TOUR.md)
+- **Build notes**: [BUILD_NOTES.md](BUILD_NOTES.md)
+- **Status**: 55 of 55 stubs implemented (PRs #32–#41 + DBN + DBM add-ons)
+- **Build cost / token math**: ~661M tokens across 63 sessions (lead + 62 subagent dispatches), 93.5% cache_read. The harness "~800k" was context-window utilisation, not cumulative consumption. Breakdown: [BUILD_NOTES.md § Token consumption](BUILD_NOTES.md) + [issue #56](https://github.com/cybertronai/hinton-problems/issues/56).
+- **Companion**: [`schmidhuber-problems`](https://github.com/cybertronai/schmidhuber-problems) — algorithmic-lineage counterpart (58 stubs)
 
 ## Introduction
 
