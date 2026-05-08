@@ -140,6 +140,26 @@ That's the entire DSL. Every stub had to fit.
 - **6 PRs merged via `gh pr merge`** in-session (the rest were merged separately by Yad)
 - **24 git pushes**
 
+### Token consumption — measured from JSONL session logs
+
+The harness display the lead session was showing during the build (something like `~k/1M (% used)`) is **the current context window utilisation, not cumulative tokens consumed**. It answers "how much room is left in the 1M-token window?", not "how much did the build cost?". The honest cost number requires aggregating the JSONL files for the lead + every subagent.
+
+Counted across the 63 JSONL session files in `~/.claude/projects/-Users-yadkonrad-dev-dev-year26-feb26-SutroYaro/` within the build window (2026-05-01T21:00 → 2026-05-04T23:30 UTC):
+
+| Bucket | Tokens | % of total |
+|---|---:|---:|
+| Input (uncached, fresh content sent to the model) | 381,505 | 0.06% |
+| Output (model generations) | 8,248,370 | 1.25% |
+| Cache creation (first-time write of a prefix into the cache) | 34,376,850 | 5.20% |
+| **Cache read** (re-loading already-cached prefix on subsequent turns) | **617,889,626** | **93.49%** |
+| **Total tokens touched** | **660,896,351** | 100% |
+
+About **661 million tokens** crossed the model boundary during this build. Why cache reads dominate: 1,069 lead-session assistant turns × growing conversation history × Anthropic's prompt caching means each turn re-reads the system prompt + tool definitions + prior turns out of cache (heavy discount) instead of paying full input rate.
+
+63 distinct sessions worth of work participated: lead + 62 subagent dispatches (54 builders + 7 Explore auditors + 1 claude-code-guide). Claude Code spawns each subagent dispatch in its own session; the lead's JSONL only records the dispatch call and the subagent's final return, not the subagent's internal turns.
+
+The full explainer of how to read these numbers (and how the harness UI display ≠ build cost) is in [issue #56](https://github.com/cybertronai/hinton-problems/issues/56). Companion to [schmidhuber-problems #19](https://github.com/cybertronai/schmidhuber-problems/issues/19) — same correction, same machinery.
+
 ### Skills
 
 - **One skill call.** `sutro-sync`, used once at the very start to pull Telegram + Google Docs + GitHub context.
@@ -211,7 +231,7 @@ The session also has frustrated moments. They are part of an honest report: when
 - **53 / 53** Hinton-paper stubs implemented
 - **27 reproduce** paper claims, **25 partial** (gap documented), **1 honest non-replication**
 - **~30 wall hours**, with overnight idle gaps
-- **~800,000 tokens** on Claude Opus 4.7 (1M context)
+- **63 distinct sessions** (lead + 62 subagent dispatches) consuming **~661 million tokens total**, of which **93.49% is cache_read** (re-loaded prefix from prior turns). Harness "~800k" display was current context-window utilisation, not cumulative cost. Full breakdown in [issue #56](https://github.com/cybertronai/hinton-problems/issues/56).
 - **1 GitHub issue** as the SPEC
 - **1 `TeamCreate`**, **53 named teammates**, **11 waves**
 - **18 issues + 15 PRs** filed

@@ -4,6 +4,8 @@ A reproducible-baseline catalog of the synthetic learning problems that appear i
 
 **Site**: https://cybertronai.github.io/hinton-problems/ • **Catalog**: [RESULTS.md](RESULTS.md) • **55 of 55 stubs implemented** (PRs #32–#41 + DBN + DBM add-ons)
 
+**Build cost / token math**: ~661M tokens across 63 sessions (lead + 62 subagent dispatches), 93.5% cache_read. The harness "~800k" was context-window utilisation, not cumulative consumption. Breakdown: [BUILD_NOTES.md § Token consumption](BUILD_NOTES.md) + [issue #56](https://github.com/cybertronai/hinton-problems/issues/56).
+
 ## Introduction
 
 > The field has standardized on backprop by the end of the '80s, and Hinton gives a sample of problems that were used at the time. In the last 20 years, we have transitioned to GPUs, and the math has changed considerably. Instead of being bottlenecked by arithmetic, the shrinking of transistors means that arithmetic is essentially free, and all of the work comes from data movement. **Backprop is inefficient in terms of "commute to compute ratio"** because it requires fetching all of the activations for each gradient add.
