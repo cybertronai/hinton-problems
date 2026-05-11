@@ -5,54 +5,2052 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Deep Learning Timeline</title>
 <link rel="stylesheet" href="style.css">
+<style>body { padding: 1.5rem 1rem 4rem 1rem; }
+.timeline-container { max-width: 760px; margin: 0 auto; }
+.timeline-container header.page { margin-bottom: 2.5rem; }
+.timeline-container header.page h1 { font-size: 2rem; margin: 0 0 0.5rem 0; }
+.timeline-container header.page p.subtitle { color: var(--muted); margin: 0; }
+.toc { margin: 2rem 0 3rem 0; padding: 1rem 1.25rem; background: white;
+       border: 1px solid var(--rule); border-radius: 4px; }
+.toc h2 { font-size: 0.95rem; margin: 0 0 0.75rem 0; color: var(--muted);
+          text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+.toc ol { margin: 0; padding: 0 0 0 1.25rem; columns: 2; column-gap: 1.5rem;
+          font-size: 0.88rem; line-height: 1.5; }
+.toc ol li::marker { color: var(--muted); }
+.toc a { color: var(--ink); text-decoration: none; }
+.toc a:hover { color: var(--blue); }
+.toc .period { color: var(--muted); font-size: 0.78rem; margin-right: 0.35rem;
+               font-variant-numeric: tabular-nums; }
+section.milestone { margin: 0 0 3.5rem 0; padding-top: 2rem;
+                    border-top: 1px solid var(--rule); scroll-margin-top: 1rem; }
+section.milestone:first-of-type { border-top: none; padding-top: 0; }
+section.milestone header.entry { margin-bottom: 1rem; }
+section.milestone header.entry .period { font-size: 0.8rem; text-transform: uppercase;
+   letter-spacing: 0.05em; color: var(--muted); margin: 0 0 0.2rem 0; }
+section.milestone header.entry h2 { font-size: 1.35rem; line-height: 1.25;
+   margin: 0 0 0.4rem 0; font-weight: 600; }
+section.milestone header.entry .people { font-size: 0.9rem; color: #444; margin: 0; }
+section.milestone figure.diagram { margin: 1.25rem 0 1rem 0; }
+section.milestone .why-inline { margin: 0.75rem 0 0 0; font-size: 0.95rem; }
+section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
+   font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em;
+   display: block; margin-bottom: 0.25rem; }
+.back-to-top { display: inline-block; margin-top: 1.25rem; font-size: 0.82rem;
+   color: var(--muted); text-decoration: none; }
+.back-to-top:hover { color: var(--blue); }
+</style>
 </head>
 <body>
-<div class="index-page">
+<div class="timeline-container">
+<header class="page" id="top">
 <h1>Deep Learning Timeline</h1>
-<p class="subtitle">41 milestones from adjoint methods (1950s) through unified multimodal/agentic systems (2025–2026). Each entry is one HTML report with a generated SVG diagram.</p>
-<ol class="timeline">
-<li><span class="period">1950s–1960s prehistory</span><div><a href="1950s-adjoint.html">Adjoint methods in optimal control</a><p class="people">Pontryagin, Bellman, Kelley, Bryson, Ho, others</p></div></li>
-<li><span class="period">1970</span><div><a href="1970-reverse-ad.html">Reverse-mode automatic differentiation</a><p class="people">Seppo Linnainmaa</p></div></li>
-<li><span class="period">1974–1982</span><div><a href="1974-werbos.html">Backprop ideas applied toward neural networks/control</a><p class="people">Paul Werbos</p></div></li>
-<li><span class="period">1982</span><div><a href="1982-hopfield.html">Hopfield networks</a><p class="people">John Hopfield</p></div></li>
-<li><span class="period">1983–1985</span><div><a href="1983-boltzmann.html">Boltzmann machines</a><p class="people">Hinton, Sejnowski, Ackley</p></div></li>
-<li><span class="period">1986</span><div><a href="1986-backprop.html">Backpropagation becomes the neural-net learning algorithm</a><p class="people">Rumelhart, Hinton, Williams</p></div></li>
-<li><span class="period">Late 1980s–1990s</span><div><a href="1989-cnn.html">Convolutional neural networks for vision</a><p class="people">Yann LeCun, Bottou, Bengio, Haffner, others</p></div></li>
-<li><span class="period">1991</span><div><a href="1991-vanishing.html">Vanishing-gradient problem identified</a><p class="people">Sepp Hochreiter, later Bengio et al.</p></div></li>
-<li><span class="period">1991</span><div><a href="1991-chunker.html">Neural history compressor</a><p class="people">Schmidhuber</p></div></li>
-<li><span class="period">1997</span><div><a href="1997-lstm.html">LSTM</a><p class="people">Hochreiter, Schmidhuber</p></div></li>
-<li><span class="period">2000–2003</span><div><a href="2003-bengio-nlm.html">Neural probabilistic language models</a><p class="people">Bengio, Ducharme, Vincent, Janvin</p></div></li>
-<li><span class="period">2002</span><div><a href="2002-cd-rbm.html">Contrastive divergence and RBMs</a><p class="people">Hinton</p></div></li>
-<li><span class="period">2006</span><div><a href="2006-dbn.html">Deep belief nets and greedy layer-wise pretraining</a><p class="people">Hinton, Osindero, Teh; Bengio, Lamblin, Popovici, Larochelle</p></div></li>
-<li><span class="period">2009</span><div><a href="2009-bengio-review.html">“Learning Deep Architectures for AI”</a><p class="people">Bengio</p></div></li>
-<li><span class="period">2011</span><div><a href="2011-gpu-cnn.html">GPU CNNs begin winning vision contests</a><p class="people">Cireșan, Meier, Schmidhuber, IDSIA</p></div></li>
-<li><span class="period">2012</span><div><a href="2012-alexnet.html">AlexNet wins ImageNet</a><p class="people">Krizhevsky, Sutskever, Hinton</p></div></li>
-<li><span class="period">2012</span><div><a href="2012-dropout.html">Dropout</a><p class="people">Hinton, Srivastava, Krizhevsky, Sutskever, Salakhutdinov</p></div></li>
-<li><span class="period">2013</span><div><a href="2013-word2vec.html">Word2vec and modern embeddings</a><p class="people">Mikolov et al.</p></div></li>
-<li><span class="period">2014</span><div><a href="2014-seq2seq.html">Sequence-to-sequence learning</a><p class="people">Sutskever, Vinyals, Le</p></div></li>
-<li><span class="period">2014–2015</span><div><a href="2015-attention.html">Neural attention for translation</a><p class="people">Bahdanau, Cho, Bengio</p></div></li>
-<li><span class="period">2014</span><div><a href="2014-gan.html">GANs</a><p class="people">Goodfellow, Pouget-Abadie, Mirza, Xu, Warde-Farley, Ozair, Courville, Bengio</p></div></li>
-<li><span class="period">2015</span><div><a href="2015-batchnorm.html">Batch normalization</a><p class="people">Ioffe, Szegedy</p></div></li>
-<li><span class="period">2015</span><div><a href="2015-resnet.html">ResNet</a><p class="people">He, Zhang, Ren, Sun</p></div></li>
-<li><span class="period">2015</span><div><a href="2015-nature-review.html">Deep learning becomes the dominant paradigm</a><p class="people">LeCun, Bengio, Hinton</p></div></li>
-<li><span class="period">2016</span><div><a href="2016-alphago.html">AlphaGo</a><p class="people">DeepMind</p></div></li>
-<li><span class="period">2017</span><div><a href="2017-transformer.html">Transformer: “Attention Is All You Need”</a><p class="people">Vaswani et al.</p></div></li>
-<li><span class="period">2018</span><div><a href="2018-bert.html">BERT and self-supervised pretraining</a><p class="people">Devlin, Chang, Lee, Toutanova</p></div></li>
-<li><span class="period">2018</span><div><a href="2018-neural-ode.html">Neural ODEs reconnect deep learning to adjoints</a><p class="people">Chen, Rubanova, Bettencourt, Duvenaud</p></div></li>
-<li><span class="period">2020</span><div><a href="2020-scaling-laws.html">Scaling laws</a><p class="people">Kaplan et al.; OpenAI</p></div></li>
-<li><span class="period">2020</span><div><a href="2020-gpt3.html">GPT-3</a><p class="people">Brown et al.; OpenAI</p></div></li>
-<li><span class="period">2020</span><div><a href="2020-diffusion.html">Diffusion models mature</a><p class="people">Ho, Jain, Abbeel; Song et al.; others</p></div></li>
-<li><span class="period">2021</span><div><a href="2021-clip.html">CLIP and text-image representation learning</a><p class="people">OpenAI</p></div></li>
-<li><span class="period">2021</span><div><a href="2021-alphafold2.html">AlphaFold2</a><p class="people">DeepMind</p></div></li>
-<li><span class="period">2022</span><div><a href="2022-rlhf.html">InstructGPT / RLHF</a><p class="people">OpenAI; Christiano-style RLHF lineage</p></div></li>
-<li><span class="period">Nov. 2022</span><div><a href="2022-chatgpt.html">ChatGPT</a><p class="people">OpenAI</p></div></li>
-<li><span class="period">2023</span><div><a href="2023-gpt4.html">GPT-4 and frontier multimodal LLMs</a><p class="people">OpenAI and broader frontier labs</p></div></li>
-<li><span class="period">2024</span><div><a href="2024-gpt4o.html">Real-time multimodal models</a><p class="people">OpenAI GPT-4o and others</p></div></li>
-<li><span class="period">2024</span><div><a href="2024-o1-reasoning.html">Reasoning models and inference-time compute</a><p class="people">OpenAI o1; later many others</p></div></li>
-<li><span class="period">2024</span><div><a href="2024-nobel.html">Nobel recognition</a><p class="people">Hopfield, Hinton; Baker, Hassabis, Jumper</p></div></li>
-<li><span class="period">2025</span><div><a href="2025-deepseek.html">Open reasoning models and RL-for-reasoning wave</a><p class="people">DeepSeek-R1, OpenAI o-series, others</p></div></li>
-<li><span class="period">2025–2026</span><div><a href="2025-agentic.html">Unified multimodal/agentic systems</a><p class="people">OpenAI, Anthropic, Google DeepMind, Meta, xAI, DeepSeek, open-source ecosystem</p></div></li>
-</ol>
+<p class="subtitle">41 milestones from adjoint methods (1950s) through unified multimodal/agentic systems (2025–2026), each with a generated SVG diagram. Scroll to read; jump from the contents below.</p>
+</header>
+<nav class="toc"><h2>Contents</h2><ol>
+<li><a href="#1950s-adjoint"><span class="period">1950s–1960s prehistory</span>Adjoint methods in optimal control</a></li>
+<li><a href="#1970-reverse-ad"><span class="period">1970</span>Reverse-mode automatic differentiation</a></li>
+<li><a href="#1974-werbos"><span class="period">1974–1982</span>Backprop ideas applied toward neural networks/control</a></li>
+<li><a href="#1982-hopfield"><span class="period">1982</span>Hopfield networks</a></li>
+<li><a href="#1983-boltzmann"><span class="period">1983–1985</span>Boltzmann machines</a></li>
+<li><a href="#1986-backprop"><span class="period">1986</span>Backpropagation becomes the neural-net learning algorithm</a></li>
+<li><a href="#1989-cnn"><span class="period">Late 1980s–1990s</span>Convolutional neural networks for vision</a></li>
+<li><a href="#1991-vanishing"><span class="period">1991</span>Vanishing-gradient problem identified</a></li>
+<li><a href="#1991-chunker"><span class="period">1991</span>Neural history compressor</a></li>
+<li><a href="#1997-lstm"><span class="period">1997</span>LSTM</a></li>
+<li><a href="#2003-bengio-nlm"><span class="period">2000–2003</span>Neural probabilistic language models</a></li>
+<li><a href="#2002-cd-rbm"><span class="period">2002</span>Contrastive divergence and RBMs</a></li>
+<li><a href="#2006-dbn"><span class="period">2006</span>Deep belief nets and greedy layer-wise pretraining</a></li>
+<li><a href="#2009-bengio-review"><span class="period">2009</span>“Learning Deep Architectures for AI”</a></li>
+<li><a href="#2011-gpu-cnn"><span class="period">2011</span>GPU CNNs begin winning vision contests</a></li>
+<li><a href="#2012-alexnet"><span class="period">2012</span>AlexNet wins ImageNet</a></li>
+<li><a href="#2012-dropout"><span class="period">2012</span>Dropout</a></li>
+<li><a href="#2013-word2vec"><span class="period">2013</span>Word2vec and modern embeddings</a></li>
+<li><a href="#2014-seq2seq"><span class="period">2014</span>Sequence-to-sequence learning</a></li>
+<li><a href="#2015-attention"><span class="period">2014–2015</span>Neural attention for translation</a></li>
+<li><a href="#2014-gan"><span class="period">2014</span>GANs</a></li>
+<li><a href="#2015-batchnorm"><span class="period">2015</span>Batch normalization</a></li>
+<li><a href="#2015-resnet"><span class="period">2015</span>ResNet</a></li>
+<li><a href="#2015-nature-review"><span class="period">2015</span>Deep learning becomes the dominant paradigm</a></li>
+<li><a href="#2016-alphago"><span class="period">2016</span>AlphaGo</a></li>
+<li><a href="#2017-transformer"><span class="period">2017</span>Transformer: “Attention Is All You Need”</a></li>
+<li><a href="#2018-bert"><span class="period">2018</span>BERT and self-supervised pretraining</a></li>
+<li><a href="#2018-neural-ode"><span class="period">2018</span>Neural ODEs reconnect deep learning to adjoints</a></li>
+<li><a href="#2020-scaling-laws"><span class="period">2020</span>Scaling laws</a></li>
+<li><a href="#2020-gpt3"><span class="period">2020</span>GPT-3</a></li>
+<li><a href="#2020-diffusion"><span class="period">2020</span>Diffusion models mature</a></li>
+<li><a href="#2021-clip"><span class="period">2021</span>CLIP and text-image representation learning</a></li>
+<li><a href="#2021-alphafold2"><span class="period">2021</span>AlphaFold2</a></li>
+<li><a href="#2022-rlhf"><span class="period">2022</span>InstructGPT / RLHF</a></li>
+<li><a href="#2022-chatgpt"><span class="period">Nov. 2022</span>ChatGPT</a></li>
+<li><a href="#2023-gpt4"><span class="period">2023</span>GPT-4 and frontier multimodal LLMs</a></li>
+<li><a href="#2024-gpt4o"><span class="period">2024</span>Real-time multimodal models</a></li>
+<li><a href="#2024-o1-reasoning"><span class="period">2024</span>Reasoning models and inference-time compute</a></li>
+<li><a href="#2024-nobel"><span class="period">2024</span>Nobel recognition</a></li>
+<li><a href="#2025-deepseek"><span class="period">2025</span>Open reasoning models and RL-for-reasoning wave</a></li>
+<li><a href="#2025-agentic"><span class="period">2025–2026</span>Unified multimodal/agentic systems</a></li>
+</ol></nav>
+<section class="milestone" id="1950s-adjoint">
+<header class="entry">
+<p class="period">1950s–1960s prehistory</p>
+<h2>Adjoint methods in optimal control</h2>
+<p class="people"><strong>Key people:</strong> Pontryagin, Bellman, Kelley, Bryson, Ho, others</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220">
+  <defs>
+    <marker id="ah" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2c6fbb"/>
+    </marker>
+    <marker id="ahp" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#c44778"/>
+    </marker>
+  </defs>
+  <!-- state nodes -->
+  <g>
+    <circle cx="60"  cy="80" r="22" fill="#fff" stroke="#333"/>
+    <circle cx="180" cy="80" r="22" fill="#fff" stroke="#333"/>
+    <circle cx="300" cy="80" r="22" fill="#fff" stroke="#333"/>
+    <circle cx="420" cy="80" r="22" fill="#fff" stroke="#333"/>
+    <text x="60"  y="84" text-anchor="middle">x₀</text>
+    <text x="180" y="84" text-anchor="middle">x₁</text>
+    <text x="300" y="84" text-anchor="middle">x₂</text>
+    <text x="420" y="84" text-anchor="middle">x_T</text>
+  </g>
+  <!-- forward arrows -->
+  <line x1="82" y1="80" x2="158" y2="80" stroke="#2c6fbb" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="202" y1="80" x2="278" y2="80" stroke="#2c6fbb" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="322" y1="80" x2="398" y2="80" stroke="#2c6fbb" stroke-width="2" marker-end="url(#ah)"/>
+  <text x="260" y="60" text-anchor="middle" font-size="13" fill="#2c6fbb">forward dynamics (state x evolves)</text>
+  <!-- backward arrows -->
+  <line x1="398" y1="140" x2="322" y2="140" stroke="#c44778" stroke-width="2" marker-end="url(#ahp)"/>
+  <line x1="278" y1="140" x2="202" y2="140" stroke="#c44778" stroke-width="2" marker-end="url(#ahp)"/>
+  <line x1="158" y1="140" x2="82" y2="140" stroke="#c44778" stroke-width="2" marker-end="url(#ahp)"/>
+  <g>
+    <circle cx="60"  cy="160" r="18" fill="#fff" stroke="#c44778"/>
+    <circle cx="180" cy="160" r="18" fill="#fff" stroke="#c44778"/>
+    <circle cx="300" cy="160" r="18" fill="#fff" stroke="#c44778"/>
+    <circle cx="420" cy="160" r="18" fill="#fff" stroke="#c44778"/>
+    <text x="60"  y="164" text-anchor="middle" font-size="13">λ₀</text>
+    <text x="180" y="164" text-anchor="middle" font-size="13">λ₁</text>
+    <text x="300" y="164" text-anchor="middle" font-size="13">λ₂</text>
+    <text x="420" y="164" text-anchor="middle" font-size="13">λ_T</text>
+  </g>
+  <text x="260" y="200" text-anchor="middle" font-size="13" fill="#c44778">backward adjoint (sensitivities λ = ∂J/∂x)</text>
+</svg>
+<figcaption>The adjoint propagates sensitivities backward through a state trajectory — same recipe as modern backprop, decades earlier.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>The mathematical ancestor of backprop: propagate sensitivities backward through time or through a dynamical system. This is the “control theory” root of deep learning.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="1970-reverse-ad">
+<header class="entry">
+<p class="period">1970</p>
+<h2>Reverse-mode automatic differentiation</h2>
+<p class="people"><strong>Key people:</strong> Seppo Linnainmaa</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="rh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2c6fbb"/>
+    </marker>
+    <marker id="rhb" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#c44778"/>
+    </marker>
+  </defs>
+  <!-- DAG nodes -->
+  <g font-size="13">
+    <rect x="30"  y="70"  width="60" height="36" rx="4" fill="#eef3fb" stroke="#2c6fbb"/>
+    <text x="60"  y="92" text-anchor="middle">a</text>
+    <rect x="30"  y="135" width="60" height="36" rx="4" fill="#eef3fb" stroke="#2c6fbb"/>
+    <text x="60"  y="157" text-anchor="middle">b</text>
+    <rect x="160" y="70"  width="60" height="36" rx="4" fill="#fff" stroke="#333"/>
+    <text x="190" y="92" text-anchor="middle">u = a·b</text>
+    <rect x="160" y="135" width="60" height="36" rx="4" fill="#fff" stroke="#333"/>
+    <text x="190" y="157" text-anchor="middle">v = a+b</text>
+    <rect x="290" y="100" width="60" height="36" rx="4" fill="#fff" stroke="#333"/>
+    <text x="320" y="122" text-anchor="middle">y = u·v</text>
+    <rect x="420" y="100" width="60" height="36" rx="4" fill="#fbe9f0" stroke="#c44778"/>
+    <text x="450" y="122" text-anchor="middle">J</text>
+  </g>
+  <!-- forward edges -->
+  <line x1="90"  y1="88"  x2="160" y2="88" stroke="#2c6fbb" stroke-width="1.5" marker-end="url(#rh)"/>
+  <line x1="90"  y1="153" x2="160" y2="153" stroke="#2c6fbb" stroke-width="1.5" marker-end="url(#rh)"/>
+  <line x1="90"  y1="100" x2="160" y2="140" stroke="#2c6fbb" stroke-width="1.5" marker-end="url(#rh)"/>
+  <line x1="90"  y1="145" x2="160" y2="100" stroke="#2c6fbb" stroke-width="1.5" marker-end="url(#rh)"/>
+  <line x1="220" y1="88"  x2="290" y2="113" stroke="#2c6fbb" stroke-width="1.5" marker-end="url(#rh)"/>
+  <line x1="220" y1="153" x2="290" y2="123" stroke="#2c6fbb" stroke-width="1.5" marker-end="url(#rh)"/>
+  <line x1="350" y1="118" x2="420" y2="118" stroke="#2c6fbb" stroke-width="1.5" marker-end="url(#rh)"/>
+  <!-- reverse adjoint annotation -->
+  <text x="260" y="35" text-anchor="middle" font-size="13" fill="#c44778">
+    reverse pass: ∂J/∂a = (∂J/∂u)·b + (∂J/∂v)·1
+  </text>
+  <text x="260" y="55" text-anchor="middle" font-size="13" fill="#2c6fbb">
+    forward pass: each node computes its value from inputs
+  </text>
+  <text x="260" y="215" text-anchor="middle" font-size="12" fill="#666">
+    Linnainmaa 1970: reverse-mode AD as systematic chain-rule on a DAG of operations
+  </text>
+</svg>
+<figcaption>Forward pass evaluates each node; reverse pass accumulates ∂J/∂· via the chain rule on the DAG.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Modern backprop is essentially reverse-mode differentiation applied to layered computations. Schmidhuber’s historical account credits Linnainmaa’s 1970 work as the first publication of modern reverse-mode AD.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="1974-werbos">
+<header class="entry">
+<p class="period">1974–1982</p>
+<h2>Backprop ideas applied toward neural networks/control</h2>
+<p class="people"><strong>Key people:</strong> Paul Werbos</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="wh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2c6fbb"/>
+    </marker>
+    <marker id="whb" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#c44778"/>
+    </marker>
+  </defs>
+  <text x="60"  y="40" font-size="12" fill="#666">control-theory side</text>
+  <text x="60"  y="220" font-size="12" fill="#666">neural-net side</text>
+  <!-- top: dynamic programming -->
+  <rect x="40"  y="60" width="120" height="48" rx="6" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="100" y="82" text-anchor="middle" font-size="13">dynamic</text>
+  <text x="100" y="98" text-anchor="middle" font-size="13">programming</text>
+  <rect x="200" y="60" width="120" height="48" rx="6" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="260" y="82" text-anchor="middle" font-size="13">adjoint /</text>
+  <text x="260" y="98" text-anchor="middle" font-size="13">Pontryagin</text>
+  <rect x="360" y="60" width="120" height="48" rx="6" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="420" y="82" text-anchor="middle" font-size="13">reverse-mode</text>
+  <text x="420" y="98" text-anchor="middle" font-size="13">AD</text>
+  <!-- arrows down to neural -->
+  <line x1="100" y1="108" x2="100" y2="160" stroke="#7a4f9c" stroke-width="2" marker-end="url(#wh)"/>
+  <line x1="260" y1="108" x2="260" y2="160" stroke="#7a4f9c" stroke-width="2" marker-end="url(#wh)"/>
+  <line x1="420" y1="108" x2="420" y2="160" stroke="#7a4f9c" stroke-width="2" marker-end="url(#wh)"/>
+  <text x="260" y="135" text-anchor="middle" font-size="12" fill="#7a4f9c">Werbos 1974/1982 bridges these</text>
+  <!-- bottom: neural net training -->
+  <rect x="60" y="160" width="400" height="48" rx="6" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="260" y="185" text-anchor="middle" font-size="14">neural-network learning by backward gradient propagation</text>
+</svg>
+<figcaption>Werbos's thesis explicitly links dynamic programming and Pontryagin's adjoint to neural-net weight updates.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Werbos helped connect dynamic programming, control, and neural-network learning. This is a useful bridge from adjoint-state methods to neural nets.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="1982-hopfield">
+<header class="entry">
+<p class="period">1982</p>
+<h2>Hopfield networks</h2>
+<p class="people"><strong>Key people:</strong> John Hopfield</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <!-- energy landscape (sinusoidal lows) -->
+  <path d="M30,180 C80,80 130,180 180,100 C230,40 280,180 330,90 C380,20 430,180 480,110 L480,210 L30,210 Z" fill="#eef3fb" stroke="#2c6fbb" stroke-width="2"/>
+  <!-- basin labels -->
+  <text x="155" y="200" font-size="12" fill="#2c6fbb" text-anchor="middle">basin A</text>
+  <text x="293" y="200" font-size="12" fill="#2c6fbb" text-anchor="middle">basin B</text>
+  <text x="430" y="200" font-size="12" fill="#2c6fbb" text-anchor="middle">basin C</text>
+  <!-- balls in basins (memories) -->
+  <circle cx="155" cy="135" r="9" fill="#c44778" stroke="#333"/>
+  <circle cx="293" cy="125" r="9" fill="#c44778" stroke="#333"/>
+  <circle cx="430" cy="140" r="9" fill="#c44778" stroke="#333"/>
+  <!-- trajectory of recall -->
+  <path d="M60,60 Q90,90 155,135" stroke="#3d8b5e" stroke-width="2" fill="none" stroke-dasharray="4,3"/>
+  <circle cx="60" cy="60" r="6" fill="#3d8b5e"/>
+  <text x="65" y="48" font-size="12" fill="#3d8b5e">noisy cue</text>
+  <text x="293" y="105" font-size="11" fill="#c44778" text-anchor="middle">= stored memory</text>
+  <!-- axes -->
+  <text x="35"  y="30"  font-size="13" fill="#333">E (energy)</text>
+  <text x="460" y="200" font-size="13" fill="#333">state →</text>
+</svg>
+<figcaption>Stored memories sit at minima of an energy function; a noisy cue rolls into the nearest basin.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Neural nets become energy-based associative memories. This connects neural computation to statistical physics and optimization. Hopfield and Hinton later received the 2024 Nobel Prize in Physics for foundational work enabling machine learning with artificial neural networks.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="1983-boltzmann">
+<header class="entry">
+<p class="period">1983–1985</p>
+<h2>Boltzmann machines</h2>
+<p class="people"><strong>Key people:</strong> Hinton, Sejnowski, Ackley</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <!-- bipartite-ish stochastic network -->
+  <g font-size="12">
+    <!-- visible -->
+    <circle cx="80" cy="170" r="16" fill="#fff" stroke="#333"/><text x="80" y="174" text-anchor="middle">v₁</text>
+    <circle cx="160" cy="170" r="16" fill="#fff" stroke="#333"/><text x="160" y="174" text-anchor="middle">v₂</text>
+    <circle cx="240" cy="170" r="16" fill="#fff" stroke="#333"/><text x="240" y="174" text-anchor="middle">v₃</text>
+    <circle cx="320" cy="170" r="16" fill="#fff" stroke="#333"/><text x="320" y="174" text-anchor="middle">v₄</text>
+    <!-- hidden -->
+    <circle cx="120" cy="70" r="16" fill="#fbe9f0" stroke="#c44778"/><text x="120" y="74" text-anchor="middle">h₁</text>
+    <circle cx="200" cy="70" r="16" fill="#fbe9f0" stroke="#c44778"/><text x="200" y="74" text-anchor="middle">h₂</text>
+    <circle cx="280" cy="70" r="16" fill="#fbe9f0" stroke="#c44778"/><text x="280" y="74" text-anchor="middle">h₃</text>
+  </g>
+  <!-- bipartite edges + a few horizontal "Boltzmann" (non-RBM) edges -->
+  <g stroke="#666" stroke-width="0.6">
+    <line x1="80" y1="155" x2="120" y2="85"/>
+    <line x1="80" y1="155" x2="200" y2="85"/>
+    <line x1="80" y1="155" x2="280" y2="85"/>
+    <line x1="160" y1="155" x2="120" y2="85"/>
+    <line x1="160" y1="155" x2="200" y2="85"/>
+    <line x1="160" y1="155" x2="280" y2="85"/>
+    <line x1="240" y1="155" x2="120" y2="85"/>
+    <line x1="240" y1="155" x2="200" y2="85"/>
+    <line x1="240" y1="155" x2="280" y2="85"/>
+    <line x1="320" y1="155" x2="120" y2="85"/>
+    <line x1="320" y1="155" x2="200" y2="85"/>
+    <line x1="320" y1="155" x2="280" y2="85"/>
+    <!-- intra-layer connections -->
+    <line x1="80" y1="170" x2="160" y2="170" stroke-dasharray="3,3"/>
+    <line x1="240" y1="170" x2="320" y2="170" stroke-dasharray="3,3"/>
+    <line x1="120" y1="70" x2="200" y2="70" stroke-dasharray="3,3"/>
+  </g>
+  <!-- equation -->
+  <text x="400" y="100" font-size="13" fill="#333">P(v,h) = e^(−E(v,h)) / Z</text>
+  <text x="400" y="120" font-size="11" fill="#666">stochastic binary units</text>
+  <text x="400" y="135" font-size="11" fill="#666">trained by</text>
+  <text x="400" y="150" font-size="11" fill="#666">positive − negative</text>
+  <text x="400" y="165" font-size="11" fill="#666">phase statistics</text>
+  <text x="260" y="225" text-anchor="middle" font-size="11" fill="#666">solid = bipartite; dashed = full Boltzmann (intra-layer)</text>
+</svg>
+<figcaption>Stochastic binary units with an energy function; learning balances positive (data) and negative (free-running) phase statistics.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Hinton’s early line: stochastic neural networks, energy models, hidden representations, and learning by statistical physics. Nobel materials highlight Hinton’s Boltzmann machine as a key foundation.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="1986-backprop">
+<header class="entry">
+<p class="period">1986</p>
+<h2>Backpropagation becomes the neural-net learning algorithm</h2>
+<p class="people"><strong>Key people:</strong> Rumelhart, Hinton, Williams</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="bf" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2c6fbb"/>
+    </marker>
+    <marker id="bb" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#c44778"/>
+    </marker>
+  </defs>
+  <g font-size="12">
+    <!-- layer 0 -->
+    <g><circle cx="60" cy="60" r="12" fill="#fff" stroke="#333"/><circle cx="60" cy="100" r="12" fill="#fff" stroke="#333"/><circle cx="60" cy="140" r="12" fill="#fff" stroke="#333"/><circle cx="60" cy="180" r="12" fill="#fff" stroke="#333"/></g>
+    <!-- layer 1 -->
+    <g><circle cx="200" cy="80"  r="12" fill="#fff" stroke="#333"/><circle cx="200" cy="120" r="12" fill="#fff" stroke="#333"/><circle cx="200" cy="160" r="12" fill="#fff" stroke="#333"/></g>
+    <!-- layer 2 -->
+    <g><circle cx="340" cy="80"  r="12" fill="#fff" stroke="#333"/><circle cx="340" cy="120" r="12" fill="#fff" stroke="#333"/><circle cx="340" cy="160" r="12" fill="#fff" stroke="#333"/></g>
+    <!-- layer out -->
+    <g><circle cx="460" cy="100" r="12" fill="#fff" stroke="#333"/><circle cx="460" cy="140" r="12" fill="#fff" stroke="#333"/></g>
+  </g>
+  <!-- forward edges (subset) -->
+  <g stroke="#2c6fbb" stroke-width="0.8" opacity="0.6">
+    <line x1="72" y1="60"  x2="188" y2="80"/>
+    <line x1="72" y1="60"  x2="188" y2="120"/>
+    <line x1="72" y1="100" x2="188" y2="80"/>
+    <line x1="72" y1="100" x2="188" y2="120"/>
+    <line x1="72" y1="140" x2="188" y2="120"/>
+    <line x1="72" y1="180" x2="188" y2="160"/>
+    <line x1="212" y1="80"  x2="328" y2="80"/>
+    <line x1="212" y1="80"  x2="328" y2="120"/>
+    <line x1="212" y1="120" x2="328" y2="120"/>
+    <line x1="212" y1="160" x2="328" y2="160"/>
+    <line x1="352" y1="80"  x2="448" y2="100"/>
+    <line x1="352" y1="120" x2="448" y2="100"/>
+    <line x1="352" y1="120" x2="448" y2="140"/>
+    <line x1="352" y1="160" x2="448" y2="140"/>
+  </g>
+  <!-- forward / backward arrows -->
+  <line x1="60" y1="220" x2="450" y2="220" stroke="#2c6fbb" stroke-width="2" marker-end="url(#bf)"/>
+  <text x="80" y="215" font-size="11" fill="#2c6fbb">forward pass: y = f(W₃·f(W₂·f(W₁·x)))</text>
+  <line x1="460" y1="30" x2="70" y2="30" stroke="#c44778" stroke-width="2" marker-end="url(#bb)"/>
+  <text x="180" y="25" font-size="11" fill="#c44778">backward pass: δₗ = (Wₗ₊₁ᵀ·δₗ₊₁) ⊙ f'(zₗ)</text>
+</svg>
+<figcaption>Forward propagates activations, backward propagates δ = (Wᵀδ) ⊙ f'(z) — backprop as the practical neural-net learning rule.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>The famous Nature paper popularized backprop for multilayer networks: compute errors, propagate them backward, adjust internal weights. This is the practical birth of modern neural-network training.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="1989-cnn">
+<header class="entry">
+<p class="period">Late 1980s–1990s</p>
+<h2>Convolutional neural networks for vision</h2>
+<p class="people"><strong>Key people:</strong> Yann LeCun, Bottou, Bengio, Haffner, others</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220">
+  <defs>
+    <marker id="cf" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- input -->
+  <rect x="20" y="60" width="80" height="80" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="60" y="160" text-anchor="middle" font-size="11">input (28×28)</text>
+  <!-- conv -->
+  <g>
+    <rect x="130" y="55" width="60" height="60" fill="#fff" stroke="#333"/>
+    <rect x="135" y="50" width="60" height="60" fill="#fff" stroke="#333"/>
+    <rect x="140" y="45" width="60" height="60" fill="#fff" stroke="#333"/>
+  </g>
+  <text x="170" y="160" text-anchor="middle" font-size="11">conv feature maps</text>
+  <text x="170" y="172" text-anchor="middle" font-size="10" fill="#666">shared kernel</text>
+  <!-- pool -->
+  <g>
+    <rect x="230" y="65" width="40" height="40" fill="#fff" stroke="#333"/>
+    <rect x="235" y="60" width="40" height="40" fill="#fff" stroke="#333"/>
+    <rect x="240" y="55" width="40" height="40" fill="#fff" stroke="#333"/>
+  </g>
+  <text x="255" y="160" text-anchor="middle" font-size="11">pool (downsample)</text>
+  <!-- more conv -->
+  <g>
+    <rect x="310" y="75" width="28" height="28" fill="#fff" stroke="#333"/>
+    <rect x="315" y="70" width="28" height="28" fill="#fff" stroke="#333"/>
+    <rect x="320" y="65" width="28" height="28" fill="#fff" stroke="#333"/>
+  </g>
+  <text x="335" y="160" text-anchor="middle" font-size="11">conv + pool</text>
+  <!-- fc -->
+  <line x1="375" y1="70" x2="375" y2="130" stroke="#333"/>
+  <g fill="#fff" stroke="#333">
+    <circle cx="375" cy="75"  r="5"/>
+    <circle cx="375" cy="90"  r="5"/>
+    <circle cx="375" cy="105" r="5"/>
+    <circle cx="375" cy="120" r="5"/>
+  </g>
+  <text x="375" y="160" text-anchor="middle" font-size="11">FC</text>
+  <!-- softmax -->
+  <g fill="#fbe9f0" stroke="#c44778">
+    <circle cx="455" cy="80" r="6"/>
+    <circle cx="455" cy="95" r="6"/>
+    <circle cx="455" cy="110" r="6"/>
+    <circle cx="455" cy="125" r="6"/>
+  </g>
+  <text x="455" y="160" text-anchor="middle" font-size="11">softmax</text>
+  <text x="455" y="172" text-anchor="middle" font-size="10" fill="#666">"7"</text>
+  <!-- arrows -->
+  <line x1="105" y1="100" x2="130" y2="100" stroke="#333" stroke-width="1.5" marker-end="url(#cf)"/>
+  <line x1="205" y1="100" x2="230" y2="100" stroke="#333" stroke-width="1.5" marker-end="url(#cf)"/>
+  <line x1="285" y1="100" x2="310" y2="100" stroke="#333" stroke-width="1.5" marker-end="url(#cf)"/>
+  <line x1="355" y1="100" x2="375" y2="100" stroke="#333" stroke-width="1.5" marker-end="url(#cf)"/>
+  <line x1="395" y1="100" x2="445" y2="100" stroke="#333" stroke-width="1.5" marker-end="url(#cf)"/>
+  <text x="270" y="30" text-anchor="middle" font-size="12" fill="#666">weight-sharing across spatial locations</text>
+</svg>
+<figcaption>Local receptive fields and shared kernels produce a hierarchy of feature maps; pooling adds translation tolerance.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Backprop meets weight sharing and locality. CNNs become the architecture for images, handwriting, and eventually computer vision. LeCun’s 1989 work on backprop for handwritten zip-code recognition is an early practical anchor.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="1991-vanishing">
+<header class="entry">
+<p class="period">1991</p>
+<h2>Vanishing-gradient problem identified</h2>
+<p class="people"><strong>Key people:</strong> Sepp Hochreiter, later Bengio et al.</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <!-- axes -->
+  <line x1="60" y1="40" x2="60" y2="200" stroke="#333"/>
+  <line x1="60" y1="200" x2="480" y2="200" stroke="#333"/>
+  <text x="45" y="40" font-size="12" text-anchor="end">‖∂L/∂θ‖</text>
+  <text x="475" y="218" font-size="12" text-anchor="end">depth / time-lag</text>
+  <!-- exp decay curve -->
+  <path d="M60,50 Q120,75 200,140 Q260,180 320,193 Q400,199 480,200" stroke="#c44778" stroke-width="2.5" fill="none"/>
+  <!-- exp growth (exploding) curve -->
+  <path d="M60,170 Q150,160 250,130 Q320,90 380,55 Q420,40 460,30" stroke="#d77a2c" stroke-width="2.5" fill="none" stroke-dasharray="6,4"/>
+  <!-- legends -->
+  <line x1="320" y1="55" x2="360" y2="55" stroke="#c44778" stroke-width="2.5"/>
+  <text x="365" y="59" font-size="12">vanishing (|σ'|·|W| &lt; 1)</text>
+  <line x1="320" y1="78" x2="360" y2="78" stroke="#d77a2c" stroke-width="2.5" stroke-dasharray="6,4"/>
+  <text x="365" y="82" font-size="12">exploding (&gt; 1)</text>
+  <!-- ticks -->
+  <text x="60"  y="215" font-size="11" text-anchor="middle">0</text>
+  <text x="200" y="215" font-size="11" text-anchor="middle">10</text>
+  <text x="340" y="215" font-size="11" text-anchor="middle">50</text>
+  <text x="460" y="215" font-size="11" text-anchor="middle">100</text>
+  <text x="260" y="32" text-anchor="middle" font-size="12" fill="#666">gradient magnitude ~ ∏ |σ'(zₜ)|·|W|  scales exponentially in depth</text>
+</svg>
+<figcaption>Through a long chain, ‖∂L/∂θ‖ scales like a product of small (or large) factors — exponential decay or blow-up.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Deep and recurrent nets are theoretically trainable, but gradients vanish or explode over long chains. This explains why “depth” and “memory” remained hard. Bengio’s 1994 work is a classic treatment of why learning long-term dependencies with gradient descent is difficult.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="1991-chunker">
+<header class="entry">
+<p class="period">1991</p>
+<h2>Neural history compressor</h2>
+<p class="people"><strong>Key people:</strong> Schmidhuber</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="ch" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2c6fbb"/>
+    </marker>
+  </defs>
+  <!-- bottom level: every step -->
+  <g font-size="11">
+    <g fill="#eef3fb" stroke="#2c6fbb">
+      <rect x="30"  y="170" width="30" height="22"/>
+      <rect x="65"  y="170" width="30" height="22"/>
+      <rect x="100" y="170" width="30" height="22"/>
+      <rect x="135" y="170" width="30" height="22"/>
+      <rect x="170" y="170" width="30" height="22"/>
+      <rect x="205" y="170" width="30" height="22"/>
+      <rect x="240" y="170" width="30" height="22"/>
+      <rect x="275" y="170" width="30" height="22"/>
+      <rect x="310" y="170" width="30" height="22"/>
+      <rect x="345" y="170" width="30" height="22"/>
+      <rect x="380" y="170" width="30" height="22"/>
+      <rect x="415" y="170" width="30" height="22"/>
+      <rect x="450" y="170" width="30" height="22"/>
+    </g>
+    <text x="255" y="218" text-anchor="middle" font-size="11" fill="#666">level 0: every input symbol</text>
+  </g>
+  <!-- middle level: chunked once -->
+  <g>
+    <rect x="60"  y="110" width="105" height="28" fill="#fff" stroke="#7a4f9c"/>
+    <rect x="175" y="110" width="105" height="28" fill="#fff" stroke="#7a4f9c"/>
+    <rect x="290" y="110" width="105" height="28" fill="#fff" stroke="#7a4f9c"/>
+    <text x="225" y="155" text-anchor="middle" font-size="11" fill="#666">level 1: only at unpredictable events</text>
+  </g>
+  <!-- top level -->
+  <g>
+    <rect x="155" y="50" width="240" height="28" fill="#fbe9f0" stroke="#c44778"/>
+    <text x="275" y="95" text-anchor="middle" font-size="11" fill="#666">level 2: only when level 1 is surprised</text>
+  </g>
+  <!-- vertical arrows showing reductions -->
+  <line x1="115" y1="170" x2="115" y2="138" stroke="#2c6fbb" stroke-width="1.2" marker-end="url(#ch)"/>
+  <line x1="225" y1="170" x2="225" y2="138" stroke="#2c6fbb" stroke-width="1.2" marker-end="url(#ch)"/>
+  <line x1="345" y1="170" x2="345" y2="138" stroke="#2c6fbb" stroke-width="1.2" marker-end="url(#ch)"/>
+  <line x1="275" y1="110" x2="275" y2="78"  stroke="#2c6fbb" stroke-width="1.2" marker-end="url(#ch)"/>
+  <text x="260" y="35" text-anchor="middle" font-size="12" fill="#666">
+    history compression: pass up only what the lower level failed to predict
+  </text>
+</svg>
+<figcaption>A higher-level predictor sees only the events its lower-level predictor failed to anticipate — credit assignment over much longer lags.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Early self-supervised / hierarchical sequence-learning idea: compress history, learn at multiple timescales, use unsupervised pretraining-like stages. This is a strong “pre-foundation-model” anchor.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="1997-lstm">
+<header class="entry">
+<p class="period">1997</p>
+<h2>LSTM</h2>
+<p class="people"><strong>Key people:</strong> Hochreiter, Schmidhuber</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260">
+  <defs>
+    <marker id="lh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- cell box -->
+  <rect x="60" y="60" width="400" height="140" rx="8" fill="#fff" stroke="#333"/>
+  <!-- CEC: self-loop -->
+  <line x1="180" y1="130" x2="340" y2="130" stroke="#3d8b5e" stroke-width="3" marker-end="url(#lh)"/>
+  <text x="260" y="118" text-anchor="middle" font-size="13" fill="#3d8b5e">c(t) = f·c(t-1) + i·c~(t)  (CEC: linear, no decay)</text>
+  <!-- gates -->
+  <g font-size="11">
+    <circle cx="130" cy="170" r="14" fill="#fbe9f0" stroke="#c44778"/>
+    <text x="130" y="174" text-anchor="middle">i</text>
+    <text x="130" y="195" text-anchor="middle" font-size="9" fill="#666">input gate</text>
+    <circle cx="220" cy="170" r="14" fill="#fbe9f0" stroke="#c44778"/>
+    <text x="220" y="174" text-anchor="middle">f</text>
+    <text x="220" y="195" text-anchor="middle" font-size="9" fill="#666">forget gate</text>
+    <circle cx="380" cy="170" r="14" fill="#fbe9f0" stroke="#c44778"/>
+    <text x="380" y="174" text-anchor="middle">o</text>
+    <text x="380" y="195" text-anchor="middle" font-size="9" fill="#666">output gate</text>
+  </g>
+  <!-- in/out -->
+  <line x1="20"  y1="130" x2="60"  y2="130" stroke="#333" stroke-width="1.5" marker-end="url(#lh)"/>
+  <line x1="460" y1="130" x2="500" y2="130" stroke="#333" stroke-width="1.5" marker-end="url(#lh)"/>
+  <text x="25"  y="120" font-size="12">x(t)</text>
+  <text x="475" y="120" font-size="12">h(t)</text>
+  <text x="260" y="40" text-anchor="middle" font-size="13" fill="#666">memory cell with multiplicative gates protects gradient flow</text>
+  <text x="260" y="235" text-anchor="middle" font-size="11" fill="#666">
+    error inside the CEC neither vanishes nor explodes — Hochreiter &amp; Schmidhuber 1997
+  </text>
+</svg>
+<figcaption>A memory cell with a Constant Error Carousel and multiplicative gates lets gradient flow through long time lags without vanishing.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Long Short-Term Memory directly attacks the vanishing-gradient problem in recurrent networks. It becomes the dominant architecture for speech, handwriting, translation, and sequence modeling before transformers.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2003-bengio-nlm">
+<header class="entry">
+<p class="period">2000–2003</p>
+<h2>Neural probabilistic language models</h2>
+<p class="people"><strong>Key people:</strong> Bengio, Ducharme, Vincent, Janvin</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="wlh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- input words -->
+  <g font-size="12">
+    <rect x="20"  y="60" width="60" height="24" fill="#fff" stroke="#333"/>
+    <text x="50" y="77" text-anchor="middle">w₍ₜ₋₃₎</text>
+    <rect x="20"  y="100" width="60" height="24" fill="#fff" stroke="#333"/>
+    <text x="50" y="117" text-anchor="middle">w₍ₜ₋₂₎</text>
+    <rect x="20"  y="140" width="60" height="24" fill="#fff" stroke="#333"/>
+    <text x="50" y="157" text-anchor="middle">w₍ₜ₋₁₎</text>
+  </g>
+  <!-- shared embedding matrix C -->
+  <g>
+    <rect x="120" y="55" width="80" height="120" fill="#eef3fb" stroke="#2c6fbb"/>
+    <text x="160" y="60" font-size="10" text-anchor="middle">↓</text>
+    <text x="160" y="120" text-anchor="middle" font-size="13">C (lookup)</text>
+    <text x="160" y="138" text-anchor="middle" font-size="10" fill="#666">|V|×d shared</text>
+  </g>
+  <!-- concat embeddings -->
+  <rect x="220" y="80" width="80" height="80" fill="#fff" stroke="#333"/>
+  <text x="260" y="125" text-anchor="middle" font-size="12">concat</text>
+  <text x="260" y="172" text-anchor="middle" font-size="10" fill="#666">3d-dim</text>
+  <!-- hidden -->
+  <rect x="320" y="80" width="60" height="80" fill="#fff" stroke="#333"/>
+  <text x="350" y="125" text-anchor="middle" font-size="12">tanh</text>
+  <!-- softmax over vocab -->
+  <rect x="400" y="60" width="90" height="120" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="445" y="115" text-anchor="middle" font-size="12">softmax</text>
+  <text x="445" y="135" text-anchor="middle" font-size="10" fill="#666">over |V|</text>
+  <text x="445" y="195" text-anchor="middle" font-size="11" fill="#666">P(wₜ | history)</text>
+  <!-- arrows -->
+  <line x1="80"  y1="72"  x2="120" y2="72"  stroke="#333" stroke-width="1.2" marker-end="url(#wlh)"/>
+  <line x1="80"  y1="112" x2="120" y2="112" stroke="#333" stroke-width="1.2" marker-end="url(#wlh)"/>
+  <line x1="80"  y1="152" x2="120" y2="152" stroke="#333" stroke-width="1.2" marker-end="url(#wlh)"/>
+  <line x1="200" y1="115" x2="220" y2="115" stroke="#333" stroke-width="1.2" marker-end="url(#wlh)"/>
+  <line x1="300" y1="115" x2="320" y2="115" stroke="#333" stroke-width="1.2" marker-end="url(#wlh)"/>
+  <line x1="380" y1="115" x2="400" y2="115" stroke="#333" stroke-width="1.2" marker-end="url(#wlh)"/>
+  <text x="255" y="40" text-anchor="middle" font-size="12" fill="#666">distributed word features (C) learned jointly with the LM</text>
+</svg>
+<figcaption>Shared word-embedding matrix C learned jointly with the softmax language model — distributed representations meet sequence prediction.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>A major precursor to embeddings and neural language modeling: learn distributed word representations jointly with a probability model over sequences. This is one of the roots of today’s language models.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2002-cd-rbm">
+<header class="entry">
+<p class="period">2002</p>
+<h2>Contrastive divergence and RBMs</h2>
+<p class="people"><strong>Key people:</strong> Hinton</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="cdh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2c6fbb"/>
+    </marker>
+    <marker id="cdb" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#c44778"/>
+    </marker>
+  </defs>
+  <!-- v0 -->
+  <g font-size="11">
+    <rect x="40" y="160" width="80" height="40" fill="#eef3fb" stroke="#2c6fbb"/>
+    <text x="80" y="184" text-anchor="middle">v⁽⁰⁾ data</text>
+    <!-- h0 -->
+    <rect x="140" y="60" width="80" height="40" fill="#fbe9f0" stroke="#c44778"/>
+    <text x="180" y="84" text-anchor="middle">h⁽⁰⁾</text>
+    <!-- v1 -->
+    <rect x="240" y="160" width="80" height="40" fill="#fff" stroke="#333"/>
+    <text x="280" y="184" text-anchor="middle">v⁽¹⁾</text>
+    <!-- h1 -->
+    <rect x="340" y="60" width="80" height="40" fill="#fbe9f0" stroke="#c44778"/>
+    <text x="380" y="84" text-anchor="middle">h⁽¹⁾</text>
+  </g>
+  <!-- arrows -->
+  <line x1="100" y1="160" x2="170" y2="100" stroke="#2c6fbb" stroke-width="1.8" marker-end="url(#cdh)"/>
+  <line x1="200" y1="100" x2="270" y2="160" stroke="#2c6fbb" stroke-width="1.8" marker-end="url(#cdh)"/>
+  <line x1="290" y1="160" x2="360" y2="100" stroke="#2c6fbb" stroke-width="1.8" marker-end="url(#cdh)"/>
+  <!-- update arrow -->
+  <line x1="100" y1="120" x2="380" y2="120" stroke="#c44778" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="220" y="115" text-anchor="middle" font-size="12" fill="#c44778">ΔW ∝ ⟨v⁽⁰⁾h⁽⁰⁾⟩ − ⟨v⁽¹⁾h⁽¹⁾⟩</text>
+  <!-- labels -->
+  <text x="240" y="35" text-anchor="middle" font-size="13" fill="#666">contrastive divergence — one Gibbs step replaces full negative phase</text>
+  <text x="80"  y="222" font-size="10" text-anchor="middle" fill="#666">positive</text>
+  <text x="280" y="222" font-size="10" text-anchor="middle" fill="#666">negative (CD-1)</text>
+</svg>
+<figcaption>CD-1 approximates the negative phase with a single Gibbs reconstruction step — practical training for energy-based models.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Hinton introduces a practical way to train energy-based models such as restricted Boltzmann machines, setting up the 2006 deep-belief-net revival.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2006-dbn">
+<header class="entry">
+<p class="period">2006</p>
+<h2>Deep belief nets and greedy layer-wise pretraining</h2>
+<p class="people"><strong>Key people:</strong> Hinton, Osindero, Teh; Bengio, Lamblin, Popovici, Larochelle</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260">
+  <defs>
+    <marker id="dh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- pixel layer -->
+  <rect x="120" y="200" width="280" height="36" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="260" y="222" text-anchor="middle" font-size="12">v: pixels</text>
+  <!-- h1 -->
+  <rect x="120" y="150" width="280" height="32" fill="#fff" stroke="#333"/>
+  <text x="260" y="170" text-anchor="middle" font-size="12">h₁ (RBM 1)</text>
+  <!-- h2 -->
+  <rect x="120" y="105" width="280" height="32" fill="#fff" stroke="#333"/>
+  <text x="260" y="125" text-anchor="middle" font-size="12">h₂ (RBM 2)</text>
+  <!-- h3 + labels -->
+  <rect x="120" y="55" width="200" height="36" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="220" y="78" text-anchor="middle" font-size="12">h₃ (top RBM)</text>
+  <rect x="330" y="55" width="70" height="36" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="365" y="78" text-anchor="middle" font-size="12">labels</text>
+  <!-- connections (greedy, layerwise) -->
+  <g stroke="#2c6fbb" stroke-width="1.2" stroke-dasharray="3,3">
+    <line x1="260" y1="200" x2="260" y2="182"/>
+    <line x1="260" y1="150" x2="260" y2="137"/>
+    <line x1="260" y1="105" x2="260" y2="91"/>
+  </g>
+  <!-- annotations -->
+  <text x="430" y="218" font-size="11" fill="#666">step 1: CD-1 train v↔h₁</text>
+  <text x="430" y="168" font-size="11" fill="#666">step 2: CD-1 train h₁↔h₂</text>
+  <text x="430" y="123" font-size="11" fill="#666">step 3: CD-1 train h₂↔h₃</text>
+  <text x="430" y="80"  font-size="11" fill="#666">final: discriminative</text>
+  <text x="430" y="93"  font-size="11" fill="#666">fine-tune (up-down)</text>
+  <text x="260" y="36" text-anchor="middle" font-size="13" fill="#666">greedy layer-wise pretraining → joint fine-tuning</text>
+</svg>
+<figcaption>Stack of RBMs trained greedily one layer at a time, then jointly fine-tuned — the empirical event that flipped the field's prior on depth.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>This is the “deep learning revival.” The key idea: train deep models layer by layer, often unsupervised, then fine-tune. It made depth feel trainable again before the GPU/ImageNet era.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2009-bengio-review">
+<header class="entry">
+<p class="period">2009</p>
+<h2>“Learning Deep Architectures for AI”</h2>
+<p class="people"><strong>Key people:</strong> Bengio</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <!-- pyramid of representation levels -->
+  <polygon points="60,200 460,200 360,140 160,140" fill="#eef3fb" stroke="#2c6fbb"/>
+  <polygon points="160,140 360,140 310,90 210,90" fill="#fff" stroke="#7a4f9c"/>
+  <polygon points="210,90 310,90 260,40 260,40" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="260" y="190" text-anchor="middle" font-size="13">pixels / raw features</text>
+  <text x="260" y="160" text-anchor="middle" font-size="12">edges, parts</text>
+  <text x="260" y="110" text-anchor="middle" font-size="12">objects</text>
+  <text x="260" y="65"  text-anchor="middle" font-size="12">concepts</text>
+  <text x="260" y="225" text-anchor="middle" font-size="12" fill="#666">
+    each level reuses lower-level features as building blocks
+  </text>
+</svg>
+<figcaption>Higher levels reuse lower-level features — the conceptual pyramid that consolidates deep learning into a research program.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Bengio helps consolidate deep learning as a research program: representation learning, hierarchy, distributed representations, unsupervised pretraining, and why depth matters.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2011-gpu-cnn">
+<header class="entry">
+<p class="period">2011</p>
+<h2>GPU CNNs begin winning vision contests</h2>
+<p class="people"><strong>Key people:</strong> Cireșan, Meier, Schmidhuber, IDSIA</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220">
+  <!-- GPU chip -->
+  <rect x="50" y="60" width="180" height="100" fill="#eef3fb" stroke="#2c6fbb"/>
+  <g fill="#2c6fbb">
+    <rect x="60" y="70" width="18" height="18"/>
+    <rect x="80" y="70" width="18" height="18"/>
+    <rect x="100" y="70" width="18" height="18"/>
+    <rect x="120" y="70" width="18" height="18"/>
+    <rect x="140" y="70" width="18" height="18"/>
+    <rect x="160" y="70" width="18" height="18"/>
+    <rect x="180" y="70" width="18" height="18"/>
+    <rect x="60" y="90" width="18" height="18"/>
+    <rect x="80" y="90" width="18" height="18"/>
+    <rect x="100" y="90" width="18" height="18"/>
+    <rect x="120" y="90" width="18" height="18"/>
+    <rect x="140" y="90" width="18" height="18"/>
+    <rect x="160" y="90" width="18" height="18"/>
+    <rect x="180" y="90" width="18" height="18"/>
+    <rect x="60" y="110" width="18" height="18"/>
+    <rect x="80" y="110" width="18" height="18"/>
+    <rect x="100" y="110" width="18" height="18"/>
+    <rect x="120" y="110" width="18" height="18"/>
+    <rect x="140" y="110" width="18" height="18"/>
+    <rect x="160" y="110" width="18" height="18"/>
+    <rect x="180" y="110" width="18" height="18"/>
+    <rect x="60" y="130" width="18" height="18"/>
+    <rect x="80" y="130" width="18" height="18"/>
+    <rect x="100" y="130" width="18" height="18"/>
+    <rect x="120" y="130" width="18" height="18"/>
+    <rect x="140" y="130" width="18" height="18"/>
+    <rect x="160" y="130" width="18" height="18"/>
+    <rect x="180" y="130" width="18" height="18"/>
+  </g>
+  <text x="140" y="180" text-anchor="middle" font-size="12">GPU (many parallel cores)</text>
+  <!-- arrow -->
+  <line x1="240" y1="110" x2="280" y2="110" stroke="#333" stroke-width="2"/>
+  <polygon points="280,110 273,107 273,113" fill="#333"/>
+  <!-- conv net -->
+  <g>
+    <rect x="290" y="80" width="30" height="60" fill="#fff" stroke="#333"/>
+    <rect x="330" y="80" width="30" height="60" fill="#fff" stroke="#333"/>
+    <rect x="370" y="80" width="30" height="60" fill="#fff" stroke="#333"/>
+    <rect x="410" y="80" width="30" height="60" fill="#fff" stroke="#333"/>
+    <rect x="450" y="80" width="30" height="60" fill="#fbe9f0" stroke="#c44778"/>
+  </g>
+  <text x="385" y="180" text-anchor="middle" font-size="12">deep CNN, big batches</text>
+  <text x="270" y="35" text-anchor="middle" font-size="12" fill="#666">
+    CNNs + GPU parallelism start winning vision contests (MNIST, GTSRB) well before ImageNet 2012
+  </text>
+</svg>
+<figcaption>GPU parallelism + deep CNN architectures dominate MNIST/GTSRB/CIFAR contests by 2010–11, a year before the public ImageNet moment.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Before AlexNet, GPU-trained CNNs were already showing that compute plus convnets could dominate visual recognition tasks. This is a useful reminder that the 2012 breakthrough had several converging precursors.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2012-alexnet">
+<header class="entry">
+<p class="period">2012</p>
+<h2>AlexNet wins ImageNet</h2>
+<p class="people"><strong>Key people:</strong> Krizhevsky, Sutskever, Hinton</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220">
+  <!-- input -->
+  <rect x="20" y="80" width="50" height="50" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="45" y="148" text-anchor="middle" font-size="10">224²×3</text>
+  <!-- conv 1 -->
+  <rect x="90" y="75" width="40" height="60" fill="#fff" stroke="#333"/>
+  <text x="110" y="148" text-anchor="middle" font-size="10">conv</text>
+  <text x="110" y="160" text-anchor="middle" font-size="10">96</text>
+  <!-- conv 2 -->
+  <rect x="140" y="80" width="32" height="50" fill="#fff" stroke="#333"/>
+  <text x="156" y="148" text-anchor="middle" font-size="10">conv</text>
+  <text x="156" y="160" text-anchor="middle" font-size="10">256</text>
+  <!-- conv 3 -->
+  <rect x="180" y="85" width="28" height="40" fill="#fff" stroke="#333"/>
+  <text x="194" y="148" text-anchor="middle" font-size="10">conv</text>
+  <text x="194" y="160" text-anchor="middle" font-size="10">384</text>
+  <!-- conv 4 -->
+  <rect x="215" y="85" width="28" height="40" fill="#fff" stroke="#333"/>
+  <text x="229" y="148" text-anchor="middle" font-size="10">conv</text>
+  <text x="229" y="160" text-anchor="middle" font-size="10">384</text>
+  <!-- conv 5 -->
+  <rect x="250" y="85" width="28" height="40" fill="#fff" stroke="#333"/>
+  <text x="264" y="148" text-anchor="middle" font-size="10">conv</text>
+  <text x="264" y="160" text-anchor="middle" font-size="10">256</text>
+  <!-- fc 1 -->
+  <rect x="290" y="60" width="14" height="100" fill="#fff" stroke="#333"/>
+  <text x="297" y="178" text-anchor="middle" font-size="10">FC</text>
+  <text x="297" y="190" text-anchor="middle" font-size="10">4096</text>
+  <!-- fc 2 -->
+  <rect x="320" y="60" width="14" height="100" fill="#fff" stroke="#333"/>
+  <text x="327" y="178" text-anchor="middle" font-size="10">FC</text>
+  <text x="327" y="190" text-anchor="middle" font-size="10">4096</text>
+  <!-- softmax -->
+  <rect x="350" y="80" width="14" height="60" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="357" y="178" text-anchor="middle" font-size="10">softmax</text>
+  <text x="357" y="190" text-anchor="middle" font-size="10">1000</text>
+  <!-- box around it -->
+  <text x="270" y="40" text-anchor="middle" font-size="13" fill="#666">8-layer CNN (5 conv + 3 FC), ReLU, dropout, dual GPU</text>
+  <!-- ImageNet result -->
+  <g transform="translate(390 80)">
+    <rect x="0" y="0" width="120" height="80" fill="#fff" stroke="#3d8b5e"/>
+    <text x="60" y="22" text-anchor="middle" font-size="11" fill="#3d8b5e">ImageNet 2012</text>
+    <text x="60" y="42" text-anchor="middle" font-size="11">top-5 err 15.3%</text>
+    <text x="60" y="60" text-anchor="middle" font-size="11" fill="#666">2nd place 26.2%</text>
+  </g>
+</svg>
+<figcaption>8-layer GPU CNN crushes ImageNet 2012 — the public inflection point for deep learning.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>The public “deep learning moment.” A large GPU-trained CNN dramatically beats the field on ImageNet. This changes computer vision, then all of ML.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2012-dropout">
+<header class="entry">
+<p class="period">2012</p>
+<h2>Dropout</h2>
+<p class="people"><strong>Key people:</strong> Hinton, Srivastava, Krizhevsky, Sutskever, Salakhutdinov</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220">
+  <!-- left: full network -->
+  <g font-size="11">
+    <g fill="#fff" stroke="#333">
+      <circle cx="60" cy="60" r="10"/><circle cx="60" cy="100" r="10"/><circle cx="60" cy="140" r="10"/><circle cx="60" cy="180" r="10"/>
+      <circle cx="130" cy="80" r="10"/><circle cx="130" cy="120" r="10"/><circle cx="130" cy="160" r="10"/>
+      <circle cx="200" cy="100" r="10"/><circle cx="200" cy="140" r="10"/>
+    </g>
+  </g>
+  <g stroke="#999" stroke-width="0.4">
+    <!-- many connections -->
+    <line x1="70" y1="60" x2="120" y2="80"/><line x1="70" y1="60" x2="120" y2="120"/><line x1="70" y1="60" x2="120" y2="160"/>
+    <line x1="70" y1="100" x2="120" y2="80"/><line x1="70" y1="100" x2="120" y2="120"/><line x1="70" y1="100" x2="120" y2="160"/>
+    <line x1="70" y1="140" x2="120" y2="80"/><line x1="70" y1="140" x2="120" y2="120"/><line x1="70" y1="140" x2="120" y2="160"/>
+    <line x1="70" y1="180" x2="120" y2="80"/><line x1="70" y1="180" x2="120" y2="120"/><line x1="70" y1="180" x2="120" y2="160"/>
+    <line x1="140" y1="80" x2="190" y2="100"/><line x1="140" y1="80" x2="190" y2="140"/>
+    <line x1="140" y1="120" x2="190" y2="100"/><line x1="140" y1="120" x2="190" y2="140"/>
+    <line x1="140" y1="160" x2="190" y2="100"/><line x1="140" y1="160" x2="190" y2="140"/>
+  </g>
+  <text x="130" y="205" text-anchor="middle" font-size="12">full network</text>
+  <!-- right: dropout thinned -->
+  <g transform="translate(280,0)">
+    <!-- present (filled) and dropped (greyed) -->
+    <g>
+      <circle cx="60" cy="60" r="10" fill="#fff" stroke="#333"/>
+      <circle cx="60" cy="100" r="10" fill="#ddd" stroke="#aaa" stroke-dasharray="2,2"/>
+      <circle cx="60" cy="140" r="10" fill="#fff" stroke="#333"/>
+      <circle cx="60" cy="180" r="10" fill="#ddd" stroke="#aaa" stroke-dasharray="2,2"/>
+      <circle cx="130" cy="80" r="10" fill="#ddd" stroke="#aaa" stroke-dasharray="2,2"/>
+      <circle cx="130" cy="120" r="10" fill="#fff" stroke="#333"/>
+      <circle cx="130" cy="160" r="10" fill="#fff" stroke="#333"/>
+      <circle cx="200" cy="100" r="10" fill="#fff" stroke="#333"/>
+      <circle cx="200" cy="140" r="10" fill="#fff" stroke="#333"/>
+    </g>
+    <g stroke="#999" stroke-width="0.4">
+      <line x1="70" y1="60" x2="120" y2="120"/><line x1="70" y1="60" x2="120" y2="160"/>
+      <line x1="70" y1="140" x2="120" y2="120"/><line x1="70" y1="140" x2="120" y2="160"/>
+      <line x1="140" y1="120" x2="190" y2="100"/><line x1="140" y1="120" x2="190" y2="140"/>
+      <line x1="140" y1="160" x2="190" y2="100"/><line x1="140" y1="160" x2="190" y2="140"/>
+    </g>
+    <text x="130" y="205" text-anchor="middle" font-size="12">thinned (this minibatch)</text>
+  </g>
+  <text x="260" y="32" text-anchor="middle" font-size="13" fill="#666">
+    each unit kept with p=0.5 during training; ensemble averaged at test
+  </text>
+</svg>
+<figcaption>Each minibatch trains a randomly thinned subnetwork; at test, the average is approximated by scaling — a simple, powerful regularizer.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Dropout becomes a simple, widely used regularization method. The original paper emphasizes randomly omitting feature detectors during training to reduce overfitting.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2013-word2vec">
+<header class="entry">
+<p class="period">2013</p>
+<h2>Word2vec and modern embeddings</h2>
+<p class="people"><strong>Key people:</strong> Mikolov et al.</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="w2h" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- skip-gram -->
+  <text x="100" y="35" text-anchor="middle" font-size="13" font-weight="600">skip-gram</text>
+  <rect x="60" y="100" width="80" height="32" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="100" y="121" text-anchor="middle" font-size="12">king</text>
+  <line x1="140" y1="116" x2="170" y2="80" stroke="#333" stroke-width="1.2" marker-end="url(#w2h)"/>
+  <line x1="140" y1="116" x2="170" y2="115" stroke="#333" stroke-width="1.2" marker-end="url(#w2h)"/>
+  <line x1="140" y1="116" x2="170" y2="150" stroke="#333" stroke-width="1.2" marker-end="url(#w2h)"/>
+  <line x1="140" y1="116" x2="170" y2="185" stroke="#333" stroke-width="1.2" marker-end="url(#w2h)"/>
+  <g font-size="11">
+    <text x="195" y="80"  fill="#666">the</text>
+    <text x="195" y="115" fill="#666">crowns</text>
+    <text x="195" y="150" fill="#666">his</text>
+    <text x="195" y="185" fill="#666">son</text>
+  </g>
+  <!-- analogies -->
+  <text x="370" y="35" text-anchor="middle" font-size="13" font-weight="600">vector arithmetic</text>
+  <g font-size="13" font-family="ui-monospace, monospace">
+    <text x="290" y="80">king</text>
+    <text x="330" y="80">−</text>
+    <text x="345" y="80">man</text>
+    <text x="385" y="80">+</text>
+    <text x="400" y="80">woman</text>
+    <text x="460" y="80">≈</text>
+    <text x="478" y="80">queen</text>
+    <text x="290" y="110">Paris</text>
+    <text x="335" y="110">−</text>
+    <text x="350" y="110">France</text>
+    <text x="402" y="110">+</text>
+    <text x="416" y="110">Italy</text>
+    <text x="460" y="110">≈</text>
+    <text x="478" y="110">Rome</text>
+  </g>
+  <!-- mini 2D embedding -->
+  <line x1="290" y1="220" x2="490" y2="220" stroke="#666"/>
+  <line x1="290" y1="140" x2="290" y2="220" stroke="#666"/>
+  <g font-size="10" fill="#c44778">
+    <circle cx="320" cy="200" r="3"/><text x="327" y="203">man</text>
+    <circle cx="340" cy="170" r="3"/><text x="347" y="173">king</text>
+    <circle cx="430" cy="195" r="3"/><text x="437" y="198">woman</text>
+    <circle cx="450" cy="165" r="3"/><text x="457" y="168">queen</text>
+  </g>
+  <text x="260" y="225" text-anchor="middle" font-size="11" fill="#666">predict context words from focus word; geometry encodes semantics</text>
+</svg>
+<figcaption>Predict context from focus word; the resulting vector geometry encodes semantic relationships (king − man + woman ≈ queen).</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Distributed word vectors become practical at web scale. This helps shift NLP from sparse symbolic features to dense learned representations.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2014-seq2seq">
+<header class="entry">
+<p class="period">2014</p>
+<h2>Sequence-to-sequence learning</h2>
+<p class="people"><strong>Key people:</strong> Sutskever, Vinyals, Le</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="sh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- encoder LSTMs -->
+  <g font-size="11">
+    <rect x="30" y="80" width="40" height="50" fill="#eef3fb" stroke="#2c6fbb"/>
+    <rect x="80" y="80" width="40" height="50" fill="#eef3fb" stroke="#2c6fbb"/>
+    <rect x="130" y="80" width="40" height="50" fill="#eef3fb" stroke="#2c6fbb"/>
+    <rect x="180" y="80" width="40" height="50" fill="#eef3fb" stroke="#2c6fbb"/>
+    <text x="50"  y="148" text-anchor="middle">il</text>
+    <text x="100" y="148" text-anchor="middle">fait</text>
+    <text x="150" y="148" text-anchor="middle">beau</text>
+    <text x="200" y="148" text-anchor="middle">.</text>
+  </g>
+  <!-- decoder LSTMs -->
+  <g font-size="11">
+    <rect x="260" y="80" width="40" height="50" fill="#fbe9f0" stroke="#c44778"/>
+    <rect x="310" y="80" width="40" height="50" fill="#fbe9f0" stroke="#c44778"/>
+    <rect x="360" y="80" width="40" height="50" fill="#fbe9f0" stroke="#c44778"/>
+    <rect x="410" y="80" width="40" height="50" fill="#fbe9f0" stroke="#c44778"/>
+    <rect x="460" y="80" width="30" height="50" fill="#fbe9f0" stroke="#c44778"/>
+    <text x="280" y="68" text-anchor="middle">it's</text>
+    <text x="330" y="68" text-anchor="middle">nice</text>
+    <text x="380" y="68" text-anchor="middle">out</text>
+    <text x="430" y="68" text-anchor="middle">.</text>
+    <text x="475" y="68" text-anchor="middle">⟨/s⟩</text>
+  </g>
+  <!-- arrows between cells -->
+  <g stroke="#333" stroke-width="1.2">
+    <line x1="70" y1="105" x2="80" y2="105" marker-end="url(#sh)"/>
+    <line x1="120" y1="105" x2="130" y2="105" marker-end="url(#sh)"/>
+    <line x1="170" y1="105" x2="180" y2="105" marker-end="url(#sh)"/>
+    <line x1="220" y1="105" x2="260" y2="105" marker-end="url(#sh)" stroke="#7a4f9c" stroke-width="2"/>
+    <line x1="300" y1="105" x2="310" y2="105" marker-end="url(#sh)"/>
+    <line x1="350" y1="105" x2="360" y2="105" marker-end="url(#sh)"/>
+    <line x1="400" y1="105" x2="410" y2="105" marker-end="url(#sh)"/>
+    <line x1="450" y1="105" x2="460" y2="105" marker-end="url(#sh)"/>
+  </g>
+  <text x="240" y="135" text-anchor="middle" font-size="11" fill="#7a4f9c">"thought vector"</text>
+  <text x="120" y="40" text-anchor="middle" font-size="12" fill="#666">encoder (read source)</text>
+  <text x="370" y="40" text-anchor="middle" font-size="12" fill="#666">decoder (write target)</text>
+  <text x="260" y="205" text-anchor="middle" font-size="11" fill="#666">
+    one variable-length sequence → fixed hidden state → another variable-length sequence
+  </text>
+</svg>
+<figcaption>Encoder reads the source into a fixed thought vector; decoder generates the target conditioned on it.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Encoder-decoder neural networks show that a neural model can map one variable-length sequence to another. This becomes central for translation, summarization, and language tasks.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2015-attention">
+<header class="entry">
+<p class="period">2014–2015</p>
+<h2>Neural attention for translation</h2>
+<p class="people"><strong>Key people:</strong> Bahdanau, Cho, Bengio</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260">
+  <!-- source tokens (left) and target token (right) -->
+  <g font-size="12">
+    <rect x="40" y="60" width="80" height="26" fill="#eef3fb" stroke="#2c6fbb"/><text x="80" y="78" text-anchor="middle">the</text>
+    <rect x="40" y="92" width="80" height="26" fill="#eef3fb" stroke="#2c6fbb"/><text x="80" y="110" text-anchor="middle">cat</text>
+    <rect x="40" y="124" width="80" height="26" fill="#eef3fb" stroke="#2c6fbb"/><text x="80" y="142" text-anchor="middle">sat</text>
+    <rect x="40" y="156" width="80" height="26" fill="#eef3fb" stroke="#2c6fbb"/><text x="80" y="174" text-anchor="middle">on</text>
+    <rect x="40" y="188" width="80" height="26" fill="#eef3fb" stroke="#2c6fbb"/><text x="80" y="206" text-anchor="middle">mat</text>
+  </g>
+  <!-- attention weights -->
+  <g font-size="11">
+    <rect x="160" y="60" width="80" height="26" fill="#fff" stroke="#666"/><text x="200" y="78" text-anchor="middle">0.08</text>
+    <rect x="160" y="92" width="80" height="26" fill="#fff" stroke="#666"/><text x="200" y="110" text-anchor="middle">0.58</text>
+    <rect x="160" y="124" width="80" height="26" fill="#fff" stroke="#666"/><text x="200" y="142" text-anchor="middle">0.07</text>
+    <rect x="160" y="156" width="80" height="26" fill="#fff" stroke="#666"/><text x="200" y="174" text-anchor="middle">0.05</text>
+    <rect x="160" y="188" width="80" height="26" fill="#fff" stroke="#666"/><text x="200" y="206" text-anchor="middle">0.22</text>
+  </g>
+  <text x="200" y="42" text-anchor="middle" font-size="12" fill="#666">αᵢ = softmax(score(qₜ, kᵢ))</text>
+  <!-- context vector -->
+  <rect x="280" y="124" width="80" height="26" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="320" y="142" text-anchor="middle" font-size="11">∑αᵢvᵢ</text>
+  <text x="320" y="115" text-anchor="middle" font-size="11" fill="#666">context</text>
+  <!-- target -->
+  <rect x="400" y="124" width="80" height="26" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="440" y="142" text-anchor="middle" font-size="11">decoder yₜ</text>
+  <text x="440" y="115" text-anchor="middle" font-size="11" fill="#666">"chat"</text>
+  <!-- arrows -->
+  <line x1="120" y1="75" x2="160" y2="75" stroke="#999"/>
+  <line x1="120" y1="105" x2="160" y2="105" stroke="#999"/>
+  <line x1="120" y1="137" x2="160" y2="137" stroke="#999"/>
+  <line x1="120" y1="169" x2="160" y2="169" stroke="#999"/>
+  <line x1="120" y1="201" x2="160" y2="201" stroke="#999"/>
+  <line x1="240" y1="137" x2="280" y2="137" stroke="#333" stroke-width="1.5"/>
+  <line x1="360" y1="137" x2="400" y2="137" stroke="#333" stroke-width="1.5"/>
+  <text x="260" y="240" text-anchor="middle" font-size="11" fill="#666">
+    decoder dynamically focuses on the most relevant source token at each step
+  </text>
+</svg>
+<figcaption>Per-step attention weights select a context vector from the source — the decoder is no longer bottlenecked by a single thought vector.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Attention lets a model dynamically focus on relevant parts of the input sequence instead of compressing everything into one vector. This is a direct ancestor of transformers.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2014-gan">
+<header class="entry">
+<p class="period">2014</p>
+<h2>GANs</h2>
+<p class="people"><strong>Key people:</strong> Goodfellow, Pouget-Abadie, Mirza, Xu, Warde-Farley, Ozair, Courville, Bengio</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="gh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- z -->
+  <rect x="20" y="100" width="50" height="32" fill="#fff" stroke="#333"/>
+  <text x="45" y="120" text-anchor="middle" font-size="12">z ~ 𝒩</text>
+  <!-- Generator -->
+  <rect x="100" y="80" width="100" height="80" rx="6" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="150" y="125" text-anchor="middle" font-size="13">G(z)</text>
+  <!-- fake -->
+  <rect x="230" y="85" width="60" height="70" fill="#fff" stroke="#666"/>
+  <text x="260" y="125" text-anchor="middle" font-size="11">fake</text>
+  <!-- real -->
+  <rect x="230" y="20" width="60" height="50" fill="#fff" stroke="#666"/>
+  <text x="260" y="50" text-anchor="middle" font-size="11">real</text>
+  <!-- Discriminator -->
+  <rect x="320" y="60" width="100" height="120" rx="6" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="370" y="125" text-anchor="middle" font-size="13">D(x)</text>
+  <!-- verdict -->
+  <rect x="445" y="100" width="55" height="40" fill="#fff" stroke="#333"/>
+  <text x="473" y="118" text-anchor="middle" font-size="12">real?</text>
+  <text x="473" y="132" text-anchor="middle" font-size="12">fake?</text>
+  <!-- arrows -->
+  <line x1="70" y1="116" x2="100" y2="116" stroke="#333" stroke-width="1.5" marker-end="url(#gh)"/>
+  <line x1="200" y1="120" x2="230" y2="120" stroke="#333" stroke-width="1.5" marker-end="url(#gh)"/>
+  <line x1="290" y1="120" x2="320" y2="120" stroke="#333" stroke-width="1.5" marker-end="url(#gh)"/>
+  <line x1="290" y1="45" x2="320" y2="80" stroke="#333" stroke-width="1.5" marker-end="url(#gh)"/>
+  <line x1="420" y1="120" x2="445" y2="120" stroke="#333" stroke-width="1.5" marker-end="url(#gh)"/>
+  <!-- adversarial loop -->
+  <path d="M150,160 Q150,210 370,210 Q420,210 420,180" stroke="#7a4f9c" stroke-width="2" fill="none" stroke-dasharray="6,4" marker-end="url(#gh)"/>
+  <text x="270" y="225" text-anchor="middle" font-size="12" fill="#7a4f9c">G learns to fool D; D learns to catch G</text>
+  <text x="260" y="32" text-anchor="middle" font-size="12" fill="#666">two-player minimax: min_G max_D</text>
+</svg>
+<figcaption>Two networks in a minimax game: generator tries to fool a discriminator that tries to catch it.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Generative modeling becomes adversarial: one network generates, another discriminates. This reshapes image generation and representation learning.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2015-batchnorm">
+<header class="entry">
+<p class="period">2015</p>
+<h2>Batch normalization</h2>
+<p class="people"><strong>Key people:</strong> Ioffe, Szegedy</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <!-- axes -->
+  <line x1="60" y1="40" x2="60" y2="200" stroke="#333"/>
+  <line x1="60" y1="200" x2="480" y2="200" stroke="#333"/>
+  <text x="55" y="40" font-size="11" text-anchor="end">loss</text>
+  <text x="475" y="218" font-size="11" text-anchor="end">training steps</text>
+  <!-- without BN curve -->
+  <path d="M60,80 Q120,90 180,100 Q260,110 320,120 Q400,130 460,135" stroke="#c44778" stroke-width="2.5" fill="none"/>
+  <text x="270" y="105" font-size="12" fill="#c44778">no BN: slow + sensitive to init</text>
+  <!-- with BN curve -->
+  <path d="M60,80 Q90,140 130,165 Q180,185 240,192 Q300,196 460,198" stroke="#3d8b5e" stroke-width="2.5" fill="none"/>
+  <text x="280" y="180" font-size="12" fill="#3d8b5e">with BN: faster + higher lr ok</text>
+  <!-- formula -->
+  <text x="270" y="30" text-anchor="middle" font-size="12" fill="#666">
+    x̂ = (x − μ_batch) / √(σ²_batch + ε)   then   y = γx̂ + β
+  </text>
+</svg>
+<figcaption>Normalize each batch to zero mean / unit variance, then re-scale with learned γ, β — faster convergence, higher learning rates.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Stabilizes and accelerates training of deep nets, allowing higher learning rates and reducing sensitivity to initialization.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2015-resnet">
+<header class="entry">
+<p class="period">2015</p>
+<h2>ResNet</h2>
+<p class="people"><strong>Key people:</strong> He, Zhang, Ren, Sun</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="rsh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- left: residual block -->
+  <text x="130" y="35" text-anchor="middle" font-size="13" font-weight="600">residual block</text>
+  <!-- input -->
+  <line x1="60" y1="120" x2="80" y2="120" stroke="#333" stroke-width="1.5" marker-end="url(#rsh)"/>
+  <text x="60" y="110" font-size="12">x</text>
+  <!-- conv -->
+  <rect x="80" y="100" width="50" height="40" fill="#fff" stroke="#333"/>
+  <text x="105" y="124" text-anchor="middle" font-size="12">conv</text>
+  <line x1="130" y1="120" x2="150" y2="120" stroke="#333" stroke-width="1.5" marker-end="url(#rsh)"/>
+  <rect x="150" y="100" width="50" height="40" fill="#fff" stroke="#333"/>
+  <text x="175" y="124" text-anchor="middle" font-size="12">conv</text>
+  <line x1="200" y1="120" x2="220" y2="120" stroke="#333" stroke-width="1.5" marker-end="url(#rsh)"/>
+  <!-- summing junction -->
+  <circle cx="235" cy="120" r="14" fill="#fff" stroke="#c44778"/>
+  <text x="235" y="125" text-anchor="middle" font-size="14" fill="#c44778">+</text>
+  <line x1="249" y1="120" x2="270" y2="120" stroke="#333" stroke-width="1.5" marker-end="url(#rsh)"/>
+  <text x="275" y="124" font-size="12">F(x)+x</text>
+  <!-- skip path -->
+  <path d="M70,120 Q70,70 235,70 Q235,90 235,106" stroke="#2c6fbb" stroke-width="2" fill="none" marker-end="url(#rsh)"/>
+  <text x="145" y="60" font-size="11" fill="#2c6fbb">identity skip</text>
+  <!-- right: depth comparison -->
+  <text x="420" y="35" text-anchor="middle" font-size="13" font-weight="600">test error vs depth</text>
+  <line x1="345" y1="200" x2="480" y2="200" stroke="#333"/>
+  <line x1="345" y1="80"  x2="345" y2="200" stroke="#333"/>
+  <text x="340" y="80" font-size="11" text-anchor="end">err</text>
+  <text x="480" y="215" font-size="11" text-anchor="end">depth</text>
+  <!-- plain net curve goes up -->
+  <path d="M355,140 Q395,135 425,170 Q450,190 475,195" stroke="#d77a2c" stroke-width="2" fill="none"/>
+  <text x="475" y="200" font-size="10" fill="#d77a2c" text-anchor="end">plain</text>
+  <!-- resnet curve goes down -->
+  <path d="M355,140 Q395,130 430,118 Q455,108 475,100" stroke="#3d8b5e" stroke-width="2" fill="none"/>
+  <text x="475" y="95" font-size="10" fill="#3d8b5e" text-anchor="end">ResNet</text>
+  <text x="260" y="225" text-anchor="middle" font-size="11" fill="#666">
+    skip connections make 100+ layer networks trainable
+  </text>
+</svg>
+<figcaption>y = x + F(x): each block learns a residual update around an identity skip — 100-layer nets stop degrading.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Residual connections make extremely deep networks trainable. The idea is simple but profound: learn residual updates around identity paths.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2015-nature-review">
+<header class="entry">
+<p class="period">2015</p>
+<h2>Deep learning becomes the dominant paradigm</h2>
+<p class="people"><strong>Key people:</strong> LeCun, Bengio, Hinton</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <!-- speech / vision / nlp / drug / genomics icons in a row, connected to "DL" -->
+  <circle cx="260" cy="115" r="50" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="260" y="120" text-anchor="middle" font-size="14" font-weight="600">deep learning</text>
+  <!-- spokes -->
+  <g font-size="11">
+    <line x1="260" y1="65" x2="260" y2="35" stroke="#666"/>
+    <rect x="220" y="15" width="80" height="20" fill="#fff" stroke="#666"/>
+    <text x="260" y="29" text-anchor="middle">speech recognition</text>
+
+    <line x1="305" y1="85" x2="370" y2="55" stroke="#666"/>
+    <rect x="370" y="40" width="100" height="20" fill="#fff" stroke="#666"/>
+    <text x="420" y="54" text-anchor="middle">computer vision</text>
+
+    <line x1="310" y1="115" x2="395" y2="115" stroke="#666"/>
+    <rect x="395" y="105" width="100" height="20" fill="#fff" stroke="#666"/>
+    <text x="445" y="119" text-anchor="middle">object recognition</text>
+
+    <line x1="305" y1="145" x2="370" y2="175" stroke="#666"/>
+    <rect x="370" y="170" width="100" height="20" fill="#fff" stroke="#666"/>
+    <text x="420" y="184" text-anchor="middle">drug discovery</text>
+
+    <line x1="260" y1="165" x2="260" y2="200" stroke="#666"/>
+    <rect x="220" y="200" width="80" height="20" fill="#fff" stroke="#666"/>
+    <text x="260" y="214" text-anchor="middle">genomics</text>
+
+    <line x1="215" y1="145" x2="150" y2="175" stroke="#666"/>
+    <rect x="50" y="170" width="100" height="20" fill="#fff" stroke="#666"/>
+    <text x="100" y="184" text-anchor="middle">NLP</text>
+
+    <line x1="210" y1="115" x2="125" y2="115" stroke="#666"/>
+    <rect x="25" y="105" width="100" height="20" fill="#fff" stroke="#666"/>
+    <text x="75" y="119" text-anchor="middle">RL / games</text>
+
+    <line x1="215" y1="85" x2="150" y2="55" stroke="#666"/>
+    <rect x="50" y="40" width="100" height="20" fill="#fff" stroke="#666"/>
+    <text x="100" y="54" text-anchor="middle">handwriting</text>
+  </g>
+</svg>
+<figcaption>By 2015, one paradigm reaches across speech, vision, NLP, RL, drug discovery, and genomics.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>The Nature review by LeCun, Bengio, and Hinton defines deep learning as multilayer representation learning trained by backprop and summarizes its breakthroughs in speech, vision, object recognition, drug discovery, and genomics.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2016-alphago">
+<header class="entry">
+<p class="period">2016</p>
+<h2>AlphaGo</h2>
+<p class="people"><strong>Key people:</strong> DeepMind</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <!-- Go board on the left -->
+  <g transform="translate(40,30)" stroke="#666" fill="none">
+    <rect x="0" y="0" width="120" height="120" fill="#f7e9c2" stroke="#333"/>
+    <g stroke="#666" stroke-width="0.5">
+      <line x1="0" y1="15" x2="120" y2="15"/><line x1="0" y1="30" x2="120" y2="30"/>
+      <line x1="0" y1="45" x2="120" y2="45"/><line x1="0" y1="60" x2="120" y2="60"/>
+      <line x1="0" y1="75" x2="120" y2="75"/><line x1="0" y1="90" x2="120" y2="90"/>
+      <line x1="0" y1="105" x2="120" y2="105"/>
+      <line x1="15" y1="0" x2="15" y2="120"/><line x1="30" y1="0" x2="30" y2="120"/>
+      <line x1="45" y1="0" x2="45" y2="120"/><line x1="60" y1="0" x2="60" y2="120"/>
+      <line x1="75" y1="0" x2="75" y2="120"/><line x1="90" y1="0" x2="90" y2="120"/>
+      <line x1="105" y1="0" x2="105" y2="120"/>
+    </g>
+    <circle cx="45" cy="45" r="6" fill="#333"/>
+    <circle cx="60" cy="75" r="6" fill="#fff" stroke="#333"/>
+    <circle cx="75" cy="60" r="6" fill="#333"/>
+    <circle cx="90" cy="45" r="6" fill="#fff" stroke="#333"/>
+    <circle cx="30" cy="60" r="6" fill="#333"/>
+  </g>
+  <text x="100" y="170" text-anchor="middle" font-size="12">19×19 Go position</text>
+  <!-- MCTS tree on the right -->
+  <g transform="translate(220, 30)">
+    <circle cx="120" cy="20" r="10" fill="#fbe9f0" stroke="#c44778"/>
+    <line x1="120" y1="30" x2="60" y2="65" stroke="#666"/>
+    <line x1="120" y1="30" x2="120" y2="65" stroke="#666"/>
+    <line x1="120" y1="30" x2="180" y2="65" stroke="#666"/>
+    <line x1="120" y1="30" x2="220" y2="65" stroke="#666"/>
+    <circle cx="60" cy="75" r="8" fill="#fff" stroke="#333"/>
+    <circle cx="120" cy="75" r="8" fill="#fff" stroke="#333"/>
+    <circle cx="180" cy="75" r="8" fill="#fff" stroke="#333"/>
+    <circle cx="220" cy="75" r="8" fill="#fff" stroke="#333"/>
+    <line x1="60" y1="83" x2="40" y2="115" stroke="#666"/>
+    <line x1="60" y1="83" x2="80" y2="115" stroke="#666"/>
+    <line x1="180" y1="83" x2="160" y2="115" stroke="#666"/>
+    <line x1="180" y1="83" x2="200" y2="115" stroke="#666"/>
+    <line x1="180" y1="83" x2="220" y2="115" stroke="#666"/>
+    <circle cx="40" cy="125" r="6" fill="#fff" stroke="#333"/>
+    <circle cx="80" cy="125" r="6" fill="#fff" stroke="#333"/>
+    <circle cx="160" cy="125" r="6" fill="#fff" stroke="#333"/>
+    <circle cx="200" cy="125" r="6" fill="#fff" stroke="#333"/>
+    <circle cx="220" cy="125" r="6" fill="#fff" stroke="#333"/>
+  </g>
+  <text x="330" y="200" text-anchor="middle" font-size="12">Monte-Carlo Tree Search</text>
+  <text x="330" y="215" text-anchor="middle" font-size="11" fill="#666">policy net + value net + self-play</text>
+  <text x="100" y="200" text-anchor="middle" font-size="11" fill="#666">deep CNN reads board</text>
+</svg>
+<figcaption>A deep CNN reads the board; MCTS expands a search tree biased by the network's policy and value estimates; self-play improves both.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Deep neural networks combine with reinforcement learning, self-play, and search. This is important for your “after deep learning” framing: the breakthrough was not just a neural net, but a neural net embedded in a search/planning system.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2017-transformer">
+<header class="entry">
+<p class="period">2017</p>
+<h2>Transformer: “Attention Is All You Need”</h2>
+<p class="people"><strong>Key people:</strong> Vaswani et al.</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="th" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <text x="260" y="25" text-anchor="middle" font-size="13" font-weight="600">scaled dot-product attention</text>
+  <!-- Q -->
+  <rect x="50" y="80" width="60" height="32" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="80" y="100" text-anchor="middle" font-size="13">Q</text>
+  <!-- K -->
+  <rect x="50" y="125" width="60" height="32" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="80" y="145" text-anchor="middle" font-size="13">K</text>
+  <!-- V -->
+  <rect x="50" y="170" width="60" height="32" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="80" y="190" text-anchor="middle" font-size="13">V</text>
+  <!-- QK^T -->
+  <rect x="160" y="100" width="80" height="40" fill="#fff" stroke="#333"/>
+  <text x="200" y="125" text-anchor="middle" font-size="13">QKᵀ / √d</text>
+  <!-- softmax -->
+  <rect x="270" y="100" width="80" height="40" fill="#fff" stroke="#333"/>
+  <text x="310" y="125" text-anchor="middle" font-size="13">softmax</text>
+  <!-- output -->
+  <rect x="380" y="125" width="100" height="40" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="430" y="150" text-anchor="middle" font-size="13">attn(Q,K,V)·V</text>
+  <!-- arrows -->
+  <line x1="110" y1="96" x2="160" y2="115" stroke="#333" stroke-width="1.2" marker-end="url(#th)"/>
+  <line x1="110" y1="141" x2="160" y2="125" stroke="#333" stroke-width="1.2" marker-end="url(#th)"/>
+  <line x1="240" y1="120" x2="270" y2="120" stroke="#333" stroke-width="1.2" marker-end="url(#th)"/>
+  <line x1="350" y1="120" x2="380" y2="135" stroke="#333" stroke-width="1.2" marker-end="url(#th)"/>
+  <line x1="110" y1="186" x2="380" y2="155" stroke="#333" stroke-width="1.2" marker-end="url(#th)"/>
+  <text x="260" y="220" text-anchor="middle" font-size="12" fill="#666">
+    self-attention replaces recurrence — all positions in parallel
+  </text>
+</svg>
+<figcaption>Scaled dot-product attention: each position is a weighted sum over all positions, all in parallel.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Self-attention replaces recurrence and convolution for many sequence tasks. Transformers are more parallelizable and become the backbone of modern language, vision-language, and multimodal foundation models.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2018-bert">
+<header class="entry">
+<p class="period">2018</p>
+<h2>BERT and self-supervised pretraining</h2>
+<p class="people"><strong>Key people:</strong> Devlin, Chang, Lee, Toutanova</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220">
+  <!-- masked tokens -->
+  <g font-size="12">
+    <rect x="20" y="100" width="50" height="30" fill="#eef3fb" stroke="#2c6fbb"/><text x="45" y="120" text-anchor="middle">the</text>
+    <rect x="80" y="100" width="50" height="30" fill="#eef3fb" stroke="#2c6fbb"/><text x="105" y="120" text-anchor="middle">cat</text>
+    <rect x="140" y="100" width="50" height="30" fill="#fff5a8" stroke="#d77a2c"/><text x="165" y="120" text-anchor="middle">[MASK]</text>
+    <rect x="200" y="100" width="50" height="30" fill="#eef3fb" stroke="#2c6fbb"/><text x="225" y="120" text-anchor="middle">on</text>
+    <rect x="260" y="100" width="50" height="30" fill="#fff5a8" stroke="#d77a2c"/><text x="285" y="120" text-anchor="middle">[MASK]</text>
+    <rect x="320" y="100" width="50" height="30" fill="#eef3fb" stroke="#2c6fbb"/><text x="345" y="120" text-anchor="middle">mat</text>
+  </g>
+  <!-- transformer block -->
+  <rect x="20" y="55" width="350" height="32" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="195" y="76" text-anchor="middle" font-size="12">bidirectional Transformer (12 layers)</text>
+  <!-- predictions -->
+  <g font-size="11" fill="#3d8b5e">
+    <text x="165" y="40" text-anchor="middle">sat?</text>
+    <text x="285" y="40" text-anchor="middle">the?</text>
+  </g>
+  <!-- arrows -->
+  <line x1="165" y1="100" x2="165" y2="87" stroke="#333"/>
+  <line x1="285" y1="100" x2="285" y2="87" stroke="#333"/>
+  <line x1="165" y1="55" x2="165" y2="48" stroke="#3d8b5e"/>
+  <line x1="285" y1="55" x2="285" y2="48" stroke="#3d8b5e"/>
+  <!-- downstream tasks list -->
+  <g font-size="11">
+    <text x="400" y="80" fill="#666">→ classification</text>
+    <text x="400" y="100" fill="#666">→ QA</text>
+    <text x="400" y="120" fill="#666">→ NER</text>
+    <text x="400" y="140" fill="#666">→ sentence pairs</text>
+  </g>
+  <text x="195" y="170" text-anchor="middle" font-size="11" fill="#666">pretrain by predicting masked tokens from full context</text>
+  <text x="195" y="195" text-anchor="middle" font-size="11" fill="#666">fine-tune the same backbone for any downstream task</text>
+</svg>
+<figcaption>Mask 15% of tokens, predict them from full bidirectional context — one pretrained backbone, many downstream tasks.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Bidirectional transformer pretraining turns NLP into “pretrain once, fine-tune broadly.” This is a major step toward foundation models.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2018-neural-ode">
+<header class="entry">
+<p class="period">2018</p>
+<h2>Neural ODEs reconnect deep learning to adjoints</h2>
+<p class="people"><strong>Key people:</strong> Chen, Rubanova, Bettencourt, Duvenaud</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <!-- left: discrete (ResNet) -->
+  <text x="120" y="35" text-anchor="middle" font-size="13" font-weight="600">ResNet (discrete)</text>
+  <g font-size="11">
+    <rect x="80" y="60"  width="80" height="22" fill="#fff" stroke="#333"/><text x="120" y="76" text-anchor="middle">layer 1: h+F(h)</text>
+    <rect x="80" y="90"  width="80" height="22" fill="#fff" stroke="#333"/><text x="120" y="106" text-anchor="middle">layer 2: h+F(h)</text>
+    <rect x="80" y="120" width="80" height="22" fill="#fff" stroke="#333"/><text x="120" y="136" text-anchor="middle">…</text>
+    <rect x="80" y="150" width="80" height="22" fill="#fff" stroke="#333"/><text x="120" y="166" text-anchor="middle">layer L</text>
+  </g>
+  <!-- continuous (Neural ODE) -->
+  <text x="380" y="35" text-anchor="middle" font-size="13" font-weight="600">Neural ODE (continuous)</text>
+  <line x1="300" y1="170" x2="460" y2="170" stroke="#333"/>
+  <line x1="300" y1="170" x2="300" y2="60" stroke="#333"/>
+  <text x="295" y="60" font-size="11" text-anchor="end">h(t)</text>
+  <text x="460" y="185" font-size="11" text-anchor="end">t</text>
+  <path d="M300,160 Q330,140 370,110 Q400,90 460,75" stroke="#c44778" stroke-width="2" fill="none"/>
+  <text x="370" y="200" text-anchor="middle" font-size="11" fill="#c44778">dh/dt = f(h, t, θ)</text>
+  <!-- bridging arrow -->
+  <path d="M165,115 Q230,115 295,115" stroke="#7a4f9c" stroke-width="2" stroke-dasharray="4,3" fill="none"/>
+  <polygon points="293,112 300,115 293,118" fill="#7a4f9c"/>
+  <text x="230" y="108" text-anchor="middle" font-size="11" fill="#7a4f9c">layer → time</text>
+  <text x="260" y="222" text-anchor="middle" font-size="11" fill="#666">
+    adjoint method computes gradients backward through time — closing the loop to 1960s control theory
+  </text>
+</svg>
+<figcaption>Treat depth as a continuous variable; the adjoint method (1960s) gives memory-efficient gradients — a literal return to the timeline's starting point.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Continuous-depth models treat neural networks as differential equations and use adjoint methods for memory-efficient training. This is a beautiful loop back to your 1970s starting point.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2020-scaling-laws">
+<header class="entry">
+<p class="period">2020</p>
+<h2>Scaling laws</h2>
+<p class="people"><strong>Key people:</strong> Kaplan et al.; OpenAI</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260">
+  <!-- log-log axes -->
+  <line x1="70" y1="50" x2="70" y2="220" stroke="#333"/>
+  <line x1="70" y1="220" x2="490" y2="220" stroke="#333"/>
+  <text x="65" y="55" font-size="11" text-anchor="end">loss</text>
+  <text x="60" y="60" font-size="9" text-anchor="end" fill="#666">(log)</text>
+  <text x="485" y="240" font-size="11" text-anchor="end">compute / data / params (log)</text>
+  <!-- ticks -->
+  <g font-size="9" fill="#666">
+    <text x="70" y="235" text-anchor="middle">10⁰</text>
+    <text x="175" y="235" text-anchor="middle">10²</text>
+    <text x="280" y="235" text-anchor="middle">10⁴</text>
+    <text x="385" y="235" text-anchor="middle">10⁶</text>
+    <text x="490" y="235" text-anchor="middle">10⁸</text>
+  </g>
+  <!-- compute curve -->
+  <line x1="80" y1="70" x2="485" y2="195" stroke="#2c6fbb" stroke-width="2.5"/>
+  <text x="455" y="180" font-size="11" fill="#2c6fbb">compute</text>
+  <!-- params curve -->
+  <line x1="80" y1="80" x2="485" y2="180" stroke="#c44778" stroke-width="2.5"/>
+  <text x="455" y="165" font-size="11" fill="#c44778">params</text>
+  <!-- data curve -->
+  <line x1="80" y1="90" x2="485" y2="170" stroke="#3d8b5e" stroke-width="2.5"/>
+  <text x="455" y="150" font-size="11" fill="#3d8b5e">data</text>
+  <!-- annotation -->
+  <text x="270" y="40" text-anchor="middle" font-size="13" fill="#666">
+    loss(x) = (x_c / x)^α — straight lines on a log-log plot
+  </text>
+  <text x="275" y="250" text-anchor="middle" font-size="11" fill="#666">
+    7+ orders of magnitude of smooth scaling
+  </text>
+</svg>
+<figcaption>loss = (x_c / x)^α — straight lines on a log-log plot over 7+ orders of magnitude. Strategy shifts from architecture to scale.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Model loss follows predictable power laws with compute, data, and parameter count over many orders of magnitude. This changes the field’s strategy from “invent the clever architecture” to “scale the right recipe.”</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2020-gpt3">
+<header class="entry">
+<p class="period">2020</p>
+<h2>GPT-3</h2>
+<p class="people"><strong>Key people:</strong> Brown et al.; OpenAI</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <!-- log-scale model sizes as bars -->
+  <text x="260" y="30" text-anchor="middle" font-size="13" fill="#666">parameter count, 2018 → 2020</text>
+  <g font-size="11">
+    <rect x="60"  y="180" width="30" height="20" fill="#2c6fbb"/>
+    <text x="75" y="220" text-anchor="middle">BERT-L</text>
+    <text x="75" y="235" text-anchor="middle" fill="#666">340M</text>
+    <rect x="120" y="170" width="30" height="30" fill="#2c6fbb"/>
+    <text x="135" y="220" text-anchor="middle">GPT-2</text>
+    <text x="135" y="235" text-anchor="middle" fill="#666">1.5B</text>
+    <rect x="180" y="150" width="30" height="50" fill="#2c6fbb"/>
+    <text x="195" y="220" text-anchor="middle">T5-XL</text>
+    <text x="195" y="235" text-anchor="middle" fill="#666">11B</text>
+    <rect x="240" y="60" width="30" height="140" fill="#c44778"/>
+    <text x="255" y="220" text-anchor="middle" font-weight="600">GPT-3</text>
+    <text x="255" y="235" text-anchor="middle" fill="#666">175B</text>
+  </g>
+  <!-- few-shot demonstration -->
+  <g transform="translate(300, 50)">
+    <rect x="0" y="0" width="200" height="160" fill="#fff" stroke="#666"/>
+    <text x="100" y="20" text-anchor="middle" font-size="12" font-weight="600">in-context learning</text>
+    <text x="10" y="45" font-family="ui-monospace, monospace" font-size="11">sea otter →</text>
+    <text x="10" y="62" font-family="ui-monospace, monospace" font-size="11">  loutre de mer</text>
+    <text x="10" y="82" font-family="ui-monospace, monospace" font-size="11">cheese →</text>
+    <text x="10" y="99" font-family="ui-monospace, monospace" font-size="11">  fromage</text>
+    <text x="10" y="119" font-family="ui-monospace, monospace" font-size="11">peppermint →</text>
+    <text x="10" y="136" font-family="ui-monospace, monospace" font-size="11" fill="#c44778">  menthe poivrée</text>
+    <text x="100" y="155" text-anchor="middle" font-size="10" fill="#666">no gradient update</text>
+  </g>
+</svg>
+<figcaption>At 175B parameters, a language model performs new tasks from a few examples in-context — no gradient update.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>175B-parameter language model demonstrates few-shot and in-context learning at a scale that makes language models feel like general-purpose systems.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2020-diffusion">
+<header class="entry">
+<p class="period">2020</p>
+<h2>Diffusion models mature</h2>
+<p class="people"><strong>Key people:</strong> Ho, Jain, Abbeel; Song et al.; others</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="dfh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- forward (noising) -->
+  <g>
+    <rect x="20" y="80" width="60" height="60" fill="#fff" stroke="#333"/>
+    <text x="50" y="115" text-anchor="middle" font-size="11">x₀ (clean)</text>
+    <rect x="115" y="80" width="60" height="60" fill="#eee" stroke="#333"/>
+    <text x="145" y="115" text-anchor="middle" font-size="11">x₁₀₀</text>
+    <rect x="210" y="80" width="60" height="60" fill="#bbb" stroke="#333"/>
+    <text x="240" y="115" text-anchor="middle" font-size="11">x₅₀₀</text>
+    <rect x="305" y="80" width="60" height="60" fill="#777" stroke="#333"/>
+    <text x="335" y="115" text-anchor="middle" font-size="11" fill="#fff">x₈₀₀</text>
+    <rect x="400" y="80" width="60" height="60" fill="#333" stroke="#333"/>
+    <text x="430" y="115" text-anchor="middle" font-size="11" fill="#fff">x_T (noise)</text>
+  </g>
+  <line x1="80" y1="65" x2="460" y2="65" stroke="#c44778" stroke-width="2" marker-end="url(#dfh)"/>
+  <text x="270" y="55" text-anchor="middle" font-size="12" fill="#c44778">forward: add Gaussian noise</text>
+  <line x1="460" y1="170" x2="80" y2="170" stroke="#3d8b5e" stroke-width="2" marker-end="url(#dfh)"/>
+  <text x="270" y="190" text-anchor="middle" font-size="12" fill="#3d8b5e">reverse: learn the denoising step εθ(xₜ, t)</text>
+  <text x="260" y="220" text-anchor="middle" font-size="11" fill="#666">
+    parameterise the noise predictor as a U-Net; sample by iterating backward from noise
+  </text>
+</svg>
+<figcaption>Train a model to undo Gaussian noise; sample by iterating the learned reverse process from pure noise.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Denoising diffusion becomes a dominant generative paradigm, eventually powering high-quality image, audio, video, and protein/structure generation. DDPM is a key anchor.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2021-clip">
+<header class="entry">
+<p class="period">2021</p>
+<h2>CLIP and text-image representation learning</h2>
+<p class="people"><strong>Key people:</strong> OpenAI</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260">
+  <defs>
+    <marker id="clh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- image encoder -->
+  <rect x="30" y="40" width="50" height="50" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="55" y="105" text-anchor="middle" font-size="11">image</text>
+  <rect x="100" y="55" width="60" height="22" fill="#fff" stroke="#333"/>
+  <text x="130" y="71" text-anchor="middle" font-size="11">img enc</text>
+  <!-- text encoder -->
+  <rect x="30" y="160" width="100" height="40" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="80" y="185" text-anchor="middle" font-size="11">"a photo of a dog"</text>
+  <rect x="150" y="170" width="60" height="22" fill="#fff" stroke="#333"/>
+  <text x="180" y="186" text-anchor="middle" font-size="11">txt enc</text>
+  <!-- arrows to embeddings -->
+  <line x1="80" y1="65" x2="100" y2="65" stroke="#333" marker-end="url(#clh)"/>
+  <line x1="130" y1="180" x2="150" y2="180" stroke="#333" marker-end="url(#clh)"/>
+  <!-- contrastive matrix -->
+  <g transform="translate(250, 30)">
+    <text x="80" y="0" text-anchor="middle" font-size="12" font-weight="600">contrastive matrix</text>
+    <g stroke="#333" stroke-width="0.5">
+      <rect x="20" y="20"  width="120" height="120" fill="#fff"/>
+      <line x1="20" y1="50" x2="140" y2="50"/>
+      <line x1="20" y1="80" x2="140" y2="80"/>
+      <line x1="20" y1="110" x2="140" y2="110"/>
+      <line x1="50" y1="20" x2="50" y2="140"/>
+      <line x1="80" y1="20" x2="80" y2="140"/>
+      <line x1="110" y1="20" x2="110" y2="140"/>
+    </g>
+    <!-- diagonal positives -->
+    <rect x="20" y="20" width="30" height="30" fill="#3d8b5e" opacity="0.8"/>
+    <rect x="50" y="50" width="30" height="30" fill="#3d8b5e" opacity="0.8"/>
+    <rect x="80" y="80" width="30" height="30" fill="#3d8b5e" opacity="0.8"/>
+    <rect x="110" y="110" width="30" height="30" fill="#3d8b5e" opacity="0.8"/>
+    <text x="5" y="40" font-size="9" text-anchor="end">img₁</text>
+    <text x="5" y="70" font-size="9" text-anchor="end">img₂</text>
+    <text x="5" y="100" font-size="9" text-anchor="end">img₃</text>
+    <text x="5" y="130" font-size="9" text-anchor="end">img₄</text>
+    <text x="35" y="160" font-size="9" text-anchor="middle">txt₁</text>
+    <text x="65" y="160" font-size="9" text-anchor="middle">txt₂</text>
+    <text x="95" y="160" font-size="9" text-anchor="middle">txt₃</text>
+    <text x="125" y="160" font-size="9" text-anchor="middle">txt₄</text>
+    <text x="80" y="195" text-anchor="middle" font-size="10" fill="#666">diagonals = positives</text>
+  </g>
+  <text x="260" y="240" text-anchor="middle" font-size="11" fill="#666">
+    text and images map to a shared embedding space — zero-shot classification by similarity
+  </text>
+</svg>
+<figcaption>Image and text encoders share an embedding space; positives (matched pairs) on the diagonal, negatives off — zero-shot classification by similarity.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Natural-language supervision trains visual models that transfer zero-shot to many tasks. This is a key bridge from supervised vision to multimodal foundation models.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2021-alphafold2">
+<header class="entry">
+<p class="period">2021</p>
+<h2>AlphaFold2</h2>
+<p class="people"><strong>Key people:</strong> DeepMind</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="afh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- AA sequence -->
+  <g font-size="11" font-family="ui-monospace, monospace">
+    <rect x="20" y="60" width="180" height="22" fill="#eef3fb" stroke="#2c6fbb"/>
+    <text x="110" y="76" text-anchor="middle">MKTVRQERLKSIVRILER...</text>
+    <text x="110" y="100" text-anchor="middle" font-size="11" fill="#666">amino-acid sequence</text>
+  </g>
+  <!-- MSA / templates -->
+  <rect x="20" y="130" width="180" height="22" fill="#fff" stroke="#333"/>
+  <text x="110" y="146" text-anchor="middle" font-size="11">MSA (homologous proteins)</text>
+  <!-- evoformer -->
+  <rect x="230" y="80" width="100" height="80" rx="6" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="280" y="115" text-anchor="middle" font-size="12">Evoformer</text>
+  <text x="280" y="135" text-anchor="middle" font-size="11" fill="#666">attention over</text>
+  <text x="280" y="148" text-anchor="middle" font-size="11" fill="#666">pair + MSA</text>
+  <!-- structure module -->
+  <rect x="360" y="80" width="100" height="40" rx="6" fill="#fff" stroke="#333"/>
+  <text x="410" y="105" text-anchor="middle" font-size="12">structure module</text>
+  <!-- 3D output -->
+  <g transform="translate(380, 145)">
+    <path d="M0,30 Q15,5 30,25 Q45,45 60,15 Q75,40 80,20" stroke="#3d8b5e" stroke-width="2.5" fill="none"/>
+    <text x="40" y="60" text-anchor="middle" font-size="11" fill="#3d8b5e">3D structure</text>
+  </g>
+  <!-- arrows -->
+  <line x1="200" y1="72" x2="230" y2="100" stroke="#333" stroke-width="1.2" marker-end="url(#afh)"/>
+  <line x1="200" y1="142" x2="230" y2="135" stroke="#333" stroke-width="1.2" marker-end="url(#afh)"/>
+  <line x1="330" y1="100" x2="360" y2="100" stroke="#333" stroke-width="1.2" marker-end="url(#afh)"/>
+  <line x1="410" y1="120" x2="410" y2="145" stroke="#333" stroke-width="1.2" marker-end="url(#afh)"/>
+  <text x="260" y="225" text-anchor="middle" font-size="11" fill="#666">
+    near-experimental accuracy for almost all known proteins — 2024 Nobel in Chemistry
+  </text>
+</svg>
+<figcaption>Sequence + MSA → Evoformer (attention over residue pairs) → structure module → 3D atomic coordinates at near-experimental accuracy.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Deep learning solves a long-standing protein-structure prediction problem at near-experimental accuracy for many proteins. The 2024 Nobel Chemistry announcement credits AlphaFold2 with predicting the structure of almost all known proteins.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2022-rlhf">
+<header class="entry">
+<p class="period">2022</p>
+<h2>InstructGPT / RLHF</h2>
+<p class="people"><strong>Key people:</strong> OpenAI; Christiano-style RLHF lineage</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260">
+  <defs>
+    <marker id="rh1" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- step 1: SFT -->
+  <rect x="20" y="40" width="140" height="50" rx="6" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="90" y="60" text-anchor="middle" font-size="12" font-weight="600">1. SFT</text>
+  <text x="90" y="78" text-anchor="middle" font-size="10" fill="#666">supervised demos</text>
+  <!-- step 2: RM -->
+  <rect x="190" y="40" width="140" height="50" rx="6" fill="#fff5a8" stroke="#d77a2c"/>
+  <text x="260" y="60" text-anchor="middle" font-size="12" font-weight="600">2. reward model</text>
+  <text x="260" y="78" text-anchor="middle" font-size="10" fill="#666">rank A vs B</text>
+  <!-- step 3: PPO -->
+  <rect x="360" y="40" width="140" height="50" rx="6" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="430" y="60" text-anchor="middle" font-size="12" font-weight="600">3. RL (PPO)</text>
+  <text x="430" y="78" text-anchor="middle" font-size="10" fill="#666">policy ← reward</text>
+  <!-- arrows -->
+  <line x1="160" y1="65" x2="190" y2="65" stroke="#333" marker-end="url(#rh1)"/>
+  <line x1="330" y1="65" x2="360" y2="65" stroke="#333" marker-end="url(#rh1)"/>
+  <!-- example below -->
+  <g transform="translate(60, 130)">
+    <rect x="0" y="0" width="180" height="80" fill="#fff" stroke="#666"/>
+    <text x="90" y="20" text-anchor="middle" font-size="11" font-weight="600">human preferences</text>
+    <text x="10" y="40" font-size="10">"Explain RL"</text>
+    <text x="10" y="55" font-size="10" fill="#3d8b5e">A: clear, step-by-step  ✓</text>
+    <text x="10" y="70" font-size="10" fill="#c44778">B: jargon-heavy            ✗</text>
+  </g>
+  <g transform="translate(280, 130)">
+    <rect x="0" y="0" width="200" height="80" fill="#fff" stroke="#666"/>
+    <text x="100" y="20" text-anchor="middle" font-size="11" font-weight="600">policy reward shift</text>
+    <line x1="20" y1="60" x2="180" y2="60" stroke="#666"/>
+    <path d="M20,55 Q50,55 80,45 Q120,35 180,30" stroke="#3d8b5e" stroke-width="2" fill="none"/>
+    <text x="100" y="78" text-anchor="middle" font-size="10" fill="#666">helpfulness ↑ over training</text>
+  </g>
+  <text x="260" y="235" text-anchor="middle" font-size="11" fill="#666">
+    from "predict internet text" to "behave as an assistant"
+  </text>
+</svg>
+<figcaption>Three-stage pipeline: supervised demos → reward model from human preferences → RL (PPO) optimizes policy against the reward model.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Language models become more useful by training on human preferences and instructions. This is the shift from “predict internet text” to “behave as an assistant.”</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2022-chatgpt">
+<header class="entry">
+<p class="period">Nov. 2022</p>
+<h2>ChatGPT</h2>
+<p class="people"><strong>Key people:</strong> OpenAI</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260">
+  <!-- chat bubbles -->
+  <g font-size="11">
+    <rect x="40" y="40" width="280" height="34" rx="14" fill="#eef3fb" stroke="#2c6fbb"/>
+    <text x="55" y="60" font-size="11">"Hey, can you explain self-attention?"</text>
+
+    <rect x="200" y="84" width="280" height="50" rx="14" fill="#fbe9f0" stroke="#c44778"/>
+    <text x="215" y="103" font-size="11">"Sure — self-attention lets each token in a"</text>
+    <text x="215" y="118" font-size="11">"sequence weight all the others. Want a math"</text>
+    <text x="215" y="133" font-size="11">"derivation, or an intuition pass?"</text>
+
+    <rect x="40" y="144" width="280" height="34" rx="14" fill="#eef3fb" stroke="#2c6fbb"/>
+    <text x="55" y="164" font-size="11">"Intuition. And what's a Q vs a K?"</text>
+
+    <rect x="200" y="188" width="280" height="34" rx="14" fill="#fbe9f0" stroke="#c44778"/>
+    <text x="215" y="208" font-size="11">"A Q is the 'what am I looking for?'; a K is..."</text>
+  </g>
+  <text x="260" y="245" text-anchor="middle" font-size="11" fill="#666">
+    multi-turn dialogue, follow-up questions, contextual refinement
+  </text>
+</svg>
+<figcaption>Conversational interface, multi-turn dialogue, follow-up questions — the LLM moment reaches the mainstream.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Conversational LLMs become mainstream. OpenAI introduced ChatGPT as a model that interacts conversationally, handles follow-ups, admits mistakes, and challenges incorrect premises.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2023-gpt4">
+<header class="entry">
+<p class="period">2023</p>
+<h2>GPT-4 and frontier multimodal LLMs</h2>
+<p class="people"><strong>Key people:</strong> OpenAI and broader frontier labs</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="g4h" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- image input -->
+  <rect x="20" y="40" width="80" height="60" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="60" y="115" text-anchor="middle" font-size="11">image</text>
+  <!-- text input -->
+  <rect x="20" y="140" width="80" height="40" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="60" y="165" text-anchor="middle" font-size="11">text prompt</text>
+  <!-- transformer -->
+  <rect x="160" y="60" width="180" height="120" rx="8" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="250" y="115" text-anchor="middle" font-size="14" font-weight="600">GPT-4</text>
+  <text x="250" y="135" text-anchor="middle" font-size="11" fill="#666">multimodal transformer</text>
+  <!-- text output -->
+  <rect x="400" y="100" width="100" height="40" fill="#fff" stroke="#333"/>
+  <text x="450" y="125" text-anchor="middle" font-size="11">text response</text>
+  <!-- arrows -->
+  <line x1="100" y1="70" x2="160" y2="100" stroke="#333" stroke-width="1.2" marker-end="url(#g4h)"/>
+  <line x1="100" y1="160" x2="160" y2="140" stroke="#333" stroke-width="1.2" marker-end="url(#g4h)"/>
+  <line x1="340" y1="120" x2="400" y2="120" stroke="#333" stroke-width="1.2" marker-end="url(#g4h)"/>
+  <!-- benchmark list -->
+  <g font-size="10" fill="#666">
+    <text x="260" y="195" text-anchor="middle">strong on bar exam, USMLE, AP exams</text>
+    <text x="260" y="210" text-anchor="middle">image + text input → text output</text>
+  </g>
+</svg>
+<figcaption>Multimodal input (image + text), text output — a single model with strong performance on professional/academic benchmarks.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>GPT-4 is presented as a large multimodal model accepting image and text inputs and producing text outputs, with strong performance on professional and academic benchmarks.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2024-gpt4o">
+<header class="entry">
+<p class="period">2024</p>
+<h2>Real-time multimodal models</h2>
+<p class="people"><strong>Key people:</strong> OpenAI GPT-4o and others</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <!-- central core -->
+  <circle cx="260" cy="120" r="55" fill="#fbe9f0" stroke="#c44778" stroke-width="2"/>
+  <text x="260" y="120" text-anchor="middle" font-size="14" font-weight="600">unified</text>
+  <text x="260" y="138" text-anchor="middle" font-size="14" font-weight="600">model</text>
+  <!-- modalities on left (in) -->
+  <g font-size="11">
+    <circle cx="80" cy="55" r="22" fill="#eef3fb" stroke="#2c6fbb"/>
+    <text x="80" y="59" text-anchor="middle">text</text>
+    <circle cx="80" cy="120" r="22" fill="#eef3fb" stroke="#2c6fbb"/>
+    <text x="80" y="124" text-anchor="middle">image</text>
+    <circle cx="80" cy="185" r="22" fill="#eef3fb" stroke="#2c6fbb"/>
+    <text x="80" y="189" text-anchor="middle">audio</text>
+    <line x1="102" y1="63" x2="208" y2="105" stroke="#666"/>
+    <line x1="102" y1="120" x2="205" y2="120" stroke="#666"/>
+    <line x1="102" y1="178" x2="208" y2="138" stroke="#666"/>
+  </g>
+  <!-- modalities on right (out) -->
+  <g font-size="11">
+    <circle cx="440" cy="55" r="22" fill="#fff" stroke="#3d8b5e"/>
+    <text x="440" y="59" text-anchor="middle">text</text>
+    <circle cx="440" cy="120" r="22" fill="#fff" stroke="#3d8b5e"/>
+    <text x="440" y="124" text-anchor="middle">image</text>
+    <circle cx="440" cy="185" r="22" fill="#fff" stroke="#3d8b5e"/>
+    <text x="440" y="189" text-anchor="middle">audio</text>
+    <line x1="312" y1="105" x2="418" y2="63" stroke="#666"/>
+    <line x1="315" y1="120" x2="418" y2="120" stroke="#666"/>
+    <line x1="312" y1="138" x2="418" y2="178" stroke="#666"/>
+  </g>
+  <text x="260" y="218" text-anchor="middle" font-size="11" fill="#666">
+    native end-to-end multimodality (vs separate model per modality)
+  </text>
+</svg>
+<figcaption>One model, three modalities in and out — no separate ASR/TTS/vision stacks bolted on.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>Multimodality becomes more native: text, vision, and audio move toward one interactive interface rather than separate models. OpenAI described GPT-4o as faster and cheaper than GPT-4 Turbo, with stronger vision and audio capabilities.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2024-o1-reasoning">
+<header class="entry">
+<p class="period">2024</p>
+<h2>Reasoning models and inference-time compute</h2>
+<p class="people"><strong>Key people:</strong> OpenAI o1; later many others</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260">
+  <!-- thought tree -->
+  <g font-size="11">
+    <!-- prompt -->
+    <rect x="200" y="20" width="120" height="26" fill="#eef3fb" stroke="#2c6fbb"/>
+    <text x="260" y="38" text-anchor="middle">"prove X"</text>
+    <!-- candidate steps -->
+    <g>
+      <line x1="220" y1="46" x2="80"  y2="80" stroke="#666"/>
+      <line x1="260" y1="46" x2="260" y2="80" stroke="#666"/>
+      <line x1="300" y1="46" x2="440" y2="80" stroke="#666"/>
+    </g>
+    <rect x="20" y="80" width="120" height="26" fill="#fff" stroke="#666"/>
+    <text x="80" y="98" text-anchor="middle">try lemma A</text>
+    <rect x="200" y="80" width="120" height="26" fill="#fff" stroke="#666"/>
+    <text x="260" y="98" text-anchor="middle">try induction</text>
+    <rect x="380" y="80" width="120" height="26" fill="#fff" stroke="#666"/>
+    <text x="440" y="98" text-anchor="middle">try direct</text>
+    <!-- second-level expansions -->
+    <line x1="260" y1="106" x2="180" y2="140" stroke="#666"/>
+    <line x1="260" y1="106" x2="340" y2="140" stroke="#666"/>
+    <rect x="120" y="140" width="120" height="26" fill="#fff" stroke="#666"/>
+    <text x="180" y="158" text-anchor="middle">base case ✓</text>
+    <rect x="280" y="140" width="120" height="26" fill="#fbe9f0" stroke="#c44778"/>
+    <text x="340" y="158" text-anchor="middle" fill="#c44778" font-weight="600">inductive step ✓</text>
+    <!-- final answer -->
+    <line x1="180" y1="166" x2="240" y2="200" stroke="#3d8b5e" stroke-width="2"/>
+    <line x1="340" y1="166" x2="280" y2="200" stroke="#3d8b5e" stroke-width="2"/>
+    <rect x="200" y="200" width="120" height="30" fill="#fff" stroke="#3d8b5e" stroke-width="2"/>
+    <text x="260" y="220" text-anchor="middle" fill="#3d8b5e" font-weight="600">final answer</text>
+  </g>
+  <text x="260" y="252" text-anchor="middle" font-size="11" fill="#666">
+    inference-time compute: spend more time thinking before responding
+  </text>
+</svg>
+<figcaption>Search over chains of reasoning at inference time — a new axis of compute distinct from training scale.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>A new emphasis appears: models that spend more computation at inference time to reason through hard problems. OpenAI described o1 as designed to “spend more time thinking” before responding.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2024-nobel">
+<header class="entry">
+<p class="period">2024</p>
+<h2>Nobel recognition</h2>
+<p class="people"><strong>Key people:</strong> Hopfield, Hinton; Baker, Hassabis, Jumper</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220">
+  <!-- physics -->
+  <g transform="translate(60, 40)">
+    <circle cx="80" cy="60" r="50" fill="#fbe9f0" stroke="#c44778" stroke-width="3"/>
+    <text x="80" y="55" text-anchor="middle" font-size="13" font-weight="600">2024 Physics</text>
+    <text x="80" y="73" text-anchor="middle" font-size="11">Hopfield + Hinton</text>
+    <text x="80" y="135" text-anchor="middle" font-size="11" fill="#666">"foundational work</text>
+    <text x="80" y="150" text-anchor="middle" font-size="11" fill="#666">enabling ML with</text>
+    <text x="80" y="165" text-anchor="middle" font-size="11" fill="#666">artificial neural nets"</text>
+  </g>
+  <!-- chemistry -->
+  <g transform="translate(280, 40)">
+    <circle cx="80" cy="60" r="50" fill="#eef3fb" stroke="#2c6fbb" stroke-width="3"/>
+    <text x="80" y="55" text-anchor="middle" font-size="13" font-weight="600">2024 Chemistry</text>
+    <text x="80" y="73" text-anchor="middle" font-size="11">Baker · Hassabis · Jumper</text>
+    <text x="80" y="135" text-anchor="middle" font-size="11" fill="#666">protein design +</text>
+    <text x="80" y="150" text-anchor="middle" font-size="11" fill="#666">structure prediction</text>
+    <text x="80" y="165" text-anchor="middle" font-size="11" fill="#666">(AlphaFold)</text>
+  </g>
+  <text x="260" y="210" text-anchor="middle" font-size="12" fill="#666">
+    deep learning recognised by two simultaneous Nobel prizes — basic physics and scientific discovery
+  </text>
+</svg>
+<figcaption>Two simultaneous Nobel prizes — physics (Hopfield, Hinton) and chemistry (Baker, Hassabis, Jumper) — anchor deep learning in fundamental science.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>The Nobel Prizes make the point that deep learning is no longer only an engineering technique: it has become a foundation for physics-inspired computation and scientific discovery.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2025-deepseek">
+<header class="entry">
+<p class="period">2025</p>
+<h2>Open reasoning models and RL-for-reasoning wave</h2>
+<p class="people"><strong>Key people:</strong> DeepSeek-R1, OpenAI o-series, others</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="dsh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- base model -->
+  <rect x="20" y="80" width="100" height="60" rx="6" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="70" y="105" text-anchor="middle" font-size="12">base model</text>
+  <text x="70" y="125" text-anchor="middle" font-size="10" fill="#666">supervised</text>
+  <!-- RL with verifiable rewards -->
+  <rect x="170" y="50" width="160" height="120" rx="6" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="250" y="80" text-anchor="middle" font-size="12" font-weight="600">RL with verifiable</text>
+  <text x="250" y="98" text-anchor="middle" font-size="12" font-weight="600">rewards</text>
+  <text x="250" y="120" text-anchor="middle" font-size="10" fill="#666">math: ans correct?</text>
+  <text x="250" y="135" text-anchor="middle" font-size="10" fill="#666">code: tests pass?</text>
+  <text x="250" y="150" text-anchor="middle" font-size="10" fill="#666">→ reward signal</text>
+  <!-- reasoning model -->
+  <rect x="380" y="80" width="120" height="60" rx="6" fill="#fff5a8" stroke="#d77a2c"/>
+  <text x="440" y="105" text-anchor="middle" font-size="12">reasoning model</text>
+  <text x="440" y="125" text-anchor="middle" font-size="10" fill="#666">R1, distilled</text>
+  <!-- arrows -->
+  <line x1="120" y1="110" x2="170" y2="110" stroke="#333" marker-end="url(#dsh)"/>
+  <line x1="330" y1="110" x2="380" y2="110" stroke="#333" marker-end="url(#dsh)"/>
+  <text x="260" y="200" text-anchor="middle" font-size="11" fill="#666">
+    open-weights reasoning model trained primarily via RL — distillation makes it portable
+  </text>
+</svg>
+<figcaption>RL with verifiable rewards (math correctness, test-passing code) trains reasoning behaviour into base models; distillation makes it portable.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>DeepSeek-R1 made reinforcement learning for reasoning and open/distilled reasoning models a major public milestone. This pushed the frontier conversation toward reasoning, inference-time computation, and reproducible/open systems.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
+<section class="milestone" id="2025-agentic">
+<header class="entry">
+<p class="period">2025–2026</p>
+<h2>Unified multimodal/agentic systems</h2>
+<p class="people"><strong>Key people:</strong> OpenAI, Anthropic, Google DeepMind, Meta, xAI, DeepSeek, open-source ecosystem</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260">
+  <!-- model in center -->
+  <circle cx="260" cy="130" r="55" fill="#fbe9f0" stroke="#c44778" stroke-width="2"/>
+  <text x="260" y="128" text-anchor="middle" font-size="13" font-weight="600">unified</text>
+  <text x="260" y="146" text-anchor="middle" font-size="13" font-weight="600">model</text>
+  <!-- tools around -->
+  <g font-size="11">
+    <rect x="60" y="30" width="100" height="30" fill="#eef3fb" stroke="#2c6fbb"/>
+    <text x="110" y="50" text-anchor="middle">code execution</text>
+    <line x1="160" y1="50" x2="218" y2="100" stroke="#666"/>
+
+    <rect x="360" y="30" width="100" height="30" fill="#eef3fb" stroke="#2c6fbb"/>
+    <text x="410" y="50" text-anchor="middle">web search</text>
+    <line x1="360" y1="50" x2="305" y2="100" stroke="#666"/>
+
+    <rect x="20" y="120" width="100" height="30" fill="#eef3fb" stroke="#2c6fbb"/>
+    <text x="70" y="140" text-anchor="middle">memory store</text>
+    <line x1="120" y1="135" x2="205" y2="130" stroke="#666"/>
+
+    <rect x="400" y="120" width="100" height="30" fill="#eef3fb" stroke="#2c6fbb"/>
+    <text x="450" y="140" text-anchor="middle">retrieval</text>
+    <line x1="400" y1="135" x2="315" y2="130" stroke="#666"/>
+
+    <rect x="60" y="200" width="100" height="30" fill="#eef3fb" stroke="#2c6fbb"/>
+    <text x="110" y="220" text-anchor="middle">browser</text>
+    <line x1="160" y1="210" x2="220" y2="165" stroke="#666"/>
+
+    <rect x="360" y="200" width="100" height="30" fill="#eef3fb" stroke="#2c6fbb"/>
+    <text x="410" y="220" text-anchor="middle">file I/O</text>
+    <line x1="360" y1="210" x2="305" y2="165" stroke="#666"/>
+  </g>
+  <text x="260" y="250" text-anchor="middle" font-size="11" fill="#666">
+    "a model" → "a system": multimodal I/O, tool use, memory, agents
+  </text>
+</svg>
+<figcaption>The model sits in the centre of a system of tools — code execution, retrieval, memory, browser, file I/O — orchestrated as agents.</figcaption>
+</figure>
+<p class="why-inline"><strong>Why it matters</strong>The frontier shifts from “a model” to “a system”: multimodal input/output, tool use, code execution, retrieval, memory, agents, and workflow automation. OpenAI’s GPT-5 and GPT-5.5 releases frame this as a move toward unified systems that can do useful work across modalities and tasks.</p>
+<a class="back-to-top" href="#top">↑ back to top</a>
+</section>
 </div>
 </body>
 </html>
