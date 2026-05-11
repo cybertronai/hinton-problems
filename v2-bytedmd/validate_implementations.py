@@ -8,6 +8,10 @@ Checks:
   total_cost_comparison:
     - backprop-8-3-8 full-batch forward + gradients
     - encoder-8-3-8 full-batch positive phase + deterministic CD gradients
+  bars_cost_comparison:
+    - bars-rbm CD-1: h_prob_pos, v_recon, h_prob_neg (deterministic CD parts)
+    - bars Helmholtz: h_prob (recognition), t_prob (recognition),
+                      h_prob_gen (generation), v_prob_gen (generation)
 
 Run from the repo root:
     python3 v2-bytedmd/validate_implementations.py
@@ -23,15 +27,20 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "encoder-backprop-8-3-8"))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "encoder-3-parity"))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "encoder-8-3-8"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "bars"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "bars-rbm"))
 
 import encoder_backprop_8_3_8 as bp_ref
 import encoder_3_parity as rbm_ref
 import encoder_8_3_8 as rbm8_ref
+import bars as bars_ref
+import bars_rbm as bars_rbm_ref
 
 # --- import pure-Python kernels under test ---
 sys.path.insert(0, str(Path(__file__).parent))
 import encoder_pair_comparison as impl
 import total_cost_comparison as total_impl
+import bars_cost_comparison as bars_impl
 
 ATOL = 1e-6
 
@@ -243,6 +252,111 @@ def validate_total_cost_rbm(seed=123, k=2):
 
 
 # ---------------------------------------------------------------------------
+# Validate bars_cost_comparison.py kernels
+# ---------------------------------------------------------------------------
+
+def validate_bars_rbm(seed=42):
+    print("=== bars_cost_comparison bars-rbm CD-1 kernels ===")
+    rng = random.Random(seed)
+    W_py   = [[rng.gauss(0, 0.1) for _ in range(8)] for _ in range(16)]
+    b_v_py = [rng.gauss(0, 0.05) for _ in range(16)]
+    b_h_py = [rng.gauss(0, 0.05) for _ in range(8)]
+
+    rbm = bars_rbm_ref.BarsRBM(n_visible=16, n_hidden=8, seed=0)
+    rbm.W   = np.array(W_py,   dtype=np.float32)
+    rbm.b_v = np.array(b_v_py, dtype=np.float32)
+    rbm.b_h = np.array(b_h_py, dtype=np.float32)
+
+    # one vertical bar in column 0
+    v_py = [0.0] * 16
+    for r in range(4):
+        v_py[r * 4] = 1.0
+    v_np = np.array([v_py], dtype=np.float32)
+
+    ok = True
+    # positive phase: h_prob
+    h_pos_py = bars_impl._rbm_h_given_v(W_py, b_h_py, v_py)
+    h_pos_np = rbm.hidden_prob(v_np)
+    ok &= arrays_close(h_pos_py, h_pos_np[0], "h_prob_pos")
+
+    # negative phase: v_recon given fixed h_sample
+    h_fixed = [1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0]
+    v_recon_py = bars_impl._rbm_v_given_h(W_py, b_v_py, h_fixed)
+    v_recon_np = rbm.visible_prob(np.array([h_fixed], dtype=np.float32))
+    ok &= arrays_close(v_recon_py, v_recon_np[0], "v_recon")
+
+    # h_prob_neg from fixed v_recon
+    h_neg_py = bars_impl._rbm_h_given_v(W_py, b_h_py, v_recon_py)
+    h_neg_np = rbm.hidden_prob(np.array([v_recon_py], dtype=np.float32))
+    ok &= arrays_close(h_neg_py, h_neg_np[0], "h_prob_neg")
+
+    return ok
+
+
+def validate_bars_helmholtz(seed=42):
+    print("=== bars_cost_comparison bars Helmholtz kernels ===")
+    rng = random.Random(seed)
+    W_th_py  = [[rng.gauss(0, 0.1) for _ in range(8)]]
+    W_hv_py  = [[rng.gauss(0, 0.1) for _ in range(16)] for _ in range(8)]
+    b_top_py = [rng.gauss(0, 0.05)]
+    b_h_py   = [rng.gauss(0, 0.05) for _ in range(8)]
+    b_v_py   = [rng.gauss(0, 0.05) for _ in range(16)]
+    R_vh_py  = [[rng.gauss(0, 0.1) for _ in range(8)] for _ in range(16)]
+    R_ht_py  = [[rng.gauss(0, 0.1)] for _ in range(8)]
+    c_h_py   = [rng.gauss(0, 0.05) for _ in range(8)]
+    c_top_py = [rng.gauss(0, 0.05)]
+
+    model = bars_ref.HelmholtzMachine(n_visible=16, n_hidden=8, n_top=1)
+    model.W_th  = np.array(W_th_py,  dtype=np.float32)
+    model.W_hv  = np.array(W_hv_py,  dtype=np.float32)
+    model.b_top = np.array(b_top_py, dtype=np.float32)
+    model.b_h   = np.array(b_h_py,   dtype=np.float32)
+    model.b_v   = np.array(b_v_py,   dtype=np.float32)
+    model.R_vh  = np.array(R_vh_py,  dtype=np.float32)
+    model.R_ht  = np.array(R_ht_py,  dtype=np.float32)
+    model.c_h   = np.array(c_h_py,   dtype=np.float32)
+    model.c_top = np.array(c_top_py, dtype=np.float32)
+
+    v_py = [0.0] * 16
+    for r in range(4):
+        v_py[r * 4] = 1.0
+    v_np = np.array([v_py], dtype=np.float32)
+
+    ok = True
+    # recognition h_prob = sigmoid(v @ R_vh + c_h)
+    h_prob_py, _, _, _ = bars_impl._helmholtz_recognize(
+        R_vh_py, c_h_py, R_ht_py, c_top_py, v_py)
+    h_prob_np = bars_ref.sigmoid(v_np @ model.R_vh + model.c_h)
+    ok &= arrays_close(h_prob_py, h_prob_np[0], "h_prob (recognition)")
+
+    # recognition t_prob from fixed h
+    h_fixed = [1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0]
+    h_fixed_np = np.array([h_fixed], dtype=np.float32)
+    t_prob_py = [bars_impl._sigmoid(
+        sum(h_fixed[j] * R_ht_py[j][0] for j in range(8)) + c_top_py[0])]
+    t_prob_np = bars_ref.sigmoid(h_fixed_np @ model.R_ht + model.c_top)
+    ok &= arrays_close(t_prob_py, t_prob_np[0], "t_prob (recognition)")
+
+    # generation h_prob given t=1
+    h_gen_py = [bars_impl._sigmoid(1.0 * W_th_py[0][j] + b_h_py[j])
+                for j in range(8)]
+    t_np = np.array([[1.0]], dtype=np.float32)
+    h_gen_np = bars_ref.sigmoid(t_np @ model.W_th + model.b_h)
+    ok &= arrays_close(h_gen_py, h_gen_np[0], "h_prob_gen (t=1)")
+
+    # generation v_prob given fixed h
+    h_gen_fixed = [0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0]
+    v_gen_py = [bars_impl._sigmoid(
+        sum(h_gen_fixed[j] * W_hv_py[j][i] for j in range(8)) + b_v_py[i])
+                for i in range(16)]
+    h_gen_fixed_np = np.array([h_gen_fixed], dtype=np.float32)
+    v_gen_np = bars_ref.sigmoid(h_gen_fixed_np @ model.W_hv + model.b_v)
+    ok &= arrays_close(v_gen_py, v_gen_np[0], "v_prob_gen")
+
+    return ok
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -255,6 +369,10 @@ if __name__ == "__main__":
     results.append(validate_total_cost_backprop())
     print()
     results.append(validate_total_cost_rbm())
+    print()
+    results.append(validate_bars_rbm())
+    print()
+    results.append(validate_bars_helmholtz())
     print()
     if all(results):
         print("All checks passed.")
