@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diffusion models mature — Deep Learning Timeline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<article>
+<a class="nav-back" href="index.html">← Timeline index</a>
+<header>
+<p class="period">2020</p>
+<h1>Diffusion models mature</h1>
+<p class="people"><strong>Key people:</strong> Ho, Jain, Abbeel; Song et al.; others</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="dfh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- forward (noising) -->
+  <g>
+    <rect x="20" y="80" width="60" height="60" fill="#fff" stroke="#333"/>
+    <text x="50" y="115" text-anchor="middle" font-size="11">x₀ (clean)</text>
+    <rect x="115" y="80" width="60" height="60" fill="#eee" stroke="#333"/>
+    <text x="145" y="115" text-anchor="middle" font-size="11">x₁₀₀</text>
+    <rect x="210" y="80" width="60" height="60" fill="#bbb" stroke="#333"/>
+    <text x="240" y="115" text-anchor="middle" font-size="11">x₅₀₀</text>
+    <rect x="305" y="80" width="60" height="60" fill="#777" stroke="#333"/>
+    <text x="335" y="115" text-anchor="middle" font-size="11" fill="#fff">x₈₀₀</text>
+    <rect x="400" y="80" width="60" height="60" fill="#333" stroke="#333"/>
+    <text x="430" y="115" text-anchor="middle" font-size="11" fill="#fff">x_T (noise)</text>
+  </g>
+  <line x1="80" y1="65" x2="460" y2="65" stroke="#c44778" stroke-width="2" marker-end="url(#dfh)"/>
+  <text x="270" y="55" text-anchor="middle" font-size="12" fill="#c44778">forward: add Gaussian noise</text>
+  <line x1="460" y1="170" x2="80" y2="170" stroke="#3d8b5e" stroke-width="2" marker-end="url(#dfh)"/>
+  <text x="270" y="190" text-anchor="middle" font-size="12" fill="#3d8b5e">reverse: learn the denoising step εθ(xₜ, t)</text>
+  <text x="260" y="220" text-anchor="middle" font-size="11" fill="#666">
+    parameterise the noise predictor as a U-Net; sample by iterating backward from noise
+  </text>
+</svg>
+<figcaption>Train a model to undo Gaussian noise; sample by iterating the learned reverse process from pure noise.</figcaption>
+</figure>
+<section class="why">
+<h2>Why it matters</h2>
+<p>Denoising diffusion becomes a dominant generative paradigm, eventually powering high-quality image, audio, video, and protein/structure generation. DDPM is a key anchor.</p>
+</section>
+<nav class="adjacent">
+<a href="2020-gpt3.html">← GPT-3</a>
+<a href="2021-clip.html">CLIP and text-image representation learning →</a>
+</nav>
+</article>
+</body>
+</html>

@@ -1,0 +1,162 @@
+/* Shared styles for the deep learning timeline reports. */
+
+:root {
+  --ink: #1a1a1a;
+  --muted: #666;
+  --rule: #ddd;
+  --bg: #fcfcfc;
+  --blue: #2c6fbb;
+  --pink: #c44778;
+  --green: #3d8b5e;
+  --orange: #d77a2c;
+  --purple: #7a4f9c;
+  --grey: #999;
+  --code-bg: #f3f3f3;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--bg);
+  margin: 0;
+  padding: 2rem 1rem;
+}
+
+article, .index-page {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.nav-back {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+}
+.nav-back:hover { color: var(--blue); }
+
+header .period {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  margin: 0 0 0.25rem 0;
+}
+
+header h1 {
+  font-size: 1.7rem;
+  line-height: 1.2;
+  margin: 0 0 0.75rem 0;
+  font-weight: 600;
+}
+
+.people {
+  font-size: 0.95rem;
+  color: #444;
+  margin: 0 0 1.5rem 0;
+}
+
+figure.diagram {
+  margin: 1.5rem 0 2rem 0;
+  text-align: center;
+  background: white;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 1.5rem 1rem 1rem 1rem;
+}
+
+figure.diagram svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+figcaption {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.75rem;
+  line-height: 1.45;
+  text-align: left;
+  padding: 0 0.5rem;
+}
+
+.why h2 {
+  font-size: 1.1rem;
+  margin: 2rem 0 0.5rem 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-weight: 600;
+}
+.why p { margin: 0.5rem 0; }
+
+nav.adjacent {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.9rem;
+}
+nav.adjacent a {
+  color: var(--blue);
+  text-decoration: none;
+  max-width: 45%;
+}
+nav.adjacent a:hover { text-decoration: underline; }
+
+/* index */
+.index-page h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.25rem;
+}
+.index-page .subtitle {
+  color: var(--muted);
+  margin: 0 0 2rem 0;
+  font-size: 0.95rem;
+}
+
+ol.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ol.timeline li {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+}
+
+ol.timeline .period {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+ol.timeline a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 500;
+}
+ol.timeline a:hover { color: var(--blue); }
+
+ol.timeline .people {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0.15rem 0 0 0;
+}
+
+/* SVG defaults */
+svg text {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  fill: var(--ink);
+}

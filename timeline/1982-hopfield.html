@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hopfield networks — Deep Learning Timeline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<article>
+<a class="nav-back" href="index.html">← Timeline index</a>
+<header>
+<p class="period">1982</p>
+<h1>Hopfield networks</h1>
+<p class="people"><strong>Key people:</strong> John Hopfield</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <!-- energy landscape (sinusoidal lows) -->
+  <path d="M30,180 C80,80 130,180 180,100 C230,40 280,180 330,90 C380,20 430,180 480,110 L480,210 L30,210 Z" fill="#eef3fb" stroke="#2c6fbb" stroke-width="2"/>
+  <!-- basin labels -->
+  <text x="155" y="200" font-size="12" fill="#2c6fbb" text-anchor="middle">basin A</text>
+  <text x="293" y="200" font-size="12" fill="#2c6fbb" text-anchor="middle">basin B</text>
+  <text x="430" y="200" font-size="12" fill="#2c6fbb" text-anchor="middle">basin C</text>
+  <!-- balls in basins (memories) -->
+  <circle cx="155" cy="135" r="9" fill="#c44778" stroke="#333"/>
+  <circle cx="293" cy="125" r="9" fill="#c44778" stroke="#333"/>
+  <circle cx="430" cy="140" r="9" fill="#c44778" stroke="#333"/>
+  <!-- trajectory of recall -->
+  <path d="M60,60 Q90,90 155,135" stroke="#3d8b5e" stroke-width="2" fill="none" stroke-dasharray="4,3"/>
+  <circle cx="60" cy="60" r="6" fill="#3d8b5e"/>
+  <text x="65" y="48" font-size="12" fill="#3d8b5e">noisy cue</text>
+  <text x="293" y="105" font-size="11" fill="#c44778" text-anchor="middle">= stored memory</text>
+  <!-- axes -->
+  <text x="35"  y="30"  font-size="13" fill="#333">E (energy)</text>
+  <text x="460" y="200" font-size="13" fill="#333">state →</text>
+</svg>
+<figcaption>Stored memories sit at minima of an energy function; a noisy cue rolls into the nearest basin.</figcaption>
+</figure>
+<section class="why">
+<h2>Why it matters</h2>
+<p>Neural nets become energy-based associative memories. This connects neural computation to statistical physics and optimization. Hopfield and Hinton later received the 2024 Nobel Prize in Physics for foundational work enabling machine learning with artificial neural networks.</p>
+</section>
+<nav class="adjacent">
+<a href="1974-werbos.html">← Backprop ideas applied toward neural networks/control</a>
+<a href="1983-boltzmann.html">Boltzmann machines →</a>
+</nav>
+</article>
+</body>
+</html>

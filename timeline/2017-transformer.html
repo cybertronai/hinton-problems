@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transformer: “Attention Is All You Need” — Deep Learning Timeline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<article>
+<a class="nav-back" href="index.html">← Timeline index</a>
+<header>
+<p class="period">2017</p>
+<h1>Transformer: “Attention Is All You Need”</h1>
+<p class="people"><strong>Key people:</strong> Vaswani et al.</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="th" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <text x="260" y="25" text-anchor="middle" font-size="13" font-weight="600">scaled dot-product attention</text>
+  <!-- Q -->
+  <rect x="50" y="80" width="60" height="32" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="80" y="100" text-anchor="middle" font-size="13">Q</text>
+  <!-- K -->
+  <rect x="50" y="125" width="60" height="32" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="80" y="145" text-anchor="middle" font-size="13">K</text>
+  <!-- V -->
+  <rect x="50" y="170" width="60" height="32" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="80" y="190" text-anchor="middle" font-size="13">V</text>
+  <!-- QK^T -->
+  <rect x="160" y="100" width="80" height="40" fill="#fff" stroke="#333"/>
+  <text x="200" y="125" text-anchor="middle" font-size="13">QKᵀ / √d</text>
+  <!-- softmax -->
+  <rect x="270" y="100" width="80" height="40" fill="#fff" stroke="#333"/>
+  <text x="310" y="125" text-anchor="middle" font-size="13">softmax</text>
+  <!-- output -->
+  <rect x="380" y="125" width="100" height="40" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="430" y="150" text-anchor="middle" font-size="13">attn(Q,K,V)·V</text>
+  <!-- arrows -->
+  <line x1="110" y1="96" x2="160" y2="115" stroke="#333" stroke-width="1.2" marker-end="url(#th)"/>
+  <line x1="110" y1="141" x2="160" y2="125" stroke="#333" stroke-width="1.2" marker-end="url(#th)"/>
+  <line x1="240" y1="120" x2="270" y2="120" stroke="#333" stroke-width="1.2" marker-end="url(#th)"/>
+  <line x1="350" y1="120" x2="380" y2="135" stroke="#333" stroke-width="1.2" marker-end="url(#th)"/>
+  <line x1="110" y1="186" x2="380" y2="155" stroke="#333" stroke-width="1.2" marker-end="url(#th)"/>
+  <text x="260" y="220" text-anchor="middle" font-size="12" fill="#666">
+    self-attention replaces recurrence — all positions in parallel
+  </text>
+</svg>
+<figcaption>Scaled dot-product attention: each position is a weighted sum over all positions, all in parallel.</figcaption>
+</figure>
+<section class="why">
+<h2>Why it matters</h2>
+<p>Self-attention replaces recurrence and convolution for many sequence tasks. Transformers are more parallelizable and become the backbone of modern language, vision-language, and multimodal foundation models.</p>
+</section>
+<nav class="adjacent">
+<a href="2016-alphago.html">← AlphaGo</a>
+<a href="2018-bert.html">BERT and self-supervised pretraining →</a>
+</nav>
+</article>
+</body>
+</html>

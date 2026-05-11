@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sequence-to-sequence learning — Deep Learning Timeline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<article>
+<a class="nav-back" href="index.html">← Timeline index</a>
+<header>
+<p class="period">2014</p>
+<h1>Sequence-to-sequence learning</h1>
+<p class="people"><strong>Key people:</strong> Sutskever, Vinyals, Le</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="sh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- encoder LSTMs -->
+  <g font-size="11">
+    <rect x="30" y="80" width="40" height="50" fill="#eef3fb" stroke="#2c6fbb"/>
+    <rect x="80" y="80" width="40" height="50" fill="#eef3fb" stroke="#2c6fbb"/>
+    <rect x="130" y="80" width="40" height="50" fill="#eef3fb" stroke="#2c6fbb"/>
+    <rect x="180" y="80" width="40" height="50" fill="#eef3fb" stroke="#2c6fbb"/>
+    <text x="50"  y="148" text-anchor="middle">il</text>
+    <text x="100" y="148" text-anchor="middle">fait</text>
+    <text x="150" y="148" text-anchor="middle">beau</text>
+    <text x="200" y="148" text-anchor="middle">.</text>
+  </g>
+  <!-- decoder LSTMs -->
+  <g font-size="11">
+    <rect x="260" y="80" width="40" height="50" fill="#fbe9f0" stroke="#c44778"/>
+    <rect x="310" y="80" width="40" height="50" fill="#fbe9f0" stroke="#c44778"/>
+    <rect x="360" y="80" width="40" height="50" fill="#fbe9f0" stroke="#c44778"/>
+    <rect x="410" y="80" width="40" height="50" fill="#fbe9f0" stroke="#c44778"/>
+    <rect x="460" y="80" width="30" height="50" fill="#fbe9f0" stroke="#c44778"/>
+    <text x="280" y="68" text-anchor="middle">it's</text>
+    <text x="330" y="68" text-anchor="middle">nice</text>
+    <text x="380" y="68" text-anchor="middle">out</text>
+    <text x="430" y="68" text-anchor="middle">.</text>
+    <text x="475" y="68" text-anchor="middle">⟨/s⟩</text>
+  </g>
+  <!-- arrows between cells -->
+  <g stroke="#333" stroke-width="1.2">
+    <line x1="70" y1="105" x2="80" y2="105" marker-end="url(#sh)"/>
+    <line x1="120" y1="105" x2="130" y2="105" marker-end="url(#sh)"/>
+    <line x1="170" y1="105" x2="180" y2="105" marker-end="url(#sh)"/>
+    <line x1="220" y1="105" x2="260" y2="105" marker-end="url(#sh)" stroke="#7a4f9c" stroke-width="2"/>
+    <line x1="300" y1="105" x2="310" y2="105" marker-end="url(#sh)"/>
+    <line x1="350" y1="105" x2="360" y2="105" marker-end="url(#sh)"/>
+    <line x1="400" y1="105" x2="410" y2="105" marker-end="url(#sh)"/>
+    <line x1="450" y1="105" x2="460" y2="105" marker-end="url(#sh)"/>
+  </g>
+  <text x="240" y="135" text-anchor="middle" font-size="11" fill="#7a4f9c">"thought vector"</text>
+  <text x="120" y="40" text-anchor="middle" font-size="12" fill="#666">encoder (read source)</text>
+  <text x="370" y="40" text-anchor="middle" font-size="12" fill="#666">decoder (write target)</text>
+  <text x="260" y="205" text-anchor="middle" font-size="11" fill="#666">
+    one variable-length sequence → fixed hidden state → another variable-length sequence
+  </text>
+</svg>
+<figcaption>Encoder reads the source into a fixed thought vector; decoder generates the target conditioned on it.</figcaption>
+</figure>
+<section class="why">
+<h2>Why it matters</h2>
+<p>Encoder-decoder neural networks show that a neural model can map one variable-length sequence to another. This becomes central for translation, summarization, and language tasks.</p>
+</section>
+<nav class="adjacent">
+<a href="2013-word2vec.html">← Word2vec and modern embeddings</a>
+<a href="2015-attention.html">Neural attention for translation →</a>
+</nav>
+</article>
+</body>
+</html>

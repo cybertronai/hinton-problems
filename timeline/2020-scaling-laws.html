@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scaling laws — Deep Learning Timeline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<article>
+<a class="nav-back" href="index.html">← Timeline index</a>
+<header>
+<p class="period">2020</p>
+<h1>Scaling laws</h1>
+<p class="people"><strong>Key people:</strong> Kaplan et al.; OpenAI</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260">
+  <!-- log-log axes -->
+  <line x1="70" y1="50" x2="70" y2="220" stroke="#333"/>
+  <line x1="70" y1="220" x2="490" y2="220" stroke="#333"/>
+  <text x="65" y="55" font-size="11" text-anchor="end">loss</text>
+  <text x="60" y="60" font-size="9" text-anchor="end" fill="#666">(log)</text>
+  <text x="485" y="240" font-size="11" text-anchor="end">compute / data / params (log)</text>
+  <!-- ticks -->
+  <g font-size="9" fill="#666">
+    <text x="70" y="235" text-anchor="middle">10⁰</text>
+    <text x="175" y="235" text-anchor="middle">10²</text>
+    <text x="280" y="235" text-anchor="middle">10⁴</text>
+    <text x="385" y="235" text-anchor="middle">10⁶</text>
+    <text x="490" y="235" text-anchor="middle">10⁸</text>
+  </g>
+  <!-- compute curve -->
+  <line x1="80" y1="70" x2="485" y2="195" stroke="#2c6fbb" stroke-width="2.5"/>
+  <text x="455" y="180" font-size="11" fill="#2c6fbb">compute</text>
+  <!-- params curve -->
+  <line x1="80" y1="80" x2="485" y2="180" stroke="#c44778" stroke-width="2.5"/>
+  <text x="455" y="165" font-size="11" fill="#c44778">params</text>
+  <!-- data curve -->
+  <line x1="80" y1="90" x2="485" y2="170" stroke="#3d8b5e" stroke-width="2.5"/>
+  <text x="455" y="150" font-size="11" fill="#3d8b5e">data</text>
+  <!-- annotation -->
+  <text x="270" y="40" text-anchor="middle" font-size="13" fill="#666">
+    loss(x) = (x_c / x)^α — straight lines on a log-log plot
+  </text>
+  <text x="275" y="250" text-anchor="middle" font-size="11" fill="#666">
+    7+ orders of magnitude of smooth scaling
+  </text>
+</svg>
+<figcaption>loss = (x_c / x)^α — straight lines on a log-log plot over 7+ orders of magnitude. Strategy shifts from architecture to scale.</figcaption>
+</figure>
+<section class="why">
+<h2>Why it matters</h2>
+<p>Model loss follows predictable power laws with compute, data, and parameter count over many orders of magnitude. This changes the field’s strategy from “invent the clever architecture” to “scale the right recipe.”</p>
+</section>
+<nav class="adjacent">
+<a href="2018-neural-ode.html">← Neural ODEs reconnect deep learning to adjoints</a>
+<a href="2020-gpt3.html">GPT-3 →</a>
+</nav>
+</article>
+</body>
+</html>

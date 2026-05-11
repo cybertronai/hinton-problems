@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open reasoning models and RL-for-reasoning wave — Deep Learning Timeline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<article>
+<a class="nav-back" href="index.html">← Timeline index</a>
+<header>
+<p class="period">2025</p>
+<h1>Open reasoning models and RL-for-reasoning wave</h1>
+<p class="people"><strong>Key people:</strong> DeepSeek-R1, OpenAI o-series, others</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="dsh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- base model -->
+  <rect x="20" y="80" width="100" height="60" rx="6" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="70" y="105" text-anchor="middle" font-size="12">base model</text>
+  <text x="70" y="125" text-anchor="middle" font-size="10" fill="#666">supervised</text>
+  <!-- RL with verifiable rewards -->
+  <rect x="170" y="50" width="160" height="120" rx="6" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="250" y="80" text-anchor="middle" font-size="12" font-weight="600">RL with verifiable</text>
+  <text x="250" y="98" text-anchor="middle" font-size="12" font-weight="600">rewards</text>
+  <text x="250" y="120" text-anchor="middle" font-size="10" fill="#666">math: ans correct?</text>
+  <text x="250" y="135" text-anchor="middle" font-size="10" fill="#666">code: tests pass?</text>
+  <text x="250" y="150" text-anchor="middle" font-size="10" fill="#666">→ reward signal</text>
+  <!-- reasoning model -->
+  <rect x="380" y="80" width="120" height="60" rx="6" fill="#fff5a8" stroke="#d77a2c"/>
+  <text x="440" y="105" text-anchor="middle" font-size="12">reasoning model</text>
+  <text x="440" y="125" text-anchor="middle" font-size="10" fill="#666">R1, distilled</text>
+  <!-- arrows -->
+  <line x1="120" y1="110" x2="170" y2="110" stroke="#333" marker-end="url(#dsh)"/>
+  <line x1="330" y1="110" x2="380" y2="110" stroke="#333" marker-end="url(#dsh)"/>
+  <text x="260" y="200" text-anchor="middle" font-size="11" fill="#666">
+    open-weights reasoning model trained primarily via RL — distillation makes it portable
+  </text>
+</svg>
+<figcaption>RL with verifiable rewards (math correctness, test-passing code) trains reasoning behaviour into base models; distillation makes it portable.</figcaption>
+</figure>
+<section class="why">
+<h2>Why it matters</h2>
+<p>DeepSeek-R1 made reinforcement learning for reasoning and open/distilled reasoning models a major public milestone. This pushed the frontier conversation toward reasoning, inference-time computation, and reproducible/open systems.</p>
+</section>
+<nav class="adjacent">
+<a href="2024-nobel.html">← Nobel recognition</a>
+<a href="2025-agentic.html">Unified multimodal/agentic systems →</a>
+</nav>
+</article>
+</body>
+</html>

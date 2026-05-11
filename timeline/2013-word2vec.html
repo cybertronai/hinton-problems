@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Word2vec and modern embeddings — Deep Learning Timeline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<article>
+<a class="nav-back" href="index.html">← Timeline index</a>
+<header>
+<p class="period">2013</p>
+<h1>Word2vec and modern embeddings</h1>
+<p class="people"><strong>Key people:</strong> Mikolov et al.</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="w2h" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- skip-gram -->
+  <text x="100" y="35" text-anchor="middle" font-size="13" font-weight="600">skip-gram</text>
+  <rect x="60" y="100" width="80" height="32" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="100" y="121" text-anchor="middle" font-size="12">king</text>
+  <line x1="140" y1="116" x2="170" y2="80" stroke="#333" stroke-width="1.2" marker-end="url(#w2h)"/>
+  <line x1="140" y1="116" x2="170" y2="115" stroke="#333" stroke-width="1.2" marker-end="url(#w2h)"/>
+  <line x1="140" y1="116" x2="170" y2="150" stroke="#333" stroke-width="1.2" marker-end="url(#w2h)"/>
+  <line x1="140" y1="116" x2="170" y2="185" stroke="#333" stroke-width="1.2" marker-end="url(#w2h)"/>
+  <g font-size="11">
+    <text x="195" y="80"  fill="#666">the</text>
+    <text x="195" y="115" fill="#666">crowns</text>
+    <text x="195" y="150" fill="#666">his</text>
+    <text x="195" y="185" fill="#666">son</text>
+  </g>
+  <!-- analogies -->
+  <text x="370" y="35" text-anchor="middle" font-size="13" font-weight="600">vector arithmetic</text>
+  <g font-size="13" font-family="ui-monospace, monospace">
+    <text x="290" y="80">king</text>
+    <text x="330" y="80">−</text>
+    <text x="345" y="80">man</text>
+    <text x="385" y="80">+</text>
+    <text x="400" y="80">woman</text>
+    <text x="460" y="80">≈</text>
+    <text x="478" y="80">queen</text>
+    <text x="290" y="110">Paris</text>
+    <text x="335" y="110">−</text>
+    <text x="350" y="110">France</text>
+    <text x="402" y="110">+</text>
+    <text x="416" y="110">Italy</text>
+    <text x="460" y="110">≈</text>
+    <text x="478" y="110">Rome</text>
+  </g>
+  <!-- mini 2D embedding -->
+  <line x1="290" y1="220" x2="490" y2="220" stroke="#666"/>
+  <line x1="290" y1="140" x2="290" y2="220" stroke="#666"/>
+  <g font-size="10" fill="#c44778">
+    <circle cx="320" cy="200" r="3"/><text x="327" y="203">man</text>
+    <circle cx="340" cy="170" r="3"/><text x="347" y="173">king</text>
+    <circle cx="430" cy="195" r="3"/><text x="437" y="198">woman</text>
+    <circle cx="450" cy="165" r="3"/><text x="457" y="168">queen</text>
+  </g>
+  <text x="260" y="225" text-anchor="middle" font-size="11" fill="#666">predict context words from focus word; geometry encodes semantics</text>
+</svg>
+<figcaption>Predict context from focus word; the resulting vector geometry encodes semantic relationships (king − man + woman ≈ queen).</figcaption>
+</figure>
+<section class="why">
+<h2>Why it matters</h2>
+<p>Distributed word vectors become practical at web scale. This helps shift NLP from sparse symbolic features to dense learned representations.</p>
+</section>
+<nav class="adjacent">
+<a href="2012-dropout.html">← Dropout</a>
+<a href="2014-seq2seq.html">Sequence-to-sequence learning →</a>
+</nav>
+</article>
+</body>
+</html>

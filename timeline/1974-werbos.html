@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Backprop ideas applied toward neural networks/control — Deep Learning Timeline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<article>
+<a class="nav-back" href="index.html">← Timeline index</a>
+<header>
+<p class="period">1974–1982</p>
+<h1>Backprop ideas applied toward neural networks/control</h1>
+<p class="people"><strong>Key people:</strong> Paul Werbos</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="wh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2c6fbb"/>
+    </marker>
+    <marker id="whb" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#c44778"/>
+    </marker>
+  </defs>
+  <text x="60"  y="40" font-size="12" fill="#666">control-theory side</text>
+  <text x="60"  y="220" font-size="12" fill="#666">neural-net side</text>
+  <!-- top: dynamic programming -->
+  <rect x="40"  y="60" width="120" height="48" rx="6" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="100" y="82" text-anchor="middle" font-size="13">dynamic</text>
+  <text x="100" y="98" text-anchor="middle" font-size="13">programming</text>
+  <rect x="200" y="60" width="120" height="48" rx="6" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="260" y="82" text-anchor="middle" font-size="13">adjoint /</text>
+  <text x="260" y="98" text-anchor="middle" font-size="13">Pontryagin</text>
+  <rect x="360" y="60" width="120" height="48" rx="6" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="420" y="82" text-anchor="middle" font-size="13">reverse-mode</text>
+  <text x="420" y="98" text-anchor="middle" font-size="13">AD</text>
+  <!-- arrows down to neural -->
+  <line x1="100" y1="108" x2="100" y2="160" stroke="#7a4f9c" stroke-width="2" marker-end="url(#wh)"/>
+  <line x1="260" y1="108" x2="260" y2="160" stroke="#7a4f9c" stroke-width="2" marker-end="url(#wh)"/>
+  <line x1="420" y1="108" x2="420" y2="160" stroke="#7a4f9c" stroke-width="2" marker-end="url(#wh)"/>
+  <text x="260" y="135" text-anchor="middle" font-size="12" fill="#7a4f9c">Werbos 1974/1982 bridges these</text>
+  <!-- bottom: neural net training -->
+  <rect x="60" y="160" width="400" height="48" rx="6" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="260" y="185" text-anchor="middle" font-size="14">neural-network learning by backward gradient propagation</text>
+</svg>
+<figcaption>Werbos's thesis explicitly links dynamic programming and Pontryagin's adjoint to neural-net weight updates.</figcaption>
+</figure>
+<section class="why">
+<h2>Why it matters</h2>
+<p>Werbos helped connect dynamic programming, control, and neural-network learning. This is a useful bridge from adjoint-state methods to neural nets.</p>
+</section>
+<nav class="adjacent">
+<a href="1970-reverse-ad.html">← Reverse-mode automatic differentiation</a>
+<a href="1982-hopfield.html">Hopfield networks →</a>
+</nav>
+</article>
+</body>
+</html>

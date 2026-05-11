@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neural ODEs reconnect deep learning to adjoints — Deep Learning Timeline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<article>
+<a class="nav-back" href="index.html">← Timeline index</a>
+<header>
+<p class="period">2018</p>
+<h1>Neural ODEs reconnect deep learning to adjoints</h1>
+<p class="people"><strong>Key people:</strong> Chen, Rubanova, Bettencourt, Duvenaud</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <!-- left: discrete (ResNet) -->
+  <text x="120" y="35" text-anchor="middle" font-size="13" font-weight="600">ResNet (discrete)</text>
+  <g font-size="11">
+    <rect x="80" y="60"  width="80" height="22" fill="#fff" stroke="#333"/><text x="120" y="76" text-anchor="middle">layer 1: h+F(h)</text>
+    <rect x="80" y="90"  width="80" height="22" fill="#fff" stroke="#333"/><text x="120" y="106" text-anchor="middle">layer 2: h+F(h)</text>
+    <rect x="80" y="120" width="80" height="22" fill="#fff" stroke="#333"/><text x="120" y="136" text-anchor="middle">…</text>
+    <rect x="80" y="150" width="80" height="22" fill="#fff" stroke="#333"/><text x="120" y="166" text-anchor="middle">layer L</text>
+  </g>
+  <!-- continuous (Neural ODE) -->
+  <text x="380" y="35" text-anchor="middle" font-size="13" font-weight="600">Neural ODE (continuous)</text>
+  <line x1="300" y1="170" x2="460" y2="170" stroke="#333"/>
+  <line x1="300" y1="170" x2="300" y2="60" stroke="#333"/>
+  <text x="295" y="60" font-size="11" text-anchor="end">h(t)</text>
+  <text x="460" y="185" font-size="11" text-anchor="end">t</text>
+  <path d="M300,160 Q330,140 370,110 Q400,90 460,75" stroke="#c44778" stroke-width="2" fill="none"/>
+  <text x="370" y="200" text-anchor="middle" font-size="11" fill="#c44778">dh/dt = f(h, t, θ)</text>
+  <!-- bridging arrow -->
+  <path d="M165,115 Q230,115 295,115" stroke="#7a4f9c" stroke-width="2" stroke-dasharray="4,3" fill="none"/>
+  <polygon points="293,112 300,115 293,118" fill="#7a4f9c"/>
+  <text x="230" y="108" text-anchor="middle" font-size="11" fill="#7a4f9c">layer → time</text>
+  <text x="260" y="222" text-anchor="middle" font-size="11" fill="#666">
+    adjoint method computes gradients backward through time — closing the loop to 1960s control theory
+  </text>
+</svg>
+<figcaption>Treat depth as a continuous variable; the adjoint method (1960s) gives memory-efficient gradients — a literal return to the timeline's starting point.</figcaption>
+</figure>
+<section class="why">
+<h2>Why it matters</h2>
+<p>Continuous-depth models treat neural networks as differential equations and use adjoint methods for memory-efficient training. This is a beautiful loop back to your 1970s starting point.</p>
+</section>
+<nav class="adjacent">
+<a href="2018-bert.html">← BERT and self-supervised pretraining</a>
+<a href="2020-scaling-laws.html">Scaling laws →</a>
+</nav>
+</article>
+</body>
+</html>

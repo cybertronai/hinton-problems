@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AlexNet wins ImageNet — Deep Learning Timeline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<article>
+<a class="nav-back" href="index.html">← Timeline index</a>
+<header>
+<p class="period">2012</p>
+<h1>AlexNet wins ImageNet</h1>
+<p class="people"><strong>Key people:</strong> Krizhevsky, Sutskever, Hinton</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220">
+  <!-- input -->
+  <rect x="20" y="80" width="50" height="50" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="45" y="148" text-anchor="middle" font-size="10">224²×3</text>
+  <!-- conv 1 -->
+  <rect x="90" y="75" width="40" height="60" fill="#fff" stroke="#333"/>
+  <text x="110" y="148" text-anchor="middle" font-size="10">conv</text>
+  <text x="110" y="160" text-anchor="middle" font-size="10">96</text>
+  <!-- conv 2 -->
+  <rect x="140" y="80" width="32" height="50" fill="#fff" stroke="#333"/>
+  <text x="156" y="148" text-anchor="middle" font-size="10">conv</text>
+  <text x="156" y="160" text-anchor="middle" font-size="10">256</text>
+  <!-- conv 3 -->
+  <rect x="180" y="85" width="28" height="40" fill="#fff" stroke="#333"/>
+  <text x="194" y="148" text-anchor="middle" font-size="10">conv</text>
+  <text x="194" y="160" text-anchor="middle" font-size="10">384</text>
+  <!-- conv 4 -->
+  <rect x="215" y="85" width="28" height="40" fill="#fff" stroke="#333"/>
+  <text x="229" y="148" text-anchor="middle" font-size="10">conv</text>
+  <text x="229" y="160" text-anchor="middle" font-size="10">384</text>
+  <!-- conv 5 -->
+  <rect x="250" y="85" width="28" height="40" fill="#fff" stroke="#333"/>
+  <text x="264" y="148" text-anchor="middle" font-size="10">conv</text>
+  <text x="264" y="160" text-anchor="middle" font-size="10">256</text>
+  <!-- fc 1 -->
+  <rect x="290" y="60" width="14" height="100" fill="#fff" stroke="#333"/>
+  <text x="297" y="178" text-anchor="middle" font-size="10">FC</text>
+  <text x="297" y="190" text-anchor="middle" font-size="10">4096</text>
+  <!-- fc 2 -->
+  <rect x="320" y="60" width="14" height="100" fill="#fff" stroke="#333"/>
+  <text x="327" y="178" text-anchor="middle" font-size="10">FC</text>
+  <text x="327" y="190" text-anchor="middle" font-size="10">4096</text>
+  <!-- softmax -->
+  <rect x="350" y="80" width="14" height="60" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="357" y="178" text-anchor="middle" font-size="10">softmax</text>
+  <text x="357" y="190" text-anchor="middle" font-size="10">1000</text>
+  <!-- box around it -->
+  <text x="270" y="40" text-anchor="middle" font-size="13" fill="#666">8-layer CNN (5 conv + 3 FC), ReLU, dropout, dual GPU</text>
+  <!-- ImageNet result -->
+  <g transform="translate(390 80)">
+    <rect x="0" y="0" width="120" height="80" fill="#fff" stroke="#3d8b5e"/>
+    <text x="60" y="22" text-anchor="middle" font-size="11" fill="#3d8b5e">ImageNet 2012</text>
+    <text x="60" y="42" text-anchor="middle" font-size="11">top-5 err 15.3%</text>
+    <text x="60" y="60" text-anchor="middle" font-size="11" fill="#666">2nd place 26.2%</text>
+  </g>
+</svg>
+<figcaption>8-layer GPU CNN crushes ImageNet 2012 — the public inflection point for deep learning.</figcaption>
+</figure>
+<section class="why">
+<h2>Why it matters</h2>
+<p>The public “deep learning moment.” A large GPU-trained CNN dramatically beats the field on ImageNet. This changes computer vision, then all of ML.</p>
+</section>
+<nav class="adjacent">
+<a href="2011-gpu-cnn.html">← GPU CNNs begin winning vision contests</a>
+<a href="2012-dropout.html">Dropout →</a>
+</nav>
+</article>
+</body>
+</html>

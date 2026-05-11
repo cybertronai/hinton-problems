@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neural history compressor — Deep Learning Timeline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<article>
+<a class="nav-back" href="index.html">← Timeline index</a>
+<header>
+<p class="period">1991</p>
+<h1>Neural history compressor</h1>
+<p class="people"><strong>Key people:</strong> Schmidhuber</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="ch" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2c6fbb"/>
+    </marker>
+  </defs>
+  <!-- bottom level: every step -->
+  <g font-size="11">
+    <g fill="#eef3fb" stroke="#2c6fbb">
+      <rect x="30"  y="170" width="30" height="22"/>
+      <rect x="65"  y="170" width="30" height="22"/>
+      <rect x="100" y="170" width="30" height="22"/>
+      <rect x="135" y="170" width="30" height="22"/>
+      <rect x="170" y="170" width="30" height="22"/>
+      <rect x="205" y="170" width="30" height="22"/>
+      <rect x="240" y="170" width="30" height="22"/>
+      <rect x="275" y="170" width="30" height="22"/>
+      <rect x="310" y="170" width="30" height="22"/>
+      <rect x="345" y="170" width="30" height="22"/>
+      <rect x="380" y="170" width="30" height="22"/>
+      <rect x="415" y="170" width="30" height="22"/>
+      <rect x="450" y="170" width="30" height="22"/>
+    </g>
+    <text x="255" y="218" text-anchor="middle" font-size="11" fill="#666">level 0: every input symbol</text>
+  </g>
+  <!-- middle level: chunked once -->
+  <g>
+    <rect x="60"  y="110" width="105" height="28" fill="#fff" stroke="#7a4f9c"/>
+    <rect x="175" y="110" width="105" height="28" fill="#fff" stroke="#7a4f9c"/>
+    <rect x="290" y="110" width="105" height="28" fill="#fff" stroke="#7a4f9c"/>
+    <text x="225" y="155" text-anchor="middle" font-size="11" fill="#666">level 1: only at unpredictable events</text>
+  </g>
+  <!-- top level -->
+  <g>
+    <rect x="155" y="50" width="240" height="28" fill="#fbe9f0" stroke="#c44778"/>
+    <text x="275" y="95" text-anchor="middle" font-size="11" fill="#666">level 2: only when level 1 is surprised</text>
+  </g>
+  <!-- vertical arrows showing reductions -->
+  <line x1="115" y1="170" x2="115" y2="138" stroke="#2c6fbb" stroke-width="1.2" marker-end="url(#ch)"/>
+  <line x1="225" y1="170" x2="225" y2="138" stroke="#2c6fbb" stroke-width="1.2" marker-end="url(#ch)"/>
+  <line x1="345" y1="170" x2="345" y2="138" stroke="#2c6fbb" stroke-width="1.2" marker-end="url(#ch)"/>
+  <line x1="275" y1="110" x2="275" y2="78"  stroke="#2c6fbb" stroke-width="1.2" marker-end="url(#ch)"/>
+  <text x="260" y="35" text-anchor="middle" font-size="12" fill="#666">
+    history compression: pass up only what the lower level failed to predict
+  </text>
+</svg>
+<figcaption>A higher-level predictor sees only the events its lower-level predictor failed to anticipate — credit assignment over much longer lags.</figcaption>
+</figure>
+<section class="why">
+<h2>Why it matters</h2>
+<p>Early self-supervised / hierarchical sequence-learning idea: compress history, learn at multiple timescales, use unsupervised pretraining-like stages. This is a strong “pre-foundation-model” anchor.</p>
+</section>
+<nav class="adjacent">
+<a href="1991-vanishing.html">← Vanishing-gradient problem identified</a>
+<a href="1997-lstm.html">LSTM →</a>
+</nav>
+</article>
+</body>
+</html>

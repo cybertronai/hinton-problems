@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neural probabilistic language models — Deep Learning Timeline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<article>
+<a class="nav-back" href="index.html">← Timeline index</a>
+<header>
+<p class="period">2000–2003</p>
+<h1>Neural probabilistic language models</h1>
+<p class="people"><strong>Key people:</strong> Bengio, Ducharme, Vincent, Janvin</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="wlh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- input words -->
+  <g font-size="12">
+    <rect x="20"  y="60" width="60" height="24" fill="#fff" stroke="#333"/>
+    <text x="50" y="77" text-anchor="middle">w₍ₜ₋₃₎</text>
+    <rect x="20"  y="100" width="60" height="24" fill="#fff" stroke="#333"/>
+    <text x="50" y="117" text-anchor="middle">w₍ₜ₋₂₎</text>
+    <rect x="20"  y="140" width="60" height="24" fill="#fff" stroke="#333"/>
+    <text x="50" y="157" text-anchor="middle">w₍ₜ₋₁₎</text>
+  </g>
+  <!-- shared embedding matrix C -->
+  <g>
+    <rect x="120" y="55" width="80" height="120" fill="#eef3fb" stroke="#2c6fbb"/>
+    <text x="160" y="60" font-size="10" text-anchor="middle">↓</text>
+    <text x="160" y="120" text-anchor="middle" font-size="13">C (lookup)</text>
+    <text x="160" y="138" text-anchor="middle" font-size="10" fill="#666">|V|×d shared</text>
+  </g>
+  <!-- concat embeddings -->
+  <rect x="220" y="80" width="80" height="80" fill="#fff" stroke="#333"/>
+  <text x="260" y="125" text-anchor="middle" font-size="12">concat</text>
+  <text x="260" y="172" text-anchor="middle" font-size="10" fill="#666">3d-dim</text>
+  <!-- hidden -->
+  <rect x="320" y="80" width="60" height="80" fill="#fff" stroke="#333"/>
+  <text x="350" y="125" text-anchor="middle" font-size="12">tanh</text>
+  <!-- softmax over vocab -->
+  <rect x="400" y="60" width="90" height="120" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="445" y="115" text-anchor="middle" font-size="12">softmax</text>
+  <text x="445" y="135" text-anchor="middle" font-size="10" fill="#666">over |V|</text>
+  <text x="445" y="195" text-anchor="middle" font-size="11" fill="#666">P(wₜ | history)</text>
+  <!-- arrows -->
+  <line x1="80"  y1="72"  x2="120" y2="72"  stroke="#333" stroke-width="1.2" marker-end="url(#wlh)"/>
+  <line x1="80"  y1="112" x2="120" y2="112" stroke="#333" stroke-width="1.2" marker-end="url(#wlh)"/>
+  <line x1="80"  y1="152" x2="120" y2="152" stroke="#333" stroke-width="1.2" marker-end="url(#wlh)"/>
+  <line x1="200" y1="115" x2="220" y2="115" stroke="#333" stroke-width="1.2" marker-end="url(#wlh)"/>
+  <line x1="300" y1="115" x2="320" y2="115" stroke="#333" stroke-width="1.2" marker-end="url(#wlh)"/>
+  <line x1="380" y1="115" x2="400" y2="115" stroke="#333" stroke-width="1.2" marker-end="url(#wlh)"/>
+  <text x="255" y="40" text-anchor="middle" font-size="12" fill="#666">distributed word features (C) learned jointly with the LM</text>
+</svg>
+<figcaption>Shared word-embedding matrix C learned jointly with the softmax language model — distributed representations meet sequence prediction.</figcaption>
+</figure>
+<section class="why">
+<h2>Why it matters</h2>
+<p>A major precursor to embeddings and neural language modeling: learn distributed word representations jointly with a probability model over sequences. This is one of the roots of today’s language models.</p>
+</section>
+<nav class="adjacent">
+<a href="1997-lstm.html">← LSTM</a>
+<a href="2002-cd-rbm.html">Contrastive divergence and RBMs →</a>
+</nav>
+</article>
+</body>
+</html>

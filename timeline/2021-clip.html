@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CLIP and text-image representation learning — Deep Learning Timeline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<article>
+<a class="nav-back" href="index.html">← Timeline index</a>
+<header>
+<p class="period">2021</p>
+<h1>CLIP and text-image representation learning</h1>
+<p class="people"><strong>Key people:</strong> OpenAI</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260">
+  <defs>
+    <marker id="clh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- image encoder -->
+  <rect x="30" y="40" width="50" height="50" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="55" y="105" text-anchor="middle" font-size="11">image</text>
+  <rect x="100" y="55" width="60" height="22" fill="#fff" stroke="#333"/>
+  <text x="130" y="71" text-anchor="middle" font-size="11">img enc</text>
+  <!-- text encoder -->
+  <rect x="30" y="160" width="100" height="40" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="80" y="185" text-anchor="middle" font-size="11">"a photo of a dog"</text>
+  <rect x="150" y="170" width="60" height="22" fill="#fff" stroke="#333"/>
+  <text x="180" y="186" text-anchor="middle" font-size="11">txt enc</text>
+  <!-- arrows to embeddings -->
+  <line x1="80" y1="65" x2="100" y2="65" stroke="#333" marker-end="url(#clh)"/>
+  <line x1="130" y1="180" x2="150" y2="180" stroke="#333" marker-end="url(#clh)"/>
+  <!-- contrastive matrix -->
+  <g transform="translate(250, 30)">
+    <text x="80" y="0" text-anchor="middle" font-size="12" font-weight="600">contrastive matrix</text>
+    <g stroke="#333" stroke-width="0.5">
+      <rect x="20" y="20"  width="120" height="120" fill="#fff"/>
+      <line x1="20" y1="50" x2="140" y2="50"/>
+      <line x1="20" y1="80" x2="140" y2="80"/>
+      <line x1="20" y1="110" x2="140" y2="110"/>
+      <line x1="50" y1="20" x2="50" y2="140"/>
+      <line x1="80" y1="20" x2="80" y2="140"/>
+      <line x1="110" y1="20" x2="110" y2="140"/>
+    </g>
+    <!-- diagonal positives -->
+    <rect x="20" y="20" width="30" height="30" fill="#3d8b5e" opacity="0.8"/>
+    <rect x="50" y="50" width="30" height="30" fill="#3d8b5e" opacity="0.8"/>
+    <rect x="80" y="80" width="30" height="30" fill="#3d8b5e" opacity="0.8"/>
+    <rect x="110" y="110" width="30" height="30" fill="#3d8b5e" opacity="0.8"/>
+    <text x="5" y="40" font-size="9" text-anchor="end">img₁</text>
+    <text x="5" y="70" font-size="9" text-anchor="end">img₂</text>
+    <text x="5" y="100" font-size="9" text-anchor="end">img₃</text>
+    <text x="5" y="130" font-size="9" text-anchor="end">img₄</text>
+    <text x="35" y="160" font-size="9" text-anchor="middle">txt₁</text>
+    <text x="65" y="160" font-size="9" text-anchor="middle">txt₂</text>
+    <text x="95" y="160" font-size="9" text-anchor="middle">txt₃</text>
+    <text x="125" y="160" font-size="9" text-anchor="middle">txt₄</text>
+    <text x="80" y="195" text-anchor="middle" font-size="10" fill="#666">diagonals = positives</text>
+  </g>
+  <text x="260" y="240" text-anchor="middle" font-size="11" fill="#666">
+    text and images map to a shared embedding space — zero-shot classification by similarity
+  </text>
+</svg>
+<figcaption>Image and text encoders share an embedding space; positives (matched pairs) on the diagonal, negatives off — zero-shot classification by similarity.</figcaption>
+</figure>
+<section class="why">
+<h2>Why it matters</h2>
+<p>Natural-language supervision trains visual models that transfer zero-shot to many tasks. This is a key bridge from supervised vision to multimodal foundation models.</p>
+</section>
+<nav class="adjacent">
+<a href="2020-diffusion.html">← Diffusion models mature</a>
+<a href="2021-alphafold2.html">AlphaFold2 →</a>
+</nav>
+</article>
+</body>
+</html>

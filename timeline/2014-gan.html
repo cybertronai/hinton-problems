@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GANs — Deep Learning Timeline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<article>
+<a class="nav-back" href="index.html">← Timeline index</a>
+<header>
+<p class="period">2014</p>
+<h1>GANs</h1>
+<p class="people"><strong>Key people:</strong> Goodfellow, Pouget-Abadie, Mirza, Xu, Warde-Farley, Ozair, Courville, Bengio</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="gh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- z -->
+  <rect x="20" y="100" width="50" height="32" fill="#fff" stroke="#333"/>
+  <text x="45" y="120" text-anchor="middle" font-size="12">z ~ 𝒩</text>
+  <!-- Generator -->
+  <rect x="100" y="80" width="100" height="80" rx="6" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="150" y="125" text-anchor="middle" font-size="13">G(z)</text>
+  <!-- fake -->
+  <rect x="230" y="85" width="60" height="70" fill="#fff" stroke="#666"/>
+  <text x="260" y="125" text-anchor="middle" font-size="11">fake</text>
+  <!-- real -->
+  <rect x="230" y="20" width="60" height="50" fill="#fff" stroke="#666"/>
+  <text x="260" y="50" text-anchor="middle" font-size="11">real</text>
+  <!-- Discriminator -->
+  <rect x="320" y="60" width="100" height="120" rx="6" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="370" y="125" text-anchor="middle" font-size="13">D(x)</text>
+  <!-- verdict -->
+  <rect x="445" y="100" width="55" height="40" fill="#fff" stroke="#333"/>
+  <text x="473" y="118" text-anchor="middle" font-size="12">real?</text>
+  <text x="473" y="132" text-anchor="middle" font-size="12">fake?</text>
+  <!-- arrows -->
+  <line x1="70" y1="116" x2="100" y2="116" stroke="#333" stroke-width="1.5" marker-end="url(#gh)"/>
+  <line x1="200" y1="120" x2="230" y2="120" stroke="#333" stroke-width="1.5" marker-end="url(#gh)"/>
+  <line x1="290" y1="120" x2="320" y2="120" stroke="#333" stroke-width="1.5" marker-end="url(#gh)"/>
+  <line x1="290" y1="45" x2="320" y2="80" stroke="#333" stroke-width="1.5" marker-end="url(#gh)"/>
+  <line x1="420" y1="120" x2="445" y2="120" stroke="#333" stroke-width="1.5" marker-end="url(#gh)"/>
+  <!-- adversarial loop -->
+  <path d="M150,160 Q150,210 370,210 Q420,210 420,180" stroke="#7a4f9c" stroke-width="2" fill="none" stroke-dasharray="6,4" marker-end="url(#gh)"/>
+  <text x="270" y="225" text-anchor="middle" font-size="12" fill="#7a4f9c">G learns to fool D; D learns to catch G</text>
+  <text x="260" y="32" text-anchor="middle" font-size="12" fill="#666">two-player minimax: min_G max_D</text>
+</svg>
+<figcaption>Two networks in a minimax game: generator tries to fool a discriminator that tries to catch it.</figcaption>
+</figure>
+<section class="why">
+<h2>Why it matters</h2>
+<p>Generative modeling becomes adversarial: one network generates, another discriminates. This reshapes image generation and representation learning.</p>
+</section>
+<nav class="adjacent">
+<a href="2015-attention.html">← Neural attention for translation</a>
+<a href="2015-batchnorm.html">Batch normalization →</a>
+</nav>
+</article>
+</body>
+</html>

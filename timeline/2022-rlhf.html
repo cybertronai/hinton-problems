@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>InstructGPT / RLHF — Deep Learning Timeline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<article>
+<a class="nav-back" href="index.html">← Timeline index</a>
+<header>
+<p class="period">2022</p>
+<h1>InstructGPT / RLHF</h1>
+<p class="people"><strong>Key people:</strong> OpenAI; Christiano-style RLHF lineage</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260">
+  <defs>
+    <marker id="rh1" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- step 1: SFT -->
+  <rect x="20" y="40" width="140" height="50" rx="6" fill="#eef3fb" stroke="#2c6fbb"/>
+  <text x="90" y="60" text-anchor="middle" font-size="12" font-weight="600">1. SFT</text>
+  <text x="90" y="78" text-anchor="middle" font-size="10" fill="#666">supervised demos</text>
+  <!-- step 2: RM -->
+  <rect x="190" y="40" width="140" height="50" rx="6" fill="#fff5a8" stroke="#d77a2c"/>
+  <text x="260" y="60" text-anchor="middle" font-size="12" font-weight="600">2. reward model</text>
+  <text x="260" y="78" text-anchor="middle" font-size="10" fill="#666">rank A vs B</text>
+  <!-- step 3: PPO -->
+  <rect x="360" y="40" width="140" height="50" rx="6" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="430" y="60" text-anchor="middle" font-size="12" font-weight="600">3. RL (PPO)</text>
+  <text x="430" y="78" text-anchor="middle" font-size="10" fill="#666">policy ← reward</text>
+  <!-- arrows -->
+  <line x1="160" y1="65" x2="190" y2="65" stroke="#333" marker-end="url(#rh1)"/>
+  <line x1="330" y1="65" x2="360" y2="65" stroke="#333" marker-end="url(#rh1)"/>
+  <!-- example below -->
+  <g transform="translate(60, 130)">
+    <rect x="0" y="0" width="180" height="80" fill="#fff" stroke="#666"/>
+    <text x="90" y="20" text-anchor="middle" font-size="11" font-weight="600">human preferences</text>
+    <text x="10" y="40" font-size="10">"Explain RL"</text>
+    <text x="10" y="55" font-size="10" fill="#3d8b5e">A: clear, step-by-step  ✓</text>
+    <text x="10" y="70" font-size="10" fill="#c44778">B: jargon-heavy            ✗</text>
+  </g>
+  <g transform="translate(280, 130)">
+    <rect x="0" y="0" width="200" height="80" fill="#fff" stroke="#666"/>
+    <text x="100" y="20" text-anchor="middle" font-size="11" font-weight="600">policy reward shift</text>
+    <line x1="20" y1="60" x2="180" y2="60" stroke="#666"/>
+    <path d="M20,55 Q50,55 80,45 Q120,35 180,30" stroke="#3d8b5e" stroke-width="2" fill="none"/>
+    <text x="100" y="78" text-anchor="middle" font-size="10" fill="#666">helpfulness ↑ over training</text>
+  </g>
+  <text x="260" y="235" text-anchor="middle" font-size="11" fill="#666">
+    from "predict internet text" to "behave as an assistant"
+  </text>
+</svg>
+<figcaption>Three-stage pipeline: supervised demos → reward model from human preferences → RL (PPO) optimizes policy against the reward model.</figcaption>
+</figure>
+<section class="why">
+<h2>Why it matters</h2>
+<p>Language models become more useful by training on human preferences and instructions. This is the shift from “predict internet text” to “behave as an assistant.”</p>
+</section>
+<nav class="adjacent">
+<a href="2021-alphafold2.html">← AlphaFold2</a>
+<a href="2022-chatgpt.html">ChatGPT →</a>
+</nav>
+</article>
+</body>
+</html>

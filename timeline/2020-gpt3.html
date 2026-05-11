@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GPT-3 — Deep Learning Timeline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<article>
+<a class="nav-back" href="index.html">← Timeline index</a>
+<header>
+<p class="period">2020</p>
+<h1>GPT-3</h1>
+<p class="people"><strong>Key people:</strong> Brown et al.; OpenAI</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <!-- log-scale model sizes as bars -->
+  <text x="260" y="30" text-anchor="middle" font-size="13" fill="#666">parameter count, 2018 → 2020</text>
+  <g font-size="11">
+    <rect x="60"  y="180" width="30" height="20" fill="#2c6fbb"/>
+    <text x="75" y="220" text-anchor="middle">BERT-L</text>
+    <text x="75" y="235" text-anchor="middle" fill="#666">340M</text>
+    <rect x="120" y="170" width="30" height="30" fill="#2c6fbb"/>
+    <text x="135" y="220" text-anchor="middle">GPT-2</text>
+    <text x="135" y="235" text-anchor="middle" fill="#666">1.5B</text>
+    <rect x="180" y="150" width="30" height="50" fill="#2c6fbb"/>
+    <text x="195" y="220" text-anchor="middle">T5-XL</text>
+    <text x="195" y="235" text-anchor="middle" fill="#666">11B</text>
+    <rect x="240" y="60" width="30" height="140" fill="#c44778"/>
+    <text x="255" y="220" text-anchor="middle" font-weight="600">GPT-3</text>
+    <text x="255" y="235" text-anchor="middle" fill="#666">175B</text>
+  </g>
+  <!-- few-shot demonstration -->
+  <g transform="translate(300, 50)">
+    <rect x="0" y="0" width="200" height="160" fill="#fff" stroke="#666"/>
+    <text x="100" y="20" text-anchor="middle" font-size="12" font-weight="600">in-context learning</text>
+    <text x="10" y="45" font-family="ui-monospace, monospace" font-size="11">sea otter →</text>
+    <text x="10" y="62" font-family="ui-monospace, monospace" font-size="11">  loutre de mer</text>
+    <text x="10" y="82" font-family="ui-monospace, monospace" font-size="11">cheese →</text>
+    <text x="10" y="99" font-family="ui-monospace, monospace" font-size="11">  fromage</text>
+    <text x="10" y="119" font-family="ui-monospace, monospace" font-size="11">peppermint →</text>
+    <text x="10" y="136" font-family="ui-monospace, monospace" font-size="11" fill="#c44778">  menthe poivrée</text>
+    <text x="100" y="155" text-anchor="middle" font-size="10" fill="#666">no gradient update</text>
+  </g>
+</svg>
+<figcaption>At 175B parameters, a language model performs new tasks from a few examples in-context — no gradient update.</figcaption>
+</figure>
+<section class="why">
+<h2>Why it matters</h2>
+<p>175B-parameter language model demonstrates few-shot and in-context learning at a scale that makes language models feel like general-purpose systems.</p>
+</section>
+<nav class="adjacent">
+<a href="2020-scaling-laws.html">← Scaling laws</a>
+<a href="2020-diffusion.html">Diffusion models mature →</a>
+</nav>
+</article>
+</body>
+</html>

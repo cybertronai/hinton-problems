@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BERT and self-supervised pretraining — Deep Learning Timeline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<article>
+<a class="nav-back" href="index.html">← Timeline index</a>
+<header>
+<p class="period">2018</p>
+<h1>BERT and self-supervised pretraining</h1>
+<p class="people"><strong>Key people:</strong> Devlin, Chang, Lee, Toutanova</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220">
+  <!-- masked tokens -->
+  <g font-size="12">
+    <rect x="20" y="100" width="50" height="30" fill="#eef3fb" stroke="#2c6fbb"/><text x="45" y="120" text-anchor="middle">the</text>
+    <rect x="80" y="100" width="50" height="30" fill="#eef3fb" stroke="#2c6fbb"/><text x="105" y="120" text-anchor="middle">cat</text>
+    <rect x="140" y="100" width="50" height="30" fill="#fff5a8" stroke="#d77a2c"/><text x="165" y="120" text-anchor="middle">[MASK]</text>
+    <rect x="200" y="100" width="50" height="30" fill="#eef3fb" stroke="#2c6fbb"/><text x="225" y="120" text-anchor="middle">on</text>
+    <rect x="260" y="100" width="50" height="30" fill="#fff5a8" stroke="#d77a2c"/><text x="285" y="120" text-anchor="middle">[MASK]</text>
+    <rect x="320" y="100" width="50" height="30" fill="#eef3fb" stroke="#2c6fbb"/><text x="345" y="120" text-anchor="middle">mat</text>
+  </g>
+  <!-- transformer block -->
+  <rect x="20" y="55" width="350" height="32" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="195" y="76" text-anchor="middle" font-size="12">bidirectional Transformer (12 layers)</text>
+  <!-- predictions -->
+  <g font-size="11" fill="#3d8b5e">
+    <text x="165" y="40" text-anchor="middle">sat?</text>
+    <text x="285" y="40" text-anchor="middle">the?</text>
+  </g>
+  <!-- arrows -->
+  <line x1="165" y1="100" x2="165" y2="87" stroke="#333"/>
+  <line x1="285" y1="100" x2="285" y2="87" stroke="#333"/>
+  <line x1="165" y1="55" x2="165" y2="48" stroke="#3d8b5e"/>
+  <line x1="285" y1="55" x2="285" y2="48" stroke="#3d8b5e"/>
+  <!-- downstream tasks list -->
+  <g font-size="11">
+    <text x="400" y="80" fill="#666">→ classification</text>
+    <text x="400" y="100" fill="#666">→ QA</text>
+    <text x="400" y="120" fill="#666">→ NER</text>
+    <text x="400" y="140" fill="#666">→ sentence pairs</text>
+  </g>
+  <text x="195" y="170" text-anchor="middle" font-size="11" fill="#666">pretrain by predicting masked tokens from full context</text>
+  <text x="195" y="195" text-anchor="middle" font-size="11" fill="#666">fine-tune the same backbone for any downstream task</text>
+</svg>
+<figcaption>Mask 15% of tokens, predict them from full bidirectional context — one pretrained backbone, many downstream tasks.</figcaption>
+</figure>
+<section class="why">
+<h2>Why it matters</h2>
+<p>Bidirectional transformer pretraining turns NLP into “pretrain once, fine-tune broadly.” This is a major step toward foundation models.</p>
+</section>
+<nav class="adjacent">
+<a href="2017-transformer.html">← Transformer: “Attention Is All You Need”</a>
+<a href="2018-neural-ode.html">Neural ODEs reconnect deep learning to adjoints →</a>
+</nav>
+</article>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AlphaFold2 — Deep Learning Timeline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<article>
+<a class="nav-back" href="index.html">← Timeline index</a>
+<header>
+<p class="period">2021</p>
+<h1>AlphaFold2</h1>
+<p class="people"><strong>Key people:</strong> DeepMind</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+  <defs>
+    <marker id="afh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- AA sequence -->
+  <g font-size="11" font-family="ui-monospace, monospace">
+    <rect x="20" y="60" width="180" height="22" fill="#eef3fb" stroke="#2c6fbb"/>
+    <text x="110" y="76" text-anchor="middle">MKTVRQERLKSIVRILER...</text>
+    <text x="110" y="100" text-anchor="middle" font-size="11" fill="#666">amino-acid sequence</text>
+  </g>
+  <!-- MSA / templates -->
+  <rect x="20" y="130" width="180" height="22" fill="#fff" stroke="#333"/>
+  <text x="110" y="146" text-anchor="middle" font-size="11">MSA (homologous proteins)</text>
+  <!-- evoformer -->
+  <rect x="230" y="80" width="100" height="80" rx="6" fill="#fbe9f0" stroke="#c44778"/>
+  <text x="280" y="115" text-anchor="middle" font-size="12">Evoformer</text>
+  <text x="280" y="135" text-anchor="middle" font-size="11" fill="#666">attention over</text>
+  <text x="280" y="148" text-anchor="middle" font-size="11" fill="#666">pair + MSA</text>
+  <!-- structure module -->
+  <rect x="360" y="80" width="100" height="40" rx="6" fill="#fff" stroke="#333"/>
+  <text x="410" y="105" text-anchor="middle" font-size="12">structure module</text>
+  <!-- 3D output -->
+  <g transform="translate(380, 145)">
+    <path d="M0,30 Q15,5 30,25 Q45,45 60,15 Q75,40 80,20" stroke="#3d8b5e" stroke-width="2.5" fill="none"/>
+    <text x="40" y="60" text-anchor="middle" font-size="11" fill="#3d8b5e">3D structure</text>
+  </g>
+  <!-- arrows -->
+  <line x1="200" y1="72" x2="230" y2="100" stroke="#333" stroke-width="1.2" marker-end="url(#afh)"/>
+  <line x1="200" y1="142" x2="230" y2="135" stroke="#333" stroke-width="1.2" marker-end="url(#afh)"/>
+  <line x1="330" y1="100" x2="360" y2="100" stroke="#333" stroke-width="1.2" marker-end="url(#afh)"/>
+  <line x1="410" y1="120" x2="410" y2="145" stroke="#333" stroke-width="1.2" marker-end="url(#afh)"/>
+  <text x="260" y="225" text-anchor="middle" font-size="11" fill="#666">
+    near-experimental accuracy for almost all known proteins — 2024 Nobel in Chemistry
+  </text>
+</svg>
+<figcaption>Sequence + MSA → Evoformer (attention over residue pairs) → structure module → 3D atomic coordinates at near-experimental accuracy.</figcaption>
+</figure>
+<section class="why">
+<h2>Why it matters</h2>
+<p>Deep learning solves a long-standing protein-structure prediction problem at near-experimental accuracy for many proteins. The 2024 Nobel Chemistry announcement credits AlphaFold2 with predicting the structure of almost all known proteins.</p>
+</section>
+<nav class="adjacent">
+<a href="2021-clip.html">← CLIP and text-image representation learning</a>
+<a href="2022-rlhf.html">InstructGPT / RLHF →</a>
+</nav>
+</article>
+</body>
+</html>

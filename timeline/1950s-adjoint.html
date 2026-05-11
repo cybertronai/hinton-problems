@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adjoint methods in optimal control — Deep Learning Timeline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<article>
+<a class="nav-back" href="index.html">← Timeline index</a>
+<header>
+<p class="period">1950s–1960s prehistory</p>
+<h1>Adjoint methods in optimal control</h1>
+<p class="people"><strong>Key people:</strong> Pontryagin, Bellman, Kelley, Bryson, Ho, others</p>
+</header>
+<figure class="diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220">
+  <defs>
+    <marker id="ah" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2c6fbb"/>
+    </marker>
+    <marker id="ahp" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#c44778"/>
+    </marker>
+  </defs>
+  <!-- state nodes -->
+  <g>
+    <circle cx="60"  cy="80" r="22" fill="#fff" stroke="#333"/>
+    <circle cx="180" cy="80" r="22" fill="#fff" stroke="#333"/>
+    <circle cx="300" cy="80" r="22" fill="#fff" stroke="#333"/>
+    <circle cx="420" cy="80" r="22" fill="#fff" stroke="#333"/>
+    <text x="60"  y="84" text-anchor="middle">x₀</text>
+    <text x="180" y="84" text-anchor="middle">x₁</text>
+    <text x="300" y="84" text-anchor="middle">x₂</text>
+    <text x="420" y="84" text-anchor="middle">x_T</text>
+  </g>
+  <!-- forward arrows -->
+  <line x1="82" y1="80" x2="158" y2="80" stroke="#2c6fbb" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="202" y1="80" x2="278" y2="80" stroke="#2c6fbb" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="322" y1="80" x2="398" y2="80" stroke="#2c6fbb" stroke-width="2" marker-end="url(#ah)"/>
+  <text x="260" y="60" text-anchor="middle" font-size="13" fill="#2c6fbb">forward dynamics (state x evolves)</text>
+  <!-- backward arrows -->
+  <line x1="398" y1="140" x2="322" y2="140" stroke="#c44778" stroke-width="2" marker-end="url(#ahp)"/>
+  <line x1="278" y1="140" x2="202" y2="140" stroke="#c44778" stroke-width="2" marker-end="url(#ahp)"/>
+  <line x1="158" y1="140" x2="82" y2="140" stroke="#c44778" stroke-width="2" marker-end="url(#ahp)"/>
+  <g>
+    <circle cx="60"  cy="160" r="18" fill="#fff" stroke="#c44778"/>
+    <circle cx="180" cy="160" r="18" fill="#fff" stroke="#c44778"/>
+    <circle cx="300" cy="160" r="18" fill="#fff" stroke="#c44778"/>
+    <circle cx="420" cy="160" r="18" fill="#fff" stroke="#c44778"/>
+    <text x="60"  y="164" text-anchor="middle" font-size="13">λ₀</text>
+    <text x="180" y="164" text-anchor="middle" font-size="13">λ₁</text>
+    <text x="300" y="164" text-anchor="middle" font-size="13">λ₂</text>
+    <text x="420" y="164" text-anchor="middle" font-size="13">λ_T</text>
+  </g>
+  <text x="260" y="200" text-anchor="middle" font-size="13" fill="#c44778">backward adjoint (sensitivities λ = ∂J/∂x)</text>
+</svg>
+<figcaption>The adjoint propagates sensitivities backward through a state trajectory — same recipe as modern backprop, decades earlier.</figcaption>
+</figure>
+<section class="why">
+<h2>Why it matters</h2>
+<p>The mathematical ancestor of backprop: propagate sensitivities backward through time or through a dynamical system. This is the “control theory” root of deep learning.</p>
+</section>
+<nav class="adjacent">
+<span></span>
+<a href="1970-reverse-ad.html">Reverse-mode automatic differentiation →</a>
+</nav>
+</article>
+</body>
+</html>
