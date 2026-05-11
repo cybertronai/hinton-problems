@@ -15,40 +15,82 @@
 <p class="people"><strong>Key people:</strong> Kaplan et al.; OpenAI</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Scaling laws timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="520">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" class="timeline-visual illustrative-visual" style="width: 100%; height: auto;" role="img" aria-label="Scaling laws illustrative timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="illustrative-retina" data-export-width="1520" data-export-height="860">
   <title>Scaling laws</title>
-  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
-  <rect class="viz-canvas" x="4.68" y="4.68" width="510.64" height="250.64" rx="19.5" ry="19.5"/>
-  <!-- log-log axes -->
-  <line x1="70" y1="50" x2="70" y2="220" stroke="#333"/>
-  <line x1="70" y1="220" x2="490" y2="220" stroke="#333"/>
-  <text x="65" y="55" font-size="11" text-anchor="end">loss</text>
-  <text x="60" y="60" font-size="9" text-anchor="end" fill="#666">(log)</text>
-  <text x="485" y="240" font-size="11" text-anchor="end">compute / data / params (log)</text>
-  <!-- ticks -->
-  <g font-size="9" fill="#666">
-    <text x="70" y="235" text-anchor="middle">10⁰</text>
-    <text x="175" y="235" text-anchor="middle">10²</text>
-    <text x="280" y="235" text-anchor="middle">10⁴</text>
-    <text x="385" y="235" text-anchor="middle">10⁶</text>
-    <text x="490" y="235" text-anchor="middle">10⁸</text>
-  </g>
-  <!-- compute curve -->
-  <line x1="80" y1="70" x2="485" y2="195" stroke="#2c6fbb" stroke-width="2.5"/>
-  <text x="455" y="180" font-size="11" fill="#2c6fbb">compute</text>
-  <!-- params curve -->
-  <line x1="80" y1="80" x2="485" y2="180" stroke="#c44778" stroke-width="2.5"/>
-  <text x="455" y="165" font-size="11" fill="#c44778">params</text>
-  <!-- data curve -->
-  <line x1="80" y1="90" x2="485" y2="170" stroke="#3d8b5e" stroke-width="2.5"/>
-  <text x="455" y="150" font-size="11" fill="#3d8b5e">data</text>
-  <!-- annotation -->
-  <text x="270" y="40" text-anchor="middle" font-size="13" fill="#666">
-    loss(x) = (x_c / x)^α — straight lines on a log-log plot
-  </text>
-  <text x="275" y="250" text-anchor="middle" font-size="11" fill="#666">
-    7+ orders of magnitude of smooth scaling
-  </text>
+  <desc>Completely redrawn illustrative SVG scene for the deep-learning timeline.</desc>
+<defs>
+  <linearGradient id="2020_scaling_laws-bg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#fafdff"/>
+    <stop offset="52%" stop-color="#eef5ff"/>
+    <stop offset="100%" stop-color="#fdf3f8"/>
+  </linearGradient>
+  <linearGradient id="2020_scaling_laws-panel" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.97"/>
+    <stop offset="100%" stop-color="#f7fbff" stop-opacity="0.94"/>
+  </linearGradient>
+  <linearGradient id="2020_scaling_laws-accent-soft" x1="0" x2="1">
+    <stop offset="0%" stop-color="#356fd3" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#f09c3b" stop-opacity="0.18"/>
+  </linearGradient>
+  <linearGradient id="2020_scaling_laws-accent" x1="0" x2="1">
+    <stop offset="0%" stop-color="#356fd3"/>
+    <stop offset="100%" stop-color="#f09c3b"/>
+  </linearGradient>
+  <filter id="2020_scaling_laws-shadow" x="-20%" y="-20%" width="140%" height="150%">
+    <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#22304a" flood-opacity="0.16"/>
+  </filter>
+  <filter id="2020_scaling_laws-small-shadow" x="-30%" y="-30%" width="160%" height="180%">
+    <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#22304a" flood-opacity="0.18"/>
+  </filter>
+  <marker id="2020_scaling_laws-arrow-a" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#356fd3"/>
+  </marker>
+  <marker id="2020_scaling_laws-arrow-b" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#f09c3b"/>
+  </marker>
+  <marker id="2020_scaling_laws-arrow-ink" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#17202b"/>
+  </marker>
+</defs>
+  <rect x="0" y="0" width="760" height="430" fill="url(#2020_scaling_laws-bg)"/>
+<circle cx="70" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="280" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="490" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="700" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+  <circle cx="672" cy="72" r="86" fill="#356fd3" opacity="0.08"/>
+  <circle cx="93" cy="372" r="96" fill="#f09c3b" opacity="0.08"/>
+  <rect x="24" y="24" width="712" height="382" rx="34" fill="url(#2020_scaling_laws-panel)" stroke="#dce8f5" filter="url(#2020_scaling_laws-shadow)"/>
+<rect x="50" y="48" width="72" height="29" rx="14" fill="#356fd3" stroke="none" stroke-width="1.2"/>
+<text x="86" y="68" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">2020</text>
+<text x="50" y="104" font-size="23" fill="#17202b" font-weight="800" text-anchor="start">Scaling laws</text>
+<text x="86" y="154" font-size="11" fill="#356fd3" font-weight="800" text-anchor="start">PREDICTABLE POWER LAWS OVER SCALE</text>
+<line x1="112" y1="340" x2="650" y2="340" stroke="#a8b7cc" stroke-width="2" fill="none"/>
+<line x1="112" y1="340" x2="112" y2="174" stroke="#a8b7cc" stroke-width="2" fill="none"/>
+<path d="M126,192 C224,218 318,248 420,286 C506,318 586,332 644,338" stroke="#356fd3" fill="none" stroke-width="4.5" opacity="0.9"/>
+<path d="M126,192 L644,338" stroke="#f09c3b" fill="none" stroke-width="2" opacity="0.35" stroke-dasharray="7 7"/>
+<circle cx="154" cy="200" r="9" fill="#ffffff" stroke="#356fd3" stroke-width="2"/>
+<text x="154" y="182" font-size="12" fill="#667085" font-weight="700" text-anchor="middle">small</text>
+<circle cx="310" cy="246" r="9" fill="#ffffff" stroke="#356fd3" stroke-width="2"/>
+<text x="310" y="228" font-size="12" fill="#667085" font-weight="700" text-anchor="middle">medium</text>
+<circle cx="484" cy="308" r="9" fill="#ffffff" stroke="#356fd3" stroke-width="2"/>
+<text x="484" y="290" font-size="12" fill="#667085" font-weight="700" text-anchor="middle">large</text>
+<circle cx="620" cy="336" r="9" fill="#ffffff" stroke="#356fd3" stroke-width="2"/>
+<text x="620" y="318" font-size="12" fill="#667085" font-weight="700" text-anchor="middle">frontier</text>
+<text x="402" y="182" font-size="18" fill="#f09c3b" font-weight="900" text-anchor="middle">loss ∝ compute^-α</text>
+<text x="638" y="360" font-size="12" fill="#667085" font-weight="700" text-anchor="end">scale</text>
+<text x="96" y="184" font-size="12" fill="#667085" font-weight="700" text-anchor="end">loss</text>
 </svg>
 <figcaption>loss = (x_c / x)^α — straight lines on a log-log plot over 7+ orders of magnitude. Strategy shifts from architecture to scale.</figcaption>
 </figure>

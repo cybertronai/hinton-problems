@@ -175,12 +175,6 @@ figure.diagram svg.timeline-visual {
   text-rendering: optimizeLegibility;
 }
 
-figure.diagram svg.timeline-visual .viz-canvas {
-  fill: var(--panel-soft);
-  stroke: #dfe8f3;
-  stroke-width: 1;
-}
-
 figure.diagram svg.timeline-visual line,
 figure.diagram svg.timeline-visual path {
   stroke-linecap: round;

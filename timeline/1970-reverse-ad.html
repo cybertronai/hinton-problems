@@ -15,51 +15,89 @@
 <p class="people"><strong>Key people:</strong> Seppo Linnainmaa</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Reverse-mode automatic differentiation timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" class="timeline-visual illustrative-visual" style="width: 100%; height: auto;" role="img" aria-label="Reverse-mode automatic differentiation illustrative timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="illustrative-retina" data-export-width="1520" data-export-height="860">
   <title>Reverse-mode automatic differentiation</title>
-  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
-  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
-  <defs>
-    <marker id="rh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L9,3 z" fill="#2c6fbb"/>
-    </marker>
-    <marker id="rhb" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L9,3 z" fill="#c44778"/>
-    </marker>
-  </defs>
-  <!-- DAG nodes -->
-  <g font-size="13">
-    <rect x="30"  y="70"  width="60" height="36" rx="4" fill="#eef3fb" stroke="#2c6fbb"/>
-    <text x="60"  y="92" text-anchor="middle">a</text>
-    <rect x="30"  y="135" width="60" height="36" rx="4" fill="#eef3fb" stroke="#2c6fbb"/>
-    <text x="60"  y="157" text-anchor="middle">b</text>
-    <rect x="160" y="70"  width="60" height="36" rx="4" fill="#fff" stroke="#333"/>
-    <text x="190" y="92" text-anchor="middle">u = a·b</text>
-    <rect x="160" y="135" width="60" height="36" rx="4" fill="#fff" stroke="#333"/>
-    <text x="190" y="157" text-anchor="middle">v = a+b</text>
-    <rect x="290" y="100" width="60" height="36" rx="4" fill="#fff" stroke="#333"/>
-    <text x="320" y="122" text-anchor="middle">y = u·v</text>
-    <rect x="420" y="100" width="60" height="36" rx="4" fill="#fbe9f0" stroke="#c44778"/>
-    <text x="450" y="122" text-anchor="middle">J</text>
-  </g>
-  <!-- forward edges -->
-  <line x1="90"  y1="88"  x2="160" y2="88" stroke="#2c6fbb" stroke-width="1.5" marker-end="url(#rh)"/>
-  <line x1="90"  y1="153" x2="160" y2="153" stroke="#2c6fbb" stroke-width="1.5" marker-end="url(#rh)"/>
-  <line x1="90"  y1="100" x2="160" y2="140" stroke="#2c6fbb" stroke-width="1.5" marker-end="url(#rh)"/>
-  <line x1="90"  y1="145" x2="160" y2="100" stroke="#2c6fbb" stroke-width="1.5" marker-end="url(#rh)"/>
-  <line x1="220" y1="88"  x2="290" y2="113" stroke="#2c6fbb" stroke-width="1.5" marker-end="url(#rh)"/>
-  <line x1="220" y1="153" x2="290" y2="123" stroke="#2c6fbb" stroke-width="1.5" marker-end="url(#rh)"/>
-  <line x1="350" y1="118" x2="420" y2="118" stroke="#2c6fbb" stroke-width="1.5" marker-end="url(#rh)"/>
-  <!-- reverse adjoint annotation -->
-  <text x="260" y="35" text-anchor="middle" font-size="13" fill="#c44778">
-    reverse pass: ∂J/∂a = (∂J/∂u)·b + (∂J/∂v)·1
-  </text>
-  <text x="260" y="55" text-anchor="middle" font-size="13" fill="#2c6fbb">
-    forward pass: each node computes its value from inputs
-  </text>
-  <text x="260" y="215" text-anchor="middle" font-size="12" fill="#666">
-    Linnainmaa 1970: reverse-mode AD as systematic chain-rule on a DAG of operations
-  </text>
+  <desc>Completely redrawn illustrative SVG scene for the deep-learning timeline.</desc>
+<defs>
+  <linearGradient id="1970_reverse_ad-bg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#fafdff"/>
+    <stop offset="52%" stop-color="#eef5ff"/>
+    <stop offset="100%" stop-color="#fdf3f8"/>
+  </linearGradient>
+  <linearGradient id="1970_reverse_ad-panel" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.97"/>
+    <stop offset="100%" stop-color="#f7fbff" stop-opacity="0.94"/>
+  </linearGradient>
+  <linearGradient id="1970_reverse_ad-accent-soft" x1="0" x2="1">
+    <stop offset="0%" stop-color="#4d7cff" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#d6538c" stop-opacity="0.18"/>
+  </linearGradient>
+  <linearGradient id="1970_reverse_ad-accent" x1="0" x2="1">
+    <stop offset="0%" stop-color="#4d7cff"/>
+    <stop offset="100%" stop-color="#d6538c"/>
+  </linearGradient>
+  <filter id="1970_reverse_ad-shadow" x="-20%" y="-20%" width="140%" height="150%">
+    <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#22304a" flood-opacity="0.16"/>
+  </filter>
+  <filter id="1970_reverse_ad-small-shadow" x="-30%" y="-30%" width="160%" height="180%">
+    <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#22304a" flood-opacity="0.18"/>
+  </filter>
+  <marker id="1970_reverse_ad-arrow-a" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#4d7cff"/>
+  </marker>
+  <marker id="1970_reverse_ad-arrow-b" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#d6538c"/>
+  </marker>
+  <marker id="1970_reverse_ad-arrow-ink" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#17202b"/>
+  </marker>
+</defs>
+  <rect x="0" y="0" width="760" height="430" fill="url(#1970_reverse_ad-bg)"/>
+<circle cx="70" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="280" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="490" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="700" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+  <circle cx="672" cy="72" r="86" fill="#4d7cff" opacity="0.08"/>
+  <circle cx="93" cy="372" r="96" fill="#d6538c" opacity="0.08"/>
+  <rect x="24" y="24" width="712" height="382" rx="34" fill="url(#1970_reverse_ad-panel)" stroke="#dce8f5" filter="url(#1970_reverse_ad-shadow)"/>
+<rect x="50" y="48" width="72" height="29" rx="14" fill="#4d7cff" stroke="none" stroke-width="1.2"/>
+<text x="86" y="68" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">1970</text>
+<text x="50" y="104" font-size="23" fill="#17202b" font-weight="800" text-anchor="start">Reverse-mode automatic differentiation</text>
+<rect x="84" y="166" width="560" height="192" rx="26" fill="#ffffff" stroke="#d8e5f3" stroke-width="1.2" filter="url(#1970_reverse_ad-small-shadow)"/>
+<text x="104" y="190" font-size="11" fill="#4d7cff" font-weight="800" text-anchor="start">VALUE TAPE AND REVERSE ACCUMULATION</text>
+<line x1="147" y1="230" x2="248" y2="206" stroke="#4d7cff" stroke-width="2.2" fill="none" opacity="0.55" marker-end="url(#1970_reverse_ad-arrow-a)"/>
+<line x1="147" y1="304" x2="248" y2="206" stroke="#4d7cff" stroke-width="2.2" fill="none" opacity="0.55" marker-end="url(#1970_reverse_ad-arrow-a)"/>
+<line x1="147" y1="230" x2="248" y2="304" stroke="#4d7cff" stroke-width="2.2" fill="none" opacity="0.55" marker-end="url(#1970_reverse_ad-arrow-a)"/>
+<line x1="147" y1="304" x2="248" y2="304" stroke="#4d7cff" stroke-width="2.2" fill="none" opacity="0.55" marker-end="url(#1970_reverse_ad-arrow-a)"/>
+<line x1="330" y1="206" x2="422" y2="254" stroke="#4d7cff" stroke-width="2.2" fill="none" opacity="0.55" marker-end="url(#1970_reverse_ad-arrow-a)"/>
+<line x1="330" y1="304" x2="422" y2="254" stroke="#4d7cff" stroke-width="2.2" fill="none" opacity="0.55" marker-end="url(#1970_reverse_ad-arrow-a)"/>
+<line x1="481" y1="254" x2="574" y2="254" stroke="#4d7cff" stroke-width="2.2" fill="none" opacity="0.55" marker-end="url(#1970_reverse_ad-arrow-a)"/>
+<rect x="80" y="207" width="76" height="46" rx="13" fill="#eef5ff" stroke="#4d7cff" stroke-width="1.2"/>
+<text x="118" y="235" font-size="14" fill="#17202b" font-weight="800" text-anchor="middle">a</text>
+<rect x="80" y="281" width="76" height="46" rx="13" fill="#eef5ff" stroke="#4d7cff" stroke-width="1.2"/>
+<text x="118" y="309" font-size="14" fill="#17202b" font-weight="800" text-anchor="middle">b</text>
+<rect x="240" y="183" width="76" height="46" rx="13" fill="#ffffff" stroke="#4d7cff" stroke-width="1.2"/>
+<text x="278" y="211" font-size="14" fill="#17202b" font-weight="800" text-anchor="middle">u=a*b</text>
+<rect x="240" y="281" width="76" height="46" rx="13" fill="#ffffff" stroke="#4d7cff" stroke-width="1.2"/>
+<text x="278" y="309" font-size="14" fill="#17202b" font-weight="800" text-anchor="middle">v=a+b</text>
+<rect x="414" y="231" width="76" height="46" rx="13" fill="#ffffff" stroke="#4d7cff" stroke-width="1.2"/>
+<text x="452" y="259" font-size="14" fill="#17202b" font-weight="800" text-anchor="middle">y</text>
+<rect x="566" y="231" width="76" height="46" rx="13" fill="#ffffff" stroke="#d6538c" stroke-width="1.2"/>
+<text x="604" y="259" font-size="14" fill="#17202b" font-weight="800" text-anchor="middle">J</text>
+<path d="M604,148 C512,118 420,126 338,160 C252,196 176,178 100,146" stroke="#d6538c" fill="none" stroke-width="4" opacity="0.85" marker-end="url(#1970_reverse_ad-arrow-b)" stroke-dasharray="9 8"/>
+<text x="352" y="142" font-size="15" fill="#d6538c" font-weight="800" text-anchor="middle">reverse pass: chain rule flows against the arrows</text>
 </svg>
 <figcaption>Forward pass evaluates each node; reverse pass accumulates ∂J/∂· via the chain rule on the DAG.</figcaption>
 </figure>

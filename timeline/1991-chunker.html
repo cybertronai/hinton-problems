@@ -15,54 +15,83 @@
 <p class="people"><strong>Key people:</strong> Schmidhuber</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Neural history compressor timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" class="timeline-visual illustrative-visual" style="width: 100%; height: auto;" role="img" aria-label="Neural history compressor illustrative timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="illustrative-retina" data-export-width="1520" data-export-height="860">
   <title>Neural history compressor</title>
-  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
-  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
-  <defs>
-    <marker id="ch" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L9,3 z" fill="#2c6fbb"/>
-    </marker>
-  </defs>
-  <!-- bottom level: every step -->
-  <g font-size="11">
-    <g fill="#eef3fb" stroke="#2c6fbb">
-      <rect x="30"  y="170" width="30" height="22"/>
-      <rect x="65"  y="170" width="30" height="22"/>
-      <rect x="100" y="170" width="30" height="22"/>
-      <rect x="135" y="170" width="30" height="22"/>
-      <rect x="170" y="170" width="30" height="22"/>
-      <rect x="205" y="170" width="30" height="22"/>
-      <rect x="240" y="170" width="30" height="22"/>
-      <rect x="275" y="170" width="30" height="22"/>
-      <rect x="310" y="170" width="30" height="22"/>
-      <rect x="345" y="170" width="30" height="22"/>
-      <rect x="380" y="170" width="30" height="22"/>
-      <rect x="415" y="170" width="30" height="22"/>
-      <rect x="450" y="170" width="30" height="22"/>
-    </g>
-    <text x="255" y="218" text-anchor="middle" font-size="11" fill="#666">level 0: every input symbol</text>
-  </g>
-  <!-- middle level: chunked once -->
-  <g>
-    <rect x="60"  y="110" width="105" height="28" fill="#fff" stroke="#7a4f9c"/>
-    <rect x="175" y="110" width="105" height="28" fill="#fff" stroke="#7a4f9c"/>
-    <rect x="290" y="110" width="105" height="28" fill="#fff" stroke="#7a4f9c"/>
-    <text x="225" y="155" text-anchor="middle" font-size="11" fill="#666">level 1: only at unpredictable events</text>
-  </g>
-  <!-- top level -->
-  <g>
-    <rect x="155" y="50" width="240" height="28" fill="#fbe9f0" stroke="#c44778"/>
-    <text x="275" y="95" text-anchor="middle" font-size="11" fill="#666">level 2: only when level 1 is surprised</text>
-  </g>
-  <!-- vertical arrows showing reductions -->
-  <line x1="115" y1="170" x2="115" y2="138" stroke="#2c6fbb" stroke-width="1.2" marker-end="url(#ch)"/>
-  <line x1="225" y1="170" x2="225" y2="138" stroke="#2c6fbb" stroke-width="1.2" marker-end="url(#ch)"/>
-  <line x1="345" y1="170" x2="345" y2="138" stroke="#2c6fbb" stroke-width="1.2" marker-end="url(#ch)"/>
-  <line x1="275" y1="110" x2="275" y2="78"  stroke="#2c6fbb" stroke-width="1.2" marker-end="url(#ch)"/>
-  <text x="260" y="35" text-anchor="middle" font-size="12" fill="#666">
-    history compression: pass up only what the lower level failed to predict
-  </text>
+  <desc>Completely redrawn illustrative SVG scene for the deep-learning timeline.</desc>
+<defs>
+  <linearGradient id="1991_chunker-bg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#fafdff"/>
+    <stop offset="52%" stop-color="#eef5ff"/>
+    <stop offset="100%" stop-color="#fdf3f8"/>
+  </linearGradient>
+  <linearGradient id="1991_chunker-panel" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.97"/>
+    <stop offset="100%" stop-color="#f7fbff" stop-opacity="0.94"/>
+  </linearGradient>
+  <linearGradient id="1991_chunker-accent-soft" x1="0" x2="1">
+    <stop offset="0%" stop-color="#4775d1" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#24a0a8" stop-opacity="0.18"/>
+  </linearGradient>
+  <linearGradient id="1991_chunker-accent" x1="0" x2="1">
+    <stop offset="0%" stop-color="#4775d1"/>
+    <stop offset="100%" stop-color="#24a0a8"/>
+  </linearGradient>
+  <filter id="1991_chunker-shadow" x="-20%" y="-20%" width="140%" height="150%">
+    <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#22304a" flood-opacity="0.16"/>
+  </filter>
+  <filter id="1991_chunker-small-shadow" x="-30%" y="-30%" width="160%" height="180%">
+    <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#22304a" flood-opacity="0.18"/>
+  </filter>
+  <marker id="1991_chunker-arrow-a" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#4775d1"/>
+  </marker>
+  <marker id="1991_chunker-arrow-b" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#24a0a8"/>
+  </marker>
+  <marker id="1991_chunker-arrow-ink" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#17202b"/>
+  </marker>
+</defs>
+  <rect x="0" y="0" width="760" height="430" fill="url(#1991_chunker-bg)"/>
+<circle cx="70" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="280" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="490" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="700" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+  <circle cx="672" cy="72" r="86" fill="#4775d1" opacity="0.08"/>
+  <circle cx="93" cy="372" r="96" fill="#24a0a8" opacity="0.08"/>
+  <rect x="24" y="24" width="712" height="382" rx="34" fill="url(#1991_chunker-panel)" stroke="#dce8f5" filter="url(#1991_chunker-shadow)"/>
+<rect x="50" y="48" width="72" height="29" rx="14" fill="#4775d1" stroke="none" stroke-width="1.2"/>
+<text x="86" y="68" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">1991</text>
+<text x="50" y="104" font-size="23" fill="#17202b" font-weight="800" text-anchor="start">Neural history compressor</text>
+<text x="92" y="154" font-size="11" fill="#4775d1" font-weight="800" text-anchor="start">SURPRISES RISE TO A SLOWER TIMESCALE</text>
+<rect x="106" y="284" width="34" height="48" rx="8" fill="#eef5ff" stroke="#4775d1" stroke-width="1.2"/>
+<rect x="156" y="284" width="34" height="48" rx="8" fill="#eef5ff" stroke="#4775d1" stroke-width="1.2"/>
+<rect x="206" y="284" width="34" height="48" rx="8" fill="#fff3f8" stroke="#24a0a8" stroke-width="1.2"/>
+<rect x="256" y="284" width="34" height="48" rx="8" fill="#eef5ff" stroke="#4775d1" stroke-width="1.2"/>
+<rect x="306" y="284" width="34" height="48" rx="8" fill="#eef5ff" stroke="#4775d1" stroke-width="1.2"/>
+<rect x="356" y="284" width="34" height="48" rx="8" fill="#fff3f8" stroke="#24a0a8" stroke-width="1.2"/>
+<rect x="406" y="284" width="34" height="48" rx="8" fill="#eef5ff" stroke="#4775d1" stroke-width="1.2"/>
+<rect x="456" y="284" width="34" height="48" rx="8" fill="#eef5ff" stroke="#4775d1" stroke-width="1.2"/>
+<rect x="90" y="214" width="394" height="44" rx="14" fill="#ffffff" stroke="#d8e5f3" stroke-width="1.2"/>
+<text x="286" y="242" font-size="14" fill="#17202b" font-weight="700" text-anchor="middle">lower predictor consumes ordinary events</text>
+<rect x="208" y="164" width="266" height="44" rx="14" fill="#ffffff" stroke="#24a0a8" stroke-width="1.2"/>
+<text x="341" y="192" font-size="14" fill="#17202b" font-weight="700" text-anchor="middle">upper predictor sees only residual surprise</text>
+<line x1="223" y1="284" x2="223" y2="210" stroke="#24a0a8" stroke-width="2.5" fill="none" opacity="0.85" marker-end="url(#1991_chunker-arrow-b)"/>
+<path d="M211,268 L223,246 L235,268" stroke="#24a0a8" fill="none" stroke-width="2.2"/>
+<line x1="373" y1="284" x2="373" y2="210" stroke="#24a0a8" stroke-width="2.5" fill="none" opacity="0.85" marker-end="url(#1991_chunker-arrow-b)"/>
+<path d="M361,268 L373,246 L385,268" stroke="#24a0a8" fill="none" stroke-width="2.2"/>
 </svg>
 <figcaption>A higher-level predictor sees only the events its lower-level predictor failed to anticipate — credit assignment over much longer lags.</figcaption>
 </figure>

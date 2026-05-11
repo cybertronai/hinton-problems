@@ -15,44 +15,79 @@
 <p class="people"><strong>Key people:</strong> Goodfellow, Pouget-Abadie, Mirza, Xu, Warde-Farley, Ozair, Courville, Bengio</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="GANs timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" class="timeline-visual illustrative-visual" style="width: 100%; height: auto;" role="img" aria-label="GANs illustrative timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="illustrative-retina" data-export-width="1520" data-export-height="860">
   <title>GANs</title>
-  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
-  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
-  <defs>
-    <marker id="gh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
-    </marker>
-  </defs>
-  <!-- z -->
-  <rect x="20" y="100" width="50" height="32" fill="#fff" stroke="#333"/>
-  <text x="45" y="120" text-anchor="middle" font-size="12">z ~ 𝒩</text>
-  <!-- Generator -->
-  <rect x="100" y="80" width="100" height="80" rx="6" fill="#eef3fb" stroke="#2c6fbb"/>
-  <text x="150" y="125" text-anchor="middle" font-size="13">G(z)</text>
-  <!-- fake -->
-  <rect x="230" y="85" width="60" height="70" fill="#fff" stroke="#666"/>
-  <text x="260" y="125" text-anchor="middle" font-size="11">fake</text>
-  <!-- real -->
-  <rect x="230" y="20" width="60" height="50" fill="#fff" stroke="#666"/>
-  <text x="260" y="50" text-anchor="middle" font-size="11">real</text>
-  <!-- Discriminator -->
-  <rect x="320" y="60" width="100" height="120" rx="6" fill="#fbe9f0" stroke="#c44778"/>
-  <text x="370" y="125" text-anchor="middle" font-size="13">D(x)</text>
-  <!-- verdict -->
-  <rect x="445" y="100" width="55" height="40" fill="#fff" stroke="#333"/>
-  <text x="473" y="118" text-anchor="middle" font-size="12">real?</text>
-  <text x="473" y="132" text-anchor="middle" font-size="12">fake?</text>
-  <!-- arrows -->
-  <line x1="70" y1="116" x2="100" y2="116" stroke="#333" stroke-width="1.5" marker-end="url(#gh)"/>
-  <line x1="200" y1="120" x2="230" y2="120" stroke="#333" stroke-width="1.5" marker-end="url(#gh)"/>
-  <line x1="290" y1="120" x2="320" y2="120" stroke="#333" stroke-width="1.5" marker-end="url(#gh)"/>
-  <line x1="290" y1="45" x2="320" y2="80" stroke="#333" stroke-width="1.5" marker-end="url(#gh)"/>
-  <line x1="420" y1="120" x2="445" y2="120" stroke="#333" stroke-width="1.5" marker-end="url(#gh)"/>
-  <!-- adversarial loop -->
-  <path d="M150,160 Q150,210 370,210 Q420,210 420,180" stroke="#7a4f9c" stroke-width="2" fill="none" stroke-dasharray="6,4" marker-end="url(#gh)"/>
-  <text x="270" y="225" text-anchor="middle" font-size="12" fill="#7a4f9c">G learns to fool D; D learns to catch G</text>
-  <text x="260" y="32" text-anchor="middle" font-size="12" fill="#666">two-player minimax: min_G max_D</text>
+  <desc>Completely redrawn illustrative SVG scene for the deep-learning timeline.</desc>
+<defs>
+  <linearGradient id="2014_gan-bg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#fafdff"/>
+    <stop offset="52%" stop-color="#eef5ff"/>
+    <stop offset="100%" stop-color="#fdf3f8"/>
+  </linearGradient>
+  <linearGradient id="2014_gan-panel" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.97"/>
+    <stop offset="100%" stop-color="#f7fbff" stop-opacity="0.94"/>
+  </linearGradient>
+  <linearGradient id="2014_gan-accent-soft" x1="0" x2="1">
+    <stop offset="0%" stop-color="#d45f8f" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#2f75d6" stop-opacity="0.18"/>
+  </linearGradient>
+  <linearGradient id="2014_gan-accent" x1="0" x2="1">
+    <stop offset="0%" stop-color="#d45f8f"/>
+    <stop offset="100%" stop-color="#2f75d6"/>
+  </linearGradient>
+  <filter id="2014_gan-shadow" x="-20%" y="-20%" width="140%" height="150%">
+    <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#22304a" flood-opacity="0.16"/>
+  </filter>
+  <filter id="2014_gan-small-shadow" x="-30%" y="-30%" width="160%" height="180%">
+    <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#22304a" flood-opacity="0.18"/>
+  </filter>
+  <marker id="2014_gan-arrow-a" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#d45f8f"/>
+  </marker>
+  <marker id="2014_gan-arrow-b" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#2f75d6"/>
+  </marker>
+  <marker id="2014_gan-arrow-ink" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#17202b"/>
+  </marker>
+</defs>
+  <rect x="0" y="0" width="760" height="430" fill="url(#2014_gan-bg)"/>
+<circle cx="70" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="280" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="490" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="700" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+  <circle cx="672" cy="72" r="86" fill="#d45f8f" opacity="0.08"/>
+  <circle cx="93" cy="372" r="96" fill="#2f75d6" opacity="0.08"/>
+  <rect x="24" y="24" width="712" height="382" rx="34" fill="url(#2014_gan-panel)" stroke="#dce8f5" filter="url(#2014_gan-shadow)"/>
+<rect x="50" y="48" width="72" height="29" rx="14" fill="#d45f8f" stroke="none" stroke-width="1.2"/>
+<text x="86" y="68" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">2014</text>
+<text x="50" y="104" font-size="23" fill="#17202b" font-weight="800" text-anchor="start">GANs</text>
+<text x="86" y="154" font-size="11" fill="#2f75d6" font-weight="800" text-anchor="start">TWO NETWORKS IN AN ADVERSARIAL STUDIO</text>
+<rect x="84" y="210" width="150" height="88" rx="18" fill="#fff3f8" stroke="#2f75d6" stroke-width="1.2" filter="url(#2014_gan-shadow)"/>
+<text x="159" y="240" font-size="15" fill="#17202b" font-weight="700" text-anchor="middle">generator</text>
+<text x="159" y="263" font-size="12" fill="#667085" font-weight="500" text-anchor="middle">noise → sample</text>
+<rect x="304" y="210" width="150" height="88" rx="18" fill="#eef5ff" stroke="#d45f8f" stroke-width="1.2" filter="url(#2014_gan-shadow)"/>
+<text x="379" y="240" font-size="15" fill="#17202b" font-weight="700" text-anchor="middle">discriminator</text>
+<text x="379" y="263" font-size="12" fill="#667085" font-weight="500" text-anchor="middle">real or fake?</text>
+<rect x="524" y="210" width="118" height="88" rx="18" fill="#ffffff" stroke="#d8e5f3" stroke-width="1.2" filter="url(#2014_gan-shadow)"/>
+<text x="583" y="240" font-size="15" fill="#17202b" font-weight="700" text-anchor="middle">feedback</text>
+<text x="583" y="263" font-size="12" fill="#667085" font-weight="500" text-anchor="middle">minimax</text>
+<line x1="234" y1="254" x2="304" y2="254" stroke="#2f75d6" stroke-width="3.2" fill="none" opacity="0.85" marker-end="url(#2014_gan-arrow-b)"/>
+<line x1="454" y1="254" x2="524" y2="254" stroke="#d45f8f" stroke-width="3.2" fill="none" opacity="0.85" marker-end="url(#2014_gan-arrow-a)"/>
+<path d="M584,298 C480,366 216,366 154,300" stroke="#d45f8f" fill="none" stroke-width="3.2" opacity="0.65" marker-end="url(#2014_gan-arrow-a)" stroke-dasharray="9 7"/>
 </svg>
 <figcaption>Two networks in a minimax game: generator tries to fool a discriminator that tries to catch it.</figcaption>
 </figure>

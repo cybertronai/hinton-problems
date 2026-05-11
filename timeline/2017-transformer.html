@@ -15,43 +15,105 @@
 <p class="people"><strong>Key people:</strong> Vaswani et al.</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Transformer: “Attention Is All You Need” timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" class="timeline-visual illustrative-visual" style="width: 100%; height: auto;" role="img" aria-label="Transformer: “Attention Is All You Need” illustrative timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="illustrative-retina" data-export-width="1520" data-export-height="860">
   <title>Transformer: “Attention Is All You Need”</title>
-  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
-  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
-  <defs>
-    <marker id="th" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
-    </marker>
-  </defs>
-  <text x="260" y="25" text-anchor="middle" font-size="13" font-weight="600">scaled dot-product attention</text>
-  <!-- Q -->
-  <rect x="50" y="80" width="60" height="32" fill="#eef3fb" stroke="#2c6fbb"/>
-  <text x="80" y="100" text-anchor="middle" font-size="13">Q</text>
-  <!-- K -->
-  <rect x="50" y="125" width="60" height="32" fill="#eef3fb" stroke="#2c6fbb"/>
-  <text x="80" y="145" text-anchor="middle" font-size="13">K</text>
-  <!-- V -->
-  <rect x="50" y="170" width="60" height="32" fill="#eef3fb" stroke="#2c6fbb"/>
-  <text x="80" y="190" text-anchor="middle" font-size="13">V</text>
-  <!-- QK^T -->
-  <rect x="160" y="100" width="80" height="40" fill="#fff" stroke="#333"/>
-  <text x="200" y="125" text-anchor="middle" font-size="13">QKᵀ / √d</text>
-  <!-- softmax -->
-  <rect x="270" y="100" width="80" height="40" fill="#fff" stroke="#333"/>
-  <text x="310" y="125" text-anchor="middle" font-size="13">softmax</text>
-  <!-- output -->
-  <rect x="380" y="125" width="100" height="40" fill="#fbe9f0" stroke="#c44778"/>
-  <text x="430" y="150" text-anchor="middle" font-size="13">attn(Q,K,V)·V</text>
-  <!-- arrows -->
-  <line x1="110" y1="96" x2="160" y2="115" stroke="#333" stroke-width="1.2" marker-end="url(#th)"/>
-  <line x1="110" y1="141" x2="160" y2="125" stroke="#333" stroke-width="1.2" marker-end="url(#th)"/>
-  <line x1="240" y1="120" x2="270" y2="120" stroke="#333" stroke-width="1.2" marker-end="url(#th)"/>
-  <line x1="350" y1="120" x2="380" y2="135" stroke="#333" stroke-width="1.2" marker-end="url(#th)"/>
-  <line x1="110" y1="186" x2="380" y2="155" stroke="#333" stroke-width="1.2" marker-end="url(#th)"/>
-  <text x="260" y="220" text-anchor="middle" font-size="12" fill="#666">
-    self-attention replaces recurrence — all positions in parallel
-  </text>
+  <desc>Completely redrawn illustrative SVG scene for the deep-learning timeline.</desc>
+<defs>
+  <linearGradient id="2017_transformer-bg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#fafdff"/>
+    <stop offset="52%" stop-color="#eef5ff"/>
+    <stop offset="100%" stop-color="#fdf3f8"/>
+  </linearGradient>
+  <linearGradient id="2017_transformer-panel" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.97"/>
+    <stop offset="100%" stop-color="#f7fbff" stop-opacity="0.94"/>
+  </linearGradient>
+  <linearGradient id="2017_transformer-accent-soft" x1="0" x2="1">
+    <stop offset="0%" stop-color="#6952d5" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#2fb3c6" stop-opacity="0.18"/>
+  </linearGradient>
+  <linearGradient id="2017_transformer-accent" x1="0" x2="1">
+    <stop offset="0%" stop-color="#6952d5"/>
+    <stop offset="100%" stop-color="#2fb3c6"/>
+  </linearGradient>
+  <filter id="2017_transformer-shadow" x="-20%" y="-20%" width="140%" height="150%">
+    <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#22304a" flood-opacity="0.16"/>
+  </filter>
+  <filter id="2017_transformer-small-shadow" x="-30%" y="-30%" width="160%" height="180%">
+    <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#22304a" flood-opacity="0.18"/>
+  </filter>
+  <marker id="2017_transformer-arrow-a" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#6952d5"/>
+  </marker>
+  <marker id="2017_transformer-arrow-b" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#2fb3c6"/>
+  </marker>
+  <marker id="2017_transformer-arrow-ink" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#17202b"/>
+  </marker>
+</defs>
+  <rect x="0" y="0" width="760" height="430" fill="url(#2017_transformer-bg)"/>
+<circle cx="70" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="280" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="490" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="700" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+  <circle cx="672" cy="72" r="86" fill="#6952d5" opacity="0.08"/>
+  <circle cx="93" cy="372" r="96" fill="#2fb3c6" opacity="0.08"/>
+  <rect x="24" y="24" width="712" height="382" rx="34" fill="url(#2017_transformer-panel)" stroke="#dce8f5" filter="url(#2017_transformer-shadow)"/>
+<rect x="50" y="48" width="72" height="29" rx="14" fill="#6952d5" stroke="none" stroke-width="1.2"/>
+<text x="86" y="68" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">2017</text>
+<text x="50" y="104" font-size="23" fill="#17202b" font-weight="800" text-anchor="start">Transformer: “Attention Is All You Need”</text>
+<text x="84" y="154" font-size="11" fill="#6952d5" font-weight="800" text-anchor="start">TOKENS ATTEND TO EVERY OTHER TOKEN IN PARALLEL</text>
+<rect x="100" y="300" width="84" height="38" rx="11" fill="#ffffff" stroke="#6952d5" stroke-width="1.2"/>
+<text x="142" y="325" font-size="14" fill="#17202b" font-weight="800" text-anchor="middle">Q</text>
+<rect x="218" y="300" width="84" height="38" rx="11" fill="#ffffff" stroke="#6952d5" stroke-width="1.2"/>
+<text x="260" y="325" font-size="14" fill="#17202b" font-weight="800" text-anchor="middle">K</text>
+<rect x="336" y="300" width="84" height="38" rx="11" fill="#ffffff" stroke="#6952d5" stroke-width="1.2"/>
+<text x="378" y="325" font-size="14" fill="#17202b" font-weight="800" text-anchor="middle">V</text>
+<rect x="454" y="300" width="84" height="38" rx="11" fill="#ffffff" stroke="#2fb3c6" stroke-width="1.2"/>
+<text x="496" y="325" font-size="14" fill="#17202b" font-weight="800" text-anchor="middle">softmax</text>
+<rect x="572" y="300" width="84" height="38" rx="11" fill="#ffffff" stroke="#2fb3c6" stroke-width="1.2"/>
+<text x="614" y="325" font-size="14" fill="#17202b" font-weight="800" text-anchor="middle">heads</text>
+<rect x="166" y="178" width="32" height="22" rx="5" fill="#6952d5" stroke="none" stroke-width="1.2" opacity="0.78"/>
+<rect x="204" y="178" width="32" height="22" rx="5" fill="#6952d5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<rect x="242" y="178" width="32" height="22" rx="5" fill="#6952d5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<rect x="280" y="178" width="32" height="22" rx="5" fill="#6952d5" stroke="none" stroke-width="1.2" opacity="0.4"/>
+<rect x="318" y="178" width="32" height="22" rx="5" fill="#6952d5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<rect x="166" y="206" width="32" height="22" rx="5" fill="#2fb3c6" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<rect x="204" y="206" width="32" height="22" rx="5" fill="#6952d5" stroke="none" stroke-width="1.2" opacity="0.56"/>
+<rect x="242" y="206" width="32" height="22" rx="5" fill="#6952d5" stroke="none" stroke-width="1.2" opacity="0.4"/>
+<rect x="280" y="206" width="32" height="22" rx="5" fill="#6952d5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<rect x="318" y="206" width="32" height="22" rx="5" fill="#6952d5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<rect x="166" y="234" width="32" height="22" rx="5" fill="#2fb3c6" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<rect x="204" y="234" width="32" height="22" rx="5" fill="#2fb3c6" stroke="none" stroke-width="1.2" opacity="0.4"/>
+<rect x="242" y="234" width="32" height="22" rx="5" fill="#6952d5" stroke="none" stroke-width="1.2" opacity="0.56"/>
+<rect x="280" y="234" width="32" height="22" rx="5" fill="#6952d5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<rect x="318" y="234" width="32" height="22" rx="5" fill="#6952d5" stroke="none" stroke-width="1.2" opacity="0.4"/>
+<rect x="166" y="262" width="32" height="22" rx="5" fill="#2fb3c6" stroke="none" stroke-width="1.2" opacity="0.4"/>
+<rect x="204" y="262" width="32" height="22" rx="5" fill="#2fb3c6" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<rect x="242" y="262" width="32" height="22" rx="5" fill="#2fb3c6" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<rect x="280" y="262" width="32" height="22" rx="5" fill="#6952d5" stroke="none" stroke-width="1.2" opacity="0.78"/>
+<rect x="318" y="262" width="32" height="22" rx="5" fill="#6952d5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<rect x="166" y="290" width="32" height="22" rx="5" fill="#2fb3c6" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<rect x="204" y="290" width="32" height="22" rx="5" fill="#2fb3c6" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<rect x="242" y="290" width="32" height="22" rx="5" fill="#2fb3c6" stroke="none" stroke-width="1.2" opacity="0.4"/>
+<rect x="280" y="290" width="32" height="22" rx="5" fill="#2fb3c6" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<rect x="318" y="290" width="32" height="22" rx="5" fill="#6952d5" stroke="none" stroke-width="1.2" opacity="0.56"/>
+<text x="262" y="374" font-size="15" fill="#17202b" font-weight="800" text-anchor="middle">attention map</text>
+<path d="M430,188 C500,156 580,174 628,224 C662,260 650,304 602,328" stroke="#2fb3c6" fill="none" stroke-width="4" opacity="0.72" marker-end="url(#2017_transformer-arrow-b)"/>
+<text x="564" y="188" font-size="15" fill="#2fb3c6" font-weight="800" text-anchor="middle">multi-head prism</text>
 </svg>
 <figcaption>Scaled dot-product attention: each position is a weighted sum over all positions, all in parallel.</figcaption>
 </figure>

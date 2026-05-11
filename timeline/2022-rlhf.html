@@ -15,48 +15,81 @@
 <p class="people"><strong>Key people:</strong> OpenAI; Christiano-style RLHF lineage</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="InstructGPT / RLHF timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="520">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" class="timeline-visual illustrative-visual" style="width: 100%; height: auto;" role="img" aria-label="InstructGPT / RLHF illustrative timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="illustrative-retina" data-export-width="1520" data-export-height="860">
   <title>InstructGPT / RLHF</title>
-  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
-  <rect class="viz-canvas" x="4.68" y="4.68" width="510.64" height="250.64" rx="19.5" ry="19.5"/>
-  <defs>
-    <marker id="rh1" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
-    </marker>
-  </defs>
-  <!-- step 1: SFT -->
-  <rect x="20" y="40" width="140" height="50" rx="6" fill="#eef3fb" stroke="#2c6fbb"/>
-  <text x="90" y="60" text-anchor="middle" font-size="12" font-weight="600">1. SFT</text>
-  <text x="90" y="78" text-anchor="middle" font-size="10" fill="#666">supervised demos</text>
-  <!-- step 2: RM -->
-  <rect x="190" y="40" width="140" height="50" rx="6" fill="#fff5a8" stroke="#d77a2c"/>
-  <text x="260" y="60" text-anchor="middle" font-size="12" font-weight="600">2. reward model</text>
-  <text x="260" y="78" text-anchor="middle" font-size="10" fill="#666">rank A vs B</text>
-  <!-- step 3: PPO -->
-  <rect x="360" y="40" width="140" height="50" rx="6" fill="#fbe9f0" stroke="#c44778"/>
-  <text x="430" y="60" text-anchor="middle" font-size="12" font-weight="600">3. RL (PPO)</text>
-  <text x="430" y="78" text-anchor="middle" font-size="10" fill="#666">policy ← reward</text>
-  <!-- arrows -->
-  <line x1="160" y1="65" x2="190" y2="65" stroke="#333" marker-end="url(#rh1)"/>
-  <line x1="330" y1="65" x2="360" y2="65" stroke="#333" marker-end="url(#rh1)"/>
-  <!-- example below -->
-  <g transform="translate(60, 130)">
-    <rect x="0" y="0" width="180" height="80" fill="#fff" stroke="#666"/>
-    <text x="90" y="20" text-anchor="middle" font-size="11" font-weight="600">human preferences</text>
-    <text x="10" y="40" font-size="10">"Explain RL"</text>
-    <text x="10" y="55" font-size="10" fill="#3d8b5e">A: clear, step-by-step  ✓</text>
-    <text x="10" y="70" font-size="10" fill="#c44778">B: jargon-heavy            ✗</text>
-  </g>
-  <g transform="translate(280, 130)">
-    <rect x="0" y="0" width="200" height="80" fill="#fff" stroke="#666"/>
-    <text x="100" y="20" text-anchor="middle" font-size="11" font-weight="600">policy reward shift</text>
-    <line x1="20" y1="60" x2="180" y2="60" stroke="#666"/>
-    <path d="M20,55 Q50,55 80,45 Q120,35 180,30" stroke="#3d8b5e" stroke-width="2" fill="none"/>
-    <text x="100" y="78" text-anchor="middle" font-size="10" fill="#666">helpfulness ↑ over training</text>
-  </g>
-  <text x="260" y="235" text-anchor="middle" font-size="11" fill="#666">
-    from "predict internet text" to "behave as an assistant"
-  </text>
+  <desc>Completely redrawn illustrative SVG scene for the deep-learning timeline.</desc>
+<defs>
+  <linearGradient id="2022_rlhf-bg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#fafdff"/>
+    <stop offset="52%" stop-color="#eef5ff"/>
+    <stop offset="100%" stop-color="#fdf3f8"/>
+  </linearGradient>
+  <linearGradient id="2022_rlhf-panel" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.97"/>
+    <stop offset="100%" stop-color="#f7fbff" stop-opacity="0.94"/>
+  </linearGradient>
+  <linearGradient id="2022_rlhf-accent-soft" x1="0" x2="1">
+    <stop offset="0%" stop-color="#5268d8" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#f09c3b" stop-opacity="0.18"/>
+  </linearGradient>
+  <linearGradient id="2022_rlhf-accent" x1="0" x2="1">
+    <stop offset="0%" stop-color="#5268d8"/>
+    <stop offset="100%" stop-color="#f09c3b"/>
+  </linearGradient>
+  <filter id="2022_rlhf-shadow" x="-20%" y="-20%" width="140%" height="150%">
+    <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#22304a" flood-opacity="0.16"/>
+  </filter>
+  <filter id="2022_rlhf-small-shadow" x="-30%" y="-30%" width="160%" height="180%">
+    <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#22304a" flood-opacity="0.18"/>
+  </filter>
+  <marker id="2022_rlhf-arrow-a" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#5268d8"/>
+  </marker>
+  <marker id="2022_rlhf-arrow-b" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#f09c3b"/>
+  </marker>
+  <marker id="2022_rlhf-arrow-ink" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#17202b"/>
+  </marker>
+</defs>
+  <rect x="0" y="0" width="760" height="430" fill="url(#2022_rlhf-bg)"/>
+<circle cx="70" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="280" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="490" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="700" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+  <circle cx="672" cy="72" r="86" fill="#5268d8" opacity="0.08"/>
+  <circle cx="93" cy="372" r="96" fill="#f09c3b" opacity="0.08"/>
+  <rect x="24" y="24" width="712" height="382" rx="34" fill="url(#2022_rlhf-panel)" stroke="#dce8f5" filter="url(#2022_rlhf-shadow)"/>
+<rect x="50" y="48" width="72" height="29" rx="14" fill="#5268d8" stroke="none" stroke-width="1.2"/>
+<text x="86" y="68" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">2022</text>
+<text x="50" y="104" font-size="23" fill="#17202b" font-weight="800" text-anchor="start">InstructGPT / RLHF</text>
+<text x="84" y="154" font-size="11" fill="#5268d8" font-weight="800" text-anchor="start">HUMAN PREFERENCES BECOME A REWARD SIGNAL</text>
+<rect x="108" y="214" width="140" height="86" rx="18" fill="#ffffff" stroke="#5268d8" stroke-width="1.2" filter="url(#2022_rlhf-shadow)"/>
+<text x="178" y="244" font-size="15" fill="#17202b" font-weight="700" text-anchor="middle">SFT</text>
+<text x="178" y="267" font-size="12" fill="#667085" font-weight="500" text-anchor="middle">demos</text>
+<rect x="306" y="214" width="140" height="86" rx="18" fill="#ffffff" stroke="#f09c3b" stroke-width="1.2" filter="url(#2022_rlhf-shadow)"/>
+<text x="376" y="244" font-size="15" fill="#17202b" font-weight="700" text-anchor="middle">Reward</text>
+<text x="376" y="267" font-size="12" fill="#667085" font-weight="500" text-anchor="middle">rank A vs B</text>
+<rect x="512" y="214" width="140" height="86" rx="18" fill="#ffffff" stroke="#5268d8" stroke-width="1.2" filter="url(#2022_rlhf-shadow)"/>
+<text x="582" y="244" font-size="15" fill="#17202b" font-weight="700" text-anchor="middle">RL policy</text>
+<text x="582" y="267" font-size="12" fill="#667085" font-weight="500" text-anchor="middle">optimize</text>
+<line x1="248" y1="257" x2="306" y2="257" stroke="#5268d8" stroke-width="3" fill="none" opacity="0.8" marker-end="url(#2022_rlhf-arrow-a)"/>
+<line x1="446" y1="257" x2="512" y2="257" stroke="#f09c3b" stroke-width="3" fill="none" opacity="0.8" marker-end="url(#2022_rlhf-arrow-b)"/>
+<rect x="300" y="322" width="156" height="40" rx="12" fill="#fff8e8" stroke="#f09c3b" stroke-width="1.2"/>
+<text x="378" y="348" font-size="14" fill="#17202b" font-weight="800" text-anchor="middle">human preference</text>
+<line x1="378" y1="322" x2="378" y2="300" stroke="#f09c3b" stroke-width="2.5" fill="none" opacity="0.8" marker-end="url(#2022_rlhf-arrow-ink)"/>
 </svg>
 <figcaption>Three-stage pipeline: supervised demos → reward model from human preferences → RL (PPO) optimizes policy against the reward model.</figcaption>
 </figure>

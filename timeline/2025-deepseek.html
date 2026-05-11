@@ -15,36 +15,80 @@
 <p class="people"><strong>Key people:</strong> DeepSeek-R1, OpenAI o-series, others</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Open reasoning models and RL-for-reasoning wave timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" class="timeline-visual illustrative-visual" style="width: 100%; height: auto;" role="img" aria-label="Open reasoning models and RL-for-reasoning wave illustrative timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="illustrative-retina" data-export-width="1520" data-export-height="860">
   <title>Open reasoning models and RL-for-reasoning wave</title>
-  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
-  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
-  <defs>
-    <marker id="dsh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
-    </marker>
-  </defs>
-  <!-- base model -->
-  <rect x="20" y="80" width="100" height="60" rx="6" fill="#eef3fb" stroke="#2c6fbb"/>
-  <text x="70" y="105" text-anchor="middle" font-size="12">base model</text>
-  <text x="70" y="125" text-anchor="middle" font-size="10" fill="#666">supervised</text>
-  <!-- RL with verifiable rewards -->
-  <rect x="170" y="50" width="160" height="120" rx="6" fill="#fbe9f0" stroke="#c44778"/>
-  <text x="250" y="80" text-anchor="middle" font-size="12" font-weight="600">RL with verifiable</text>
-  <text x="250" y="98" text-anchor="middle" font-size="12" font-weight="600">rewards</text>
-  <text x="250" y="120" text-anchor="middle" font-size="10" fill="#666">math: ans correct?</text>
-  <text x="250" y="135" text-anchor="middle" font-size="10" fill="#666">code: tests pass?</text>
-  <text x="250" y="150" text-anchor="middle" font-size="10" fill="#666">→ reward signal</text>
-  <!-- reasoning model -->
-  <rect x="380" y="80" width="120" height="60" rx="6" fill="#fff5a8" stroke="#d77a2c"/>
-  <text x="440" y="105" text-anchor="middle" font-size="12">reasoning model</text>
-  <text x="440" y="125" text-anchor="middle" font-size="10" fill="#666">R1, distilled</text>
-  <!-- arrows -->
-  <line x1="120" y1="110" x2="170" y2="110" stroke="#333" marker-end="url(#dsh)"/>
-  <line x1="330" y1="110" x2="380" y2="110" stroke="#333" marker-end="url(#dsh)"/>
-  <text x="260" y="200" text-anchor="middle" font-size="11" fill="#666">
-    open-weights reasoning model trained primarily via RL — distillation makes it portable
-  </text>
+  <desc>Completely redrawn illustrative SVG scene for the deep-learning timeline.</desc>
+<defs>
+  <linearGradient id="2025_deepseek-bg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#fafdff"/>
+    <stop offset="52%" stop-color="#eef5ff"/>
+    <stop offset="100%" stop-color="#fdf3f8"/>
+  </linearGradient>
+  <linearGradient id="2025_deepseek-panel" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.97"/>
+    <stop offset="100%" stop-color="#f7fbff" stop-opacity="0.94"/>
+  </linearGradient>
+  <linearGradient id="2025_deepseek-accent-soft" x1="0" x2="1">
+    <stop offset="0%" stop-color="#2f75d6" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#e35c4f" stop-opacity="0.18"/>
+  </linearGradient>
+  <linearGradient id="2025_deepseek-accent" x1="0" x2="1">
+    <stop offset="0%" stop-color="#2f75d6"/>
+    <stop offset="100%" stop-color="#e35c4f"/>
+  </linearGradient>
+  <filter id="2025_deepseek-shadow" x="-20%" y="-20%" width="140%" height="150%">
+    <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#22304a" flood-opacity="0.16"/>
+  </filter>
+  <filter id="2025_deepseek-small-shadow" x="-30%" y="-30%" width="160%" height="180%">
+    <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#22304a" flood-opacity="0.18"/>
+  </filter>
+  <marker id="2025_deepseek-arrow-a" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#2f75d6"/>
+  </marker>
+  <marker id="2025_deepseek-arrow-b" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#e35c4f"/>
+  </marker>
+  <marker id="2025_deepseek-arrow-ink" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#17202b"/>
+  </marker>
+</defs>
+  <rect x="0" y="0" width="760" height="430" fill="url(#2025_deepseek-bg)"/>
+<circle cx="70" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="280" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="490" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="700" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+  <circle cx="672" cy="72" r="86" fill="#2f75d6" opacity="0.08"/>
+  <circle cx="93" cy="372" r="96" fill="#e35c4f" opacity="0.08"/>
+  <rect x="24" y="24" width="712" height="382" rx="34" fill="url(#2025_deepseek-panel)" stroke="#dce8f5" filter="url(#2025_deepseek-shadow)"/>
+<rect x="50" y="48" width="72" height="29" rx="14" fill="#2f75d6" stroke="none" stroke-width="1.2"/>
+<text x="86" y="68" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">2025</text>
+<text x="50" y="91" font-size="23" fill="#17202b" font-weight="800" text-anchor="start">Open reasoning models and RL-for-reasoning</text>
+<text x="50" y="118" font-size="23" fill="#17202b" font-weight="800" text-anchor="start">wave</text>
+<text x="84" y="154" font-size="11" fill="#2f75d6" font-weight="800" text-anchor="start">VERIFIABLE REWARDS FORGE REASONING BEHAVIOR</text>
+<rect x="90" y="220" width="142" height="84" rx="18" fill="#eef5ff" stroke="#2f75d6" stroke-width="1.2" filter="url(#2025_deepseek-shadow)"/>
+<text x="161" y="250" font-size="15" fill="#17202b" font-weight="700" text-anchor="middle">base model</text>
+<text x="161" y="273" font-size="12" fill="#667085" font-weight="500" text-anchor="middle">pretrained</text>
+<line x1="232" y1="262" x2="318" y2="262" stroke="#2f75d6" stroke-width="3" fill="none" opacity="0.8" marker-end="url(#2025_deepseek-arrow-a)"/>
+<rect x="320" y="190" width="166" height="144" rx="22" fill="#fff8e8" stroke="#f09c3b" stroke-width="1.2" filter="url(#2025_deepseek-small-shadow)"/>
+<text x="403" y="228" font-size="22" fill="#17202b" font-weight="900" text-anchor="middle">RL forge</text>
+<text x="403" y="260" font-size="13" fill="#667085" font-weight="800" text-anchor="middle">math answer ✓</text>
+<text x="403" y="282" font-size="13" fill="#667085" font-weight="800" text-anchor="middle">code tests ✓</text>
+<line x1="486" y1="262" x2="566" y2="262" stroke="#e35c4f" stroke-width="3" fill="none" opacity="0.8" marker-end="url(#2025_deepseek-arrow-b)"/>
+<rect x="566" y="220" width="122" height="84" rx="18" fill="#fff3f8" stroke="#e35c4f" stroke-width="1.2" filter="url(#2025_deepseek-shadow)"/>
+<text x="627" y="250" font-size="15" fill="#17202b" font-weight="700" text-anchor="middle">reasoner</text>
+<text x="627" y="273" font-size="12" fill="#667085" font-weight="500" text-anchor="middle">R1/distill</text>
 </svg>
 <figcaption>RL with verifiable rewards (math correctness, test-passing code) trains reasoning behaviour into base models; distillation makes it portable.</figcaption>
 </figure>

@@ -15,56 +15,88 @@
 <p class="people"><strong>Key people:</strong> Sutskever, Vinyals, Le</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Sequence-to-sequence learning timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" class="timeline-visual illustrative-visual" style="width: 100%; height: auto;" role="img" aria-label="Sequence-to-sequence learning illustrative timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="illustrative-retina" data-export-width="1520" data-export-height="860">
   <title>Sequence-to-sequence learning</title>
-  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
-  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
-  <defs>
-    <marker id="sh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
-    </marker>
-  </defs>
-  <!-- encoder LSTMs -->
-  <g font-size="11">
-    <rect x="30" y="80" width="40" height="50" fill="#eef3fb" stroke="#2c6fbb"/>
-    <rect x="80" y="80" width="40" height="50" fill="#eef3fb" stroke="#2c6fbb"/>
-    <rect x="130" y="80" width="40" height="50" fill="#eef3fb" stroke="#2c6fbb"/>
-    <rect x="180" y="80" width="40" height="50" fill="#eef3fb" stroke="#2c6fbb"/>
-    <text x="50"  y="148" text-anchor="middle">il</text>
-    <text x="100" y="148" text-anchor="middle">fait</text>
-    <text x="150" y="148" text-anchor="middle">beau</text>
-    <text x="200" y="148" text-anchor="middle">.</text>
-  </g>
-  <!-- decoder LSTMs -->
-  <g font-size="11">
-    <rect x="260" y="80" width="40" height="50" fill="#fbe9f0" stroke="#c44778"/>
-    <rect x="310" y="80" width="40" height="50" fill="#fbe9f0" stroke="#c44778"/>
-    <rect x="360" y="80" width="40" height="50" fill="#fbe9f0" stroke="#c44778"/>
-    <rect x="410" y="80" width="40" height="50" fill="#fbe9f0" stroke="#c44778"/>
-    <rect x="460" y="80" width="30" height="50" fill="#fbe9f0" stroke="#c44778"/>
-    <text x="280" y="68" text-anchor="middle">it's</text>
-    <text x="330" y="68" text-anchor="middle">nice</text>
-    <text x="380" y="68" text-anchor="middle">out</text>
-    <text x="430" y="68" text-anchor="middle">.</text>
-    <text x="475" y="68" text-anchor="middle">⟨/s⟩</text>
-  </g>
-  <!-- arrows between cells -->
-  <g stroke="#333" stroke-width="1.2">
-    <line x1="70" y1="105" x2="80" y2="105" marker-end="url(#sh)"/>
-    <line x1="120" y1="105" x2="130" y2="105" marker-end="url(#sh)"/>
-    <line x1="170" y1="105" x2="180" y2="105" marker-end="url(#sh)"/>
-    <line x1="220" y1="105" x2="260" y2="105" marker-end="url(#sh)" stroke="#7a4f9c" stroke-width="2"/>
-    <line x1="300" y1="105" x2="310" y2="105" marker-end="url(#sh)"/>
-    <line x1="350" y1="105" x2="360" y2="105" marker-end="url(#sh)"/>
-    <line x1="400" y1="105" x2="410" y2="105" marker-end="url(#sh)"/>
-    <line x1="450" y1="105" x2="460" y2="105" marker-end="url(#sh)"/>
-  </g>
-  <text x="240" y="135" text-anchor="middle" font-size="11" fill="#7a4f9c">"thought vector"</text>
-  <text x="120" y="40" text-anchor="middle" font-size="12" fill="#666">encoder (read source)</text>
-  <text x="370" y="40" text-anchor="middle" font-size="12" fill="#666">decoder (write target)</text>
-  <text x="260" y="205" text-anchor="middle" font-size="11" fill="#666">
-    one variable-length sequence → fixed hidden state → another variable-length sequence
-  </text>
+  <desc>Completely redrawn illustrative SVG scene for the deep-learning timeline.</desc>
+<defs>
+  <linearGradient id="2014_seq2seq-bg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#fafdff"/>
+    <stop offset="52%" stop-color="#eef5ff"/>
+    <stop offset="100%" stop-color="#fdf3f8"/>
+  </linearGradient>
+  <linearGradient id="2014_seq2seq-panel" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.97"/>
+    <stop offset="100%" stop-color="#f7fbff" stop-opacity="0.94"/>
+  </linearGradient>
+  <linearGradient id="2014_seq2seq-accent-soft" x1="0" x2="1">
+    <stop offset="0%" stop-color="#4d72d8" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#f09c3b" stop-opacity="0.18"/>
+  </linearGradient>
+  <linearGradient id="2014_seq2seq-accent" x1="0" x2="1">
+    <stop offset="0%" stop-color="#4d72d8"/>
+    <stop offset="100%" stop-color="#f09c3b"/>
+  </linearGradient>
+  <filter id="2014_seq2seq-shadow" x="-20%" y="-20%" width="140%" height="150%">
+    <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#22304a" flood-opacity="0.16"/>
+  </filter>
+  <filter id="2014_seq2seq-small-shadow" x="-30%" y="-30%" width="160%" height="180%">
+    <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#22304a" flood-opacity="0.18"/>
+  </filter>
+  <marker id="2014_seq2seq-arrow-a" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#4d72d8"/>
+  </marker>
+  <marker id="2014_seq2seq-arrow-b" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#f09c3b"/>
+  </marker>
+  <marker id="2014_seq2seq-arrow-ink" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#17202b"/>
+  </marker>
+</defs>
+  <rect x="0" y="0" width="760" height="430" fill="url(#2014_seq2seq-bg)"/>
+<circle cx="70" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="280" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="490" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="700" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+  <circle cx="672" cy="72" r="86" fill="#4d72d8" opacity="0.08"/>
+  <circle cx="93" cy="372" r="96" fill="#f09c3b" opacity="0.08"/>
+  <rect x="24" y="24" width="712" height="382" rx="34" fill="url(#2014_seq2seq-panel)" stroke="#dce8f5" filter="url(#2014_seq2seq-shadow)"/>
+<rect x="50" y="48" width="72" height="29" rx="14" fill="#4d72d8" stroke="none" stroke-width="1.2"/>
+<text x="86" y="68" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">2014</text>
+<text x="50" y="104" font-size="23" fill="#17202b" font-weight="800" text-anchor="start">Sequence-to-sequence learning</text>
+<text x="84" y="154" font-size="11" fill="#4d72d8" font-weight="800" text-anchor="start">ENCODER COMPRESSES, DECODER UNFOLDS</text>
+<rect x="92" y="248" width="60" height="38" rx="10" fill="#eef5ff" stroke="#4d72d8" stroke-width="1.2"/>
+<text x="122" y="273" font-size="14" fill="#17202b" font-weight="800" text-anchor="middle">Je</text>
+<line x1="152" y1="267" x2="166" y2="267" stroke="#4d72d8" stroke-width="2" fill="none" opacity="0.75" marker-end="url(#2014_seq2seq-arrow-a)"/>
+<rect x="166" y="248" width="60" height="38" rx="10" fill="#eef5ff" stroke="#4d72d8" stroke-width="1.2"/>
+<text x="196" y="273" font-size="14" fill="#17202b" font-weight="800" text-anchor="middle">suis</text>
+<line x1="226" y1="267" x2="240" y2="267" stroke="#4d72d8" stroke-width="2" fill="none" opacity="0.75" marker-end="url(#2014_seq2seq-arrow-a)"/>
+<rect x="240" y="248" width="60" height="38" rx="10" fill="#eef5ff" stroke="#4d72d8" stroke-width="1.2"/>
+<text x="270" y="273" font-size="14" fill="#17202b" font-weight="800" text-anchor="middle">ici</text>
+<circle cx="354" cy="267" r="45" fill="#ffffff" stroke="#f09c3b" stroke-width="2.4" opacity="1"/>
+<text x="354" y="263" font-size="15" fill="#17202b" font-weight="800" text-anchor="middle">thought</text>
+<text x="354" y="283" font-size="13" fill="#667085" font-weight="700" text-anchor="middle">vector</text>
+<rect x="480" y="248" width="56" height="38" rx="10" fill="#fff3f8" stroke="#f09c3b" stroke-width="1.2"/>
+<text x="508" y="273" font-size="14" fill="#17202b" font-weight="800" text-anchor="middle">I</text>
+<line x1="536" y1="267" x2="548" y2="267" stroke="#f09c3b" stroke-width="2" fill="none" opacity="0.75" marker-end="url(#2014_seq2seq-arrow-b)"/>
+<rect x="548" y="248" width="56" height="38" rx="10" fill="#fff3f8" stroke="#f09c3b" stroke-width="1.2"/>
+<text x="576" y="273" font-size="14" fill="#17202b" font-weight="800" text-anchor="middle">am</text>
+<line x1="604" y1="267" x2="616" y2="267" stroke="#f09c3b" stroke-width="2" fill="none" opacity="0.75" marker-end="url(#2014_seq2seq-arrow-b)"/>
+<rect x="616" y="248" width="56" height="38" rx="10" fill="#fff3f8" stroke="#f09c3b" stroke-width="1.2"/>
+<text x="644" y="273" font-size="14" fill="#17202b" font-weight="800" text-anchor="middle">here</text>
+<line x1="240" y1="267" x2="306" y2="267" stroke="#4d72d8" stroke-width="3" fill="none" opacity="0.8" marker-end="url(#2014_seq2seq-arrow-a)"/>
+<line x1="400" y1="267" x2="480" y2="267" stroke="#f09c3b" stroke-width="3" fill="none" opacity="0.8" marker-end="url(#2014_seq2seq-arrow-b)"/>
 </svg>
 <figcaption>Encoder reads the source into a fixed thought vector; decoder generates the target conditioned on it.</figcaption>
 </figure>

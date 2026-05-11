@@ -15,38 +15,77 @@
 <p class="people"><strong>Key people:</strong> Brown et al.; OpenAI</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="GPT-3 timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" class="timeline-visual illustrative-visual" style="width: 100%; height: auto;" role="img" aria-label="GPT-3 illustrative timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="illustrative-retina" data-export-width="1520" data-export-height="860">
   <title>GPT-3</title>
-  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
-  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
-  <!-- log-scale model sizes as bars -->
-  <text x="260" y="30" text-anchor="middle" font-size="13" fill="#666">parameter count, 2018 → 2020</text>
-  <g font-size="11">
-    <rect x="60"  y="180" width="30" height="20" fill="#2c6fbb"/>
-    <text x="75" y="220" text-anchor="middle">BERT-L</text>
-    <text x="75" y="235" text-anchor="middle" fill="#666">340M</text>
-    <rect x="120" y="170" width="30" height="30" fill="#2c6fbb"/>
-    <text x="135" y="220" text-anchor="middle">GPT-2</text>
-    <text x="135" y="235" text-anchor="middle" fill="#666">1.5B</text>
-    <rect x="180" y="150" width="30" height="50" fill="#2c6fbb"/>
-    <text x="195" y="220" text-anchor="middle">T5-XL</text>
-    <text x="195" y="235" text-anchor="middle" fill="#666">11B</text>
-    <rect x="240" y="60" width="30" height="140" fill="#c44778"/>
-    <text x="255" y="220" text-anchor="middle" font-weight="600">GPT-3</text>
-    <text x="255" y="235" text-anchor="middle" fill="#666">175B</text>
-  </g>
-  <!-- few-shot demonstration -->
-  <g transform="translate(300, 50)">
-    <rect x="0" y="0" width="200" height="160" fill="#fff" stroke="#666"/>
-    <text x="100" y="20" text-anchor="middle" font-size="12" font-weight="600">in-context learning</text>
-    <text x="10" y="45" font-family="ui-monospace, monospace" font-size="11">sea otter →</text>
-    <text x="10" y="62" font-family="ui-monospace, monospace" font-size="11">  loutre de mer</text>
-    <text x="10" y="82" font-family="ui-monospace, monospace" font-size="11">cheese →</text>
-    <text x="10" y="99" font-family="ui-monospace, monospace" font-size="11">  fromage</text>
-    <text x="10" y="119" font-family="ui-monospace, monospace" font-size="11">peppermint →</text>
-    <text x="10" y="136" font-family="ui-monospace, monospace" font-size="11" fill="#c44778">  menthe poivrée</text>
-    <text x="100" y="155" text-anchor="middle" font-size="10" fill="#666">no gradient update</text>
-  </g>
+  <desc>Completely redrawn illustrative SVG scene for the deep-learning timeline.</desc>
+<defs>
+  <linearGradient id="2020_gpt3-bg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#fafdff"/>
+    <stop offset="52%" stop-color="#eef5ff"/>
+    <stop offset="100%" stop-color="#fdf3f8"/>
+  </linearGradient>
+  <linearGradient id="2020_gpt3-panel" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.97"/>
+    <stop offset="100%" stop-color="#f7fbff" stop-opacity="0.94"/>
+  </linearGradient>
+  <linearGradient id="2020_gpt3-accent-soft" x1="0" x2="1">
+    <stop offset="0%" stop-color="#6754d8" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#2aa889" stop-opacity="0.18"/>
+  </linearGradient>
+  <linearGradient id="2020_gpt3-accent" x1="0" x2="1">
+    <stop offset="0%" stop-color="#6754d8"/>
+    <stop offset="100%" stop-color="#2aa889"/>
+  </linearGradient>
+  <filter id="2020_gpt3-shadow" x="-20%" y="-20%" width="140%" height="150%">
+    <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#22304a" flood-opacity="0.16"/>
+  </filter>
+  <filter id="2020_gpt3-small-shadow" x="-30%" y="-30%" width="160%" height="180%">
+    <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#22304a" flood-opacity="0.18"/>
+  </filter>
+  <marker id="2020_gpt3-arrow-a" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#6754d8"/>
+  </marker>
+  <marker id="2020_gpt3-arrow-b" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#2aa889"/>
+  </marker>
+  <marker id="2020_gpt3-arrow-ink" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#17202b"/>
+  </marker>
+</defs>
+  <rect x="0" y="0" width="760" height="430" fill="url(#2020_gpt3-bg)"/>
+<circle cx="70" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="280" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="490" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="700" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+  <circle cx="672" cy="72" r="86" fill="#6754d8" opacity="0.08"/>
+  <circle cx="93" cy="372" r="96" fill="#2aa889" opacity="0.08"/>
+  <rect x="24" y="24" width="712" height="382" rx="34" fill="url(#2020_gpt3-panel)" stroke="#dce8f5" filter="url(#2020_gpt3-shadow)"/>
+<rect x="50" y="48" width="72" height="29" rx="14" fill="#6754d8" stroke="none" stroke-width="1.2"/>
+<text x="86" y="68" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">2020</text>
+<text x="50" y="104" font-size="23" fill="#17202b" font-weight="800" text-anchor="start">GPT-3</text>
+<text x="86" y="154" font-size="11" fill="#6754d8" font-weight="800" text-anchor="start">FEW-SHOT PROMPTS STEER A GIANT MODEL</text>
+<rect x="92" y="192" width="188" height="160" rx="20" fill="#ffffff" stroke="#d8e5f3" stroke-width="1.2" filter="url(#2020_gpt3-small-shadow)"/>
+<text x="116" y="230" font-size="14" fill="#17202b" font-weight="700" text-anchor="start">translate: chat →</text>
+<text x="116" y="266" font-size="14" fill="#17202b" font-weight="700" text-anchor="start">sentiment: great →</text>
+<text x="116" y="302" font-size="14" fill="#17202b" font-weight="700" text-anchor="start">code: fib(n) →</text>
+<line x1="280" y1="272" x2="374" y2="272" stroke="#6754d8" stroke-width="3.4" fill="none" opacity="0.8" marker-end="url(#2020_gpt3-arrow-a)"/>
+<circle cx="466" cy="272" r="82" fill="url(#2020_gpt3-accent)" stroke="#ffffff" stroke-width="4"/>
+<text x="466" y="264" font-size="34" fill="#ffffff" font-weight="900" text-anchor="middle">175B</text>
+<text x="466" y="294" font-size="16" fill="#ffffff" font-weight="800" text-anchor="middle">parameters</text>
+<line x1="548" y1="272" x2="640" y2="272" stroke="#2aa889" stroke-width="3.4" fill="none" opacity="0.8" marker-end="url(#2020_gpt3-arrow-b)"/>
+<text x="648" y="278" font-size="16" fill="#2aa889" font-weight="800" text-anchor="start">task solved</text>
 </svg>
 <figcaption>At 175B parameters, a language model performs new tasks from a few examples in-context — no gradient update.</figcaption>
 </figure>

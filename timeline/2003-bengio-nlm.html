@@ -15,51 +15,90 @@
 <p class="people"><strong>Key people:</strong> Bengio, Ducharme, Vincent, Janvin</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Neural probabilistic language models timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" class="timeline-visual illustrative-visual" style="width: 100%; height: auto;" role="img" aria-label="Neural probabilistic language models illustrative timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="illustrative-retina" data-export-width="1520" data-export-height="860">
   <title>Neural probabilistic language models</title>
-  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
-  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
-  <defs>
-    <marker id="wlh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
-    </marker>
-  </defs>
-  <!-- input words -->
-  <g font-size="12">
-    <rect x="20"  y="60" width="60" height="24" fill="#fff" stroke="#333"/>
-    <text x="50" y="77" text-anchor="middle">w₍ₜ₋₃₎</text>
-    <rect x="20"  y="100" width="60" height="24" fill="#fff" stroke="#333"/>
-    <text x="50" y="117" text-anchor="middle">w₍ₜ₋₂₎</text>
-    <rect x="20"  y="140" width="60" height="24" fill="#fff" stroke="#333"/>
-    <text x="50" y="157" text-anchor="middle">w₍ₜ₋₁₎</text>
-  </g>
-  <!-- shared embedding matrix C -->
-  <g>
-    <rect x="120" y="55" width="80" height="120" fill="#eef3fb" stroke="#2c6fbb"/>
-    <text x="160" y="60" font-size="10" text-anchor="middle">↓</text>
-    <text x="160" y="120" text-anchor="middle" font-size="13">C (lookup)</text>
-    <text x="160" y="138" text-anchor="middle" font-size="10" fill="#666">|V|×d shared</text>
-  </g>
-  <!-- concat embeddings -->
-  <rect x="220" y="80" width="80" height="80" fill="#fff" stroke="#333"/>
-  <text x="260" y="125" text-anchor="middle" font-size="12">concat</text>
-  <text x="260" y="172" text-anchor="middle" font-size="10" fill="#666">3d-dim</text>
-  <!-- hidden -->
-  <rect x="320" y="80" width="60" height="80" fill="#fff" stroke="#333"/>
-  <text x="350" y="125" text-anchor="middle" font-size="12">tanh</text>
-  <!-- softmax over vocab -->
-  <rect x="400" y="60" width="90" height="120" fill="#fbe9f0" stroke="#c44778"/>
-  <text x="445" y="115" text-anchor="middle" font-size="12">softmax</text>
-  <text x="445" y="135" text-anchor="middle" font-size="10" fill="#666">over |V|</text>
-  <text x="445" y="195" text-anchor="middle" font-size="11" fill="#666">P(wₜ | history)</text>
-  <!-- arrows -->
-  <line x1="80"  y1="72"  x2="120" y2="72"  stroke="#333" stroke-width="1.2" marker-end="url(#wlh)"/>
-  <line x1="80"  y1="112" x2="120" y2="112" stroke="#333" stroke-width="1.2" marker-end="url(#wlh)"/>
-  <line x1="80"  y1="152" x2="120" y2="152" stroke="#333" stroke-width="1.2" marker-end="url(#wlh)"/>
-  <line x1="200" y1="115" x2="220" y2="115" stroke="#333" stroke-width="1.2" marker-end="url(#wlh)"/>
-  <line x1="300" y1="115" x2="320" y2="115" stroke="#333" stroke-width="1.2" marker-end="url(#wlh)"/>
-  <line x1="380" y1="115" x2="400" y2="115" stroke="#333" stroke-width="1.2" marker-end="url(#wlh)"/>
-  <text x="255" y="40" text-anchor="middle" font-size="12" fill="#666">distributed word features (C) learned jointly with the LM</text>
+  <desc>Completely redrawn illustrative SVG scene for the deep-learning timeline.</desc>
+<defs>
+  <linearGradient id="2003_bengio_nlm-bg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#fafdff"/>
+    <stop offset="52%" stop-color="#eef5ff"/>
+    <stop offset="100%" stop-color="#fdf3f8"/>
+  </linearGradient>
+  <linearGradient id="2003_bengio_nlm-panel" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.97"/>
+    <stop offset="100%" stop-color="#f7fbff" stop-opacity="0.94"/>
+  </linearGradient>
+  <linearGradient id="2003_bengio_nlm-accent-soft" x1="0" x2="1">
+    <stop offset="0%" stop-color="#4978e8" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#f09c3b" stop-opacity="0.18"/>
+  </linearGradient>
+  <linearGradient id="2003_bengio_nlm-accent" x1="0" x2="1">
+    <stop offset="0%" stop-color="#4978e8"/>
+    <stop offset="100%" stop-color="#f09c3b"/>
+  </linearGradient>
+  <filter id="2003_bengio_nlm-shadow" x="-20%" y="-20%" width="140%" height="150%">
+    <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#22304a" flood-opacity="0.16"/>
+  </filter>
+  <filter id="2003_bengio_nlm-small-shadow" x="-30%" y="-30%" width="160%" height="180%">
+    <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#22304a" flood-opacity="0.18"/>
+  </filter>
+  <marker id="2003_bengio_nlm-arrow-a" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#4978e8"/>
+  </marker>
+  <marker id="2003_bengio_nlm-arrow-b" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#f09c3b"/>
+  </marker>
+  <marker id="2003_bengio_nlm-arrow-ink" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#17202b"/>
+  </marker>
+</defs>
+  <rect x="0" y="0" width="760" height="430" fill="url(#2003_bengio_nlm-bg)"/>
+<circle cx="70" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="280" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="490" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="700" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+  <circle cx="672" cy="72" r="86" fill="#4978e8" opacity="0.08"/>
+  <circle cx="93" cy="372" r="96" fill="#f09c3b" opacity="0.08"/>
+  <rect x="24" y="24" width="712" height="382" rx="34" fill="url(#2003_bengio_nlm-panel)" stroke="#dce8f5" filter="url(#2003_bengio_nlm-shadow)"/>
+<rect x="50" y="48" width="98.2" height="29" rx="14" fill="#4978e8" stroke="none" stroke-width="1.2"/>
+<text x="99.1" y="68" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">2000–2003</text>
+<text x="50" y="104" font-size="23" fill="#17202b" font-weight="800" text-anchor="start">Neural probabilistic language models</text>
+<text x="88" y="154" font-size="11" fill="#4978e8" font-weight="800" text-anchor="start">WORDS BECOME DISTRIBUTED COORDINATES</text>
+<rect x="92" y="184" width="84" height="36" rx="10" fill="#ffffff" stroke="#4978e8" stroke-width="1.2"/>
+<text x="134" y="208" font-size="15" fill="#17202b" font-weight="800" text-anchor="middle">the</text>
+<line x1="176" y1="202" x2="238" y2="248" stroke="#4978e8" stroke-width="2" fill="none" opacity="0.6" marker-end="url(#2003_bengio_nlm-arrow-a)"/>
+<rect x="92" y="242" width="84" height="36" rx="10" fill="#ffffff" stroke="#4978e8" stroke-width="1.2"/>
+<text x="134" y="266" font-size="15" fill="#17202b" font-weight="800" text-anchor="middle">cat</text>
+<line x1="176" y1="260" x2="238" y2="248" stroke="#4978e8" stroke-width="2" fill="none" opacity="0.6" marker-end="url(#2003_bengio_nlm-arrow-a)"/>
+<rect x="92" y="300" width="84" height="36" rx="10" fill="#ffffff" stroke="#4978e8" stroke-width="1.2"/>
+<text x="134" y="324" font-size="15" fill="#17202b" font-weight="800" text-anchor="middle">sat</text>
+<line x1="176" y1="318" x2="238" y2="248" stroke="#4978e8" stroke-width="2" fill="none" opacity="0.6" marker-end="url(#2003_bengio_nlm-arrow-a)"/>
+<rect x="246" y="170" width="146" height="170" rx="20" fill="#eef5ff" stroke="#4978e8" stroke-width="1.2" filter="url(#2003_bengio_nlm-small-shadow)"/>
+<text x="319" y="206" font-size="18" fill="#17202b" font-weight="800" text-anchor="middle">embedding</text>
+<text x="319" y="230" font-size="15" fill="#667085" font-weight="700" text-anchor="middle">matrix C</text>
+<rect x="275" y="258" width="7" height="46" rx="3" fill="#4978e8" stroke="none" stroke-width="1.2" opacity="0.75"/>
+<rect x="287" y="258" width="7" height="42" rx="3" fill="#f09c3b" stroke="none" stroke-width="1.2" opacity="0.75"/>
+<rect x="299" y="258" width="7" height="38" rx="3" fill="#4978e8" stroke="none" stroke-width="1.2" opacity="0.75"/>
+<rect x="311" y="258" width="7" height="34" rx="3" fill="#f09c3b" stroke="none" stroke-width="1.2" opacity="0.75"/>
+<rect x="323" y="258" width="7" height="30" rx="3" fill="#4978e8" stroke="none" stroke-width="1.2" opacity="0.75"/>
+<rect x="335" y="258" width="7" height="26" rx="3" fill="#f09c3b" stroke="none" stroke-width="1.2" opacity="0.75"/>
+<rect x="347" y="258" width="7" height="22" rx="3" fill="#4978e8" stroke="none" stroke-width="1.2" opacity="0.75"/>
+<line x1="392" y1="254" x2="472" y2="254" stroke="#4978e8" stroke-width="3" fill="none" opacity="0.75" marker-end="url(#2003_bengio_nlm-arrow-a)"/>
+<rect x="488" y="190" width="150" height="122" rx="18" fill="#fff3f8" stroke="#f09c3b" stroke-width="1.2" filter="url(#2003_bengio_nlm-shadow)"/>
+<text x="563" y="220" font-size="15" fill="#17202b" font-weight="700" text-anchor="middle">softmax</text>
+<text x="563" y="243" font-size="12" fill="#667085" font-weight="500" text-anchor="middle">next word distribution</text>
 </svg>
 <figcaption>Shared word-embedding matrix C learned jointly with the softmax language model — distributed representations meet sequence prediction.</figcaption>
 </figure>

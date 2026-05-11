@@ -15,54 +15,83 @@
 <p class="people"><strong>Key people:</strong> Krizhevsky, Sutskever, Hinton</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="AlexNet wins ImageNet timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="440">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" class="timeline-visual illustrative-visual" style="width: 100%; height: auto;" role="img" aria-label="AlexNet wins ImageNet illustrative timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="illustrative-retina" data-export-width="1520" data-export-height="860">
   <title>AlexNet wins ImageNet</title>
-  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
-  <rect class="viz-canvas" x="4" y="4" width="512" height="212" rx="16.5" ry="16.5"/>
-  <!-- input -->
-  <rect x="20" y="80" width="50" height="50" fill="#eef3fb" stroke="#2c6fbb"/>
-  <text x="45" y="148" text-anchor="middle" font-size="10">224²×3</text>
-  <!-- conv 1 -->
-  <rect x="90" y="75" width="40" height="60" fill="#fff" stroke="#333"/>
-  <text x="110" y="148" text-anchor="middle" font-size="10">conv</text>
-  <text x="110" y="160" text-anchor="middle" font-size="10">96</text>
-  <!-- conv 2 -->
-  <rect x="140" y="80" width="32" height="50" fill="#fff" stroke="#333"/>
-  <text x="156" y="148" text-anchor="middle" font-size="10">conv</text>
-  <text x="156" y="160" text-anchor="middle" font-size="10">256</text>
-  <!-- conv 3 -->
-  <rect x="180" y="85" width="28" height="40" fill="#fff" stroke="#333"/>
-  <text x="194" y="148" text-anchor="middle" font-size="10">conv</text>
-  <text x="194" y="160" text-anchor="middle" font-size="10">384</text>
-  <!-- conv 4 -->
-  <rect x="215" y="85" width="28" height="40" fill="#fff" stroke="#333"/>
-  <text x="229" y="148" text-anchor="middle" font-size="10">conv</text>
-  <text x="229" y="160" text-anchor="middle" font-size="10">384</text>
-  <!-- conv 5 -->
-  <rect x="250" y="85" width="28" height="40" fill="#fff" stroke="#333"/>
-  <text x="264" y="148" text-anchor="middle" font-size="10">conv</text>
-  <text x="264" y="160" text-anchor="middle" font-size="10">256</text>
-  <!-- fc 1 -->
-  <rect x="290" y="60" width="14" height="100" fill="#fff" stroke="#333"/>
-  <text x="297" y="178" text-anchor="middle" font-size="10">FC</text>
-  <text x="297" y="190" text-anchor="middle" font-size="10">4096</text>
-  <!-- fc 2 -->
-  <rect x="320" y="60" width="14" height="100" fill="#fff" stroke="#333"/>
-  <text x="327" y="178" text-anchor="middle" font-size="10">FC</text>
-  <text x="327" y="190" text-anchor="middle" font-size="10">4096</text>
-  <!-- softmax -->
-  <rect x="350" y="80" width="14" height="60" fill="#fbe9f0" stroke="#c44778"/>
-  <text x="357" y="178" text-anchor="middle" font-size="10">softmax</text>
-  <text x="357" y="190" text-anchor="middle" font-size="10">1000</text>
-  <!-- box around it -->
-  <text x="270" y="40" text-anchor="middle" font-size="13" fill="#666">8-layer CNN (5 conv + 3 FC), ReLU, dropout, dual GPU</text>
-  <!-- ImageNet result -->
-  <g transform="translate(390 80)">
-    <rect x="0" y="0" width="120" height="80" fill="#fff" stroke="#3d8b5e"/>
-    <text x="60" y="22" text-anchor="middle" font-size="11" fill="#3d8b5e">ImageNet 2012</text>
-    <text x="60" y="42" text-anchor="middle" font-size="11">top-5 err 15.3%</text>
-    <text x="60" y="60" text-anchor="middle" font-size="11" fill="#666">2nd place 26.2%</text>
-  </g>
+  <desc>Completely redrawn illustrative SVG scene for the deep-learning timeline.</desc>
+<defs>
+  <linearGradient id="2012_alexnet-bg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#fafdff"/>
+    <stop offset="52%" stop-color="#eef5ff"/>
+    <stop offset="100%" stop-color="#fdf3f8"/>
+  </linearGradient>
+  <linearGradient id="2012_alexnet-panel" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.97"/>
+    <stop offset="100%" stop-color="#f7fbff" stop-opacity="0.94"/>
+  </linearGradient>
+  <linearGradient id="2012_alexnet-accent-soft" x1="0" x2="1">
+    <stop offset="0%" stop-color="#256fd1" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#ef7b45" stop-opacity="0.18"/>
+  </linearGradient>
+  <linearGradient id="2012_alexnet-accent" x1="0" x2="1">
+    <stop offset="0%" stop-color="#256fd1"/>
+    <stop offset="100%" stop-color="#ef7b45"/>
+  </linearGradient>
+  <filter id="2012_alexnet-shadow" x="-20%" y="-20%" width="140%" height="150%">
+    <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#22304a" flood-opacity="0.16"/>
+  </filter>
+  <filter id="2012_alexnet-small-shadow" x="-30%" y="-30%" width="160%" height="180%">
+    <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#22304a" flood-opacity="0.18"/>
+  </filter>
+  <marker id="2012_alexnet-arrow-a" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#256fd1"/>
+  </marker>
+  <marker id="2012_alexnet-arrow-b" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#ef7b45"/>
+  </marker>
+  <marker id="2012_alexnet-arrow-ink" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#17202b"/>
+  </marker>
+</defs>
+  <rect x="0" y="0" width="760" height="430" fill="url(#2012_alexnet-bg)"/>
+<circle cx="70" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="280" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="490" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="700" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+  <circle cx="672" cy="72" r="86" fill="#256fd1" opacity="0.08"/>
+  <circle cx="93" cy="372" r="96" fill="#ef7b45" opacity="0.08"/>
+  <rect x="24" y="24" width="712" height="382" rx="34" fill="url(#2012_alexnet-panel)" stroke="#dce8f5" filter="url(#2012_alexnet-shadow)"/>
+<rect x="50" y="48" width="72" height="29" rx="14" fill="#256fd1" stroke="none" stroke-width="1.2"/>
+<text x="86" y="68" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">2012</text>
+<text x="50" y="104" font-size="23" fill="#17202b" font-weight="800" text-anchor="start">AlexNet wins ImageNet</text>
+<text x="88" y="154" font-size="11" fill="#256fd1" font-weight="800" text-anchor="start">IMAGENET SCOREBOARD FLIPS</text>
+<rect x="92" y="240" width="60" height="60" rx="9" fill="#ffffff" stroke="#256fd1" stroke-width="1.2" opacity="0.94"/>
+<rect x="160" y="228" width="60" height="60" rx="9" fill="#ffffff" stroke="#256fd1" stroke-width="1.2" opacity="0.94"/>
+<rect x="228" y="216" width="60" height="60" rx="9" fill="#ffffff" stroke="#256fd1" stroke-width="1.2" opacity="0.94"/>
+<rect x="296" y="204" width="60" height="60" rx="9" fill="#ffffff" stroke="#256fd1" stroke-width="1.2" opacity="0.94"/>
+<rect x="364" y="192" width="60" height="60" rx="9" fill="#ffffff" stroke="#256fd1" stroke-width="1.2" opacity="0.94"/>
+<line x1="430" y1="244" x2="500" y2="244" stroke="#256fd1" stroke-width="3" fill="none" opacity="0.9" marker-end="url(#2012_alexnet-arrow-a)"/>
+<rect x="512" y="174" width="150" height="138" rx="18" fill="#fff8e8" stroke="#f09c3b" stroke-width="1.2" filter="url(#2012_alexnet-shadow)"/>
+<text x="587" y="204" font-size="15" fill="#17202b" font-weight="700" text-anchor="middle">ImageNet 2012</text>
+<text x="587" y="227" font-size="12" fill="#667085" font-weight="500" text-anchor="middle">top-5 error drops</text>
+<text x="534" y="233" font-size="12" fill="#667085" font-weight="700" text-anchor="start">AlexNet</text>
+<rect x="596" y="220" width="104" height="16" rx="8" fill="#ef7b45" stroke="none" stroke-width="1.2"/>
+<text x="534" y="263" font-size="12" fill="#667085" font-weight="700" text-anchor="start">runner-up</text>
+<rect x="596" y="250" width="62" height="16" rx="8" fill="#9aa8b7" stroke="none" stroke-width="1.2"/>
+<text x="534" y="293" font-size="12" fill="#667085" font-weight="700" text-anchor="start">old guard</text>
+<rect x="596" y="280" width="44" height="16" rx="8" fill="#c7d2df" stroke="none" stroke-width="1.2"/>
+<text x="244" y="330" font-size="15" fill="#17202b" font-weight="800" text-anchor="middle">two GPUs + ReLUs + dropout</text>
 </svg>
 <figcaption>8-layer GPU CNN crushes ImageNet 2012 — the public inflection point for deep learning.</figcaption>
 </figure>

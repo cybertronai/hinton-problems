@@ -15,65 +15,87 @@
 <p class="people"><strong>Key people:</strong> Yann LeCun, Bottou, Bengio, Haffner, others</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Convolutional neural networks for vision timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="440">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" class="timeline-visual illustrative-visual" style="width: 100%; height: auto;" role="img" aria-label="Convolutional neural networks for vision illustrative timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="illustrative-retina" data-export-width="1520" data-export-height="860">
   <title>Convolutional neural networks for vision</title>
-  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
-  <rect class="viz-canvas" x="4" y="4" width="512" height="212" rx="16.5" ry="16.5"/>
-  <defs>
-    <marker id="cf" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
-    </marker>
-  </defs>
-  <!-- input -->
-  <rect x="20" y="60" width="80" height="80" fill="#eef3fb" stroke="#2c6fbb"/>
-  <text x="60" y="160" text-anchor="middle" font-size="11">input (28×28)</text>
-  <!-- conv -->
-  <g>
-    <rect x="130" y="55" width="60" height="60" fill="#fff" stroke="#333"/>
-    <rect x="135" y="50" width="60" height="60" fill="#fff" stroke="#333"/>
-    <rect x="140" y="45" width="60" height="60" fill="#fff" stroke="#333"/>
-  </g>
-  <text x="170" y="160" text-anchor="middle" font-size="11">conv feature maps</text>
-  <text x="170" y="172" text-anchor="middle" font-size="10" fill="#666">shared kernel</text>
-  <!-- pool -->
-  <g>
-    <rect x="230" y="65" width="40" height="40" fill="#fff" stroke="#333"/>
-    <rect x="235" y="60" width="40" height="40" fill="#fff" stroke="#333"/>
-    <rect x="240" y="55" width="40" height="40" fill="#fff" stroke="#333"/>
-  </g>
-  <text x="255" y="160" text-anchor="middle" font-size="11">pool (downsample)</text>
-  <!-- more conv -->
-  <g>
-    <rect x="310" y="75" width="28" height="28" fill="#fff" stroke="#333"/>
-    <rect x="315" y="70" width="28" height="28" fill="#fff" stroke="#333"/>
-    <rect x="320" y="65" width="28" height="28" fill="#fff" stroke="#333"/>
-  </g>
-  <text x="335" y="160" text-anchor="middle" font-size="11">conv + pool</text>
-  <!-- fc -->
-  <line x1="375" y1="70" x2="375" y2="130" stroke="#333"/>
-  <g fill="#fff" stroke="#333">
-    <circle cx="375" cy="75"  r="5"/>
-    <circle cx="375" cy="90"  r="5"/>
-    <circle cx="375" cy="105" r="5"/>
-    <circle cx="375" cy="120" r="5"/>
-  </g>
-  <text x="375" y="160" text-anchor="middle" font-size="11">FC</text>
-  <!-- softmax -->
-  <g fill="#fbe9f0" stroke="#c44778">
-    <circle cx="455" cy="80" r="6"/>
-    <circle cx="455" cy="95" r="6"/>
-    <circle cx="455" cy="110" r="6"/>
-    <circle cx="455" cy="125" r="6"/>
-  </g>
-  <text x="455" y="160" text-anchor="middle" font-size="11">softmax</text>
-  <text x="455" y="172" text-anchor="middle" font-size="10" fill="#666">"7"</text>
-  <!-- arrows -->
-  <line x1="105" y1="100" x2="130" y2="100" stroke="#333" stroke-width="1.5" marker-end="url(#cf)"/>
-  <line x1="205" y1="100" x2="230" y2="100" stroke="#333" stroke-width="1.5" marker-end="url(#cf)"/>
-  <line x1="285" y1="100" x2="310" y2="100" stroke="#333" stroke-width="1.5" marker-end="url(#cf)"/>
-  <line x1="355" y1="100" x2="375" y2="100" stroke="#333" stroke-width="1.5" marker-end="url(#cf)"/>
-  <line x1="395" y1="100" x2="445" y2="100" stroke="#333" stroke-width="1.5" marker-end="url(#cf)"/>
-  <text x="270" y="30" text-anchor="middle" font-size="12" fill="#666">weight-sharing across spatial locations</text>
+  <desc>Completely redrawn illustrative SVG scene for the deep-learning timeline.</desc>
+<defs>
+  <linearGradient id="1989_cnn-bg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#fafdff"/>
+    <stop offset="52%" stop-color="#eef5ff"/>
+    <stop offset="100%" stop-color="#fdf3f8"/>
+  </linearGradient>
+  <linearGradient id="1989_cnn-panel" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.97"/>
+    <stop offset="100%" stop-color="#f7fbff" stop-opacity="0.94"/>
+  </linearGradient>
+  <linearGradient id="1989_cnn-accent-soft" x1="0" x2="1">
+    <stop offset="0%" stop-color="#2878c7" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#2aa889" stop-opacity="0.18"/>
+  </linearGradient>
+  <linearGradient id="1989_cnn-accent" x1="0" x2="1">
+    <stop offset="0%" stop-color="#2878c7"/>
+    <stop offset="100%" stop-color="#2aa889"/>
+  </linearGradient>
+  <filter id="1989_cnn-shadow" x="-20%" y="-20%" width="140%" height="150%">
+    <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#22304a" flood-opacity="0.16"/>
+  </filter>
+  <filter id="1989_cnn-small-shadow" x="-30%" y="-30%" width="160%" height="180%">
+    <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#22304a" flood-opacity="0.18"/>
+  </filter>
+  <marker id="1989_cnn-arrow-a" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#2878c7"/>
+  </marker>
+  <marker id="1989_cnn-arrow-b" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#2aa889"/>
+  </marker>
+  <marker id="1989_cnn-arrow-ink" markerWidth="12" markerHeight="12" refX="10" refY="5.5" orient="auto">
+    <path d="M0,0 L11,5.5 L0,11 Z" fill="#17202b"/>
+  </marker>
+</defs>
+  <rect x="0" y="0" width="760" height="430" fill="url(#1989_cnn-bg)"/>
+<circle cx="70" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="140" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="210" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="280" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="350" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="420" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="490" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="130" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="560" cy="298" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="186" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="630" cy="354" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+<circle cx="700" cy="242" r="1.8" fill="#8aa3c5" stroke="none" stroke-width="1.2" opacity="0.18"/>
+  <circle cx="672" cy="72" r="86" fill="#2878c7" opacity="0.08"/>
+  <circle cx="93" cy="372" r="96" fill="#2aa889" opacity="0.08"/>
+  <rect x="24" y="24" width="712" height="382" rx="34" fill="url(#1989_cnn-panel)" stroke="#dce8f5" filter="url(#1989_cnn-shadow)"/>
+<rect x="50" y="48" width="152.8" height="29" rx="14" fill="#2878c7" stroke="none" stroke-width="1.2"/>
+<text x="126.4" y="68" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">Late 1980s–1990s</text>
+<text x="50" y="104" font-size="23" fill="#17202b" font-weight="800" text-anchor="start">Convolutional neural networks for vision</text>
+<text x="76" y="152" font-size="11" fill="#2878c7" font-weight="800" text-anchor="start">LOCAL FILTERS BUILD VISUAL HIERARCHIES</text>
+<rect x="78" y="182" width="92" height="92" rx="12" fill="#eef5ff" stroke="#2878c7" stroke-width="1.2" opacity="0.95"/>
+<rect x="81" y="179" width="92" height="92" rx="12" fill="#eef5ff" stroke="#2878c7" stroke-width="1.2" opacity="0.95"/>
+<rect x="84" y="176" width="92" height="92" rx="12" fill="#eef5ff" stroke="#2878c7" stroke-width="1.2" opacity="0.95"/>
+<rect x="87" y="173" width="92" height="92" rx="12" fill="#eef5ff" stroke="#2878c7" stroke-width="1.2" opacity="0.95"/>
+<rect x="90" y="170" width="92" height="92" rx="12" fill="#eef5ff" stroke="#2878c7" stroke-width="1.2" opacity="0.95"/>
+<rect x="252" y="174" width="92" height="92" rx="10" fill="#ffffff" stroke="#8db2df" stroke-width="1.2"/>
+<rect x="262" y="166" width="92" height="92" rx="10" fill="#ffffff" stroke="#8db2df" stroke-width="1.2"/>
+<rect x="272" y="158" width="92" height="92" rx="10" fill="#ffffff" stroke="#8db2df" stroke-width="1.2"/>
+<rect x="282" y="150" width="92" height="92" rx="10" fill="#ffffff" stroke="#8db2df" stroke-width="1.2"/>
+<rect x="424" y="194" width="64" height="64" rx="8" fill="#ffffff" stroke="#8fcfbf" stroke-width="1.2"/>
+<rect x="434" y="186" width="64" height="64" rx="8" fill="#ffffff" stroke="#8fcfbf" stroke-width="1.2"/>
+<rect x="444" y="178" width="64" height="64" rx="8" fill="#ffffff" stroke="#8fcfbf" stroke-width="1.2"/>
+<line x1="178" y1="226" x2="246" y2="220" stroke="#2878c7" stroke-width="3" fill="none" opacity="0.8" marker-end="url(#1989_cnn-arrow-a)"/>
+<line x1="356" y1="222" x2="416" y2="222" stroke="#2878c7" stroke-width="3" fill="none" opacity="0.8" marker-end="url(#1989_cnn-arrow-a)"/>
+<line x1="508" y1="224" x2="588" y2="224" stroke="#2878c7" stroke-width="3" fill="none" opacity="0.8" marker-end="url(#1989_cnn-arrow-a)"/>
+<rect x="600" y="178" width="76" height="96" rx="16" fill="#fff3f8" stroke="#2aa889" stroke-width="1.2"/>
+<text x="638" y="217" font-size="42" fill="#2aa889" font-weight="900" text-anchor="middle">7</text>
+<text x="124" y="298" font-size="13" fill="#667085" font-weight="700" text-anchor="middle">image</text>
+<text x="306" y="298" font-size="13" fill="#667085" font-weight="700" text-anchor="middle">feature maps</text>
+<text x="468" y="298" font-size="13" fill="#667085" font-weight="700" text-anchor="middle">pool</text>
 </svg>
 <figcaption>Local receptive fields and shared kernels produce a hierarchy of feature maps; pooling adds translation tolerance.</figcaption>
 </figure>
