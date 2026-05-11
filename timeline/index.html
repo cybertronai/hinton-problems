@@ -6,12 +6,13 @@
 <title>Deep Learning Timeline</title>
 <link rel="stylesheet" href="style.css">
 <style>body { padding: 1.5rem 1rem 4rem 1rem; }
-.timeline-container { max-width: 760px; margin: 0 auto; }
+.timeline-container { max-width: 920px; margin: 0 auto; }
 .timeline-container header.page { margin-bottom: 2.5rem; }
-.timeline-container header.page h1 { font-size: 2rem; margin: 0 0 0.5rem 0; }
+.timeline-container header.page h1 { font-size: 2.15rem; margin: 0 0 0.5rem 0; }
 .timeline-container header.page p.subtitle { color: var(--muted); margin: 0; }
-.toc { margin: 2rem 0 3rem 0; padding: 1rem 1.25rem; background: white;
-       border: 1px solid var(--rule); border-radius: 4px; }
+.toc { margin: 2rem 0 3rem 0; padding: 1rem 1.25rem; background: var(--panel);
+       border: 1px solid var(--rule); border-radius: 8px;
+       box-shadow: 0 12px 32px rgba(36, 54, 76, 0.08); }
 .toc h2 { font-size: 0.95rem; margin: 0 0 0.75rem 0; color: var(--muted);
           text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
 .toc ol { margin: 0; padding: 0 0 0 1.25rem; columns: 2; column-gap: 1.5rem;
@@ -29,8 +30,8 @@ section.milestone header.entry .period { font-size: 0.8rem; text-transform: uppe
    letter-spacing: 0.05em; color: var(--muted); margin: 0 0 0.2rem 0; }
 section.milestone header.entry h2 { font-size: 1.35rem; line-height: 1.25;
    margin: 0 0 0.4rem 0; font-weight: 600; }
-section.milestone header.entry .people { font-size: 0.9rem; color: #444; margin: 0; }
-section.milestone figure.diagram { margin: 1.25rem 0 1rem 0; }
+section.milestone header.entry .people { font-size: 0.9rem; color: #3b4654; margin: 0; }
+section.milestone figure.diagram { margin: 1.5rem 0 1.25rem 0; }
 section.milestone .why-inline { margin: 0.75rem 0 0 0; font-size: 0.95rem; }
 section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
    font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em;
@@ -38,13 +39,17 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 .back-to-top { display: inline-block; margin-top: 1.25rem; font-size: 0.82rem;
    color: var(--muted); text-decoration: none; }
 .back-to-top:hover { color: var(--blue); }
+@media (max-width: 720px) {
+  .toc ol { columns: 1; }
+  .timeline-container header.page h1 { font-size: 1.8rem; }
+}
 </style>
 </head>
 <body>
 <div class="timeline-container">
 <header class="page" id="top">
 <h1>Deep Learning Timeline</h1>
-<p class="subtitle">41 milestones from adjoint methods (1950s) through unified multimodal/agentic systems (2025–2026), each with a generated SVG diagram. Scroll to read; jump from the contents below.</p>
+<p class="subtitle">41 milestones from adjoint methods (1950s) through unified multimodal/agentic systems (2025–2026), each with a regenerated retina SVG diagram. Scroll to read; jump from the contents below.</p>
 </header>
 <nav class="toc"><h2>Contents</h2><ol>
 <li><a href="#1950s-adjoint"><span class="period">1950s–1960s prehistory</span>Adjoint methods in optimal control</a></li>
@@ -96,7 +101,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Pontryagin, Bellman, Kelley, Bryson, Ho, others</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Adjoint methods in optimal control timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="440">
+  <title>Adjoint methods in optimal control</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4" y="4" width="512" height="212" rx="16.5" ry="16.5"/>
   <defs>
     <marker id="ah" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <path d="M0,0 L0,6 L9,3 z" fill="#2c6fbb"/>
@@ -149,7 +157,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Seppo Linnainmaa</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Reverse-mode automatic differentiation timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>Reverse-mode automatic differentiation</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <defs>
     <marker id="rh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <path d="M0,0 L0,6 L9,3 z" fill="#2c6fbb"/>
@@ -204,7 +215,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Paul Werbos</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Backprop ideas applied toward neural networks/control timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>Backprop ideas applied toward neural networks/control</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <defs>
     <marker id="wh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <path d="M0,0 L0,6 L9,3 z" fill="#2c6fbb"/>
@@ -246,7 +260,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> John Hopfield</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Hopfield networks timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>Hopfield networks</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <!-- energy landscape (sinusoidal lows) -->
   <path d="M30,180 C80,80 130,180 180,100 C230,40 280,180 330,90 C380,20 430,180 480,110 L480,210 L30,210 Z" fill="#eef3fb" stroke="#2c6fbb" stroke-width="2"/>
   <!-- basin labels -->
@@ -278,7 +295,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Hinton, Sejnowski, Ackley</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Boltzmann machines timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>Boltzmann machines</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <!-- bipartite-ish stochastic network -->
   <g font-size="12">
     <!-- visible -->
@@ -330,7 +350,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Rumelhart, Hinton, Williams</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Backpropagation becomes the neural-net learning algorithm timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>Backpropagation becomes the neural-net learning algorithm</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <defs>
     <marker id="bf" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <path d="M0,0 L0,6 L9,3 z" fill="#2c6fbb"/>
@@ -384,7 +407,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Yann LeCun, Bottou, Bengio, Haffner, others</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Convolutional neural networks for vision timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="440">
+  <title>Convolutional neural networks for vision</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4" y="4" width="512" height="212" rx="16.5" ry="16.5"/>
   <defs>
     <marker id="cf" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
@@ -453,7 +479,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Sepp Hochreiter, later Bengio et al.</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Vanishing-gradient problem identified timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>Vanishing-gradient problem identified</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <!-- axes -->
   <line x1="60" y1="40" x2="60" y2="200" stroke="#333"/>
   <line x1="60" y1="200" x2="480" y2="200" stroke="#333"/>
@@ -487,7 +516,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Schmidhuber</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Neural history compressor timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>Neural history compressor</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <defs>
     <marker id="ch" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <path d="M0,0 L0,6 L9,3 z" fill="#2c6fbb"/>
@@ -545,7 +577,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Hochreiter, Schmidhuber</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="LSTM timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="520">
+  <title>LSTM</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.68" y="4.68" width="510.64" height="250.64" rx="19.5" ry="19.5"/>
   <defs>
     <marker id="lh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
@@ -590,7 +625,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Bengio, Ducharme, Vincent, Janvin</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Neural probabilistic language models timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>Neural probabilistic language models</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <defs>
     <marker id="wlh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
@@ -645,7 +683,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Hinton</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Contrastive divergence and RBMs timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>Contrastive divergence and RBMs</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <defs>
     <marker id="cdh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <path d="M0,0 L0,6 L9,3 z" fill="#2c6fbb"/>
@@ -692,7 +733,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Hinton, Osindero, Teh; Bengio, Lamblin, Popovici, Larochelle</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Deep belief nets and greedy layer-wise pretraining timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="520">
+  <title>Deep belief nets and greedy layer-wise pretraining</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.68" y="4.68" width="510.64" height="250.64" rx="19.5" ry="19.5"/>
   <defs>
     <marker id="dh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
@@ -738,7 +782,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Bengio</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="“Learning Deep Architectures for AI” timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>“Learning Deep Architectures for AI”</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <!-- pyramid of representation levels -->
   <polygon points="60,200 460,200 360,140 160,140" fill="#eef3fb" stroke="#2c6fbb"/>
   <polygon points="160,140 360,140 310,90 210,90" fill="#fff" stroke="#7a4f9c"/>
@@ -763,7 +810,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Cireșan, Meier, Schmidhuber, IDSIA</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="GPU CNNs begin winning vision contests timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="440">
+  <title>GPU CNNs begin winning vision contests</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4" y="4" width="512" height="212" rx="16.5" ry="16.5"/>
   <!-- GPU chip -->
   <rect x="50" y="60" width="180" height="100" fill="#eef3fb" stroke="#2c6fbb"/>
   <g fill="#2c6fbb">
@@ -825,7 +875,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Krizhevsky, Sutskever, Hinton</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="AlexNet wins ImageNet timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="440">
+  <title>AlexNet wins ImageNet</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4" y="4" width="512" height="212" rx="16.5" ry="16.5"/>
   <!-- input -->
   <rect x="20" y="80" width="50" height="50" fill="#eef3fb" stroke="#2c6fbb"/>
   <text x="45" y="148" text-anchor="middle" font-size="10">224²×3</text>
@@ -883,7 +936,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Hinton, Srivastava, Krizhevsky, Sutskever, Salakhutdinov</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Dropout timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="440">
+  <title>Dropout</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4" y="4" width="512" height="212" rx="16.5" ry="16.5"/>
   <!-- left: full network -->
   <g font-size="11">
     <g fill="#fff" stroke="#333">
@@ -941,7 +997,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Mikolov et al.</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Word2vec and modern embeddings timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>Word2vec and modern embeddings</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <defs>
     <marker id="w2h" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
@@ -1002,7 +1061,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Sutskever, Vinyals, Le</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Sequence-to-sequence learning timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>Sequence-to-sequence learning</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <defs>
     <marker id="sh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
@@ -1062,7 +1124,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Bahdanau, Cho, Bengio</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Neural attention for translation timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="520">
+  <title>Neural attention for translation</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.68" y="4.68" width="510.64" height="250.64" rx="19.5" ry="19.5"/>
   <!-- source tokens (left) and target token (right) -->
   <g font-size="12">
     <rect x="40" y="60" width="80" height="26" fill="#eef3fb" stroke="#2c6fbb"/><text x="80" y="78" text-anchor="middle">the</text>
@@ -1112,7 +1177,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Goodfellow, Pouget-Abadie, Mirza, Xu, Warde-Farley, Ozair, Courville, Bengio</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="GANs timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>GANs</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <defs>
     <marker id="gh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
@@ -1160,7 +1228,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Ioffe, Szegedy</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Batch normalization timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>Batch normalization</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <!-- axes -->
   <line x1="60" y1="40" x2="60" y2="200" stroke="#333"/>
   <line x1="60" y1="200" x2="480" y2="200" stroke="#333"/>
@@ -1189,7 +1260,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> He, Zhang, Ren, Sun</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="ResNet timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>ResNet</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <defs>
     <marker id="rsh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
@@ -1243,7 +1317,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> LeCun, Bengio, Hinton</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Deep learning becomes the dominant paradigm timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>Deep learning becomes the dominant paradigm</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <!-- speech / vision / nlp / drug / genomics icons in a row, connected to "DL" -->
   <circle cx="260" cy="115" r="50" fill="#fbe9f0" stroke="#c44778"/>
   <text x="260" y="120" text-anchor="middle" font-size="14" font-weight="600">deep learning</text>
@@ -1294,7 +1371,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> DeepMind</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="AlphaGo timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>AlphaGo</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <!-- Go board on the left -->
   <g transform="translate(40,30)" stroke="#666" fill="none">
     <rect x="0" y="0" width="120" height="120" fill="#f7e9c2" stroke="#333"/>
@@ -1353,7 +1433,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Vaswani et al.</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Transformer: “Attention Is All You Need” timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>Transformer: “Attention Is All You Need”</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <defs>
     <marker id="th" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
@@ -1400,7 +1483,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Devlin, Chang, Lee, Toutanova</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="BERT and self-supervised pretraining timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="440">
+  <title>BERT and self-supervised pretraining</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4" y="4" width="512" height="212" rx="16.5" ry="16.5"/>
   <!-- masked tokens -->
   <g font-size="12">
     <rect x="20" y="100" width="50" height="30" fill="#eef3fb" stroke="#2c6fbb"/><text x="45" y="120" text-anchor="middle">the</text>
@@ -1445,7 +1531,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Chen, Rubanova, Bettencourt, Duvenaud</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Neural ODEs reconnect deep learning to adjoints timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>Neural ODEs reconnect deep learning to adjoints</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <!-- left: discrete (ResNet) -->
   <text x="120" y="35" text-anchor="middle" font-size="13" font-weight="600">ResNet (discrete)</text>
   <g font-size="11">
@@ -1482,7 +1571,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Kaplan et al.; OpenAI</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Scaling laws timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="520">
+  <title>Scaling laws</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.68" y="4.68" width="510.64" height="250.64" rx="19.5" ry="19.5"/>
   <!-- log-log axes -->
   <line x1="70" y1="50" x2="70" y2="220" stroke="#333"/>
   <line x1="70" y1="220" x2="490" y2="220" stroke="#333"/>
@@ -1526,7 +1618,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Brown et al.; OpenAI</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="GPT-3 timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>GPT-3</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <!-- log-scale model sizes as bars -->
   <text x="260" y="30" text-anchor="middle" font-size="13" fill="#666">parameter count, 2018 → 2020</text>
   <g font-size="11">
@@ -1568,7 +1663,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Ho, Jain, Abbeel; Song et al.; others</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Diffusion models mature timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>Diffusion models mature</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <defs>
     <marker id="dfh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
@@ -1607,7 +1705,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> OpenAI</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="CLIP and text-image representation learning timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="520">
+  <title>CLIP and text-image representation learning</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.68" y="4.68" width="510.64" height="250.64" rx="19.5" ry="19.5"/>
   <defs>
     <marker id="clh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
@@ -1669,7 +1770,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> DeepMind</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="AlphaFold2 timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>AlphaFold2</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <defs>
     <marker id="afh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
@@ -1718,7 +1822,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> OpenAI; Christiano-style RLHF lineage</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="InstructGPT / RLHF timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="520">
+  <title>InstructGPT / RLHF</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.68" y="4.68" width="510.64" height="250.64" rx="19.5" ry="19.5"/>
   <defs>
     <marker id="rh1" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
@@ -1770,7 +1877,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> OpenAI</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="ChatGPT timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="520">
+  <title>ChatGPT</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.68" y="4.68" width="510.64" height="250.64" rx="19.5" ry="19.5"/>
   <!-- chat bubbles -->
   <g font-size="11">
     <rect x="40" y="40" width="280" height="34" rx="14" fill="#eef3fb" stroke="#2c6fbb"/>
@@ -1803,7 +1913,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> OpenAI and broader frontier labs</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="GPT-4 and frontier multimodal LLMs timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>GPT-4 and frontier multimodal LLMs</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <defs>
     <marker id="g4h" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
@@ -1844,7 +1957,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> OpenAI GPT-4o and others</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Real-time multimodal models timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>Real-time multimodal models</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <!-- central core -->
   <circle cx="260" cy="120" r="55" fill="#fbe9f0" stroke="#c44778" stroke-width="2"/>
   <text x="260" y="120" text-anchor="middle" font-size="14" font-weight="600">unified</text>
@@ -1889,7 +2005,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> OpenAI o1; later many others</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Reasoning models and inference-time compute timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="520">
+  <title>Reasoning models and inference-time compute</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.68" y="4.68" width="510.64" height="250.64" rx="19.5" ry="19.5"/>
   <!-- thought tree -->
   <g font-size="11">
     <!-- prompt -->
@@ -1936,7 +2055,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> Hopfield, Hinton; Baker, Hassabis, Jumper</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Nobel recognition timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="440">
+  <title>Nobel recognition</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4" y="4" width="512" height="212" rx="16.5" ry="16.5"/>
   <!-- physics -->
   <g transform="translate(60, 40)">
     <circle cx="80" cy="60" r="50" fill="#fbe9f0" stroke="#c44778" stroke-width="3"/>
@@ -1971,7 +2093,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> DeepSeek-R1, OpenAI o-series, others</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Open reasoning models and RL-for-reasoning wave timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="480">
+  <title>Open reasoning models and RL-for-reasoning wave</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.32" y="4.32" width="511.36" height="231.36" rx="18" ry="18"/>
   <defs>
     <marker id="dsh" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
@@ -2011,7 +2136,10 @@ section.milestone .why-inline strong { color: var(--muted); font-weight: 600;
 <p class="people"><strong>Key people:</strong> OpenAI, Anthropic, Google DeepMind, Meta, xAI, DeepSeek, open-source ecosystem</p>
 </header>
 <figure class="diagram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" class="timeline-visual" style="width: 100%; height: auto;" role="img" aria-label="Unified multimodal/agentic systems timeline visualization" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility" data-visual-quality="retina" data-export-width="1040" data-export-height="520">
+  <title>Unified multimodal/agentic systems</title>
+  <desc>Higher-resolution SVG diagram regenerated with a shared timeline visual treatment.</desc>
+  <rect class="viz-canvas" x="4.68" y="4.68" width="510.64" height="250.64" rx="19.5" ry="19.5"/>
   <!-- model in center -->
   <circle cx="260" cy="130" r="55" fill="#fbe9f0" stroke="#c44778" stroke-width="2"/>
   <text x="260" y="128" text-anchor="middle" font-size="13" font-weight="600">unified</text>

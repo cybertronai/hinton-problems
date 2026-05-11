@@ -1,10 +1,14 @@
 /* Shared styles for the deep learning timeline reports. */
 
 :root {
-  --ink: #1a1a1a;
-  --muted: #666;
-  --rule: #ddd;
-  --bg: #fcfcfc;
+  --ink: #17202b;
+  --ink-soft: #283241;
+  --muted: #667085;
+  --rule: #d8e2ee;
+  --line: #718096;
+  --bg: #f6f8fb;
+  --panel: #ffffff;
+  --panel-soft: #fbfdff;
   --blue: #2c6fbb;
   --pink: #c44778;
   --green: #3d8b5e;
@@ -27,7 +31,8 @@ body {
 }
 
 article, .index-page {
-  max-width: 720px;
+  width: 100%;
+  max-width: 860px;
   margin: 0 auto;
 }
 
@@ -57,24 +62,27 @@ header h1 {
 
 .people {
   font-size: 0.95rem;
-  color: #444;
+  color: #3b4654;
   margin: 0 0 1.5rem 0;
 }
 
 figure.diagram {
-  margin: 1.5rem 0 2rem 0;
+  margin: 1.75rem 0 2.25rem 0;
   text-align: center;
-  background: white;
+  background: linear-gradient(180deg, var(--panel) 0%, #f8fbff 100%);
   border: 1px solid var(--rule);
-  border-radius: 4px;
-  padding: 1.5rem 1rem 1rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 18px 46px rgba(36, 54, 76, 0.10);
+  padding: 1.25rem 1.25rem 1rem 1.25rem;
 }
 
 figure.diagram svg {
+  width: 100% !important;
   max-width: 100%;
-  height: auto;
+  height: auto !important;
   display: block;
   margin: 0 auto;
+  overflow: visible;
 }
 
 figcaption {
@@ -159,4 +167,90 @@ ol.timeline .people {
 svg text {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   fill: var(--ink);
+}
+
+figure.diagram svg.timeline-visual {
+  color: var(--ink);
+  shape-rendering: geometricPrecision;
+  text-rendering: optimizeLegibility;
+}
+
+figure.diagram svg.timeline-visual .viz-canvas {
+  fill: var(--panel-soft);
+  stroke: #dfe8f3;
+  stroke-width: 1;
+}
+
+figure.diagram svg.timeline-visual line,
+figure.diagram svg.timeline-visual path {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+figure.diagram svg.timeline-visual rect,
+figure.diagram svg.timeline-visual circle,
+figure.diagram svg.timeline-visual ellipse,
+figure.diagram svg.timeline-visual polygon {
+  vector-effect: non-scaling-stroke;
+}
+
+figure.diagram svg.timeline-visual text {
+  paint-order: stroke;
+  stroke: rgba(255, 255, 255, 0.72);
+  stroke-width: 0.5px;
+  stroke-linejoin: round;
+}
+
+figure.diagram svg.timeline-visual text[fill="#666"] { fill: var(--muted); }
+figure.diagram svg.timeline-visual text[fill="#333"] { fill: var(--ink-soft); }
+figure.diagram svg.timeline-visual text[fill="#999"] { fill: #8a98aa; }
+figure.diagram svg.timeline-visual text[fill="#2c6fbb"] { fill: #235f9f; }
+figure.diagram svg.timeline-visual text[fill="#c44778"] { fill: #b83a70; }
+figure.diagram svg.timeline-visual text[fill="#3d8b5e"] { fill: #2f7d53; }
+figure.diagram svg.timeline-visual text[fill="#d77a2c"] { fill: #ba641d; }
+figure.diagram svg.timeline-visual text[fill="#7a4f9c"] { fill: #6b458d; }
+figure.diagram svg.timeline-visual [stroke="#333"] { stroke: var(--ink-soft); }
+figure.diagram svg.timeline-visual [stroke="#666"] { stroke: var(--line); }
+figure.diagram svg.timeline-visual [stroke="#999"] { stroke: #9aa8b7; }
+figure.diagram svg.timeline-visual [stroke="#ddd"] { stroke: var(--rule); }
+figure.diagram svg.timeline-visual [fill="#eef3fb"] { fill: #e8f1ff; }
+figure.diagram svg.timeline-visual [fill="#fbe9f0"] { fill: #ffeaf2; }
+figure.diagram svg.timeline-visual [fill="#fff5a8"] { fill: #fff2bd; }
+figure.diagram svg.timeline-visual [fill="#eee"] { fill: #e8edf4; }
+figure.diagram svg.timeline-visual [fill="#bbb"] { fill: #b8c4d1; }
+figure.diagram svg.timeline-visual [fill="#777"] { fill: #687789; }
+figure.diagram svg.timeline-visual [fill="#333"] { fill: var(--ink-soft); }
+
+@media (max-width: 640px) {
+  body {
+    padding: 1.25rem 0.75rem 3rem 0.75rem;
+  }
+
+  article,
+  .index-page {
+    max-width: 100%;
+  }
+
+  header h1 {
+    overflow-wrap: anywhere;
+  }
+
+  figure.diagram {
+    overflow: hidden;
+    padding: 0.85rem 0.7rem 0.8rem 0.7rem;
+  }
+
+  figure.diagram svg {
+    width: calc(100vw - 3.1rem) !important;
+    max-width: calc(100vw - 3.1rem) !important;
+  }
+
+  nav.adjacent {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  nav.adjacent a {
+    max-width: 100%;
+  }
 }
