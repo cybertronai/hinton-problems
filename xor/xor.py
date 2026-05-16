@@ -187,6 +187,7 @@ def train(arch: str = "2-2-1",
           init_scale: float = 1.0,
           max_epochs: int = 5000,
           seed: int = 0,
+          perturb_after: int = 2500,
           snapshot_callback=None,
           snapshot_every: int = 10,
           verbose: bool = True) -> tuple[XorMLP, dict]:
@@ -197,6 +198,7 @@ def train(arch: str = "2-2-1",
     epoch where every output is within 0.5 of its target, or None.
     """
     model = XorMLP(arch=arch, init_scale=init_scale, seed=seed)
+    restart_seeds = np.random.SeedSequence(seed).spawn(256)
     X, y = make_xor_data()
 
     # momentum buffers
@@ -208,11 +210,14 @@ def train(arch: str = "2-2-1",
 
     history = {"epoch": [], "loss": [], "accuracy": [],
                 "weight_norm": [], "converged_epoch": None,
-                "outputs": []}
+                "outputs": [], "perturbations": []}
 
     if verbose:
         print(f"# XOR backprop  arch={arch}  params={model.n_params()}  "
               f"lr={lr}  momentum={momentum}  seed={seed}")
+
+    epochs_at_plateau = 0
+    best_acc = 0.0
 
     for epoch in range(max_epochs):
         grads = backprop_grads(model, X, y)
@@ -244,6 +249,34 @@ def train(arch: str = "2-2-1",
                 print(f"  converged at epoch {epoch + 1}  "
                       f"loss={loss:.4f}  acc={acc*100:.0f}%")
 
+        if perturb_after > 0 and history["converged_epoch"] is None:
+            if acc > best_acc:
+                best_acc = acc
+                epochs_at_plateau = 0
+            elif acc < 1.0:
+                epochs_at_plateau += 1
+            else:
+                epochs_at_plateau = 0
+
+            if epochs_at_plateau >= perturb_after and epoch + 1 < max_epochs:
+                n_done = len(history["perturbations"])
+                if n_done >= len(restart_seeds):
+                    if verbose:
+                        print(f"  epoch {epoch+1:5d}  "
+                              f"*** restart budget exhausted ***")
+                    break
+                restart_seed = int(restart_seeds[n_done].generate_state(1)[0])
+                model = XorMLP(arch=arch, init_scale=init_scale,
+                               seed=restart_seed)
+                for k in velocities:
+                    velocities[k] *= 0
+                history["perturbations"].append(epoch + 1)
+                epochs_at_plateau = 0
+                best_acc = 0.0
+                if verbose:
+                    print(f"  epoch {epoch+1:5d}  *** restart {n_done+1} "
+                          f"from fresh independent init (acc={acc*100:.0f}%) ***")
+
         if snapshot_callback is not None and (epoch % snapshot_every == 0
                                               or epoch == max_epochs - 1):
             snapshot_callback(epoch, model, history)
@@ -266,14 +299,15 @@ def train(arch: str = "2-2-1",
 # ----------------------------------------------------------------------
 
 def sweep(arch: str, n_seeds: int, lr: float, momentum: float,
-           init_scale: float, max_epochs: int) -> dict:
+           init_scale: float, max_epochs: int,
+           perturb_after: int = 2500) -> dict:
     """Run `n_seeds` independent training runs; return summary stats."""
     epochs = []
     failures = []
     for s in range(n_seeds):
         _, hist = train(arch=arch, lr=lr, momentum=momentum,
                         init_scale=init_scale, max_epochs=max_epochs,
-                        seed=s, verbose=False)
+                        seed=s, perturb_after=perturb_after, verbose=False)
         if hist["converged_epoch"] is None:
             failures.append(s)
         else:
@@ -300,6 +334,9 @@ def main():
     p.add_argument("--init-scale", type=float, default=1.0)
     p.add_argument("--max-epochs", type=int, default=5000)
     p.add_argument("--seed", type=int, default=0)
+    p.add_argument("--perturb-after", type=int, default=2500,
+                   help="restart from an independent init after this many "
+                        "epochs below 100%% accuracy; 0 disables")
     p.add_argument("--sweep", type=int, default=0,
                    help="If > 0, run a sweep across this many seeds and report stats.")
     args = p.parse_args()
@@ -313,7 +350,8 @@ def main():
         t0 = time.time()
         summary = sweep(args.arch, n_seeds=args.sweep, lr=args.lr,
                         momentum=args.momentum, init_scale=args.init_scale,
-                        max_epochs=args.max_epochs)
+                        max_epochs=args.max_epochs,
+                        perturb_after=args.perturb_after)
         dt = time.time() - t0
         print(f"\nSweep results ({args.sweep} seeds, arch={args.arch}):")
         print(f"  converged : {summary['converged']}/{summary['n_seeds']}")
@@ -328,7 +366,8 @@ def main():
     t0 = time.time()
     model, history = train(arch=args.arch, lr=args.lr, momentum=args.momentum,
                            init_scale=args.init_scale,
-                           max_epochs=args.max_epochs, seed=args.seed)
+                           max_epochs=args.max_epochs, seed=args.seed,
+                           perturb_after=args.perturb_after)
     dt = time.time() - t0
 
     X, y = make_xor_data()

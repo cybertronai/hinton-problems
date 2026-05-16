@@ -24,12 +24,12 @@ Per-stub reproducibility, implementation difficulty, and run wallclock for the c
 
 | Stub | Reproduces? | Implementation | Run wallclock |
 |---|---|---:|---:|
-| [`xor/`](xor/) (PR #32) | yes (qualitative, paper ~558 epochs / median 730) | 6.4 min | 0.3s |
-| [`n-bit-parity/`](n-bit-parity/) (PR #32) | yes (qualitatively; thermometer code partial) | 30 min | 0.20s |
+| [`xor/`](xor/) (PR #32) | yes (perturb wrapper: 30/30 seeds; paper ~558 epochs / median 962) | 6.4 min | 0.3s |
+| [`n-bit-parity/`](n-bit-parity/) (PR #32) | partial (perturb wrapper improves N=2..4; still 0/5 at N=7) | 30 min | 0.20s |
 | [`encoder-backprop-8-3-8/`](encoder-backprop-8-3-8/) (PR #33) | yes (70% strict 8/8 distinct codes; 100% reconstruction) | ~10 min | 0.6s |
 | [`distributed-to-local-bottleneck/`](distributed-to-local-bottleneck/) (PR #34) | yes (graded values 0.007 / 0.167 / 0.553 / 0.971 vs paper 0 / 0.2 / 0.6 / 1.0) | 75 min | 0.082s |
 | [`symmetry/`](symmetry/) (PR #32) | yes (1 : 1.994 : 3.969 weight ratio, residual 0.000) | 12.8 min | 0.4s |
-| [`binary-addition/`](binary-addition/) (PR #33) | yes (qualitatively; 4-3-3 succeeds, 4-2-3 stuck) | ~2 hr | 44s |
+| [`binary-addition/`](binary-addition/) (PR #33) | yes (qualitatively; perturb wrapper rescues seed 0, 4-2-3 stuck) | ~2 hr | 32s |
 | [`negation/`](negation/) (PR #32) | yes (4-6-3 arch deviation justified; stub said 4-3-3 which can't converge) | 25 min | 0.10s |
 | [`t-c-discrimination/`](t-c-discrimination/) (PR #34) | yes (all 3 detector families emerge across 40 kernels) | 30 min | 0.69s |
 | [`recurrent-shift-register/`](recurrent-shift-register/) (PR #34) | yes (89 sweeps N=3, 121 sweeps N=5; both well under paper's <200) | 25 min | 0.9s / 1.1s |

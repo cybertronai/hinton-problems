@@ -198,6 +198,7 @@ def train(n_bits: int = 4,
           max_epochs: int = 20000,
           seed: int = 0,
           bipolar: bool = True,
+          perturb_after: int = 20000,
           snapshot_callback=None,
           snapshot_every: int = 50,
           verbose: bool = True,
@@ -210,6 +211,7 @@ def train(n_bits: int = 4,
     """
     model = ParityMLP(n_bits=n_bits, n_hidden=n_hidden,
                       init_scale=init_scale, seed=seed, bipolar=bipolar)
+    restart_seeds = np.random.SeedSequence(seed).spawn(256)
     X, y = make_parity_data(n_bits, bipolar=bipolar)
 
     velocities = {k: np.zeros_like(v) for k, v in
@@ -217,7 +219,8 @@ def train(n_bits: int = 4,
                    ("W2", model.W2), ("b2", model.b2)]}
 
     history = {"epoch": [], "loss": [], "accuracy": [],
-               "weight_norm": [], "converged_epoch": None}
+               "weight_norm": [], "converged_epoch": None,
+               "perturbations": []}
 
     if verbose:
         print(f"# {n_bits}-bit parity backprop  "
@@ -226,6 +229,9 @@ def train(n_bits: int = 4,
         print(f"# patterns: {2**n_bits}  "
               f"target distribution: {int(y.sum())} ones, "
               f"{len(y) - int(y.sum())} zeros")
+
+    epochs_at_plateau = 0
+    best_acc = 0.0
 
     for epoch in range(max_epochs):
         grads = backprop_grads(model, X, y)
@@ -252,6 +258,35 @@ def train(n_bits: int = 4,
             if verbose:
                 print(f"  converged at epoch {epoch + 1}  "
                       f"loss={loss:.4f}  acc={acc*100:.0f}%")
+
+        if perturb_after > 0 and history["converged_epoch"] is None:
+            if acc > best_acc:
+                best_acc = acc
+                epochs_at_plateau = 0
+            elif acc < 1.0:
+                epochs_at_plateau += 1
+            else:
+                epochs_at_plateau = 0
+
+            if epochs_at_plateau >= perturb_after and epoch + 1 < max_epochs:
+                n_done = len(history["perturbations"])
+                if n_done >= len(restart_seeds):
+                    if verbose:
+                        print(f"  epoch {epoch+1:6d}  "
+                              f"*** restart budget exhausted ***")
+                    break
+                restart_seed = int(restart_seeds[n_done].generate_state(1)[0])
+                model = ParityMLP(n_bits=n_bits, n_hidden=n_hidden,
+                                  init_scale=init_scale, seed=restart_seed,
+                                  bipolar=bipolar)
+                for k in velocities:
+                    velocities[k] *= 0
+                history["perturbations"].append(epoch + 1)
+                epochs_at_plateau = 0
+                best_acc = 0.0
+                if verbose:
+                    print(f"  epoch {epoch+1:6d}  *** restart {n_done+1} "
+                          f"from fresh independent init (acc={acc*100:.0f}%) ***")
 
         if snapshot_callback is not None and (epoch % snapshot_every == 0
                                               or epoch == max_epochs - 1):
@@ -352,14 +387,16 @@ def thermometer_score(model: ParityMLP) -> dict:
 # ----------------------------------------------------------------------
 
 def sweep(n_bits: int, n_seeds: int, lr: float, momentum: float,
-          init_scale: float, max_epochs: int, bipolar: bool = True) -> dict:
+          init_scale: float, max_epochs: int, bipolar: bool = True,
+          perturb_after: int = 20000) -> dict:
     epochs = []
     failures = []
     thermo_hits = 0
     for s in range(n_seeds):
         model, hist = train(n_bits=n_bits, lr=lr, momentum=momentum,
                             init_scale=init_scale, max_epochs=max_epochs,
-                            seed=s, bipolar=bipolar, verbose=False)
+                            seed=s, bipolar=bipolar,
+                            perturb_after=perturb_after, verbose=False)
         if hist["converged_epoch"] is None:
             failures.append(s)
         else:
@@ -379,13 +416,14 @@ def sweep(n_bits: int, n_seeds: int, lr: float, momentum: float,
 
 def sweep_n(n_seeds: int, n_bits_range: tuple[int, int],
             lr: float, momentum: float, init_scale: float,
-            max_epochs: int, bipolar: bool = True) -> list[dict]:
+            max_epochs: int, bipolar: bool = True,
+            perturb_after: int = 20000) -> list[dict]:
     """Sweep over n_bits for a given seed budget. Returns list of summaries."""
     summaries = []
     for n in range(n_bits_range[0], n_bits_range[1] + 1):
         s = sweep(n_bits=n, n_seeds=n_seeds, lr=lr, momentum=momentum,
                   init_scale=init_scale, max_epochs=max_epochs,
-                  bipolar=bipolar)
+                  bipolar=bipolar, perturb_after=perturb_after)
         summaries.append(s)
     return summaries
 
@@ -405,6 +443,9 @@ def main():
     p.add_argument("--init-scale", type=float, default=1.0)
     p.add_argument("--max-epochs", type=int, default=20000)
     p.add_argument("--seed", type=int, default=0)
+    p.add_argument("--perturb-after", type=int, default=20000,
+                   help="restart from an independent init after this many "
+                        "epochs below 100%% accuracy; 0 disables")
     p.add_argument("--sweep", type=int, default=0,
                    help="If > 0, run a sweep across this many seeds.")
     p.add_argument("--sweep-n", type=str, default="",
@@ -430,7 +471,8 @@ def main():
                             lr=args.lr, momentum=args.momentum,
                             init_scale=args.init_scale,
                             max_epochs=args.max_epochs,
-                            bipolar=bipolar)
+                            bipolar=bipolar,
+                            perturb_after=args.perturb_after)
         dt = time.time() - t0
         print(f"\nSweep over N = {lo}..{hi}, {n_seeds} seeds each:")
         print(f"{'N':>2}  {'conv':>6}  {'thermo':>6}  "
@@ -449,7 +491,8 @@ def main():
         t0 = time.time()
         summary = sweep(n_bits=args.n_bits, n_seeds=args.sweep, lr=args.lr,
                         momentum=args.momentum, init_scale=args.init_scale,
-                        max_epochs=args.max_epochs, bipolar=bipolar)
+                        max_epochs=args.max_epochs, bipolar=bipolar,
+                        perturb_after=args.perturb_after)
         dt = time.time() - t0
         print(f"\nSweep results (N={args.n_bits}, {args.sweep} seeds):")
         print(f"  converged       : {summary['converged']}/{summary['n_seeds']}")
@@ -470,7 +513,8 @@ def main():
                            lr=args.lr, momentum=args.momentum,
                            init_scale=args.init_scale,
                            max_epochs=args.max_epochs, seed=args.seed,
-                           bipolar=bipolar)
+                           bipolar=bipolar,
+                           perturb_after=args.perturb_after)
     dt = time.time() - t0
 
     X, y = make_parity_data(args.n_bits, bipolar=bipolar)
