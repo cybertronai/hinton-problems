@@ -95,12 +95,57 @@ against `encoder-3-parity` and helped expose the second-pass penalty issue.
 It is not a canonical v2 comparison because it mixes different tasks and does
 not count steps to the reference criterion.
 
+## Second comparison: bars-rbm (CD-1) vs bars (wake-sleep)
+
+`bars_cost_comparison.py` compares CD-1 RBM against the Helmholtz machine on
+bar specialization. Reference criterion: 7/8 bars covered (cosine purity >= 0.5).
+
+Note: the two stubs use different data distributions (independent vs hierarchical
+bars), so convergence counts are indicative rather than strictly comparable. The
+per-step ByteDMD costs are distribution-independent and fully valid.
+
+Run:
+
+```bash
+python3 v2-bytedmd/bars_cost_comparison.py
+```
+
+Verified on 2026-05-11:
+
+```text
+Per single-sample step:
+  bars-rbm  CD-1  (W: 16×8 = 128 weights)
+    positive phase  (v→h)                  :     2,177
+    negative phase  (h→v→h)                :     4,751
+    total                                   :     6,928
+    2nd-pass penalty (neg/pos)             :      2.18x
+
+  bars wake-sleep  (gen: 161 + rec: 145 = 306 weights)
+    wake recognition (v→h→t)              :     2,236
+    wake gen + sleep                       :    11,574
+    total                                   :    13,810
+    wake-sleep / recognition               :      6.18x
+
+Convergence to 7/8 bars covered, 10 seeds:
+  bars-rbm   solved : 9/10,  median   30,000 samples
+  bars (WS)  solved : 3/10,  median  300,000 samples
+  (wake-sleep lr=0.1; lr=0.01 rarely converges within budget)
+
+Total ByteDMD to reference criterion:
+  bars-rbm  CD-1     :    207,840,000
+  bars wake-sleep    :  4,143,000,000  (19.9x bars-rbm)
+```
+
+Wake-sleep costs ~20× more total data movement than CD-1 to reach comparable bar
+specialization. The penalty comes from two effects: (1) ~2× higher per-step cost
+(more weights, wake+sleep both touch them), and (2) ~10× more samples to converge
+(3/10 solve rate vs 9/10, median 10× more samples when solved).
+
 ## Next pairs
 
 Per [issue #45](https://github.com/cybertronai/hinton-problems/issues/45),
 recommended follow-up pairs remain:
 
-- `bars` vs `bars-rbm` (wake-sleep vs CD-1 on the same data).
 - `shifter` vs `helmholtz-shifter` (Boltzmann vs Helmholtz on the same structure).
 - `encoder-4-2-4` (Boltzmann) to close the size gap in earlier encoder diagnostics.
 
