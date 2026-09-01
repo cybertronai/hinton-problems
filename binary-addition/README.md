@@ -44,10 +44,10 @@ A 3-hidden-unit network has **just enough** room to allocate one hidden unit per
 ## Running
 
 ```bash
-python3 binary_addition.py --arch 4-3-3 --seed 10
+python3 binary_addition.py --arch 4-3-3 --seed 0
 ```
 
-Training takes about **0.4 seconds** on an M-series laptop. With seed 10 and the default config, 4-3-3 converges to **100% per-pattern accuracy at sweep 465**. (Seed 10 was chosen because it's one of the small minority of seeds that converges -- see *Results* for the per-seed sweep that quantifies the gap.)
+Training takes about **0.4 seconds** on an M-series laptop. With seed 0 and the default perturb-on-plateau wrapper, 4-3-3 converges to **100% per-pattern accuracy at sweep 4628** after three independent restarts.
 
 To run the headline local-minima sweep:
 
@@ -55,7 +55,7 @@ To run the headline local-minima sweep:
 python3 binary_addition.py --n-trials 50 --both-archs
 ```
 
-This takes about **44 seconds** and prints the per-arch stuck-rate comparison.
+This takes about **32 seconds** and prints the per-arch stuck-rate comparison.
 
 To regenerate visualizations:
 
@@ -66,45 +66,52 @@ python3 make_binary_addition_gif.py  --seed 10 --sweeps 1500 --snapshot-every 15
 
 ## Results
 
-**Single run, `--seed 10`, arch 4-3-3:**
+**Single run, `--seed 0`, arch 4-3-3:**
 
 | Metric | Value |
 |---|---|
 | Final per-pattern accuracy | 100% (16/16) |
 | Final per-bit accuracy | 100% (48/48 bits) |
-| Final MSE loss | 0.0005 |
-| Converged at sweep | **465** (first sweep with `\|o − y\| < 0.5` for all 48 outputs) |
+| Final MSE loss | 0.0056 |
+| Converged at sweep | **4628** (first sweep with `\|o − y\| < 0.5` for all 48 outputs) |
 | Wallclock | 0.4 s |
-| Final `\|W_1\|_F` | 29.7 |
-| Hyperparameters | arch=4-3-3, lr=2.0, momentum=0.9, init_scale=2.0 (uniform `[-1.0, 1.0]`), encoding=`{0,1}`, full-batch on all 16 patterns, MSE loss |
+| Final `\|W_1\|_F` | 24.3 |
+| Hyperparameters | arch=4-3-3, lr=2.0, momentum=0.9, init_scale=2.0 (uniform `[-1.0, 1.0]`), encoding=`{0,1}`, `perturb_after=1000`, full-batch on all 16 patterns, MSE loss |
 
 **50-seed sweep (`--n-trials 50 --both-archs`, default hyperparameters):**
 
 | Architecture | Converged | Local-minimum rate | Median epochs (converged) | Range |
 |---|---|---|---|---|
-| 4-3-3 (3 hidden) | **3/50** (6%) | **94.0%** | 627 | 465-905 |
+| 4-3-3 (3 hidden) | **7/50** (14%) | **86.0%** | 3171 | 465-4628 |
 | 4-2-3 (2 hidden) | **0/50** (0%) | **100.0%** | -- | -- |
 
 **Final per-pattern accuracy distribution (50 seeds each):**
 
 | Final accuracy | 4-3-3 (count) | 4-2-3 (count) |
 |---|---|---|
-| 62.5% (10/16) | 0 | **13** |
-| 68.75% (11/16) | 0 | **9** |
-| 75.0% (12/16) | 9 | 0 |
-| 81.25% (13/16) | 15 | **28** |
-| 87.5% (14/16) | 13 | 0 |
-| 93.75% (15/16) | 10 | 0 |
-| **100.0% (16/16)** | **3** | **0** |
-| Median | 87.5% | 81.25% |
+| 12.5% (2/16) | 0 | 1 |
+| 25.0% (4/16) | 0 | 1 |
+| 31.25% (5/16) | 1 | 0 |
+| 37.5% (6/16) | 1 | 0 |
+| 43.75% (7/16) | 1 | 1 |
+| 50.0% (8/16) | 3 | 18 |
+| 56.25% (9/16) | 1 | 6 |
+| 62.5% (10/16) | 2 | 3 |
+| 68.75% (11/16) | 1 | 6 |
+| 75.0% (12/16) | 20 | 0 |
+| 81.25% (13/16) | 4 | 14 |
+| 87.5% (14/16) | 6 | 0 |
+| 93.75% (15/16) | 3 | 0 |
+| **100.0% (16/16)** | **7** | **0** |
+| Median | 75.0% | 56.25% |
 
 **Comparison to the paper:**
 
-> Paper (PDP Vol. 1 Ch. 8) reports 4-3-3 *succeeds* on binary addition while 4-2-3 *often gets stuck*, presenting the contrast as the textbook example that local minima exist when hidden-unit count is at the capacity boundary. We get **6.0% / 0.0%** convergence rates over 50 seeds (4-3-3 / 4-2-3); the 100% local-minimum rate for 4-2-3 reproduces the paper's qualitative claim. **Reproduces: yes (qualitatively).**
+> Paper (PDP Vol. 1 Ch. 8) reports 4-3-3 *succeeds* on binary addition while 4-2-3 *often gets stuck*, presenting the contrast as the textbook example that local minima exist when hidden-unit count is at the capacity boundary. With the perturb-on-plateau wrapper, we get **14.0% / 0.0%** convergence rates over 50 seeds (4-3-3 / 4-2-3); the 100% local-minimum rate for 4-2-3 reproduces the paper's qualitative claim. **Reproduces: yes (qualitatively), still below the paper's implied 4-3-3 reliability.**
 >
-> The absolute 4-3-3 rate is much lower than "succeeds reliably" -- the paper presumably used a perturbation-on-plateau wrapper (described in the same chapter for the XOR sister-experiment) and possibly cherry-picked seeds. We have not implemented the wrapper; see *Deviations* below.
+> The absolute 4-3-3 rate is still much lower than "succeeds reliably" at the 5000-sweep budget. The wrapper rescues the default seed and more than doubles the 50-seed success count (3/50 -> 7/50), but many MSE plateaus remain.
 >
-> Run wallclock: ~44 s for the 50-seed sweep, ~0.4 s for the single converged seed.
+> Run wallclock: ~32 s for the 50-seed sweep, ~0.4 s for the single rescued seed.
 
 ## Visualizations
 
@@ -112,7 +119,7 @@ python3 make_binary_addition_gif.py  --seed 10 --sweeps 1500 --snapshot-every 15
 
 ![local-minima gap](viz/local_minima_gap.png)
 
-Left panel: stuck rate over 30 random seeds. 4-3-3 stalls in a local minimum in ~90% of seeds; 4-2-3 stalls in 100%. The ~10-percentage-point gap is the headline. Right panel: distribution of final per-pattern accuracy. **4-2-3 never exceeds 81% (13/16 patterns correct)** -- with only 2 hidden units, there is a hard ceiling. 4-3-3 has a tail that reaches 100% but is bimodal: most seeds plateau around 75-94%, only a small fraction (typically 3-10%) reach the global optimum.
+Left panel: stuck rate over 30 random seeds. 4-3-3 stalls in a local minimum for most seeds; 4-2-3 stalls in 100%. The gap is the headline. Right panel: distribution of final per-pattern accuracy. **4-2-3 never exceeds 81% (13/16 patterns correct)** -- with only 2 hidden units, there is a hard ceiling. 4-3-3 has a tail that reaches 100%, and the plateau wrapper moves additional seeds into that tail.
 
 ### Training curves (single converged 4-3-3 run)
 
@@ -141,8 +148,8 @@ What each hidden unit fires for, evaluated on each of the 16 `(a, b)` pairs sort
 
 ## Deviations from the original procedure
 
-1. **Hyperparameters.** Paper uses `eta = 0.5, alpha = 0.9` and reports the problem as solvable. With those values **and our `init_scale=1.0` (uniform `[-0.5, 0.5]`) we get 0/50 convergence** for 4-3-3 within 5000 sweeps. Increasing the init range to `init_scale=2.0` (uniform `[-1.0, 1.0]`) and the learning rate to `lr=2.0` brings 4-3-3 to ~6% convergence. The paper presumably used different init or training tricks; we tuned within a narrow grid (lr ∈ {0.5, 1.0, 2.0, 4.0}, init_scale ∈ {0.5, 1.0, 2.0, 3.0, 4.0, 6.0}, momentum ∈ {0.5, 0.7, 0.9, 0.95}) and report the best.
-2. **No perturbation-on-plateau wrapper.** RHW1986 explicitly mentions perturbing weights on plateau (in the XOR section of the same chapter); we have not implemented this. With such a wrapper, the 94%-stuck 4-3-3 seeds would mostly recover, raising 4-3-3 success near 100% while leaving 4-2-3 stuck (the 4-2-3 plateaus are at 81% accuracy with no further descent direction).
+1. **Hyperparameters.** Paper uses `eta = 0.5, alpha = 0.9` and reports the problem as solvable. With those values **and our `init_scale=1.0` (uniform `[-0.5, 0.5]`) we get 0/50 convergence** for 4-3-3 within 5000 sweeps. Increasing the init range to `init_scale=2.0` (uniform `[-1.0, 1.0]`) and the learning rate to `lr=2.0` brought the pre-wrapper 4-3-3 rate to ~6%; the plateau wrapper raises the current default sweep to 14%. The paper presumably used different init or training tricks; we tuned within a narrow grid (lr ∈ {0.5, 1.0, 2.0, 4.0}, init_scale ∈ {0.5, 1.0, 2.0, 3.0, 4.0, 6.0}, momentum ∈ {0.5, 0.7, 0.9, 0.95}) and report the best.
+2. **Perturbation-on-plateau wrapper.** RHW1986 explicitly mentions perturbing weights on plateau (in the XOR section of the same chapter). We implement the same local wrapper used elsewhere in the repo: after per-pattern accuracy stops improving below 100%, restart from an independent `SeedSequence` child seed and reset momentum. This rescues some 4-3-3 seeds, but the 5000-sweep budget is still far from near-100% reliability.
 3. **Convergence criterion.** Paper's stated rule: every output within 0.5 of its target (i.e. argmax matches threshold). Same as ours.
 4. **Float precision.** `float64` numpy. Should not matter at this scale.
 5. **Sigmoid clamping.** Pre-activations clipped to `[-50, 50]` to prevent `np.exp` overflow late in training when `\|W_1\|_F` exceeds 25. 21st-century numerical hygiene, no behavioural effect on convergence.
@@ -152,8 +159,8 @@ Otherwise: same architecture (4-H-3, sigmoid hidden + sigmoid output), same loss
 
 ## Open questions / next experiments
 
-1. **Perturbation-on-plateau wrapper.** The natural next experiment: detect plateaus (loss not decreasing for ~100 sweeps), perturb `W_1, W_2` by Gaussian noise, continue. Does this push 4-3-3 success rate from 6% to ~95%? Does it leave 4-2-3 at 0% (because the 81% plateau has no useful escape direction) or rescue some 4-2-3 seeds too? The answer maps the *true* capacity boundary.
+1. **Perturbation schedule.** The current accuracy-plateau restart raises 4-3-3 from 3/50 to 7/50 within 5000 sweeps, but longer runs show many seeds still need far more budget. A loss-sensitive or small-noise perturbation schedule may be closer to the original hand-run procedure than full reinitialization.
 2. **Why does 4-2-3 ceiling at exactly 81.25%?** All 50 stuck 4-2-3 seeds end at one of {62.5%, 68.75%, 81.25%}. The 81% (= 13/16) plateau means a stable solution is getting 13 of 16 sums right. Which 3 patterns does it consistently miss? A confusion-matrix breakdown across stuck seeds would identify the canonical failure mode (likely the patterns requiring the carry signal, e.g. `2+2=4`, `2+3=5`, `3+3=6`, or some adjacent triple).
-3. **Does 4-3-3 converge to a single canonical solution, or several?** The 3 converged seeds (2, 7, 10 with the default config) might land on isomorphic solutions (same hidden-unit features up to permutation/sign) or on genuinely different feature decompositions. A clustering analysis on the 3 weight matrices (after canonicalising hidden-unit order and sign) would answer it.
+3. **Does 4-3-3 converge to a single canonical solution, or several?** The 7 converged seeds might land on isomorphic solutions (same hidden-unit features up to permutation/sign) or on genuinely different feature decompositions. A clustering analysis on the weight matrices (after canonicalising hidden-unit order and sign) would answer it.
 4. **Cross-entropy loss instead of MSE.** Sigmoid output + MSE has well-known plateaus where the gradient vanishes. Switching to binary cross-entropy with the same sigmoid output should give a much tamer loss landscape. Does this rescue the failing 4-3-3 seeds? Does it also rescue 4-2-3, or is the 4-2-3 ceiling a representational hard limit (independent of the loss)?
-5. **Connection to ByteDMD / energy.** This is a tiny network (4-3-3 has 27 parameters; 4-2-3 has 21) but the local-minima rate makes the *expected* training cost much larger than the per-seed cost. Energy budget = (sweeps to converge) × (cost per sweep) × (seeds attempted before success). For 4-3-3 with 6% success rate, the expected energy is ~17 × the per-seed cost. ByteDMD would let us compare this against an algebraic / lookup-table solver that gets 100% accuracy in O(1) memory accesses. The Hinton-textbook framing ("backprop solves it!") quietly hides a 17× expected-cost penalty.
+5. **Connection to ByteDMD / energy.** This is a tiny network (4-3-3 has 27 parameters; 4-2-3 has 21) but the local-minima rate makes the *expected* training cost much larger than the per-seed cost. Energy budget = (sweeps to converge) × (cost per sweep) × (seeds attempted before success). For 4-3-3 with 14% success rate, the expected energy is ~7 × the per-seed cost. ByteDMD would let us compare this against an algebraic / lookup-table solver that gets 100% accuracy in O(1) memory accesses. The Hinton-textbook framing ("backprop solves it!") quietly hides a large expected-cost penalty.

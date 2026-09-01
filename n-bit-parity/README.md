@@ -37,7 +37,7 @@ The interesting property is what the *hidden layer* learns. With exactly N hidde
 python3 n_bit_parity.py --n-bits 4 --seed 0
 ```
 
-Training takes about **0.2 seconds** on an M-series laptop. Final accuracy: **100% (16/16)** at this seed.
+Training takes about **0.2 seconds** on an M-series laptop. Final accuracy: **100% (16/16)** at this seed. The perturb-on-plateau wrapper is active by default (`--perturb-after 20000`), but this seed converges before it fires.
 
 To regenerate the visualizations:
 
@@ -69,22 +69,22 @@ python3 n_bit_parity.py --sweep-n 2-7 --sweep 5 --max-epochs 60000
 
 | N | converged | median epochs | min | max |
 |---:|---:|---:|---:|---:|
-| 2 | 3 / 5 | 252 | 240 | 441 |
+| 2 | 5 / 5 | 441 | 240 | 23 126 |
 | 3 | 5 / 5 | 2 703 | 816 | 18 833 |
-| 4 | 3 / 5 | 12 369 | 2 308 | 15 101 |
+| 4 | 5 / 5 | 15 101 | 2 308 | 28 716 |
 | 5 | 2 / 5 | 18 584 | 14 903 | 22 264 |
-| 6 | 1 / 5 | 56 220 | 56 220 | 56 220 |
+| 6 | 0 / 5 | — | — | — |
 | 7 | 0 / 5 | — | — | — |
 
-Convergence-rate-per-seed degrades sharply with N — exactly what RHW1986 noted. The N-hidden architecture has *just barely enough* capacity for parity, so the loss landscape is full of local minima, and many seeds get stuck on the long mid-training plateau (see the training curves below). The fix RHW1986 describe is to add a perturbation-on-plateau wrapper, which we did *not* implement for v1.
+Convergence-rate-per-seed degrades sharply with N — exactly what RHW1986 noted. The N-hidden architecture has *just barely enough* capacity for parity, so the loss landscape is full of local minima, and many seeds get stuck on the long mid-training plateau (see the training curves below). The perturb-on-plateau wrapper rescues the smaller N sweeps but still does not make N=6 or N=7 reliable at this 60 000-epoch numpy budget.
 
 **Comparison to the paper:**
 
 > Paper reports: "We have found that with this (N hidden) architecture, the network learns the parity function for inputs up to about size 8" (PDP Vol. 1, p. 334), and informally describes the hidden representation as a "thermometer code" (each unit fires when ≥ k bits are on).
 >
-> We get: 100% accuracy on N = 2..6 for at least one seed, 0/5 at N = 7 within 60 000 epochs (the paper's "up to about size 8" claim almost certainly required either weight-perturbation rescue or the longer training horizons available with the more aggressive hand-tuned hyperparameters of the era). Hidden code is **partially** thermometer: 2 of 4 hidden units form clean monotonic detectors at our headline seed, while the other 2 detect mid-bit-count parity-completion features. Across a 10-seed sweep at N = 4, mean per-seed monotonicity ranges 0.20–0.90 with a median of 0.60.
+> We get: 100% accuracy on N = 2..5 for at least one seed, 0/5 at N = 6 and N = 7 within 60 000 epochs with the default plateau wrapper (the paper's "up to about size 8" claim almost certainly required longer training horizons and more hand-tuned rescue schedules). Hidden code is **partially** thermometer: 2 of 4 hidden units form clean monotonic detectors at our headline seed, while the other 2 detect mid-bit-count parity-completion features. Across a 10-seed sweep at N = 4, mean per-seed monotonicity ranges 0.20–0.90 with a median of 0.60.
 
-**Paper reports up to N=8; we got up to N=6 cleanly (and N=7 within 60 000 epochs at zero of 5 seeds). Reproduces: yes, qualitatively** — backprop solves N-bit parity with N hidden, hidden representation is thermometer-LIKE (monotonic in bit-count), and convergence rate degrades with N as the paper warned. We did *not* match N = 8 in v1 because we did not implement the perturbation-on-plateau rescue.
+**Paper reports up to N=8; we got up to N=5 in this 60 000-epoch sweep (and N=7 at zero of 5 seeds). Reproduces: partial / qualitative** — backprop solves N-bit parity with N hidden, hidden representation is thermometer-LIKE (monotonic in bit-count), and convergence rate degrades with N as the paper warned. The default perturbation wrapper improves small-N reliability but is not sufficient to match the N=8 claim.
 
 ## Visualizations
 
@@ -139,7 +139,7 @@ This three-phase pattern (long plateau, break, refinement) is the canonical "pha
 
 1. **Bipolar (`{-1, +1}`) input encoding.** RHW1986 used `{0, 1}`. With `{0, 1}` and small random init, parity training on N ≥ 4 has a much higher failure rate (≤ 30% convergence in our preliminary sweeps) because the all-zeros input collapses every hidden pre-activation to the bias term, breaking symmetry only weakly. Bipolar inputs are an established 1980s variant (used in many Hinton followups) and double convergence reliability for free. CLI flag `--encoding binary` recovers the original encoding.
 2. **Spread-bias initialization.** Hidden-unit biases `b_1` are initialized with a deterministic linear spread across the input bit-count range (`b_k ≈ -k * 2 + small jitter`), instead of uniform `[-0.5, +0.5]`. This biases the early training dynamics toward the thermometer code (each hidden unit starts with a different "preferred" threshold). Without it, hidden units start near-identical and tend to collapse onto the same feature. The weights `W1` are still random. The original paper does not specify a bias-init recipe; our spread is a *targeted* initialization for visibility of the thermometer claim, not a tuning trick to improve accuracy.
-3. **No perturbation-on-plateau wrapper.** RHW1986 mention re-randomizing weights when training stalls. We don't, which explains why our convergence rate degrades fast with N — many seeds at N ≥ 5 are stuck on the long plateau when our budget runs out.
+3. **Perturbation-on-plateau wrapper.** RHW1986 mention re-randomizing weights when training stalls. We restart from independent `SeedSequence` child seeds after an accuracy plateau, resetting momentum and preserving the established spread-bias initializer. This improves N=2..4 reliability but still leaves N ≥ 6 outside the default budget.
 4. **Floating-point precision.** `float64` numpy. The 1986 hardware was not IEEE 754 in the modern sense; immaterial for a problem this small.
 5. **Sigmoid clamping.** Pre-activation is clipped to `[-50, 50]` to avoid `np.exp` overflow — modern numerical hygiene.
 6. **Convergence criterion.** RHW1986's stated rule (every output within 0.5 of its target). Same as the paper, same as our `xor/` sibling.
@@ -149,7 +149,7 @@ Otherwise: same architecture (N inputs → N hidden sigmoids → 1 output sigmoi
 ## Open questions / next experiments
 
 1. **Why does strict thermometer rarely emerge?** With the spread-bias init we get a clean monotonic staircase from 2 of 4 hidden units, but the other 2 always become bump detectors. Is the network using its slack capacity to over-fit specific patterns, or is the local minimum near "2 thermometer + 2 bumps" genuinely lower-loss than "4 thermometer"? An analysis of the loss as a function of distance from a constructed thermometer solution would answer this.
-2. **Bypass the local-minimum problem.** Add the perturbation-on-plateau wrapper and re-run the N = 6, 7, 8 sweeps. If the paper's claim ("up to about size 8") relied on this wrapper, we should now match it. Compare the *hidden code* across "rescued" seeds to see whether the thermometer is the rescued-from attractor.
+2. **Tune the rescue schedule.** Re-run the N = 6, 7, 8 sweeps with longer budgets and larger `--perturb-after` windows. If the paper's claim ("up to about size 8") relied on this wrapper, the next question is whether rescued seeds converge to the same thermometer-like attractor.
 3. **Hidden-layer width study.** Spec defaults to `n_hidden = n_bits`. What happens at `n_hidden = 2N`? At `N - 1` (under-parameterized)? The hidden code at over-parameterized widths probably becomes pure thermometer plus redundant copies; at `N - 1` the network must converge on an alternative parity-1 solution.
 4. **Data movement.** This is the v1 baseline. v2 (the broader Sutro effort) will instrument the same training loop with [ByteDMD](https://github.com/cybertronai/ByteDMD) and ask whether a non-backprop solver (e.g. direct algebraic GF(2) construction — parity *is* sum-mod-2 of input bits) can hit the same accuracy with lower data-movement cost. The Sutro Group has already shown GF(2) solves *sparse* parity in microseconds; the dense-parity case here should be even more obvious. The interesting v2 question is whether *any* gradient-based method can match it.
 5. **Comparison to RHW1986's "Symmetry" example.** The same chapter has a "Symmetry" task with 2 hidden units that learns a clean alternating-magnitude weight pattern. Implementing it in the sibling [`symmetry/`](../symmetry) stub gives a controlled comparison: same architecture family, different hard-Boolean task, very different hidden code.
@@ -158,6 +158,6 @@ Otherwise: same architecture (N inputs → N hidden sigmoids → 1 output sigmoi
 
 ## v1 metrics (per spec issue #1)
 
-- **Reproduces paper?** Qualitatively yes — backprop solves N-bit parity with N hidden, hidden code is thermometer-like, convergence rate falls off with N. Quantitatively: paper claims "up to about size 8"; we got N = 6 cleanly and 0/5 at N = 7 in our budget without the perturbation-rescue wrapper.
+- **Reproduces paper?** Partial / qualitatively yes — backprop solves N-bit parity with N hidden for small N, hidden code is thermometer-like, convergence rate falls off with N. Quantitatively: paper claims "up to about size 8"; with the perturbation-rescue wrapper we get N = 5 in the default 60 000-epoch sweep and 0/5 at N = 7.
 - **Run wallclock (final experiment, headline seed):** ~0.20 s for the training loop, 0.43 s end-to-end including process startup (`time python3 n_bit_parity.py --n-bits 4 --seed 0` on M-series laptop).
 - **Implementation wallclock:** ~25 minutes end-to-end (start of agent session → branch pushed).

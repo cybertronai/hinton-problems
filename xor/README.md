@@ -35,7 +35,7 @@ The interesting property: with only **9 parameters** (2-2-1: six weights + three
 python3 xor.py --seed 0
 ```
 
-Training takes about **0.3 seconds** on an M-series laptop. Final accuracy: **100% (4/4)** at this seed; 25/30 random seeds converge to 100% within 5000 epochs (default `--init-scale 1.0`).
+Training takes about **0.3 seconds** on an M-series laptop. Final accuracy: **100% (4/4)** at this seed; with the perturb-on-plateau wrapper, 30/30 random seeds converge to 100% within 5000 epochs (default `--init-scale 1.0`, `--perturb-after 2500`).
 
 To regenerate the visualizations:
 
@@ -67,15 +67,15 @@ python3 xor.py --sweep 30 --max-epochs 5000
 
 | Architecture | Converged | Mean epochs | Median epochs | Min | Max |
 |---|---|---|---|---|---|
-| 2-2-1 | 25/30 | 964 | 730 | 474 | 2489 |
-| 2-1-2-skip | 29/30 | 1334 | 1005 | 357 | 3682 |
+| 2-2-1 | 30/30 | 1440 | 962 | 474 | 4761 |
+| 2-1-2-skip | 30/30 | 1512 | 1028 | 357 | 4757 |
 
 **Comparison to the paper:**
 
 > Paper reports ~558 sweeps to converge for 2-2-1; ~2 of hundreds of runs in a local minimum.
-> We get median 730 epochs over 30 seeds (range 474–2489); 5/30 (~17%) seeds stall in a local minimum within 5000 epochs.
+> We get median 962 epochs over 30 seeds (range 474–4761); 30/30 seeds converge within 5000 epochs after plateau-triggered restarts.
 
-The order of magnitude matches and individual seeds (e.g. `--seed 3` converges at 531) land essentially on top of the paper's 558. The mean is biased up by a long tail. The failure rate is higher than the paper's claim, almost certainly because the paper used a perturbation-on-plateau wrapper that we have *not* implemented for v1 — see *Deviations* below.
+The order of magnitude matches and individual seeds (e.g. `--seed 3` converges at 531) land essentially on top of the paper's 558. The mean is biased up by a long tail, including rescued seeds that restart after an accuracy plateau.
 
 ## Visualizations
 
@@ -112,7 +112,7 @@ This three-phase signature — plateau, break, refinement — is characteristic 
 ## Deviations from the original procedure
 
 1. **Init distribution.** Paper uses uniform `[-0.3, 0.3]` (Hinton's standard small-init recipe). We use `[-0.5, 0.5]` (our default `--init-scale 1.0`) because it gave the best agreement with the paper's *epoch count*. With `--init-scale 0.6` we match the paper's init range but median epochs jumps to 1648 and the loss-plateau gets longer.
-2. **No perturbation-on-plateau wrapper.** RHW1986 reports treating the rare local-minimum runs by perturbing weights and continuing. We don't — a "stuck" run in our sweep stays stuck for 5000 epochs and is counted as a failure. This explains our higher failure rate (5/30 vs. their ~2/hundreds).
+2. **Perturbation-on-plateau wrapper.** RHW1986 reports treating rare local-minimum runs by perturbing weights and continuing. We implement this as an independent restart after 2500 epochs with accuracy below 100%, resetting momentum and continuing inside the original epoch budget.
 3. **Floating-point precision.** `float64` numpy. The 1986 paper's hardware was not IEEE 754 in the modern sense; this should not matter for a problem this small.
 4. **Sigmoid clamping.** We clip the pre-activation to `[-50, 50]` to avoid `np.exp` overflow, a 21st-century numerical hygiene step.
 5. **Convergence criterion.** We use the paper's stated rule: every output within 0.5 of its target (i.e. argmax matches). Same as the paper.
@@ -121,8 +121,8 @@ Otherwise: same architecture, same loss (mean of `0.5 (o − y)²`), same traini
 
 ## Open questions / next experiments
 
-1. **Local-minimum analysis.** The 5 stalled seeds in our sweep all hit ~50% accuracy and stay there. Are they all the *same* local minimum (e.g. both hidden units converged to the same feature, so the network reduces to a perceptron) or genuinely different fixed points? A clustering analysis on the stuck weight vectors would answer this.
-2. **Adding the perturbation wrapper.** RHW1986's procedure escapes local minima by perturbing stalled weights and continuing. Adding this should match their <1% failure rate and is the natural next experiment.
+1. **Local-minimum analysis.** The rescued seeds hit ~50% accuracy before restart. Are they all the *same* local minimum (e.g. both hidden units converged to the same feature, so the network reduces to a perceptron) or genuinely different fixed points? A clustering analysis on pre-restart weight vectors would answer this.
+2. **Perturbation schedule.** The current 2500-epoch trigger preserves the seed-0 reference trajectory. A larger sweep could tune the trigger against the paper's reported ~2/hundreds local-minimum rate.
 3. **Data movement.** This is the v1 baseline. v2 (the broader Sutro effort) will instrument the same training loop with [ByteDMD](https://github.com/cybertronai/ByteDMD) and ask whether a non-backprop solver (e.g. Hebbian + a tiny outer loop, or direct algebraic construction since XOR is parity-2) can hit the same accuracy with lower data-movement cost. The 2-2-1 architecture has only 9 floats of state, so even ARD-1 should be achievable for the inference path — the open question is whether the *training* path can be cheaper than full backprop.
-4. **2-1-2-skip vs 2-2-1.** Our sweep shows 2-1-2-skip is slightly *more* reliable (29/30 vs 25/30) at the cost of more epochs in median (1005 vs 730). The skip connection seems to make the loss landscape gentler. Worth quantifying with a larger sweep.
+4. **2-1-2-skip vs 2-2-1.** With the plateau wrapper both XOR architectures reach 30/30 seeds. The skip connection still costs more epochs in median (1028 vs 962), but the reliability gap disappears at this sweep size.
 5. **Generalization to k-bit parity.** XOR is 2-bit parity. The Sutro Group's broader work uses sparse parity at n=20, k=3. Walking the bridge from a 9-parameter MLP solving XOR at hundreds of epochs to a 200-hidden network solving sparse parity in millions of gradient steps would clarify what scales and what doesn't.

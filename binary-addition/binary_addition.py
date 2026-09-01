@@ -186,6 +186,7 @@ def train(arch: str = "4-3-3",
           init_scale: float = 2.0,
           encoding: str = "01",
           seed: int = 0,
+          perturb_after: int = 1000,
           snapshot_callback=None,
           snapshot_every: int = 50,
           verbose: bool = True) -> tuple[BinaryAdditionMLP, dict]:
@@ -196,6 +197,7 @@ def train(arch: str = "4-3-3",
     within 0.5 of its target, or None if never converged within n_sweeps.
     """
     model = BinaryAdditionMLP(arch=arch, init_scale=init_scale, seed=seed)
+    restart_seeds = np.random.SeedSequence(seed).spawn(256)
     X, y = generate_dataset(encoding=encoding)
 
     velocities = {k: np.zeros_like(v)
@@ -204,13 +206,17 @@ def train(arch: str = "4-3-3",
 
     history = {"epoch": [], "loss": [], "accuracy_bit": [],
                "accuracy_pattern": [], "weight_norm": [],
-               "converged_epoch": None, "snapshots": []}
+               "converged_epoch": None, "snapshots": [],
+               "perturbations": []}
 
     if verbose:
         print(f"# binary-addition arch={arch} (4-{model.n_hidden}-3) "
               f"params={model.n_params()}  "
               f"lr={lr}  momentum={momentum}  init_scale={init_scale}  "
               f"seed={seed}")
+
+    epochs_at_plateau = 0
+    best_acc = 0.0
 
     for epoch in range(n_sweeps):
         grads = backprop_grads(model, X, y)
@@ -239,6 +245,35 @@ def train(arch: str = "4-3-3",
                 print(f"  converged at sweep {epoch + 1}  "
                       f"loss={loss:.4f}  acc(pat)={acc_pat*100:.0f}%")
 
+        if perturb_after > 0 and history["converged_epoch"] is None:
+            if acc_pat > best_acc:
+                best_acc = acc_pat
+                epochs_at_plateau = 0
+            elif acc_pat < 1.0:
+                epochs_at_plateau += 1
+            else:
+                epochs_at_plateau = 0
+
+            if epochs_at_plateau >= perturb_after and epoch + 1 < n_sweeps:
+                n_done = len(history["perturbations"])
+                if n_done >= len(restart_seeds):
+                    if verbose:
+                        print(f"  sweep {epoch+1:5d}  "
+                              f"*** restart budget exhausted ***")
+                    break
+                restart_seed = int(restart_seeds[n_done].generate_state(1)[0])
+                model = BinaryAdditionMLP(arch=arch, init_scale=init_scale,
+                                          seed=restart_seed)
+                for k in velocities:
+                    velocities[k] *= 0
+                history["perturbations"].append(epoch + 1)
+                epochs_at_plateau = 0
+                best_acc = 0.0
+                if verbose:
+                    print(f"  sweep {epoch+1:5d}  *** restart {n_done+1} "
+                          f"from fresh independent init "
+                          f"(acc(pat)={acc_pat*100:.0f}%) ***")
+
         if snapshot_callback is not None and (epoch % snapshot_every == 0
                                               or epoch == n_sweeps - 1):
             snapshot_callback(epoch, model, history)
@@ -261,6 +296,7 @@ def local_minimum_rate(arch: str, n_trials: int = 50,
                         momentum: float = 0.9, init_scale: float = 2.0,
                         encoding: str = "01",
                         seed_base: int = 0,
+                        perturb_after: int = 1000,
                         verbose: bool = False) -> dict:
     """Run `n_trials` independent training runs; return summary stats.
 
@@ -277,7 +313,8 @@ def local_minimum_rate(arch: str, n_trials: int = 50,
         seed = seed_base + t
         _, hist = train(arch=arch, n_sweeps=n_sweeps, lr=lr,
                         momentum=momentum, init_scale=init_scale,
-                        encoding=encoding, seed=seed, verbose=False)
+                        encoding=encoding, seed=seed,
+                        perturb_after=perturb_after, verbose=False)
         final_acc = hist["accuracy_pattern"][-1]
         final_pattern_accs.append(final_acc)
         if hist["converged_epoch"] is None:
@@ -326,6 +363,9 @@ def main():
     p.add_argument("--init-scale", type=float, default=2.0)
     p.add_argument("--encoding", choices=["01", "pm1"], default="01")
     p.add_argument("--seed", type=int, default=0)
+    p.add_argument("--perturb-after", type=int, default=1000,
+                   help="restart from an independent init after this many "
+                        "sweeps below 100%% per-pattern accuracy; 0 disables")
     p.add_argument("--n-trials", type=int, default=0,
                    help="if > 0, run a sweep of this many seeds and report "
                         "local-minimum rate")
@@ -347,7 +387,8 @@ def main():
                 arch=arch, n_trials=args.n_trials, n_sweeps=args.sweeps,
                 lr=args.lr, momentum=args.momentum,
                 init_scale=args.init_scale, encoding=args.encoding,
-                seed_base=args.seed, verbose=True)
+                seed_base=args.seed, perturb_after=args.perturb_after,
+                verbose=True)
             results[arch] = r
         dt = time.time() - t0
 
@@ -375,7 +416,8 @@ def main():
     model, hist = train(arch=args.arch, n_sweeps=args.sweeps, lr=args.lr,
                         momentum=args.momentum,
                         init_scale=args.init_scale,
-                        encoding=args.encoding, seed=args.seed)
+                        encoding=args.encoding, seed=args.seed,
+                        perturb_after=args.perturb_after)
     wallclock = time.time() - t0
 
     X, y = generate_dataset(encoding=args.encoding)
