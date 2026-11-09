@@ -4,6 +4,23 @@ Numpy reproduction of Sabour, Frosst & Hinton, *"Dynamic routing between
 capsules"*, NIPS 2017. The paper's headline claim: capsules separately
 identify and reconstruct heavily overlapping objects via routing-by-agreement.
 
+The results below describe the historical reduced NumPy condition. A separate
+[full-width protocol](PAPER_PROTOCOL.md) preserves those results and
+documents clipped-addition data, the released-author versus paper-equation loss
+reductions, a finite resumable trainer with separate final-only test, and the
+native validation gates. The selected primary condition is the released-author
+profile, with an explicit one-exposure budget. The [recorded run](PAPER_RUN.md)
+completed 60M training pairs and the 10M-pair final evaluation:6.07872% pair
+error versus the paper Table 1 comparator 5.2%, plus separate reconstruction
+statistics. It remains a partial reproduction under differing conditions;
+the historical reduced NumPy result below is unchanged.
+
+The [copyable rerun workflow](RERUN.md) supplies public-data and environment
+preparation plus the real train/test commands. The
+[execution-boundary note](PAPER_PROTOCOL.md#source-identity-and-execution-boundaries)
+distinguishes the executed CRLF source identity, public LF files, accepted
+training-prefix continuation and measured single-admission final test.
+
 ![training animation](multimnist_capsnet.gif)
 
 ## Problem
