@@ -31,6 +31,12 @@ The next step ([#45 v2](https://github.com/cybertronai/hinton-problems/issues/45
 
 Pure numpy + matplotlib throughout. Every stub runs on a laptop CPU. Each problem lives in its own folder with `<slug>.py` (model + train + eval), `README.md`, `make_<slug>_gif.py`, `visualize_<slug>.py`, an animated `<slug>.gif`, and a `viz/` folder of training curves and weight visualizations.
 
+The historical NumPy catalog above is preserved. A separate
+[full-width MultiMNIST follow-up](multimnist-capsnet/PAPER_RUN.md) uses PyTorch
+on an RTX 5090 and reports a completed single-seed 10M-pair test plus reconstruction
+statistics. It remains a partial reproduction under documented condition
+differences; it does not change the historical catalog counts.
+
 ## Development
 
 This repository includes a minimal Nix development shell with Python and

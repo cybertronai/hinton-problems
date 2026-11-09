@@ -6,7 +6,7 @@ Per-stub reproducibility, implementation difficulty, and run wallclock for the c
 
 **Implementation wallclock**: agent end-to-end time from spec read to branch pushed. Variance is large across waves; values are agent-self-reported.
 
-**Run wallclock**: time to run the final headline experiment on a laptop M-series CPU. Numpy + matplotlib only, no GPU.
+**Run wallclock**: historical headline experiments on a laptop M-series CPU, NumPy + matplotlib only. The separate full-width MultiMNIST GPU training and completed final test are recorded below with their own timings and limitations.
 
 ## 1980s — Connectionist foundations
 
@@ -191,6 +191,8 @@ Per-stub reproducibility, implementation difficulty, and run wallclock for the c
 |---|---|---:|---:|
 | [`affnist/`](affnist/) (PR #40) | **no** (gap wrong sign: CapsNet 85.5% / CNN 87.5% — paper +13%, ours −2%. 3 causes documented: synth-affNIST too close to train aug, tiny capsules, no reconstruction regularizer) | ~? | ~4 min |
 | [`multimnist-capsnet/`](multimnist-capsnet/) (PR #40) | partial (48.6% vs target 80%; 22× chance; routing-by-agreement visibly works; reduced arch for pure-numpy budget) | ~3 hr | 395s |
+
+Full-width follow-up ([protocol](multimnist-capsnet/PAPER_PROTOCOL.md), [run report](multimnist-capsnet/PAPER_RUN.md), [rerun](multimnist-capsnet/RERUN.md)): **partial**. One released-author-profile seed completed 60M training pairs / 468,750 updates and 10M final test pairs on an RTX 5090. Pair error 6.07872% is 0.87872 percentage points above Table 1's 5.2%; per-digit error 3.08215% has a different denominator. The report includes four separately defined reconstruction statistics and continuation/condition limits. This is not an A100 or multi-seed comparison and does not complete all of issue #46. The historical reduced NumPy row and catalog totals remain unchanged.
 
 ### Hinton, Sabour & Frosst (2018) — Matrix capsules with EM routing
 
